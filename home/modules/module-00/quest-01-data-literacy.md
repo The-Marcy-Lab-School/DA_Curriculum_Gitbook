@@ -1,5 +1,3 @@
-# Quest 0.1 — What Kind of Data Is This?
-
 ## Your Mission
 
 A column can contain numbers without actually representing a quantity.

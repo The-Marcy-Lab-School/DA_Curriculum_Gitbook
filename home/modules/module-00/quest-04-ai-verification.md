@@ -1,5 +1,3 @@
-# Quest 0.4 — Confidence Is Not Evidence
-
 ## Your Mission
 
 AI can give you an answer that sounds polished, specific, and completely confident.

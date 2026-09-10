@@ -1,5 +1,3 @@
-# Quest 0.3 — Save the Story of Your Work
-
 ## Your Mission
 
 Finishing the work isn't the whole story.

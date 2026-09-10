@@ -1,5 +1,3 @@
-# Quest 0.2 — Meet Your Terminal
-
 ## Your Mission
 
 The Terminal gives you a direct way to communicate with your computer.
