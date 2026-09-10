@@ -87,14 +87,14 @@ When you finish, return here and test what you can retrieve **without reopening 
 
 For each term below, see whether you can explain what it means in **one clear sentence**:
 
-* Variable
-* Value
-* Data Type
-* String
-* Integer
-* Float
-* Boolean
-* Data Structure
+* **Variable**
+* **Value**
+* **Data Type**
+* **String**
+* **Integer**
+* **Float**
+* **Boolean**
+* **Data Structure**
 
 ### Score Your Retrieval
 
@@ -141,7 +141,7 @@ Ask yourself:
 
 </details>
 
-Try the classifications one more time before revealing the answer.
+Try the classifications one more time before revealing the Answer.
 
 <details>
 <summary>✅ Answer — Open After Your Second Attempt</summary>
@@ -222,39 +222,15 @@ The key lesson:
 
 ---
 
-# 🎙️ Interview Arena: Record → Replay → Improve
+# 💼 Interview Arena
 
-Imagine an interviewer asks:
+**One Question. One Strong Answer.**
+
+An interviewer asks:
 
 > **“What's the difference between a Data Type and a Data Structure?”**
 
-## Round 1 — Record
-
-Use your phone, laptop, or another available recording tool.
-
-Record a **30–60 second answer** without reopening the reading.
-
-No script.
-
-Your goal is to retrieve what you know and explain it clearly.
-
----
-
-## Round 2 — Replay
-
-Listen to your recording once.
-
-Check whether you:
-
-* Defined **Data Type** clearly.
-* Defined **Data Structure** clearly.
-* Explained the difference between them.
-* Used technical vocabulary accurately.
-* Used an example only if it made your explanation clearer.
-
-### Need Help?
-
-Try improving your answer yourself first.
+Think through your answer before revealing help.
 
 <details>
 <summary>💡 Hint — Open If You're Stuck</summary>
@@ -265,28 +241,16 @@ Think at two different levels:
 
 **Data Structure:** How are values organized together?
 
-Use that distinction to rebuild your answer in your own words.
-
 </details>
 
----
-
-## Round 3 — Improve
-
-Write down **one thing you want to make clearer**.
-
-Then record your answer one more time.
-
-Your second response should be **clearer, not necessarily longer**.
-
 <details>
-<summary>✅ Example Answer — Open After Your Second Recording</summary>
+<summary>✅ Example Answer — Open After You've Answered</summary>
 
 A Data Type describes the kind of value you're working with and helps determine what operations make sense for that value.
 
-A Data Structure describes how one or more values are organized so they can be stored, accessed, or worked with together.
+A Data Structure describes how values are organized so they can be stored and worked with together.
 
-So, Data Type is about **what kind of value something is**, while Data Structure is about **how values are organized**.
+So, **Data Type is about the kind of value, while Data Structure is about how values are organized.**
 
 </details>
 
@@ -301,7 +265,7 @@ You're ready for the next quest when you can:
 * Distinguish a **Data Type** from a **Data Structure**.
 * Explain why digits do not automatically make something quantitative.
 * Defend an appropriate type choice for an identifier such as a ZIP Code.
-* Explain one of these distinctions clearly in an interview-style response.
+* Answer the Interview Arena question clearly using technical vocabulary.
 
 If one of these still feels shaky, that's useful information.
 
@@ -314,3 +278,4 @@ If one of these still feels shaky, that's useful information.
 Next, you'll move from identifying data to navigating the environment where you'll work with it.
 
 [**Continue to Quest 0.2 — Meet Your Terminal →**](quest-02-terminal.md)
+
