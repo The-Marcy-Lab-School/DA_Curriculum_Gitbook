@@ -51,7 +51,9 @@ Which claim would you defend?
 
 Choose **A or B** and write down one reason for your choice.
 
-**Don't look anything up yet.** You'll return to this prediction after the Main Mission.
+**Don't look anything up yet.**
+
+You'll return to this prediction after the Main Mission.
 
 ---
 
@@ -59,7 +61,7 @@ Choose **A or B** and write down one reason for your choice.
 
 This interactive reading is the **required learning mission for this quest**.
 
-Your prediction challenge prepared you for it. Now your job is to work through the full reading and build the knowledge you'll need for the checkpoint.
+Your Prediction Challenge prepared you for it. Now your job is to work through the full reading and build the knowledge you'll need for the checkpoint.
 
 ## What to Hunt For
 
@@ -104,7 +106,9 @@ Give yourself:
 
 Any **Almost** or **Reload** term becomes part of your next review round.
 
-The goal isn't a perfect score. The goal is knowing **what your brain can retrieve without help**.
+The goal isn't a perfect score.
+
+The goal is knowing **what your brain can retrieve without help**.
 
 ---
 
@@ -120,7 +124,47 @@ For each value, decide which Data Type is the best match.
 | `True`       | ?                   |
 | `"00501"`    | ?                   |
 
-Now choose **one** of your answers and explain what evidence led you to that classification.
+**Make your classifications before opening the Hint or Answer.**
+
+<details>
+<summary>💡 Hint — Open After Your First Attempt</summary>
+
+Think about what each value **represents** and how it would be used.
+
+Ask yourself:
+
+* Is it text?
+* Is it a whole number used for arithmetic?
+* Does it contain a decimal?
+* Does it represent a true/false state?
+* Could treating digits as a number change the meaning of the value?
+
+</details>
+
+Try the classifications one more time before revealing the answer.
+
+<details>
+<summary>✅ Answer — Open After Your Second Attempt</summary>
+
+One reasonable classification is:
+
+| Value        | Classification |
+| ------------ | -------------- |
+| `"Brooklyn"` | String         |
+| `27`         | Integer        |
+| `19.95`      | Float          |
+| `True`       | Boolean        |
+| `"00501"`    | String         |
+
+The important idea is that **appearance alone doesn't determine how data should be treated**.
+
+For example, `"00501"` contains digits, but treating it as an Integer could remove the leading zeros and change the identifier.
+
+</details>
+
+### Defend Your Choice
+
+Choose **one** classification and explain what evidence led you to that decision.
 
 ---
 
@@ -140,17 +184,41 @@ Your explanation should address:
 
 * **What a ZIP Code represents.**
 * **Whether arithmetic on ZIP Codes would be meaningful.**
-* **What could happen to a value like `00501` if it were treated as an integer.**
+* **What could happen to a value like `00501` if it were treated as an Integer.**
 
-### Need Another Attempt?
+Write your explanation before opening the Hint.
 
-If your first explanation only says *“ZIP Codes should be strings,”* try again.
+<details>
+<summary>💡 Hint — Open After Your First Attempt</summary>
 
-**Hint:** Don't focus only on what the characters look like. Ask what the value **means** and what operations make sense for it.
+Don't focus only on what the characters **look like**.
 
-### Check After Your Second Attempt
+Ask yourself:
 
-**Answer:** A ZIP Code functions as an identifier rather than a measured quantity. Arithmetic such as averaging ZIP Codes would not produce a meaningful result, and storing `00501` as an integer can remove its leading zeros and change the identifier.
+**What does the value mean, and what operations would actually make sense for it?**
+
+Also consider what could happen to the leading zeros in `00501`.
+
+</details>
+
+Now improve your original response.
+
+Only open the Answer after making your second attempt.
+
+<details>
+<summary>✅ Answer — Open After Your Second Attempt</summary>
+
+A ZIP Code functions as an **identifier**, not a measured quantity.
+
+Arithmetic such as adding or averaging ZIP Codes would not produce a meaningful result.
+
+Storing `00501` as an Integer can also remove its leading zeros, changing the identifier from `00501` to `501`.
+
+The key lesson:
+
+**Digits do not automatically make a variable quantitative.**
+
+</details>
 
 ---
 
@@ -160,15 +228,21 @@ Imagine an interviewer asks:
 
 > **“What's the difference between a Data Type and a Data Structure?”**
 
-### Round 1 — Record
+## Round 1 — Record
 
 Use your phone, laptop, or another available recording tool.
 
 Record a **30–60 second answer** without reopening the reading.
 
-### Round 2 — Replay
+No script.
 
-Listen to your answer once.
+Your goal is to retrieve what you know and explain it clearly.
+
+---
+
+## Round 2 — Replay
+
+Listen to your recording once.
 
 Check whether you:
 
@@ -176,15 +250,45 @@ Check whether you:
 * Defined **Data Structure** clearly.
 * Explained the difference between them.
 * Used technical vocabulary accurately.
-* Gave an example only if it made your explanation clearer.
+* Used an example only if it made your explanation clearer.
 
-### Round 3 — Improve
+### Need Help?
 
-Write down **one thing you would improve**.
+Try improving your answer yourself first.
+
+<details>
+<summary>💡 Hint — Open If You're Stuck</summary>
+
+Think at two different levels:
+
+**Data Type:** What kind of value is this?
+
+**Data Structure:** How are values organized together?
+
+Use that distinction to rebuild your answer in your own words.
+
+</details>
+
+---
+
+## Round 3 — Improve
+
+Write down **one thing you want to make clearer**.
 
 Then record your answer one more time.
 
-Your second answer should be **clearer, not necessarily longer**.
+Your second response should be **clearer, not necessarily longer**.
+
+<details>
+<summary>✅ Example Answer — Open After Your Second Recording</summary>
+
+A Data Type describes the kind of value you're working with and helps determine what operations make sense for that value.
+
+A Data Structure describes how one or more values are organized so they can be stored, accessed, or worked with together.
+
+So, Data Type is about **what kind of value something is**, while Data Structure is about **how values are organized**.
+
+</details>
 
 ---
 
@@ -199,6 +303,10 @@ You're ready for the next quest when you can:
 * Defend an appropriate type choice for an identifier such as a ZIP Code.
 * Explain one of these distinctions clearly in an interview-style response.
 
+If one of these still feels shaky, that's useful information.
+
+**Reload that skill before unlocking the next quest.**
+
 ---
 
 ## 🔓 Next Unlock
@@ -206,4 +314,3 @@ You're ready for the next quest when you can:
 Next, you'll move from identifying data to navigating the environment where you'll work with it.
 
 [**Continue to Quest 0.2 — Meet Your Terminal →**](quest-02-terminal.md)
-
