@@ -4,128 +4,206 @@
 
 A column can contain numbers without actually representing a quantity.
 
-Before you analyze unfamiliar data, you need to recognize **what kind of information you're looking at** and describe it using precise technical vocabulary.
+As a data analyst, one of your first jobs is to figure out **what the data represents before deciding what to do with it**.
 
-**Target:** Distinguish variables, data types, and data structures—and classify values based on what they represent, not just what they look like.
+**Target:** Distinguish Variables, Values, Data Types, and Data Structures—and classify data based on what it represents, not simply what it looks like.
 
 ---
 
 ## Vocabulary Mission
 
-By the end of this quest, you should be able to recognize, use, and explain these terms without looking them up:
+By the end of this quest, you should be able to recognize, use, and explain:
 
-* **variable**
-* **value**
-* **data type**
-* **string**
-* **integer**
-* **float**
-* **boolean**
-* **data structure**
+* **Variable**
+* **Value**
+* **Data Type**
+* **String**
+* **Integer**
+* **Float**
+* **Boolean**
+* **Data Structure**
 
-Don't worry about defining everything perfectly yet. Your job during the reading is to notice what makes each term different.
+You don't need perfect definitions yet.
+
+Your mission during the reading is to notice **what makes each term different**.
 
 ---
 
-## Make a Prediction
+## 🎮 Prediction Challenge: Number or Not?
 
-Imagine a dataset containing this column:
+Imagine you receive a dataset containing this column:
 
-| ZIP code |
+| ZIP Code |
 | -------- |
-| 07030    |
-| 00501    |
-| 10001    |
+| `07030`  |
+| `00501`  |
+| `10001`  |
 
-The values contain only digits.
+Every value contains digits.
 
-**Does that automatically make ZIP code a quantitative variable? Why or why not?**
+### Lock In Your Prediction
 
-Make a prediction before continuing.
+Which claim would you defend?
+
+**A.** ZIP Code is quantitative because it contains numbers.
+
+**B.** ZIP Code may contain digits without representing a measurable quantity.
+
+Choose **A or B** and write down one reason for your choice.
+
+**Don't look anything up yet.** You'll return to this prediction after the Main Mission.
 
 ---
 
-## Reading Mission
+# 🎯 Main Mission — REQUIRED
 
-As you work through the reading, pay particular attention to the difference between:
+This interactive reading is the **required learning mission for this quest**.
 
-**a variable → the value it holds → the value's data type → a structure that organizes multiple values**
+Your prediction challenge prepared you for it. Now your job is to work through the full reading and build the knowledge you'll need for the checkpoint.
 
-Also watch what happens when something *looks* numeric but isn't meant for arithmetic.
+## What to Hunt For
 
-## Launch the Interactive Reading
+As you work, pay attention to the relationship between:
+
+**Variable → Value → Data Type → Data Structure**
+
+Watch especially for situations where something **looks numeric but isn't meant for arithmetic**.
+
+## 🚀 Launch the Required Reading
 
 [**Start: Name It, Tag It, Group It →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/dev-environment/reading-2-whatkindofdata/)
 
-Complete the interactive reading, then return here.
+**Required:** Complete the interactive reading before continuing to the checkpoint.
+
+When you finish, return here and test what you can retrieve **without reopening the reading**.
 
 ---
 
-# Checkpoint
+# ⚡ Checkpoint: Vocabulary Lightning Round
 
-## Vocabulary Lightning Round
+**No reading. No notes. Retrieval only.**
 
-Without reopening the reading, explain each term aloud:
+For each term below, see whether you can explain what it means in **one clear sentence**:
 
-1. variable
-2. data type
-3. string
-4. integer
-5. float
-6. boolean
-7. data structure
+* Variable
+* Value
+* Data Type
+* String
+* Integer
+* Float
+* Boolean
+* Data Structure
 
-Don't aim for a memorized dictionary definition. Aim for an explanation another analyst could understand.
+### Score Your Retrieval
 
-### Retrieval Check
+Give yourself:
 
-Which term describes **how multiple values are organized together as a unit**?
+* **Ready** — I can explain it clearly without help.
+* **Almost** — I recognize it, but my explanation needs work.
+* **Reload** — I need to revisit this term.
 
-* variable
-* data type
-* data structure
+Any **Almost** or **Reload** term becomes part of your next review round.
 
-**Check yourself:** You should be able to choose an answer *and explain why the other two don't fit.*
-
----
-
-## Boss Question
-
-A teammate imports ZIP codes as integers because every value contains digits.
-
-**Why could treating ZIP code as a quantitative variable create bad analysis or damage the data?**
-
-Your explanation should address both:
-
-* what a ZIP code represents, and
-* what could happen to a value such as `00501`.
+The goal isn't a perfect score. The goal is knowing **what your brain can retrieve without help**.
 
 ---
 
-## Explain It to a Hiring Manager
+## 🎮 Classification Challenge
+
+For each value, decide which Data Type is the best match.
+
+| Value        | Your Classification |
+| ------------ | ------------------- |
+| `"Brooklyn"` | ?                   |
+| `27`         | ?                   |
+| `19.95`      | ?                   |
+| `True`       | ?                   |
+| `"00501"`    | ?                   |
+
+Now choose **one** of your answers and explain what evidence led you to that classification.
+
+---
+
+## 🧠 Boss Question: The ZIP Code Trap
+
+Return to your original prediction.
+
+A teammate says:
+
+> “ZIP Codes are made of numbers, so we should store them as quantitative values.”
+
+### Your Challenge
+
+Identify what's wrong with that reasoning.
+
+Your explanation should address:
+
+* **What a ZIP Code represents.**
+* **Whether arithmetic on ZIP Codes would be meaningful.**
+* **What could happen to a value like `00501` if it were treated as an integer.**
+
+### Need Another Attempt?
+
+If your first explanation only says *“ZIP Codes should be strings,”* try again.
+
+**Hint:** Don't focus only on what the characters look like. Ask what the value **means** and what operations make sense for it.
+
+### Check After Your Second Attempt
+
+**Answer:** A ZIP Code functions as an identifier rather than a measured quantity. Arithmetic such as averaging ZIP Codes would not produce a meaningful result, and storing `00501` as an integer can remove its leading zeros and change the identifier.
+
+---
+
+# 🎙️ Interview Arena: Record → Replay → Improve
 
 Imagine an interviewer asks:
 
-**“What's the difference between a data type and a data structure?”**
+> **“What's the difference between a Data Type and a Data Structure?”**
 
-Give a **30–60 second answer aloud**.
+### Round 1 — Record
 
-A strong response should make the distinction clearly without relying on an example to do all the explaining.
+Use your phone, laptop, or another available recording tool.
+
+Record a **30–60 second answer** without reopening the reading.
+
+### Round 2 — Replay
+
+Listen to your answer once.
+
+Check whether you:
+
+* Defined **Data Type** clearly.
+* Defined **Data Structure** clearly.
+* Explained the difference between them.
+* Used technical vocabulary accurately.
+* Gave an example only if it made your explanation clearer.
+
+### Round 3 — Improve
+
+Write down **one thing you would improve**.
+
+Then record your answer one more time.
+
+Your second answer should be **clearer, not necessarily longer**.
 
 ---
 
-## Final Check
+## 🏁 Final Check
 
-You're ready to move on when you can:
+You're ready for the next quest when you can:
 
-* distinguish a variable from its value,
-* identify common data types,
-* distinguish a data type from a data structure,
-* explain why digits do not automatically make something quantitative,
-* defend an appropriate type choice for an identifier such as a ZIP code.
+* Distinguish a **Variable** from its **Value**.
+* Identify common **Data Types**.
+* Distinguish a **Data Type** from a **Data Structure**.
+* Explain why digits do not automatically make something quantitative.
+* Defend an appropriate type choice for an identifier such as a ZIP Code.
+* Explain one of these distinctions clearly in an interview-style response.
 
-## Next Unlock
+---
+
+## 🔓 Next Unlock
 
 Next, you'll move from identifying data to navigating the environment where you'll work with it.
 
 [**Continue to Quest 0.2 — Meet Your Terminal →**](quest-02-terminal.md)
+
