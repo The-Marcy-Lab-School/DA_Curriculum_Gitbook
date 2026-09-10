@@ -270,6 +270,6 @@ If one of these still feels shaky, **reload that skill before moving forward**.
 
 You can now begin navigating your working environment from the Terminal.
 
-Next, you'll learn how to preserve the story of your work using version control.
+Next, you'll learn how to preserve the story of your work using Version Control.
 
 [**Continue to Quest 0.3 — Save the Story of Your Work →**](quest-03-git.md)

@@ -69,7 +69,10 @@ As you work, pay attention to the relationship between:
 
 **Variable → Value → Data Type → Data Structure**
 
-Watch especially for situations where something **looks numeric but isn't meant for arithmetic**.
+Watch especially for:
+
+* Situations where something **looks numeric but isn't meant for arithmetic**.
+* Clues that help distinguish **Structured Data from Unstructured Data**.
 
 ## 🚀 Launch the Required Reading
 
@@ -168,6 +171,18 @@ Choose **one** classification and explain what evidence led you to that decision
 
 ---
 
+## 🧩 Structure Check
+
+Without reopening the reading:
+
+**What's one clue you could use to decide whether data is Structured or Unstructured?**
+
+Try to explain your reasoning in one or two sentences.
+
+If you're unsure, add **Structured vs. Unstructured** to your Reload list before the Module 0 Checkpoint.
+
+---
+
 ## 🧠 Boss Question: The ZIP Code Trap
 
 Return to your original prediction.
@@ -263,6 +278,7 @@ You're ready for the next quest when you can:
 * Distinguish a **Variable** from its **Value**.
 * Identify common **Data Types**.
 * Distinguish a **Data Type** from a **Data Structure**.
+* Identify a clue that distinguishes **Structured from Unstructured Data**.
 * Explain why digits do not automatically make something quantitative.
 * Defend an appropriate type choice for an identifier such as a ZIP Code.
 * Answer the Interview Arena question clearly using technical vocabulary.
@@ -278,4 +294,3 @@ If one of these still feels shaky, that's useful information.
 Next, you'll move from identifying data to navigating the environment where you'll work with it.
 
 [**Continue to Quest 0.2 — Meet Your Terminal →**](quest-02-terminal.md)
-
