@@ -10,7 +10,7 @@ The GitBook isn't your textbook.
 
 Your **interactive readings are the Main Missions** where you'll build new knowledge. You'll return here to retrieve, apply, explain, and connect what you've learned.
 
----
+***
 
 ## 🧭 How Learning Works Here
 
@@ -48,7 +48,7 @@ Boss Battles are larger challenges where you use several skills together.
 
 They're designed to produce stronger evidence of what you can actually do—not just what you can remember.
 
----
+***
 
 ## 🎮 About the Game Language
 
@@ -64,7 +64,7 @@ They don't represent automatic XP, lives, or locked levels.
 
 Use the Final Checks and Checkpoints to decide whether you're ready to move forward or whether a skill needs another round.
 
----
+***
 
 ## 🎯 Keep the North Star in Sight
 
@@ -76,14 +76,14 @@ You're building toward being able to:
 
 Those habits matter in projects, technical conversations, and data-role interviews.
 
----
+***
 
 ## 🚀 Ready to Begin?
 
 Before starting Module 0, take a quick look at how to use this GitBook.
 
-[**How to Use This GitBook →**](start-here/how-to-use-this-gitbook.md)
+[**How to Use This GitBook →**](readme/how-to-use-this-gitbook.md)
 
 Already familiar with the system?
 
-[**Start Module 0 →**](modules/module-00/README.md)
+[**Start Module 0 →**](module-00/)
