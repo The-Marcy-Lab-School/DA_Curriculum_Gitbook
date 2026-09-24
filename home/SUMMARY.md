@@ -4,6 +4,12 @@
 
   * [How to Use This GitBook](start-here/how-to-use-this-gitbook.md)
 
+## Program Policies
+
+* [AI Policy](ai-policy.md)
+
+## Modules
+
 * [Module 0: Introduction](modules/module-00/README.md)
 
   * [Quest 0.1 — What Kind of Data Is This?](modules/module-00/quest-01-data-literacy.md)
