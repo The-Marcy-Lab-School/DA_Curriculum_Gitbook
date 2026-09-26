@@ -74,7 +74,7 @@ Watch especially for the difference between:
 
 ## 🚀 Launch the Required Reading
 
-[**Start: Meet Your Terminal →**](REPLACE-WITH-VERIFIED-READING-URL)
+[**Start: Meet Your Terminal →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/dev-environment/reading-1-meetterminal/)
 
 **Required:** Complete the interactive reading before continuing.
 

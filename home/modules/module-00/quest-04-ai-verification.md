@@ -73,7 +73,7 @@ As you complete the reading, pay attention to:
 
 ## 🚀 Launch the Required Reading
 
-[**Start: Confidence Is Not Evidence — Verifying What AI Tells You →**](REPLACE-WITH-VERIFIED-READING-URL)
+[**Start: Confidence Is Not Evidence — Verifying What AI Tells You →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/ai-literacy/reading1-confidenceisnotevidence/)
 
 **Required:** Complete the interactive reading before continuing to the Checkpoint.
 
