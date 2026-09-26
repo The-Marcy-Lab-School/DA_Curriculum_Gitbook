@@ -83,7 +83,7 @@ Across both readings, watch for:
 
 As you complete this reading, focus on the habits that help you create a useful project history.
 
-[**Start: Build the Git Habit →**](REPLACE-WITH-VERIFIED-BUILD-THE-GIT-HABIT-URL)
+[**Start: Build the Git Habit →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/git-github/reading-2-buildthegithabit/)
 
 **Required:** Complete Part 1 before continuing to Part 2.
 
@@ -93,7 +93,7 @@ As you complete this reading, focus on the habits that help you create a useful 
 
 Now focus on **why preserving the history of your work matters**, not just which commands you run.
 
-[**Start: Git Saves the Story →**](REPLACE-WITH-VERIFIED-GIT-SAVES-THE-STORY-URL)
+[**Start: Git Saves the Story →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/git-github/reading-1-gitsavesthestory/)
 
 **Required:** Complete Part 2 before continuing to the Checkpoint.
 
