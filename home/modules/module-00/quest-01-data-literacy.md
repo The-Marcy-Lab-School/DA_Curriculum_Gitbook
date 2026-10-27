@@ -80,6 +80,12 @@ Watch especially for:
 
 When you finish, return here and test what you can retrieve **without reopening the reading**.
 
+## 🗺️ Optional Side Quest Mission
+
+Want to go further? This reading is **optional**. It isn't required for the checkpoint, but you can submit it for credit the same way as your required readings.
+
+[**Start Side Quest: What Shape Is This Data? →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/structured_unstructured/) · about 21 min
+
 ---
 
 # ⚡ Checkpoint: Vocabulary Lightning Round

@@ -103,6 +103,12 @@ When you return, be ready to answer:
 
 > **How can you determine whether a particular line of code can access a variable?**
 
+## 🗺️ Optional Side Quest Mission
+
+Want to go further? This reading is **optional**. It isn't required for the checkpoint, but you can submit it for credit the same way as your required readings.
+
+[**Start Side Quest: Call Yourself Back — Understanding Recursion →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/recursion/reading-1-callyourselfback/) · about 23 min
+
 ---
 
 # ⚡ Checkpoint 1: Parameter or Argument?

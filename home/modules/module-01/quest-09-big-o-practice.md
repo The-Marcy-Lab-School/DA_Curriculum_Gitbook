@@ -101,6 +101,12 @@ When you return, be ready to answer:
 
 > **Why can Dictionary Lookup scale differently from Linear Search?**
 
+## 🗺️ Optional Side Quest Mission
+
+Want to go further? This reading is **optional**. It isn't required for the checkpoint, but you can submit it for credit the same way as your required readings.
+
+[**Start Side Quest: Straight to the Slot — Hash Maps →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/hash-maps/reading-1-straight-to-the-slot/) · about 22 min
+
 ---
 
 # ⚡ Checkpoint 1: Name the Complexity

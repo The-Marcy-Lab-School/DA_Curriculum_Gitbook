@@ -87,6 +87,14 @@ When you return, be ready to answer:
 
 > **Why isn't there one Python Data Structure that's automatically best for every problem?**
 
+## 🗺️ Optional Side Quest Mission
+
+Want to go further? These readings are **optional**. They aren't required for the checkpoint, but you can submit them for credit the same way as your required readings.
+
+[**Start Side Quest: Link by Link — Linked Lists →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/linked-lists/reading-1-link-by-link/) · about 24 min
+
+[**Start Side Quest: The Deepest Branch — Binary Trees →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/trees/reading-1-the-deepest-branch/) · about 23 min
+
 ---
 
 # ⚡ Checkpoint 1: Key → Value
