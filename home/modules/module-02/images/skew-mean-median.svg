@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 380" width="840" height="380" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Mean and median in right-skewed data</title>
+  <desc id="d">A histogram where most values are small and a few big values form a long tail to the right. The median line sits among the tall bars. The mean line sits further right, pulled toward the tail.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="840" height="380" fill="#ffffff"/>
+  <text x="420" y="34" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">Right-skewed data: the tail pulls the mean away from the median</text>
+  <g fill="#93C5FD" stroke="#1D4ED8" stroke-width="1.5">
+    <rect x="80" y="150" width="50" height="140"/>
+    <rect x="134" y="100" width="50" height="190"/>
+    <rect x="188" y="140" width="50" height="150"/>
+    <rect x="242" y="200" width="50" height="90"/>
+    <rect x="296" y="240" width="50" height="50"/>
+    <rect x="350" y="262" width="50" height="28"/>
+    <rect x="404" y="276" width="50" height="14"/>
+    <rect x="458" y="282" width="50" height="8"/>
+    <rect x="566" y="284" width="50" height="6"/>
+    <rect x="728" y="286" width="50" height="4"/>
+  </g>
+  <line x1="60" y1="290" x2="800" y2="290" stroke="#111827" stroke-width="2"/>
+  <line x1="196" y1="82" x2="196" y2="290" stroke="#1D4ED8" stroke-width="3.5" stroke-dasharray="8 6"/>
+  <text x="196" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#1D4ED8">Median</text>
+  <line x1="330" y1="82" x2="330" y2="290" stroke="#C2410C" stroke-width="3.5"/>
+  <text x="330" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#C2410C">Mean</text>
+  <text x="560" y="210" font-size="15" fill="#475569">A few very big values</text>
+  <text x="560" y="230" font-size="15" fill="#475569">make a long tail</text>
+  <line x1="680" y1="238" x2="740" y2="278" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="430" y="318" text-anchor="middle" font-size="14" fill="#475569">Value (for example, dollars per gift) →</text>
+  <text x="420" y="358" text-anchor="middle" font-size="15" fill="#111827">Report the median as the typical value. Mention the big values on their own.</text>
+</svg>

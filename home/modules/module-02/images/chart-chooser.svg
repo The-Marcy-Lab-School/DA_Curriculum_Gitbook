@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 340" width="920" height="340" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Choosing a chart type</title>
+  <desc id="d">Four cards. One column's shape: histogram or boxplot. A change over time: line chart. Two number columns: scatterplot. One number across groups: bar chart.</desc>
+  <rect width="920" height="340" fill="#ffffff"/>
+  <text x="460" y="36" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">Pick a chart by asking: what am I comparing?</text>
+
+  <g fill="#ffffff" stroke="#94A3B8" stroke-width="1.5">
+    <rect x="20" y="62" width="205" height="262" rx="12"/>
+    <rect x="245" y="62" width="205" height="262" rx="12"/>
+    <rect x="470" y="62" width="205" height="262" rx="12"/>
+    <rect x="695" y="62" width="205" height="262" rx="12"/>
+  </g>
+
+  <g font-size="15" font-weight="bold" fill="#111827" text-anchor="middle">
+    <text x="122" y="92">One column's</text><text x="122" y="112">shape</text>
+    <text x="347" y="92">A change</text><text x="347" y="112">over time</text>
+    <text x="572" y="92">Two number</text><text x="572" y="112">columns</text>
+    <text x="797" y="92">One number</text><text x="797" y="112">across groups</text>
+  </g>
+
+  <g stroke="#111827" stroke-width="1.5">
+    <line x1="45" y1="230" x2="200" y2="230"/>
+    <line x1="270" y1="230" x2="425" y2="230"/><line x1="270" y1="140" x2="270" y2="230"/>
+    <line x1="495" y1="230" x2="650" y2="230"/><line x1="495" y1="140" x2="495" y2="230"/>
+    <line x1="720" y1="230" x2="875" y2="230"/><line x1="720" y1="140" x2="720" y2="230"/>
+  </g>
+  <g fill="#93C5FD" stroke="#1D4ED8">
+    <rect x="52" y="200" width="18" height="30"/><rect x="72" y="170" width="18" height="60"/>
+    <rect x="92" y="155" width="18" height="75"/><rect x="112" y="180" width="18" height="50"/>
+    <rect x="132" y="200" width="18" height="30"/><rect x="152" y="215" width="18" height="15"/>
+    <rect x="172" y="222" width="18" height="8"/>
+  </g>
+  <polyline points="280,212 305,202 330,207 355,182 380,187 405,162 420,152" fill="none" stroke="#1D4ED8" stroke-width="3"/>
+  <g fill="#1D4ED8">
+    <circle cx="510" cy="212" r="5"/><circle cx="525" cy="196" r="5"/><circle cx="540" cy="203" r="5"/>
+    <circle cx="555" cy="186" r="5"/><circle cx="570" cy="193" r="5"/><circle cx="585" cy="171" r="5"/>
+    <circle cx="600" cy="178" r="5"/><circle cx="615" cy="160" r="5"/><circle cx="630" cy="166" r="5"/>
+    <circle cx="640" cy="150" r="5"/>
+  </g>
+  <g fill="#93C5FD" stroke="#1D4ED8">
+    <rect x="740" y="160" width="35" height="70"/><rect x="790" y="175" width="35" height="55"/>
+    <rect x="840" y="150" width="30" height="80"/>
+  </g>
+
+  <g font-size="16" font-weight="bold" fill="#1D4ED8" text-anchor="middle">
+    <text x="122" y="264">Histogram or boxplot</text>
+    <text x="347" y="264">Line chart</text>
+    <text x="572" y="264">Scatterplot</text>
+    <text x="797" y="264">Bar chart</text>
+  </g>
+  <g font-size="13" fill="#475569" text-anchor="middle">
+    <text x="122" y="290">How are gifts spread out?</text>
+    <text x="347" y="290">Sign-ins per day</text>
+    <text x="572" y="290">Hours vs. score gain</text>
+    <text x="797" y="290">Average swimmers per pool</text>
+    <text x="797" y="308">(y-axis starts at zero)</text>
+  </g>
+</svg>

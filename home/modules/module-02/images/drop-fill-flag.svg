@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" width="920" height="440" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Drop, fill, or flag decision</title>
+  <desc id="d">Start with a missing value. If nothing useful is left in the row, drop the row. If something is left, ask whether there is a fair stand-in. If yes, fill it with the median, the mode or the value before, and flag that it was filled. If no, flag it: keep the blank and add a True or False column.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#111827"/></marker>
+  </defs>
+  <rect width="920" height="440" fill="#ffffff"/>
+  <text x="460" y="34" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">Drop, fill, or flag: two questions decide</text>
+
+  <rect x="340" y="58" width="240" height="42" rx="21" fill="#E2E8F0" stroke="#111827" stroke-width="1.5"/>
+  <text x="460" y="85" text-anchor="middle" font-size="16" font-weight="bold" fill="#111827">A value is missing</text>
+
+  <rect x="280" y="130" width="360" height="56" rx="8" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="460" y="164" text-anchor="middle" font-size="16" fill="#111827">Is anything useful left in the row?</text>
+
+  <rect x="20" y="120" width="210" height="80" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="125" y="148" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">Drop the row</text>
+  <text x="125" y="170" text-anchor="middle" font-size="13" fill="#475569">Example: the app crashed</text>
+  <text x="125" y="188" text-anchor="middle" font-size="13" fill="#475569">and every field is blank</text>
+
+  <rect x="280" y="240" width="360" height="66" rx="8" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="460" y="268" text-anchor="middle" font-size="16" fill="#111827">Is there a fair stand-in?</text>
+  <text x="460" y="290" text-anchor="middle" font-size="13" fill="#475569">(the median, the mode, or the value before)</text>
+
+  <rect x="690" y="228" width="210" height="96" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="795" y="256" text-anchor="middle" font-size="18" font-weight="bold" fill="#1D4ED8">Fill it</text>
+  <text x="795" y="278" text-anchor="middle" font-size="13" fill="#111827">Say what you used,</text>
+  <text x="795" y="296" text-anchor="middle" font-size="13" fill="#111827">and add a column that</text>
+  <text x="795" y="314" text-anchor="middle" font-size="13" fill="#111827">marks the filled rows</text>
+
+  <rect x="340" y="348" width="240" height="80" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="460" y="376" text-anchor="middle" font-size="18" font-weight="bold" fill="#C2410C">Flag it</text>
+  <text x="460" y="398" text-anchor="middle" font-size="13" fill="#111827">Keep the blank. Add a</text>
+  <text x="460" y="416" text-anchor="middle" font-size="13" fill="#111827">True/False column that marks it</text>
+
+  <g stroke="#111827" stroke-width="2" marker-end="url(#a)">
+    <line x1="460" y1="100" x2="460" y2="126"/>
+    <line x1="280" y1="158" x2="234" y2="158"/>
+    <line x1="460" y1="186" x2="460" y2="236"/>
+    <line x1="640" y1="273" x2="686" y2="273"/>
+    <line x1="460" y1="306" x2="460" y2="344"/>
+  </g>
+  <g font-size="14" font-weight="bold" fill="#111827">
+    <text x="243" y="150">No</text>
+    <text x="470" y="218">Yes</text>
+    <text x="648" y="265">Yes</text>
+    <text x="470" y="332">No</text>
+  </g>
+</svg>
