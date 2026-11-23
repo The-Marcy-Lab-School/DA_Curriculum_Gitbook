@@ -32,7 +32,7 @@ Check off each goal once you can do it.
 
 You've checked a claim against its source, and you've counted blanks and group sizes. This reading turns those checks on the data file itself.
 
-* Recall that you counted the blanks in a dog-walking log with `walks.isna().sum()`, then asked why each gap was missing and whether the gaps were bunched in one group, in [Drop, Fill, or Flag](quest-06-missing-data.md). This reading counts the blanks for each group in one line.
+* Recall that you counted the blanks in a dog-walking log with `walks.isna().sum()`, then asked why each gap was missing and whether the gaps were bunched in one group, in the interactive reading for [Drop, Fill, or Flag](quest-06-missing-data.md). This reading counts the blanks for each group in one line.
 * Recall that one unusual value moves a small group's average a lot, so you checked how many rows each group had before trusting it, in [Beneath the Total](quest-08-mining-a-pattern.md).
 * Recall that in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), you checked a chatbot's claim against a **source**: where information comes from. This time, you ask where the data file itself came from.
 

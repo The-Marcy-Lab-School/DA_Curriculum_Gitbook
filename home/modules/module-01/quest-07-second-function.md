@@ -66,7 +66,7 @@ You've used this idea before. In [Save the Story of Your Work](../module-00/ques
 | **Counter** | An accumulator that adds 1 each time something happens, like `goal_days += 1` when a day meets the goal. |
 | **`continue`** | Skips the rest of the loop body for this pass and moves on to the next item. |
 
-You've built a running total by hand. In [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), you added up the bags in the cleanup log: 9 + 12 + 7 + 10 + 8 = 46. An accumulator does the same adding, one pass at a time.
+You've built a running total by hand. In the interactive reading for [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), you added up the bags in the cleanup log: 9 + 12 + 7 + 10 + 8 = 46. An accumulator does the same adding, one pass at a time.
 
 For example, here's how the reading's two accumulators change on each pass, with the goal set to 8,000 steps:
 

@@ -33,7 +33,7 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that a **variable** is a labeled box, and it holds only its newest value. `pet_of_the_week` held `"Biscuit"`, then `"Mango"`. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). A function's inputs work like these boxes.
-* Recall that `minutes = minutes - 10` works out the right side first. Then it stores the result back under the same name. You traced it in [Trace the Path](quest-01-control-flow.md). Function bodies use the same kind of update.
+* Recall that `minutes = minutes - 10` works out the right side first. Then it stores the result back under the same name. You traced it in the interactive reading for [Trace the Path](quest-01-control-flow.md). Function bodies use the same kind of update.
 * Recall that indentation tells Python which lines belong to a block, from [Trace the Path](quest-01-control-flow.md). A function's steps are a block too. Where a line sits changes when it runs.
 
 ## Words to know

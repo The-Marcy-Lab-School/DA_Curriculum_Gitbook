@@ -146,7 +146,7 @@ GitBook needs a page for every item that expands in the sidebar, so keep this pa
    - `**Main takeaway:**` in one or two short sentences.
    - `**Why it matters at work:**` in one or two short sentences.
 4. **Learning goals**: a checklist (`- [ ] I can …`), 3 items, with "Check off each goal once you can do it." Then a **Skills:** line with the rubric skill names.
-5. **Quick recall**: 1 to 3 bullets reminding the reader of something they already did that this reading builds on. Start each with "Recall that…". Include a line of code when it helps. Link the earlier page by its title. No module or day numbers.
+5. **Quick recall**: 1 to 3 bullets reminding the reader of something they already did that this reading builds on. Start each with "Recall that…". Include a line of code when it helps. Link the earlier page by its title. No module or day numbers. If the detail you recall (a line of code, a number, an example) is only in the interactive reading, not on the GitBook page, say so: "in the interactive reading for [Trace the Path](…)". Check the GitBook page first; never point readers to a page that doesn't show what you recalled.
 6. **New tool: <name>** (only when the reading introduces a tool or package). Three parts, nothing more:
    - **What it's for:** 1 or 2 sentences.
    - **How you'll see it in this reading:** the actual lines from the reading in a code block, followed by a **Code walkthrough** (see "Code blocks").

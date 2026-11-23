@@ -32,7 +32,7 @@ Check off each goal once you can do it.
 
 You've grouped by one column and checked every pair in a nested loop. This reading puts the two ideas together.
 
-* Recall that you turned many rows into one row per group with `drives.groupby("site")["units"].agg(["count", "mean", "median"])` in [One Row Per Group](quest-03-group-columns.md). Keeping the count next to the mean showed how many rows each number rested on. This reading groups by two columns at once.
+* Recall that you turned many rows into one row per group with `drives.groupby("site")["units"].agg(["count", "mean", "median"])` in the interactive reading for [One Row Per Group](quest-03-group-columns.md). Keeping the count next to the mean showed how many rows each number rested on. This reading groups by two columns at once.
 * Recall that when a group's mean sits well above its median, a few big values are pulling the mean up, so the median is the better typical value. You saw this in [The Loudest Number](quest-01-descriptive-statistics.md).
 * Recall that a nested loop runs its inner body once for every outer pass, in [Trace the Path](../module-01/quest-01-control-flow.md). 3 worlds × 4 checkpoints printed 12 lines. Grouping by two columns gives every combination the same way.
 

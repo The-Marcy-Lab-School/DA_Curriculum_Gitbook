@@ -32,7 +32,7 @@ Check off each goal once you can do it.
 
 You've summarized groups and checked claims before. This reading turns your numbers into charts, and checks a chart against a number.
 
-* Recall that a group summary gives you one row per group, from [One Row Per Group](quest-03-group-columns.md): `drives.groupby("site")["units"].mean()` gives one average per site. Recall too that double brackets pick a list of columns, from the reading in [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
+* Recall that a group summary gives you one row per group, from [One Row Per Group](quest-03-group-columns.md): `drives.groupby("site")["units"].mean()` gives one average per site. Recall too that double brackets pick a list of columns, from the interactive reading for [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
 * Recall that a date is its own data type, in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). Only date math makes sense on it, like "how many days ago?" In this reading, you'll turn date text into real dates.
 * Recall that a sure-sounding AI answer is only a claim until you check it, from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md). You check it against a real source. Here, your own `.corr()` number is that source.
 
