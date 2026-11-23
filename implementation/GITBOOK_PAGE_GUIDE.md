@@ -25,7 +25,7 @@ Module 2 (`home/modules/module-02/`) is the reference: when this guide and a Mod
 - **Say what units a result comes in** whenever a page teaches a number: dollars, minutes, rows, a percent, or squared units.
 - **Never name a tool, function, or term before it's defined.** This matters most in "How this connects": describe what the reader will *do* next, not the name of a tool they haven't met.
 - **No emojis** in headings or body text.
-- **Game words always come with a plain name.** Keep the quest titles, but every game word is paired with what it actually is, in parentheses: **Quest 2.1 — The Loudest Number (Descriptive Statistics)**, **Boss Battle (Module Project)**, **Checkpoint (Review and Solo Practice)**. Don't use other game words ("mission", "unlock", "arena", "reload", "conquer").
+- **Game words always come with a plain name.** Keep the quest titles, but every game word is paired with what it actually is. In titles, put the plain name after a colon, so each title has only one set of parentheses (the day): **Quest 2.1 — The Loudest Number: Descriptive Statistics (Day 1)**, **Module 2 Checkpoint: Review and Solo Practice (Days 13–14)**. When a quest title ends in a question mark, skip the colon: **Quest 2.4 — Who's This Chart For? Exploratory vs. Explanatory Charts (Day 4)**. In body text, write **Boss Battle (Module Project)**. Don't use other game words ("mission", "unlock", "arena", "reload", "conquer").
 - **Say it once.** Don't repeat the same point in three places on one page.
 - **GitBook hint blocks** (`{% hint style="info" %}`) are for the one or two lines a reader must not miss. At most two per page. Never use one for the page's opening; that's the Introduction's job.
 - **Answers stay hidden** in `<details>` blocks, so readers try first.
@@ -95,7 +95,7 @@ Only mark a video required after someone has watched it and confirmed it's the c
 | 2 | Module Introduction | `introduction.md` | Where you've been, where you're going, why it matters |
 | 3 | Quest | `quest-NN-<slug>.md` | One page per reading |
 | 4 | Practice Day | `practice-day-<n>.md` | Review days with no new reading |
-| 5 | Checkpoint (Review and Solo Practice) | `checkpoint.md` | Self-check before the Boss Battle |
+| 5 | Checkpoint: Review and Solo Practice | `checkpoint.md` | Self-check before the Boss Battle |
 | 6 | Module Conclusion | `conclusion.md` | What you can do now, how to say it, and where it shows up next |
 
 **There is no Boss Battle page.** Project scenarios, deliverables, and lengths change from cohort to cohort, so the GitBook only describes the project at the skill level ("you'll describe key columns of a real dataset") and says the instructor shares the details. Never list project deliverables, file names, topics, or grading points in the GitBook.
@@ -130,7 +130,7 @@ This is the module's landing page, so it's what readers see when they click the 
 
 ### Quest (`quest-NN-<slug>.md`)
 
-1. **Title**: `Quest M.N — <Quest title> (<Plain topic name>) (Day X)`, the same in `SUMMARY.md` and in every "Next" link, so readers always know which day they're on (Module 1 uses the same `(Day X)` ending). Practice days, the Checkpoint, and the Conclusion end with their day too. Then one line at the very top with the **total** time, counting both the GitBook page and the interactive reading: `**Day X** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)`. Estimate the page at 150 words a minute (a careful pace for beginners and English learners), rounded to 5 minutes. Every other page type gets a **Time** line too.
+1. **Title**: `Quest M.N — <Quest title>: <Plain topic name> (Day X)`, the same in `SUMMARY.md` and in every "Next" link, so readers always know which day they're on (Module 1 uses the same `(Day X)` ending). Practice days, the Checkpoint, and the Conclusion end with their day too. Then one line at the very top with the **total** time, counting both the GitBook page and the interactive reading: `**Day X** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)`. Estimate the page at 150 words a minute (a careful pace for beginners and English learners), rounded to 5 minutes. Every other page type gets a **Time** line too.
 2. **Workflow tracker**, right under the time line: `**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#…))`, with the quest's step in bold. Practice days and checkpoints bold every step they review. The Conclusion shows the workflow diagram again.
 3. **Introduction** (heading: `## Introduction`), in this order:
    - A short, everyday hook and a concrete example, in short sentences ("Sometimes averages can be misleading. For example, …"). Use a different example from the reading's own scenario.
@@ -160,7 +160,7 @@ This is the module's landing page, so it's what readers see when they click the 
 
 ### Practice Day and Checkpoint
 
-1. **Title** with its plain name: `Practice Day (Review)` or `Module M Checkpoint (Review and Solo Practice)`.
+1. **Title** with its plain name: `Practice Day: Review` or `Module M Checkpoint: Review and Solo Practice`.
 2. **Introduction**: what the day is for, in 2 or 3 sentences.
 3. **What happens in class.**
 4. **Self-check questions**, answers hidden, each tagged with the quest to revisit.
@@ -189,7 +189,7 @@ Use the curriculum's skill names exactly as the rubric does (for example, **Data
 
 - [ ] Every reading URL and "Learn more" link opens.
 - [ ] Every relative link and image path resolves.
-- [ ] `SUMMARY.md` lists every page in sidebar order, with plain names in parentheses.
+- [ ] `SUMMARY.md` lists every page in sidebar order, with plain names after a colon and the day in parentheses.
 - [ ] No emojis, and no game word without its plain name.
 - [ ] No link to a Boss Battle page, and no project deliverables or topics named.
 - [ ] No tool or function named before its "New tool" section or "Words to know" entry.

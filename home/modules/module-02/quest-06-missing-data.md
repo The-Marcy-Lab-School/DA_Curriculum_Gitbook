@@ -1,4 +1,4 @@
-# Quest 2.6 — Drop, Fill, or Flag (Missing Data) (Day 7)
+# Quest 2.6 — Drop, Fill, or Flag: Missing Data (Day 7)
 
 **Day 7** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -156,4 +156,4 @@ Which rows, why they were empty, and how many. For example: "I dropped 2 rows wh
 
 ---
 
-**Next:** [Quest 2.7 — Write It Once (Cleaning Functions) (Day 8)](quest-07-cleaning-function.md)
+**Next:** [Quest 2.7 — Write It Once: Cleaning Functions (Day 8)](quest-07-cleaning-function.md)

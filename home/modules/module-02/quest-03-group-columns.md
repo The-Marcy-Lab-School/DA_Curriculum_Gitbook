@@ -1,4 +1,4 @@
-# Quest 2.3 — One Row Per Group (Grouping, New Columns, and Merging) (Day 3)
+# Quest 2.3 — One Row Per Group: Grouping, New Columns, and Merging (Day 3)
 
 **Day 3** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -134,4 +134,4 @@ The merge runs with no error. Every Fire Station row stays in the table, but wit
 
 ---
 
-**Next:** [Quest 2.4 — Who's This Chart For? (Exploratory vs. Explanatory Charts) (Day 4)](quest-04-two-kinds-of-charts.md)
+**Next:** [Quest 2.4 — Who's This Chart For? Exploratory vs. Explanatory Charts (Day 4)](quest-04-two-kinds-of-charts.md)

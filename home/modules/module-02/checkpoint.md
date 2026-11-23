@@ -1,4 +1,4 @@
-# Module 2 Checkpoint (Review and Solo Practice) (Days 13–14)
+# Module 2 Checkpoint: Review and Solo Practice (Days 13–14)
 
 **Days 13–14** · No new reading · Time: about 8 minutes
 

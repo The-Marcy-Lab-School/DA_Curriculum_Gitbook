@@ -1,4 +1,4 @@
-# Quest 2.4 — Who's This Chart For? (Exploratory vs. Explanatory Charts) (Day 4)
+# Quest 2.4 — Who's This Chart For? Exploratory vs. Explanatory Charts (Day 4)
 
 **Day 4** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -163,4 +163,4 @@ That the two tended to rise together, but the link is weak. Your number settles 
 
 ---
 
-**Next:** [Quest 2.5 — Real Numbers, Wrong Story (Chart Best Practices) (Day 5)](quest-05-chart-best-practices.md)
+**Next:** [Quest 2.5 — Real Numbers, Wrong Story: Chart Best Practices (Day 5)](quest-05-chart-best-practices.md)

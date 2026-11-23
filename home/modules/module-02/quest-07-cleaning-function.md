@@ -1,4 +1,4 @@
-# Quest 2.7 — Write It Once (Cleaning Functions) (Day 8)
+# Quest 2.7 — Write It Once: Cleaning Functions (Day 8)
 
 **Day 8** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -170,4 +170,4 @@ At the second real repeat, or right away when the same cleaning needs to run on 
 
 ---
 
-**Next:** [Quest 2.8 — Beneath the Total (Finding Patterns in Groups) (Day 9)](quest-08-mining-a-pattern.md)
+**Next:** [Quest 2.8 — Beneath the Total: Finding Patterns in Groups (Day 9)](quest-08-mining-a-pattern.md)

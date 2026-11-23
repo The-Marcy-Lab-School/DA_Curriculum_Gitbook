@@ -1,4 +1,4 @@
-# Practice Day (Review) (Day 6)
+# Practice Day: Review (Day 6)
 
 **Day 6** · No new reading · Time: about 3 minutes
 
@@ -88,4 +88,4 @@ Where does the y-axis start? Was anything (like an outlier) left out of view?
 
 ---
 
-**Next:** [Quest 2.6 — Drop, Fill, or Flag (Missing Data) (Day 7)](quest-06-missing-data.md)
+**Next:** [Quest 2.6 — Drop, Fill, or Flag: Missing Data (Day 7)](quest-06-missing-data.md)

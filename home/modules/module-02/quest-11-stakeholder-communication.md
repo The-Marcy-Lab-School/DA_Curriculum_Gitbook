@@ -1,4 +1,4 @@
-# Quest 2.11 — Nobody Was in the Room (Writing for Stakeholders) (Day 12)
+# Quest 2.11 — Nobody Was in the Room: Writing for Stakeholders (Day 12)
 
 **Day 12** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -115,7 +115,7 @@ Without the `!`, GitHub shows a plain link instead of the picture.
 
 ### How this connects
 
-* **Next:** In the Module 2 Checkpoint (Review and Solo Practice), you'll find a pattern on your own in a dataset you've never seen, then review every skill from this module with self-check questions.
+* **Next:** In the Module 2 Checkpoint: Review and Solo Practice, you'll find a pattern on your own in a dataset you've never seen, then review every skill from this module with self-check questions.
 * **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll explain your finding in writing to someone who won't read your code. You'll lead with the answer, embed a chart with alt text that says what it shows, and name what's still worth checking before anyone acts on it.
 
 ## Quick check
@@ -144,4 +144,4 @@ Without the `!`, GitHub shows a plain link instead of the picture.
 
 ---
 
-**Next:** [Module 2 Checkpoint (Review and Solo Practice) (Days 13–14)](checkpoint.md)
+**Next:** [Module 2 Checkpoint: Review and Solo Practice (Days 13–14)](checkpoint.md)
