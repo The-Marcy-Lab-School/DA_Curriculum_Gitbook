@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 430" width="1040" height="430" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">One finding, two pages</title>
+  <desc id="d">Your finding starts in your notebook, which the stakeholder will not open. It becomes two short pages. The README answers: what did you find? It gives the answer first, one key number, and an embedded chart. The data-quality memo answers: can I trust it? It has four parts: domain and stakeholder, a one-sentence answer, two checkable questions, and whether a bad answer would change your advice.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="430" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">One finding, two pages</text>
+  <rect x="20" y="150" width="230" height="120" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="135" y="192" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">Your notebook</text>
+  <text x="135" y="218" text-anchor="middle" font-size="18" fill="#111827">The stakeholder</text>
+  <text x="135" y="244" text-anchor="middle" font-size="18" fill="#111827">won't open it</text>
+  <line x1="252" y1="190" x2="318" y2="130" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="252" y1="230" x2="318" y2="300" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="322" y="60" width="700" height="150" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="342" y="94" text-anchor="start" font-size="21" font-weight="bold" fill="#1D4ED8">README:  "What did you find?"</text>
+  <text x="362" y="128" text-anchor="start" font-size="18" fill="#111827">•  The answer first, in plain words</text>
+  <text x="362" y="154" text-anchor="start" font-size="18" fill="#111827">•  One key number</text>
+  <text x="362" y="180" text-anchor="start" font-size="18" fill="#111827">•  An embedded chart with alt text</text>
+  <rect x="322" y="230" width="700" height="180" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="342" y="264" text-anchor="start" font-size="21" font-weight="bold" fill="#C2410C">Data-quality memo:  "Can I trust it?"</text>
+  <text x="362" y="298" text-anchor="start" font-size="18" fill="#111827">1. Domain and stakeholder, on one line</text>
+  <text x="362" y="324" text-anchor="start" font-size="18" fill="#111827">2. Your answer in one sentence, no code words</text>
+  <text x="362" y="350" text-anchor="start" font-size="18" fill="#111827">3. Two checkable questions about the data</text>
+  <text x="362" y="376" text-anchor="start" font-size="18" fill="#111827">4. Would a bad answer change your advice?</text>
+</svg>

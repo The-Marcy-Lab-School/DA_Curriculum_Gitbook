@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 450" width="1040" height="450" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">What the cleaning function does</title>
+  <desc id="d">The May list has 5 deliveries and the June list has 5. Stacking them gives 10 rows. The function clean_deliveries runs three steps in order: remove repeats by delivery_id, turn bags into numbers, and tidy the country labels. The result is 8 deliveries, each one once. You can call the same function again on the next file.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="450" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">What the cleaning function does</text>
+  <rect x="20" y="100" width="150" height="90" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="95" y="138" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">May</text>
+  <text x="95" y="164" text-anchor="middle" font-size="18" fill="#111827">5 rows</text>
+  <rect x="20" y="220" width="150" height="90" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="95" y="258" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">June</text>
+  <text x="95" y="284" text-anchor="middle" font-size="18" fill="#111827">5 rows</text>
+  <line x1="172" y1="145" x2="228" y2="192" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="172" y1="265" x2="228" y2="218" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="232" y="160" width="150" height="90" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="307" y="198" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">Stacked</text>
+  <text x="307" y="224" text-anchor="middle" font-size="18" fill="#111827">10 rows</text>
+  <line x1="384" y1="205" x2="428" y2="205" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="432" y="64" width="380" height="300" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="622" y="98" text-anchor="middle" font-size="20" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">clean_deliveries(df)</text>
+  <rect x="462" y="116" width="320" height="60" rx="8" fill="#ffffff" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="622" y="142" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">1. Remove repeats</text>
+  <text x="622" y="166" text-anchor="middle" font-size="18" fill="#111827">by delivery_id</text>
+  <line x1="622" y1="177" x2="622" y2="195" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="462" y="198" width="320" height="60" rx="8" fill="#ffffff" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="622" y="224" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">2. Turn bags</text>
+  <text x="622" y="248" text-anchor="middle" font-size="18" fill="#111827">into numbers</text>
+  <line x1="622" y1="259" x2="622" y2="277" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="462" y="280" width="320" height="60" rx="8" fill="#ffffff" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="622" y="306" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">3. Tidy country</text>
+  <text x="622" y="330" text-anchor="middle" font-size="18" fill="#111827">labels</text>
+  <line x1="814" y1="205" x2="858" y2="205" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="862" y="160" width="160" height="90" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="942" y="198" text-anchor="middle" font-size="21" font-weight="bold" fill="#C2410C">Clean table</text>
+  <text x="942" y="224" text-anchor="middle" font-size="18" fill="#111827">8 deliveries</text>
+  <text x="520" y="400" text-anchor="middle" font-size="19" fill="#475569">Write it once. Call it again on the next file:</text>
+  <text x="520" y="430" text-anchor="middle" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">clean_july = clean_deliveries(july)</text>
+</svg>

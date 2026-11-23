@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 430" width="980" height="430" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">How groupby works</title>
+  <desc id="d">Step 1 splits eight blood-drive rows into one pile per site. Step 2 takes the mean of units in each pile, skipping the one blank value: Community Center 40 and 36, mean 38.0; Fire Station 20 and 24, mean 22.0; Library 26, 31 and 25, mean 27.3. Step 3 combines the answers into a table with one row per site.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker>
+  </defs>
+  <rect width="980" height="430" fill="#ffffff"/>
+  <text x="490" y="34" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">groupby: split the rows, summarize each pile, combine the answers</text>
+  <g font-size="20" font-weight="bold" fill="#1D4ED8" text-anchor="middle">
+    <text x="145" y="72">1. Split</text>
+    <text x="480" y="72">2. Apply (mean)</text>
+    <text x="820" y="72">3. Combine</text>
+  </g>
+  <g font-size="18" fill="#111827">
+    <rect x="20" y="86" width="250" height="262" fill="#ffffff" stroke="#94A3B8"/>
+    <rect x="20" y="86" width="250" height="30" fill="#E2E8F0"/>
+    <text x="30" y="107" font-weight="bold">site</text><text x="200" y="107" font-weight="bold">units</text>
+    <text x="30" y="137">Library</text><text x="200" y="137" fill="#111827">26</text>
+    <text x="30" y="165">Community Center</text><text x="200" y="165" fill="#111827">40</text>
+    <text x="30" y="193">Fire Station</text><text x="200" y="193" fill="#111827">20</text>
+    <text x="30" y="221">Library</text><text x="200" y="221" fill="#111827">31</text>
+    <text x="30" y="249">Community Center</text><text x="200" y="249" fill="#475569">(blank)</text>
+    <text x="30" y="277">Fire Station</text><text x="200" y="277" fill="#111827">24</text>
+    <text x="30" y="305">Library</text><text x="200" y="305" fill="#111827">25</text>
+    <text x="30" y="333">Community Center</text><text x="200" y="333" fill="#111827">36</text>
+  </g>
+  <g font-size="18" fill="#111827">
+    <rect x="345" y="92" width="270" height="82" rx="8" fill="#EFF6FF" stroke="#1D4ED8"/>
+    <text x="358" y="116" font-weight="bold">Community Center</text>
+    <text x="358" y="140">40, 36 → mean 38.0</text>
+    <text x="358" y="163" fill="#475569">(blank skipped)</text>
+    <rect x="345" y="188" width="270" height="60" rx="8" fill="#EFF6FF" stroke="#1D4ED8"/>
+    <text x="358" y="212" font-weight="bold">Fire Station</text>
+    <text x="358" y="236">20, 24 → mean 22.0</text>
+    <rect x="345" y="262" width="270" height="60" rx="8" fill="#EFF6FF" stroke="#1D4ED8"/>
+    <text x="358" y="286" font-weight="bold">Library</text>
+    <text x="358" y="310">26, 31, 25 → mean 27.3</text>
+  </g>
+  <g font-size="18" fill="#111827">
+    <rect x="690" y="150" width="270" height="120" fill="#ffffff" stroke="#94A3B8"/>
+    <rect x="690" y="150" width="270" height="30" fill="#E2E8F0"/>
+    <text x="702" y="171" font-weight="bold">site</text><text x="892" y="171" font-weight="bold">units</text>
+    <text x="702" y="201">Community Center</text><text x="900" y="201">38.0</text>
+    <text x="702" y="229">Fire Station</text><text x="900" y="229">22.0</text>
+    <text x="702" y="257">Library</text><text x="900" y="257">27.3</text>
+  </g>
+  <g stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)">
+    <line x1="276" y1="210" x2="339" y2="210"/>
+    <line x1="621" y1="210" x2="684" y2="210"/>
+  </g>
+  <text x="490" y="404" text-anchor="middle" font-size="20" font-family="Menlo, Consolas, monospace" fill="#111827">drives.groupby("site")["units"].mean()</text>
+</svg>
