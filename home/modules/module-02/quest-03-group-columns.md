@@ -27,7 +27,7 @@ Check off each goal once you can do it.
 - [ ] I can add a new column calculated from other columns, and change rows in the original table safely.
 - [ ] I can merge in columns from a lookup table and check that the merge worked.
 
-**Skills:** Data Mining · pandas DataFrames
+**Skills:** Data Mining · Statistical Analysis
 
 ## Quick recall
 

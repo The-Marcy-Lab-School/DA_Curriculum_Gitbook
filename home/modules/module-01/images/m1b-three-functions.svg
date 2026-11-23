@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Three functions, one job each</title>
+  <desc id="d">Three functions in a chain. validate_days, whose job is to check the records, passes a list of good (day, steps) tuples to summarize_steps, whose job is to summarize the week. summarize_steps returns a summary dictionary, which goes to print_week, whose job is to print it. Two dashed boxes show new jobs that use the same returned summary without changing summarize_steps: email the summary, and save it to a file. Each new job gets its own new function.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="470" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Three functions, one job each</text>
+  <rect x="20" y="80" width="260" height="100" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="150" y="120" text-anchor="middle" font-size="20" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#475569">validate_days()</text>
+  <text x="150" y="154" text-anchor="middle" font-size="18" fill="#111827">Job: check records</text>
+  <rect x="390" y="80" width="260" height="100" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="520" y="120" text-anchor="middle" font-size="20" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">summarize_steps()</text>
+  <text x="520" y="154" text-anchor="middle" font-size="18" fill="#111827">Job: summarize the week</text>
+  <rect x="760" y="80" width="260" height="100" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="890" y="120" text-anchor="middle" font-size="20" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#475569">print_week()</text>
+  <text x="890" y="154" text-anchor="middle" font-size="18" fill="#111827">Job: print the summary</text>
+  <line x1="282" y1="130" x2="386" y2="130" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="334" y="116" text-anchor="middle" font-size="17" fill="#475569">good days</text>
+  <line x1="652" y1="130" x2="756" y2="130" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="704" y="116" text-anchor="middle" font-size="17" fill="#475569">summary</text>
+  <text x="150" y="214" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">[("Mon", 6200), ...]</text>
+  <text x="520" y="214" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">{"total": 38070,</text>
+  <text x="520" y="238" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827"> "goal_days": 3}</text>
+  <line x1="520" y1="250" x2="330" y2="320" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="520" y1="250" x2="710" y2="320" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="170" y="324" width="320" height="76" rx="10" fill="#ffffff" stroke="#C2410C" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="330" y="356" text-anchor="middle" font-size="18" font-weight="bold" fill="#C2410C">New job: email the summary</text>
+  <text x="330" y="384" text-anchor="middle" font-size="18" fill="#111827">a new function</text>
+  <rect x="550" y="324" width="320" height="76" rx="10" fill="#ffffff" stroke="#C2410C" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="710" y="356" text-anchor="middle" font-size="18" font-weight="bold" fill="#C2410C">New job: save it to a file</text>
+  <text x="710" y="384" text-anchor="middle" font-size="18" fill="#111827">a new function</text>
+  <text x="520" y="444" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">summarize_steps() returns its result, so new jobs never change it.</text>
+</svg>

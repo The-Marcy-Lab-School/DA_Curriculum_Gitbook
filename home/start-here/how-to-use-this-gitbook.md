@@ -1,152 +1,54 @@
-## Your Learning Loop
+# How to Use This GitBook
 
-This GitBook is designed to help you **prepare, learn, retrieve, apply, and explain**.
+**Time:** about 3 minutes
 
-You don't need to memorize how the system works.
+## Start every module the same way
 
-Just remember:
+1. Read the module's **Overview (Read FIRST)**. It shows every page in order, the new tools, and where you'll practice each skill.
+2. Read the module's **Introduction**. It explains what you'll learn, why it matters at work, and what the module project asks you to do.
+3. Then follow the pages in the sidebar, in order.
 
-**Read the Mission → Complete the Required Reading → Return → Test Yourself → Keep Moving**
+## How to use a quest page
 
----
+Every quest page has the same sections, in the same order. Use them in three steps.
 
-## 🎯 Complete the Main Mission
+### Before you read
 
-When you see:
+At the top, you'll see the **total time**. It counts both the GitBook page and the interactive reading. You'll also see which part of the module you're working on.
 
-**🎯 Main Mission — REQUIRED**
+Then read these sections:
 
-complete the linked interactive reading before moving on.
+* **Introduction:** what you're about to learn, and why it matters.
+* **Learning goals:** a checklist of what you'll be able to do.
+* **Quick recall:** something you already know that this reading builds on.
+* **New tool** (only when there is one): what the tool is for, and how you'll see it.
+* **Words to know:** the new terms, in plain words.
+* **Before you read:** a question to think about. Write down your first answer.
 
-Don't rush through it just to reach the Checkpoint.
+### While you read
 
-Look for the vocabulary, ideas, misconceptions, and workflows highlighted in the quest's **What to Hunt For** section.
+* Look at the **As you read, look for** list first. Then open the interactive reading.
+* When you finish, **submit the reading for credit**.
 
-Then return to GitBook.
+### After you read
 
----
+* **Main takeaways:** check your understanding against the summary and the common mix-ups.
+* **Quick check:** answer two questions. Then look back at your learning goals and check off each one you can do.
 
-## ⚡ Attempt Before You Reveal
+## Try before you look
 
-Many challenges use expandable Hints and Answers.
+Answers are hidden under **Answer**. Try first, then open it. A wrong first try is useful: it shows you exactly what to review.
 
-Use them in this order:
+## Checkpoints, Conclusions, and Boss Battles
 
-**1. Make Your First Attempt**
+* The **Checkpoint** helps you find what you still need to review before the project. Each question tells you which quest to go back to.
+* The **Conclusion** shows what you can do now, how to talk about it in an interview, and where the skills show up next.
+* The **Boss Battle (Module Project)** asks you to use every skill from the module on your own. Your instructor shares the details when the project starts.
 
-Commit to an answer before opening anything.
+## Use the GitBook in the way that works for you
 
-**2. Open the Hint**
-
-If you're stuck or unsure, reveal the Hint.
-
-Use it to rethink the concept—not simply guess again.
-
-**3. Make Your Second Attempt**
-
-Improve your original answer.
-
-**4. Open the Answer + Explanation**
-
-Compare your reasoning with the explanation.
-
-The goal isn't to avoid mistakes.
-
-The goal is to know **what you can retrieve independently and what needs another round**.
+Every picture has a text description, and important information is never shown by color alone. If anything in the GitBook or a reading is hard for you to use, tell your instructor.
 
 ---
 
-## 🧠 Use Your Vocabulary
-
-Technical vocabulary will return throughout the fellowship.
-
-When you encounter a Vocabulary Mission, don't focus only on recognizing the term.
-
-Work toward being able to:
-
-* **Recognize** it.
-* **Explain** it.
-* **Use** it correctly.
-* **Connect** it to your work.
-
-If you recognize a term but can't explain it clearly yet, that's a skill to reload.
-
----
-
-## 💼 Enter the Interview Arena
-
-Interview Arena questions ask you to explain a technical idea clearly and concisely.
-
-Try answering **before** opening the Hint or Example Answer.
-
-Don't memorize the example.
-
-Use it to compare:
-
-**Was my explanation technically accurate?**
-
-**Did I use the right vocabulary?**
-
-**Could someone follow my reasoning?**
-
-Your goal is to build an answer you can explain naturally.
-
----
-
-## 🏁 Use the Final Check
-
-At the end of a quest, you'll see a short Final Check.
-
-Use it as a decision point.
-
-### Ready?
-
-Move to the **Next Unlock**.
-
-### Almost?
-
-Identify the skill that's shaky and practice it again.
-
-### Reload?
-
-Return to the relevant part of the Required Reading before moving forward.
-
-Moving quickly isn't the goal.
-
-**Being able to use the skill later is.**
-
----
-
-## 🏆 Take Boss Battles Seriously
-
-Boss Battles ask you to combine skills in a larger task or project.
-
-You may have fewer instructions than you had during earlier practice.
-
-That's intentional.
-
-As your skills grow, you'll increasingly need to decide:
-
-**What do I know? → What evidence do I have? → What should I do next?**
-
-Your project work can also become evidence you use when discussing your skills professionally.
-
----
-
-## ♿ Use the Experience in the Way That Works for You
-
-The learning experience is designed so that important information isn't communicated through color alone.
-
-Images and instructional visuals should include text alternatives, and interactive elements should remain usable without relying on a mouse.
-
-If an element of the GitBook or a required reading creates an accessibility barrier, let your instructor know.
-
----
-
-## 🚀 Start Your First Module
-
-You know the system.
-
-Now build your foundation.
-
-[**Start Module 0 →**](../modules/module-00/README.md)
+**Next:** [Overview of Module 0 (Read FIRST)](../modules/module-00/overview.md)

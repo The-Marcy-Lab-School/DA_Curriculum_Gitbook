@@ -28,7 +28,7 @@ Check off each goal once you can do it.
 - [ ] I can run four checks on any new file: shape, data types, missing values, and duplicates.
 - [ ] I can filter rows on one or two conditions and sort the result.
 
-**Skills:** pandas DataFrames · Data Cleaning & Imputation
+**Skills:** Data Cleaning & Imputation
 
 ## Quick recall
 

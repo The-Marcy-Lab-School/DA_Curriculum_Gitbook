@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 440" width="1040" height="440" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">The same afternoon, two histories</title>
+  <desc id="d">Two outputs of git log --oneline for the same afternoon of work. Left, one big commit: 51fe55a updates, then e01019b Start the study guide. The date fix, the fractions section, and the typo fix are mixed into one commit, so it is hard to find when the fractions section changed. Right, three small commits, newest first: 2be44a6 Fix a typo in the README, d48a131 Add a section on fractions, b6c0073 Fix the test date, and 2121428 Start the study guide. Each change has its own commit and message.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="440" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">The same afternoon, two histories</text>
+  <rect x="15" y="62" width="495" height="360" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="262" y="98" text-anchor="middle" font-size="22" font-weight="bold" fill="#C2410C">One big commit</text>
+  <rect x="35" y="118" width="455" height="190" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <text x="51" y="148" text-anchor="start" font-size="17" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#111827">$ git log --oneline</text>
+  <text x="51" y="184" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">51fe55a updates</text>
+  <text x="51" y="216" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">e01019b Start the study guide</text>
+  <text x="262" y="352" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">Three changes are mixed</text>
+  <text x="262" y="382" text-anchor="middle" font-size="19" fill="#111827">into one commit called "updates."</text>
+  <rect x="530" y="62" width="495" height="360" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="777" y="98" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Three small commits</text>
+  <rect x="550" y="118" width="455" height="190" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <text x="566" y="148" text-anchor="start" font-size="17" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#111827">$ git log --oneline</text>
+  <text x="566" y="184" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">2be44a6 Fix a typo in the README</text>
+  <text x="566" y="216" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">d48a131 Add a section on fractions</text>
+  <text x="566" y="248" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">b6c0073 Fix the test date</text>
+  <text x="566" y="280" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">2121428 Start the study guide</text>
+  <text x="777" y="352" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">Each change has its own</text>
+  <text x="777" y="382" text-anchor="middle" font-size="19" fill="#111827">commit and message.</text>
+</svg>

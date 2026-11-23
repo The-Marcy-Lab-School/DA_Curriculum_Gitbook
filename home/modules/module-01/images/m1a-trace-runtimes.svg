@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 450" width="1040" height="450" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Tracing runtimes.py one pass at a time</title>
+  <desc id="d">On the left, the code: runtimes holds 98, 165 and 150. A for loop visits each runtime, and an if inside the loop body prints long slot when the runtime is over 150, and regular slot otherwise. On the right, a trace with one row per pass. Pass 1: runtime is 98, 98 &gt; 150 is False, it prints 98 regular slot. Pass 2: runtime is 165, 165 &gt; 150 is True, it prints 165 long slot. Pass 3: runtime is 150, 150 &gt; 150 is False, because 150 is not over 150, so it prints 150 regular slot.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="450" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Tracing runtimes.py one pass at a time</text>
+  <rect x="20" y="70" width="430" height="270" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="38.0" y="112" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">runtimes = [98, 165, 150]</text>
+  <text x="38.0" y="176" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">for runtime in runtimes:</text>
+  <text x="79.2" y="208" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">if runtime &gt; 150:</text>
+  <text x="120.4" y="240" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">print(runtime, "long slot")</text>
+  <text x="79.2" y="272" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">else:</text>
+  <text x="120.4" y="304" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">print(runtime, "regular slot")</text>
+  <rect x="470" y="70" width="550" height="56" rx="0" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="510.0" y="106" text-anchor="middle" font-size="19" font-weight="bold" fill="#1D4ED8">Pass</text>
+  <text x="610.0" y="106" text-anchor="middle" font-size="19" font-weight="bold" fill="#1D4ED8">runtime</text>
+  <text x="745.0" y="106" text-anchor="middle" font-size="19" font-weight="bold" fill="#1D4ED8">&gt; 150?</text>
+  <text x="920.0" y="106" text-anchor="middle" font-size="19" font-weight="bold" fill="#1D4ED8">What prints</text>
+  <rect x="470" y="126" width="550" height="71" rx="0" fill="#ffffff" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="510.0" y="169" text-anchor="middle" font-size="19" fill="#111827">1</text>
+  <text x="610.0" y="169" text-anchor="middle" font-size="19" fill="#111827">98</text>
+  <text x="745.0" y="169" text-anchor="middle" font-size="19" fill="#111827">False</text>
+  <text x="920.0" y="169" text-anchor="middle" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">98 regular slot</text>
+  <rect x="470" y="197" width="550" height="71" rx="0" fill="#ffffff" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="510.0" y="240" text-anchor="middle" font-size="19" fill="#111827">2</text>
+  <text x="610.0" y="240" text-anchor="middle" font-size="19" fill="#111827">165</text>
+  <text x="745.0" y="240" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">True</text>
+  <text x="920.0" y="240" text-anchor="middle" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">165 long slot</text>
+  <rect x="470" y="268" width="550" height="71" rx="0" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="510.0" y="311" text-anchor="middle" font-size="19" fill="#111827">3</text>
+  <text x="610.0" y="311" text-anchor="middle" font-size="19" fill="#111827">150</text>
+  <text x="745.0" y="311" text-anchor="middle" font-size="19" fill="#111827">False</text>
+  <text x="920.0" y="311" text-anchor="middle" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">150 regular slot</text>
+  <line x1="550" y1="70" x2="550" y2="339" stroke="#1D4ED8" stroke-width="1.5"/>
+  <line x1="670" y1="70" x2="670" y2="339" stroke="#1D4ED8" stroke-width="1.5"/>
+  <line x1="820" y1="70" x2="820" y2="339" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="745" y="372" text-anchor="middle" font-size="19" font-weight="bold" fill="#C2410C">Pass 3 is the edge case: 150 is not over 150.</text>
+  <text x="520" y="420" text-anchor="middle" font-size="19" fill="#475569">One pass is one iteration. Python checks the if again on every pass.</text>
+</svg>

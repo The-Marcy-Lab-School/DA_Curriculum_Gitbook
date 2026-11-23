@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" width="1040" height="500" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Three words for one pet's information</title>
+  <desc id="d">Three panels. Variable: a labeled box. The box pet_of_the_week holds Biscuit one week, then Mango the next week: same name, new value. Data type: what kind of value. Biscuit is text, 3 is a whole number, 12.5 is a decimal, True is true/false, and 2026-09-14 is a date. Data structure: values grouped together. One pet's record holds Mango's name, age, weight, adopted, and arrived values. The whole pets.csv file holds one record for every pet.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="500" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Three words for one pet's information</text>
+  <rect x="15" y="60" width="316" height="425" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="173" y="96" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Variable</text>
+  <text x="173" y="122" text-anchor="middle" font-size="18" fill="#111827">a labeled box</text>
+  <rect x="362" y="60" width="316" height="425" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="520" y="96" text-anchor="middle" font-size="22" font-weight="bold" fill="#C2410C">Data type</text>
+  <text x="520" y="122" text-anchor="middle" font-size="18" fill="#111827">what kind of value</text>
+  <rect x="709" y="60" width="316" height="425" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="867" y="96" text-anchor="middle" font-size="22" font-weight="bold" fill="#475569">Data structure</text>
+  <text x="867" y="122" text-anchor="middle" font-size="18" fill="#111827">values grouped together</text>
+  <text x="173" y="154" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">Week 1</text>
+  <rect x="53" y="166" width="240" height="90" rx="10" fill="#ffffff" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="173" y="196" text-anchor="middle" font-size="18" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#111827">pet_of_the_week</text>
+  <text x="173" y="234" text-anchor="middle" font-size="20" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">"Biscuit"</text>
+  <text x="173" y="320" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">Week 2</text>
+  <rect x="53" y="332" width="240" height="90" rx="10" fill="#ffffff" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="173" y="362" text-anchor="middle" font-size="18" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#111827">pet_of_the_week</text>
+  <text x="173" y="400" text-anchor="middle" font-size="20" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">"Mango"</text>
+  <line x1="173" y1="260" x2="173" y2="296" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="173" y="462" text-anchor="middle" font-size="18" font-weight="bold" fill="#1D4ED8">Same name, new value</text>
+  <rect x="380" y="152" width="132" height="46" rx="8" fill="#ffffff" stroke="#C2410C" stroke-width="2"/>
+  <text x="446" y="182" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">"Biscuit"</text>
+  <line x1="514" y1="175" x2="538" y2="175" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="544" y="182" text-anchor="start" font-size="18" font-weight="bold" fill="#C2410C">Text</text>
+  <rect x="380" y="214" width="132" height="46" rx="8" fill="#ffffff" stroke="#C2410C" stroke-width="2"/>
+  <text x="446" y="244" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">3</text>
+  <line x1="514" y1="237" x2="538" y2="237" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="544" y="244" text-anchor="start" font-size="18" font-weight="bold" fill="#C2410C">Whole number</text>
+  <rect x="380" y="276" width="132" height="46" rx="8" fill="#ffffff" stroke="#C2410C" stroke-width="2"/>
+  <text x="446" y="306" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">12.5</text>
+  <line x1="514" y1="299" x2="538" y2="299" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="544" y="306" text-anchor="start" font-size="18" font-weight="bold" fill="#C2410C">Decimal</text>
+  <rect x="380" y="338" width="132" height="46" rx="8" fill="#ffffff" stroke="#C2410C" stroke-width="2"/>
+  <text x="446" y="368" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">True</text>
+  <line x1="514" y1="361" x2="538" y2="361" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="544" y="368" text-anchor="start" font-size="18" font-weight="bold" fill="#C2410C">True/false</text>
+  <rect x="380" y="400" width="132" height="46" rx="8" fill="#ffffff" stroke="#C2410C" stroke-width="2"/>
+  <text x="446" y="430" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">2026-09-14</text>
+  <line x1="514" y1="423" x2="538" y2="423" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="544" y="430" text-anchor="start" font-size="18" font-weight="bold" fill="#C2410C">Date</text>
+  <text x="520" y="470" text-anchor="middle" font-size="17" fill="#475569">Values from the shelter</text>
+  <rect x="737" y="140" width="260" height="214" rx="10" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <text x="867" y="166" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">One pet's record (one row)</text>
+  <text x="859" y="198" text-anchor="end" font-size="18" fill="#475569">name</text>
+  <text x="871" y="198" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">Mango</text>
+  <text x="859" y="230" text-anchor="end" font-size="18" fill="#475569">age</text>
+  <text x="871" y="230" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">1</text>
+  <text x="859" y="262" text-anchor="end" font-size="18" fill="#475569">weight</text>
+  <text x="871" y="262" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">4.2</text>
+  <text x="859" y="294" text-anchor="end" font-size="18" fill="#475569">adopted</text>
+  <text x="871" y="294" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">False</text>
+  <text x="859" y="326" text-anchor="end" font-size="18" fill="#475569">arrived</text>
+  <text x="871" y="326" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">2026-10-02</text>
+  <rect x="737" y="372" width="260" height="92" rx="10" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <text x="867" y="400" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">The whole pets.csv file</text>
+  <text x="867" y="426" text-anchor="middle" font-size="17" fill="#111827">One record for every pet:</text>
+  <text x="867" y="450" text-anchor="middle" font-size="17" fill="#111827">a bigger data structure</text>
+</svg>

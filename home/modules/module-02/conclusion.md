@@ -13,7 +13,7 @@ Look at how far you've come. When this module started, your data was a short lis
 ## What you did
 
 * **11 readings**, from descriptive statistics to writing for stakeholders
-* **5 Data Challenges** on real public data, from college majors to airline safety
+* **5 Data Challenges** on real public data, from college majors to US births
 * **1 solo lab** on a dataset you'd never seen
 * **2 review days** where you checked AI-written code for hidden problems
 

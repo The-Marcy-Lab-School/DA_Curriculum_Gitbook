@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 500" width="1060" height="500" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">How the two accumulators change on each pass</title>
+  <desc id="d">A worked example of summarize_steps with the goal set to 8,000 steps. Before the loop, total is 0 and goal_days is 0. Monday, 6,200 steps, misses the goal: total 6,200, goal_days 0. Tuesday, 9,120 steps, meets it: total 15,320, goal_days 1. Wednesday, 8,000 steps, meets it: total 23,320, goal_days 2. Thursday, 4,300 steps, misses it: total 27,620, goal_days 2. Friday, 10,450 steps, meets it: total 38,070, goal_days 3. After the loop, the function returns the dictionary with total 38070 and goal_days 3.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1060" height="500" fill="#ffffff"/>
+  <text x="530" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">How the two accumulators change on each pass (goal = 8,000)</text>
+  <rect x="330" y="60" width="400" height="50" rx="25" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="530" y="92" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">Before the loop:  total = 0,  goal_days = 0</text>
+  <line x1="530" y1="112" x2="126" y2="154" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="36" y="158" width="180" height="220" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="126" y="192" text-anchor="middle" font-size="22" font-weight="bold" fill="#475569">Mon</text>
+  <text x="126" y="224" text-anchor="middle" font-size="18" fill="#111827">steps: 6,200</text>
+  <text x="126" y="254" text-anchor="middle" font-size="18" fill="#111827">Met goal? No</text>
+  <line x1="52" y1="274" x2="200" y2="274" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="126" y="306" text-anchor="middle" font-size="17" fill="#475569">total</text>
+  <text x="126" y="330" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">6,200</text>
+  <text x="126" y="358" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">goal_days: 0</text>
+  <line x1="218" y1="268" x2="236" y2="268" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="238" y="158" width="180" height="220" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="328" y="192" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Tue</text>
+  <text x="328" y="224" text-anchor="middle" font-size="18" fill="#111827">steps: 9,120</text>
+  <text x="328" y="254" text-anchor="middle" font-size="18" font-weight="bold" fill="#1D4ED8">Met goal? Yes</text>
+  <line x1="254" y1="274" x2="402" y2="274" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="328" y="306" text-anchor="middle" font-size="17" fill="#475569">total</text>
+  <text x="328" y="330" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">15,320</text>
+  <text x="328" y="358" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">goal_days: 1</text>
+  <line x1="420" y1="268" x2="438" y2="268" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="440" y="158" width="180" height="220" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="530" y="192" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Wed</text>
+  <text x="530" y="224" text-anchor="middle" font-size="18" fill="#111827">steps: 8,000</text>
+  <text x="530" y="254" text-anchor="middle" font-size="18" font-weight="bold" fill="#1D4ED8">Met goal? Yes</text>
+  <line x1="456" y1="274" x2="604" y2="274" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="530" y="306" text-anchor="middle" font-size="17" fill="#475569">total</text>
+  <text x="530" y="330" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">23,320</text>
+  <text x="530" y="358" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">goal_days: 2</text>
+  <line x1="622" y1="268" x2="640" y2="268" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="642" y="158" width="180" height="220" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="732" y="192" text-anchor="middle" font-size="22" font-weight="bold" fill="#475569">Thu</text>
+  <text x="732" y="224" text-anchor="middle" font-size="18" fill="#111827">steps: 4,300</text>
+  <text x="732" y="254" text-anchor="middle" font-size="18" fill="#111827">Met goal? No</text>
+  <line x1="658" y1="274" x2="806" y2="274" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="732" y="306" text-anchor="middle" font-size="17" fill="#475569">total</text>
+  <text x="732" y="330" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">27,620</text>
+  <text x="732" y="358" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">goal_days: 2</text>
+  <line x1="824" y1="268" x2="842" y2="268" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="844" y="158" width="180" height="220" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="934" y="192" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Fri</text>
+  <text x="934" y="224" text-anchor="middle" font-size="18" fill="#111827">steps: 10,450</text>
+  <text x="934" y="254" text-anchor="middle" font-size="18" font-weight="bold" fill="#1D4ED8">Met goal? Yes</text>
+  <line x1="860" y1="274" x2="1008" y2="274" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="934" y="306" text-anchor="middle" font-size="17" fill="#475569">total</text>
+  <text x="934" y="330" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">38,070</text>
+  <text x="934" y="358" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">goal_days: 3</text>
+  <line x1="934" y1="380" x2="760" y2="418" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="320" y="422" width="560" height="52" rx="26" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="600" y="455" text-anchor="middle" font-size="19" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#C2410C">return {"total": 38070, "goal_days": 3}</text>
+  <text x="36" y="410" text-anchor="start" font-size="17" fill="#475569">Blue: the day met the goal,</text>
+  <text x="36" y="432" text-anchor="start" font-size="17" fill="#475569">so goal_days goes up by 1.</text>
+</svg>

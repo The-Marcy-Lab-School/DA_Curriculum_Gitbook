@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 700" width="1040" height="700" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">How the checking function tests each form line</title>
+  <desc id="d">A flow for one sign-up form line, using the reading's five lines. Check 1, the structure check: does the line have exactly 3 fields? If no, add a problem: Line 2, S-2042|Chemistry, expected 3 fields. If yes, check 2, a value check: is the grade all digits? If no, add a problem: Line 3, grade 10th is not a number. If yes, check 3, a value check: is the grade from 9 to 12? If no, add a problem: Line 4, grade 14 is outside 9-12. If yes, the line is valid and adds no message, like lines 1 and 5. After the last line, the function returns the list of problems.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="700" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">How the checking function tests each form line</text>
+  <rect x="120" y="58" width="320" height="50" rx="25" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="280" y="90" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">One form line</text>
+  <line x1="280" y1="110" x2="280" y2="138" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="80" y="142" width="400" height="84" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="280" y="176" text-anchor="middle" font-size="20" font-weight="bold" fill="#1D4ED8">1. Structure check</text>
+  <text x="280" y="206" text-anchor="middle" font-size="19" fill="#111827">Exactly 3 fields?</text>
+  <line x1="482" y1="184" x2="596" y2="184" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="539" y="174" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">No</text>
+  <rect x="600" y="142" width="400" height="84" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="800" y="178" text-anchor="middle" font-size="19" fill="#111827">Line 2: expected 3 fields</text>
+  <text x="800" y="206" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">S-2042|Chemistry</text>
+  <line x1="280" y1="228" x2="280" y2="258" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="292" y="250" text-anchor="start" font-size="18" font-weight="bold" fill="#475569">Yes</text>
+  <rect x="80" y="262" width="400" height="84" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="280" y="296" text-anchor="middle" font-size="20" font-weight="bold" fill="#1D4ED8">2. Value check</text>
+  <text x="280" y="326" text-anchor="middle" font-size="19" fill="#111827">Is the grade all digits?</text>
+  <line x1="482" y1="304" x2="596" y2="304" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="539" y="294" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">No</text>
+  <rect x="600" y="262" width="400" height="84" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="800" y="298" text-anchor="middle" font-size="19" fill="#111827">Line 3: grade '10th'</text>
+  <text x="800" y="326" text-anchor="middle" font-size="18" fill="#111827">is not a number</text>
+  <line x1="280" y1="348" x2="280" y2="378" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="292" y="370" text-anchor="start" font-size="18" font-weight="bold" fill="#475569">Yes</text>
+  <rect x="80" y="382" width="400" height="84" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="280" y="416" text-anchor="middle" font-size="20" font-weight="bold" fill="#1D4ED8">3. Value check</text>
+  <text x="280" y="446" text-anchor="middle" font-size="19" fill="#111827">Is the grade 9 to 12?</text>
+  <line x1="482" y1="424" x2="596" y2="424" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="539" y="414" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">No</text>
+  <rect x="600" y="382" width="400" height="84" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="800" y="418" text-anchor="middle" font-size="19" fill="#111827">Line 4: grade 14</text>
+  <text x="800" y="446" text-anchor="middle" font-size="18" fill="#111827">is outside 9-12</text>
+  <line x1="280" y1="468" x2="280" y2="498" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="292" y="490" text-anchor="start" font-size="18" font-weight="bold" fill="#475569">Yes</text>
+  <rect x="80" y="502" width="400" height="84" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="280" y="536" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">Valid: no message</text>
+  <text x="280" y="566" text-anchor="middle" font-size="18" fill="#111827">Lines 1 and 5 pass every rule</text>
+  <text x="800" y="536" text-anchor="middle" font-size="18" fill="#475569">Each problem goes into the list</text>
+  <text x="800" y="562" text-anchor="middle" font-size="18" fill="#475569">with problems.append(...)</text>
+  <rect x="80" y="622" width="640" height="50" rx="25" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="400" y="654" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">After the last line: return problems (3 problems found)</text>
+  <line x1="280" y1="588" x2="280" y2="618" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+</svg>

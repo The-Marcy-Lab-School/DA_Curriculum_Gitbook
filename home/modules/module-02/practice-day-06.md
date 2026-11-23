@@ -14,7 +14,7 @@ There's no new topic today. You'll practice what you learned in the first five q
 
 ## What you'll do in class
 
-* Answer two recall questions from memory.
+* Answer three recall questions from memory. One of them is from Module 1.
 * Follow a classmate-led code-along that uses stats, pandas, and a chart.
 * Check a piece of AI-written profiling code. It quietly drops rows, and your job is to catch it.
 

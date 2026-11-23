@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" width="1040" height="500" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">The inner loop finishes before the outer loop moves on</title>
+  <desc id="d">The order checkpoints.py prints its 12 lines. Outer pass 1, world Forest: the inner loop runs checkpoints 1, 2, 3 and 4, which print lines 1 to 4. Then the outer loop moves on to Desert, which prints lines 5 to 8, and then to Ice, which prints lines 9 to 12. 3 outer passes times 4 inner passes is 12 lines.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="500" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">The inner loop finishes before the outer loop moves on</text>
+  <text x="120" y="84" text-anchor="middle" font-size="19" font-weight="bold" fill="#C2410C">Outer loop</text>
+  <text x="120" y="108" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">for world in worlds:</text>
+  <text x="570" y="84" text-anchor="middle" font-size="19" font-weight="bold" fill="#1D4ED8">Inner loop, run all the way through on each outer pass</text>
+  <text x="570" y="108" text-anchor="middle" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">for checkpoint in range(4):</text>
+  <rect x="20" y="130" width="200" height="80" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="120" y="163" text-anchor="middle" font-size="19" font-weight="bold" fill="#C2410C">Outer pass 1</text>
+  <text x="120" y="190" text-anchor="middle" font-size="18" fill="#111827">world = Forest</text>
+  <line x1="222" y1="170" x2="256" y2="170" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="260" y="130" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="322" y="163" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 1</text>
+  <text x="322" y="190" text-anchor="middle" font-size="18" fill="#111827">line 1</text>
+  <line x1="386" y1="170" x2="414" y2="170" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="416" y="130" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="478" y="163" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 2</text>
+  <text x="478" y="190" text-anchor="middle" font-size="18" fill="#111827">line 2</text>
+  <line x1="542" y1="170" x2="570" y2="170" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="572" y="130" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="634" y="163" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 3</text>
+  <text x="634" y="190" text-anchor="middle" font-size="18" fill="#111827">line 3</text>
+  <line x1="698" y1="170" x2="726" y2="170" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="728" y="130" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="790" y="163" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 4</text>
+  <text x="790" y="190" text-anchor="middle" font-size="18" fill="#111827">line 4</text>
+  <text x="872" y="177" text-anchor="start" font-size="18" fill="#475569">next world</text>
+  <line x1="912" y1="188" x2="912" y2="230" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="20" y="235" width="200" height="80" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="120" y="268" text-anchor="middle" font-size="19" font-weight="bold" fill="#C2410C">Outer pass 2</text>
+  <text x="120" y="295" text-anchor="middle" font-size="18" fill="#111827">world = Desert</text>
+  <line x1="222" y1="275" x2="256" y2="275" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="260" y="235" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="322" y="268" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 1</text>
+  <text x="322" y="295" text-anchor="middle" font-size="18" fill="#111827">line 5</text>
+  <line x1="386" y1="275" x2="414" y2="275" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="416" y="235" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="478" y="268" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 2</text>
+  <text x="478" y="295" text-anchor="middle" font-size="18" fill="#111827">line 6</text>
+  <line x1="542" y1="275" x2="570" y2="275" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="572" y="235" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="634" y="268" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 3</text>
+  <text x="634" y="295" text-anchor="middle" font-size="18" fill="#111827">line 7</text>
+  <line x1="698" y1="275" x2="726" y2="275" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="728" y="235" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="790" y="268" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 4</text>
+  <text x="790" y="295" text-anchor="middle" font-size="18" fill="#111827">line 8</text>
+  <text x="872" y="282" text-anchor="start" font-size="18" fill="#475569">next world</text>
+  <line x1="912" y1="293" x2="912" y2="335" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="20" y="340" width="200" height="80" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="120" y="373" text-anchor="middle" font-size="19" font-weight="bold" fill="#C2410C">Outer pass 3</text>
+  <text x="120" y="400" text-anchor="middle" font-size="18" fill="#111827">world = Ice</text>
+  <line x1="222" y1="380" x2="256" y2="380" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="260" y="340" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="322" y="373" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 1</text>
+  <text x="322" y="400" text-anchor="middle" font-size="18" fill="#111827">line 9</text>
+  <line x1="386" y1="380" x2="414" y2="380" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="416" y="340" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="478" y="373" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 2</text>
+  <text x="478" y="400" text-anchor="middle" font-size="18" fill="#111827">line 10</text>
+  <line x1="542" y1="380" x2="570" y2="380" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="572" y="340" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="634" y="373" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 3</text>
+  <text x="634" y="400" text-anchor="middle" font-size="18" fill="#111827">line 11</text>
+  <line x1="698" y1="380" x2="726" y2="380" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="728" y="340" width="124" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="790" y="373" text-anchor="middle" font-size="17" font-weight="bold" fill="#1D4ED8">checkpoint 4</text>
+  <text x="790" y="400" text-anchor="middle" font-size="18" fill="#111827">line 12</text>
+  <text x="872" y="387" text-anchor="start" font-size="18" fill="#475569">done</text>
+  <text x="520" y="470" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">3 outer passes  ×  4 inner passes  =  12 lines printed</text>
+</svg>

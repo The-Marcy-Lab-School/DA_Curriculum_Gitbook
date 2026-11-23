@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Checking the chatbot's answer</title>
+  <desc id="d">At the top, the chatbot's answer: Your volunteers collected 64 bags of trash, the most of any park cleanup this year, according to a 2025 city news report. Below, four steps in order. 1, Find the exact claim: 64 bags, and a 2025 city news report. 2, Find a real source: the cleanup log, cleanup_log.csv. 3, Compare: the log's bags add up to 9 plus 12 plus 7 plus 10 plus 8, which is 46, not 64, and the city news site has no such report. 4, Decide: fix the number to 46 bags, and drop the made-up report.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="470" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Checking the chatbot's answer</text>
+  <rect x="40" y="58" width="960" height="86" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="520" y="92" text-anchor="middle" font-size="19" fill="#111827">“Your volunteers collected 64 bags of trash, the most of any park</text>
+  <text x="520" y="122" text-anchor="middle" font-size="19" fill="#111827">cleanup this year, according to a 2025 city news report.”</text>
+  <rect x="10" y="180" width="228" height="220" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="124" y="216" text-anchor="middle" font-size="20" font-weight="bold" fill="#1D4ED8">1. Find the claim</text>
+  <text x="124" y="256" text-anchor="middle" font-size="18" fill="#111827">The number:</text>
+  <text x="124" y="290" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">64 bags</text>
+  <text x="124" y="336" text-anchor="middle" font-size="18" fill="#111827">The source: a 2025</text>
+  <text x="124" y="370" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">city news report</text>
+  <line x1="241" y1="290" x2="271" y2="290" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="274" y="180" width="228" height="220" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="388" y="216" text-anchor="middle" font-size="20" font-weight="bold" fill="#1D4ED8">2. Find a source</text>
+  <text x="388" y="256" text-anchor="middle" font-size="18" fill="#111827">The cleanup log:</text>
+  <text x="388" y="290" text-anchor="middle" font-size="18" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#111827">cleanup_log.csv</text>
+  <text x="388" y="336" text-anchor="middle" font-size="18" fill="#111827">The city's</text>
+  <text x="388" y="370" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">news site</text>
+  <line x1="505" y1="290" x2="535" y2="290" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="538" y="180" width="228" height="220" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="652" y="216" text-anchor="middle" font-size="20" font-weight="bold" fill="#1D4ED8">3. Compare</text>
+  <text x="652" y="256" text-anchor="middle" font-size="18" fill="#111827">9 + 12 + 7 + 10 + 8</text>
+  <text x="652" y="290" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">= 46 bags, not 64</text>
+  <text x="652" y="336" text-anchor="middle" font-size="18" fill="#111827">No such report</text>
+  <text x="652" y="370" text-anchor="middle" font-size="18" fill="#111827">on the news site</text>
+  <line x1="769" y1="290" x2="799" y2="290" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="802" y="180" width="228" height="220" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="916" y="216" text-anchor="middle" font-size="20" font-weight="bold" fill="#1D4ED8">4. Decide</text>
+  <text x="916" y="256" text-anchor="middle" font-size="18" fill="#111827">Fix the number:</text>
+  <text x="916" y="290" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">46 bags</text>
+  <text x="916" y="336" text-anchor="middle" font-size="18" fill="#111827">Drop the report:</text>
+  <text x="916" y="370" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">it was made up</text>
+  <line x1="124" y1="146" x2="124" y2="176" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="520" y="440" text-anchor="middle" font-size="19" font-weight="bold" fill="#C2410C">How sure an answer sounds does not tell you if it is true. Checking does.</text>
+</svg>

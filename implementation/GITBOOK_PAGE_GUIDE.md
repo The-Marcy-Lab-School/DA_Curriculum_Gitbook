@@ -122,10 +122,13 @@ GitBook needs a page for every item that expands in the sidebar, so keep this pa
 
 ### Module Introduction (`introduction.md`)
 
-1. **Where you've been**: 2 to 5 bullets on earlier skills this module uses. No module numbers.
+1. **Where you've been**: 2 to 5 bullets on earlier skills this module uses. No module numbers. (The first module uses **Where you're starting** instead: no experience needed.)
 2. **Where you're going**: what this module teaches, in 2 or 3 short sentences.
 3. **Why it matters for data work**: one real example of what goes wrong without these skills ("For example, a manager at…").
-4. **The big picture: the <name> workflow**: define *workflow*, show the diagram, then a table of each step and the question it answers. End with the tracker line exactly as quest pages show it.
+4. **The big picture**: one diagram of how the module's parts fit together, then a table of each part and the question it answers. End with the tracker line exactly as quest pages show it.
+   - When the module teaches steps in order, use a **workflow** (Module 2: `The big picture: the EDA workflow`, tracker `**EDA workflow:** Inspect → Clean → …`).
+   - When it teaches parts that work together, use a **concept map** and separate the tracker items with `·`, not arrows (Module 0: `**Analyst toolkit:** Understand data · Use the terminal · …`; Module 1: `**Building blocks:** Decide and repeat · Organize steps · …`).
+4a. **Explain the module's core tool or idea in depth** when it's brand new and every later module uses it. Give it its own section before the big picture. Examples: Module 0's "The terminal and the shell" (terminal vs. shell, bash vs. zsh, Mac vs. Windows); Module 1's "What is Python?", "Why data professionals use Python", and "Python syntax and style" (syntax vs. PEP 8).
 5. **What you'll be able to do**: the module's outcomes, one bullet per workflow step.
 6. **Skills you'll build**: every rubric skill, grouped (for example: Working with numbers, Preparing data, Showing and telling, Thinking critically), with a plain meaning for each.
 7. **The Boss Battle (Module Project)**: its own section, written to excite. Say what students will do as the analyst, that they'll run the whole workflow on their own, and what they'll have at the end. Stay at the skill level: no topics, deliverables, or file names. End with "Your instructor will share the dataset choices and the exact requirements."

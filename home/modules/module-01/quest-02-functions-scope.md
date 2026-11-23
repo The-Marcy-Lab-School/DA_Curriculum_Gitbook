@@ -1,113 +1,174 @@
-## Quest 1.2 — Build It Once, Use It Again (Days 3–5)
+# Quest 1.2 — Build It Once, Use It Again: Functions and Scope (Days 3–5)
 
-### 🎯 Your Mission
+**Total time:** about 60 minutes
 
-A program can work and still be difficult to understand, test, or reuse.
+**Building blocks:** Decide and repeat · **Organize steps** · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
-Functions help you divide a larger problem into smaller jobs with clear inputs and outputs.
+## Introduction
 
-Then **Scope** determines where the variables involved in those jobs can be used.
+Some steps are worth writing down once. For example, a cook writes a pancake recipe on a card. Each time she cooks, she follows the same card. Only the number of people changes. If she improves the recipe, she fixes one card, not ten copies.
 
-**Target:** Explain and use Functions, Parameters, Return Values, and Scope to organize reusable work.
+In code, that card is a **function**: a set of steps with a name that you can reuse.
 
----
+In this reading, you'll learn how to:
 
-## 🔑 Vocabulary Mission
+* write a function once and use it many times
+* pass values into a function, and get one result back out
+* tell a function's own variables apart from the ones the whole program can use
 
-Be ready to recognize and explain:
+**Main takeaway:** A function keeps one job in one place. Values go in through its inputs, and one result comes back out with `return`.
 
-* **Function**
-* **Parameter**
-* **Argument**
-* **Return Value**
-* **Local Variable**
-* **Global Variable**
-* **Scope**
+**Why it matters at work:** Analysts run the same steps on many files: clean, check, and sum. If those steps are copied into many places, one missed copy gives a wrong number. A function puts the fix in one place.
 
-Pay special attention to the relationships:
+## Learning goals
 
-**Parameter ↔ Argument**
+Check off each goal once you can do it.
 
-**Local Variable ↔ Scope**
+- [ ] I can write a function with parameters, call it with arguments, and use its return value.
+- [ ] I can explain the difference between `print` and `return`.
+- [ ] I can tell whether a variable is local or global, and say where it can be used.
 
-**Function ↔ Return Value**
+**Skills:** Functions & Modular Programming
 
----
+## Quick recall
 
-## 🎮 Warm-Up: One Giant Block?
+* Recall that `minutes = minutes - 10` works out the right side first. Then it stores the result back under the same name. You traced it in [Trace the Path](quest-01-control-flow.md). Function bodies use the same kind of update.
+* Recall that indentation tells Python which lines belong to a block, from [Trace the Path](quest-01-control-flow.md). A function's steps are a block too. Where a line sits changes when it runs.
 
-Imagine a program that needs to:
+## Words to know
 
-**Read Data → Validate Data → Summarize Data → Print Results**
+### What is a function?: Functions
 
-You could write all four jobs in one long block of code.
+**Modular** means built from small, separate pieces. **Modular programming** means splitting a program into small functions, each with one job. You can test and fix each piece on its own.
 
-Or you could divide the work into smaller Functions.
+| Word | What it means |
+| --- | --- |
+| **Function** | A named, reusable block of code. You define it once and call it as many times as you need. |
+| **Define** | Write the lines that create a function. Defining a function does *not* run it. |
+| **`def` line** | The first line of a function: `def`, the function's name, its inputs in parentheses, and a colon. |
+| **Function body** | The pushed-in lines under the `def` line. They are the function's steps. |
+| **Call** | Run a function by writing its name and parentheses, like `wash_cost(2, 3.5)`. Only a call runs the body. |
+| **`return`** | Hands a value back to the line that called the function. It also ends the function right away. |
+| **Return value** | The value a function hands back. The calling line can store it, add it to a total, or print it. |
+| **`None`** | Python's word for "no value." A function with no `return` line hands back `None`. |
 
-Which approach would you rather debug?
+Function names follow the same style as variable names: lowercase words joined by underscores, like `wash_cost`. This is called `snake_case`. The rule comes from PEP 8, Python's style guide. See [the Module 1 Introduction](introduction.md#python-syntax-and-style).
 
-Why?
+### What goes in?: Parameters and arguments
 
-Lock in your answer before the readings.
+You'll use these two words in every module after this one, so learn them exactly.
 
----
+| Word | What it means |
+| --- | --- |
+| **Parameter** | A name in the function's `def` line. It holds a spot for an input value. |
+| **Argument** | The value passed in at a call. It fills the matching parameter. |
 
-# 🎯 Main Mission — REQUIRED
+For example:
 
-Days 3–4 have **two required readings**.
+```python
+def drink_cost(cups, price_per_cup):
+    return cups * price_per_cup
 
-Day 5 brings the ideas back together through retrieval and practice.
+total = drink_cost(3, 2.5)
+print(total)  # 7.5
+```
 
-Complete both readings before moving to the Checkpoint.
+**Code walkthrough:**
 
-## 🧩 Part 1 — Build It Once, Use It Again — Day 3
+1. The `def` line defines a function named `drink_cost`. It has two parameters: `cups` and `price_per_cup`.
+2. The body has one line. It multiplies the two parameters and returns the result.
+3. `drink_cost(3, 2.5)` calls the function. This call sets the parameter `cups` to the argument `3`, and the parameter `price_per_cup` to the argument `2.5`.
+4. The function returns `7.5`, and `total = ...` stores that return value in `total`.
+5. `print(total)` shows `7.5` on the screen. The function itself printed nothing.
 
-**Lecture Connection:** Functions, Parameters & Return Values
+![On the left, the call saved = wash_cost(2, 3.5). An arrow goes into a function box labeled def wash_cost(loads, price_per_load). Step 1: each parameter gets its argument, so loads is 2 and price_per_load is 3.5. Step 2: the body runs, loads times price_per_load, 2 times 3.5 equals 7.0. Step 3: return hands back 7.0. An arrow goes back to the left, where saved now holds 7.0, the return value.](images/m1a-function-call.svg)
 
-As you complete the reading, hunt for this workflow:
+### New pieces of code in the readings
 
-**Argument → Parameter → Function Body → Return Value**
+| Code | What it does |
+| --- | --- |
+| **`"WASHER " + "W-12"`** | `+` between two strings joins them: `"WASHER W-12"`. |
+| **`str(7.0)`** | Turns a number into text: `"7.0"`. `+` can only join text to text. |
+| **f-string** | Text with `f` before the opening quote. Python fills each `{name}` with that variable's value. `f"Cost: ${saved}"` becomes `Cost: $7.0`. |
+| **`total += loads`** | A short way to write `total = total + loads`. |
+| **`min(170, 150)`** | A function that gives back the smaller value: `150`. |
 
-Pay attention to:
+### Where can a name be used?: Scope
 
-* Why Functions are useful.
-* How Parameters define expected inputs.
-* How Arguments provide actual values.
-* What `return` does.
-* Why returning and printing are not the same thing.
+**Scope** is the part of a program where a name can be seen and used. Ask: "At this line, which names exist?"
 
-[**Start Required Reading: Build It Once, Use It Again →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/functions-params/reading-1-builditonce/)
+| Word | What it means |
+| --- | --- |
+| **Local variable** | A variable created inside a function, including its parameters. Only that function can see it. It stops existing when the function returns. |
+| **Global variable** | A variable created outside every function. It exists for the whole program. Any function can read it. |
+| **`global`** | A word you can put in a function to change a global. The readings show it but suggest a parameter instead, because a parameter makes the call show everything the function needs. |
 
-When you return, be ready to explain:
+### What went wrong?: Error messages
 
-> **What information goes into a Function, and how can a result come back out?**
+| Word | What it means |
+| --- | --- |
+| **Traceback** | What Python prints when it stops with an error. Read the last line first: it names the error. Then find the line number and the `^^^` marks under the part that failed. |
+| **`NameError`** | Code used a name that doesn't exist at that line. For example, it used a local variable after its function returned. |
+| **`UnboundLocalError`** | A function read a local variable before giving it a value. |
 
----
+## Before you read
 
-## 🔒 Part 2 — Who Can See This Variable? — Day 4
+In the first reading, you'll focus on a laundromat. One load of washing costs $3.50. The program works out each bill by copying the same math for every customer. Then the price goes up to $4.00.
 
-**Lecture Connection:** Local vs. Global Variables & Scope
+Think about: what could go wrong when someone updates the price? How could you write the math so there's only one place to change? Write down your first answer, then see if the reading agrees.
 
-Now focus on where variables exist.
+## Read
 
-Hunt for:
+There are two readings, one on Day 3 and one on Day 4. Do them in order. Day 5 has no new reading. In class, you'll practice loops, conditionals, and functions together.
 
-* Where a variable is created.
-* Where that variable can be accessed.
-* The difference between Local and Global Scope.
-* Why a Local Variable doesn't automatically exist everywhere.
+### Reading 1 (Day 3)
 
-[**Start Required Reading: Who Can See This Variable? →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/local-global-vars/reading-1-whocanseethisvar/)
+As you read, look for:
 
-When you return, be ready to answer:
+1. What happens when a file defines a function but never calls it.
+2. In `machine_label("W-12")`, which part is the parameter and which is the argument.
+3. Why `show_cost` hands back `None`, and why `total_loads` returns 12 instead of 36.
 
-> **How can you determine whether a particular line of code can access a variable?**
+**[Start the reading: Build It Once, Use It Again →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/functions-params/reading-1-builditonce/)** (about 23 minutes)
 
----
+### Reading 2 (Day 4)
 
-# ⚡ Checkpoint 1: Parameter or Argument?
+As you read, look for:
 
-Consider:
+1. Which names stop existing when `ticket_price` returns, and which value is kept.
+2. Why a function that reads a global breaks when someone copies it into a new file.
+3. Why `tickets_issued = tickets_issued + 1` inside a function causes an error.
+
+**[Start the reading: Who Can See This Variable? →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/local-global-vars/reading-1-whocanseethisvar/)** (about 23 minutes)
+
+## Main takeaways
+
+### Summary
+
+* **Define once, call many times.** Only a call runs a function's body. Each call can pass in different arguments without changing the function's code.
+* **`return` hands a value back; `print` only shows it.** Store the return value to use it later. A `return` also ends the function, so check its indentation.
+* **Local names live only during the call.** After a function returns, only its return value is kept. If a function needs a value, pass it in as a parameter instead of reading a global.
+
+![A map of ticket_cap_global.py. A large grey box is the global scope: names created outside every function, which last the whole program. It holds price_cap = 150 and ticket_total = 150. Inside it, a blue box is the local scope of ticket_price, which exists only while the function runs. It holds the parameters base_cost = 90 and minutes_over = 40, and ticket_cost = 170, created in the body. An arrow shows the function can read price_cap. Another arrow shows return hands back 150 into ticket_total. An orange note says print(ticket_cost) outside the function gives a NameError, because the local name is gone after the return.](images/m1a-scope-map.svg)
+
+### Common mix-ups
+
+| If you think... | What's actually true |
+| --- | --- |
+| "Python runs a function when it reaches the `def` line." | The `def` line only defines it. Only a call runs the body. |
+| "The parameter is the value I pass in." | The parameter is the name in the `def` line. The value you pass in is the argument. |
+| "`print` and `return` do the same job." | `print` shows a value to a person. `return` hands it back to the code. A function with no `return` gives back `None`. |
+| "After a function runs, I can use its local variables." | They're gone. Store the return value in a variable instead. |
+| "Reading a global inside a function is always fine." | It works only where that global exists. A parameter makes the call show everything the function needs. |
+
+### How this connects
+
+* **Next reading:** You'll look at how much work your code does as the data grows. For example, checking a list one item at a time takes longer as the list gets longer.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll split a program into small functions, each with clear inputs and a return value. Then you can test and fix each one on its own.
+
+## Quick check
+
+**1.** In this code, what is the parameter, and what is the argument?
 
 ```python
 def greet(name):
@@ -116,149 +177,14 @@ def greet(name):
 message = greet("Maya")
 ```
 
-In this example:
-
-**What is the Parameter?**
-
-**What is the Argument?**
-
-### First Attempt
-
-Answer without reopening the reading.
-
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Look in two places:
-
-1. The Function **definition**.
-2. The Function **call**.
+`name` is the parameter: it's the name in the `def` line. `"Maya"` is the argument: it's the value passed in at the call. This call sets the parameter `name` to the argument `"Maya"`.
 
 </details>
 
-### Second Attempt
-
-Try again before revealing the Answer.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-`name` is the **Parameter**.
-
-```python
-def greet(name):
-```
-
-The Parameter is part of the Function definition.
-
-`"Maya"` is the **Argument**.
-
-```python
-greet("Maya")
-```
-
-The Argument is the actual value supplied when the Function is called.
-
-</details>
-
----
-
-# ⚡ Checkpoint 2: Return or Print?
-
-Which statement best describes `return`?
-
-**A.** It only displays a value on the screen.
-
-**B.** It sends a result back from a Function so other code can use it.
-
-### First Attempt
-
-Choose before opening the Hint.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Could another part of the program store and reuse the Function's result?
-
-</details>
-
-### Second Attempt
-
-Choose again.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-**B.**
-
-A Return Value sends a result back to the code that called the Function.
-
-For example:
-
-```python
-def double(number):
-    return number * 2
-
-result = double(4)
-```
-
-The returned value `8` can be stored in `result` and used elsewhere.
-
-Printing and returning are different jobs.
-
-</details>
-
----
-
-# 🔒 Scope Check
-
-Consider:
-
-```python
-def build_label(name):
-    label = "Item: " + name
-    return label
-```
-
-After the Function finishes, can unrelated code outside the Function automatically use the variable `label` by name?
-
-### First Attempt
-
-Explain why or why not.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Where was `label` created?
-
-Think about **Local Scope**.
-
-</details>
-
-### Second Attempt
-
-Try again.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-No.
-
-`label` is a **Local Variable** created inside `build_label()`.
-
-The Function can return the **value** stored in `label`, but that doesn't make the Local Variable name `label` automatically available everywhere else.
-
-This distinction matters:
-
-**Returning a Value ≠ Making a Local Variable Global**
-
-</details>
-
----
-
-# 🐛 Bug Hunt: Wrong Scope
-
-Consider:
+**2.** The programmer expects this code to print `15`. What happens instead, and how would you fix it?
 
 ```python
 def calculate_total(price, quantity):
@@ -266,135 +192,21 @@ def calculate_total(price, quantity):
     return total
 
 calculate_total(5, 3)
-
 print(total)
 ```
 
-The programmer expects `15` to print.
-
-What's the problem?
-
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Where was `total` created?
-
-Where is the programmer trying to access it?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-`total` is a Local Variable inside `calculate_total()`.
-
-The Function returns its value, but the programmer doesn't store that returned value.
-
-One correction is:
+It stops with a `NameError`. `total` is a local variable, so it stopped existing when the function returned. The return value was never stored. One fix:
 
 ```python
 result = calculate_total(5, 3)
 print(result)
 ```
 
-Now the returned value is stored in `result`, which can be used by the code outside the Function.
-
 </details>
 
 ---
 
-# ⚔️ Recall & Practice — Day 5
-
-**Lecture Connection:** Recall & Practice: Loops, Conditionals, Functions
-
-No new reading.
-
-Retrieve what you've learned without reopening the previous pages.
-
-### Round 1 — Control Flow
-
-What determines whether an `if` branch executes?
-
-### Round 2 — Loops
-
-What changes from one Iteration to the next?
-
-### Round 3 — Functions
-
-Explain the difference between a Parameter and an Argument.
-
-### Round 4 — Return Values
-
-Why might another part of a program need a Function to `return` a value instead of only printing it?
-
-### Round 5 — Scope
-
-Why doesn't a Local Variable automatically become available outside its Function?
-
-### Round 6 — Put It Together
-
-Imagine a Function that loops through transaction quantities and returns the total.
-
-Identify:
-
-* The likely **Parameter**.
-* The role of the **Loop**.
-* A possible **Local Variable**.
-* The **Return Value**.
-
-Anything you can't explain clearly becomes a **Reload**.
-
-Go back only to the concept you couldn't retrieve, then try again.
-
----
-
-# 💼 Interview Arena
-
-> **Why would you split a program into smaller Functions instead of writing one long script?**
-
-<details>
-<summary>💡 Hint — Open If You're Stuck</summary>
-
-Think about:
-
-**Responsibility → Testing → Debugging → Reuse**
-
-</details>
-
-<details>
-<summary>✅ Example Answer — Open After You've Answered</summary>
-
-I use smaller Functions to give different parts of the program clear responsibilities and defined inputs and outputs.
-
-That makes individual pieces easier to understand, test, debug, and reuse than one long block of code.
-
-It also helps me isolate a problem because I can test one Function instead of reasoning about the entire program at once.
-
-</details>
-
----
-
-# 🏁 Final Check
-
-You're ready to move on when you can:
-
-* Explain **Function**, **Parameter**, **Argument**, and **Return Value**.
-* Distinguish a Parameter from an Argument in code.
-* Distinguish `print()` from `return`.
-* Explain Local and Global Scope.
-* Explain why a Local Variable doesn't automatically leak outside a Function.
-* Use a returned value outside the Function that produced it.
-* Combine Functions with Loops and Conditionals.
-* Explain why smaller, focused Functions can make code easier to test and debug.
-
-If one of those still feels shaky, reload that concept before moving on.
-
----
-
-# 🔓 Next Unlock
-
-Your code works on a few values.
-
-But what happens when the amount of data becomes much larger?
-
-[**Continue to Quest 1.3 — When the Crowd Grows (Day 6) →**](quest-03-big-o-intuition.md)
+**Next:** [Quest 1.3 — When the Crowd Grows: How Code Speed Scales (Day 6)](quest-03-big-o-intuition.md)
