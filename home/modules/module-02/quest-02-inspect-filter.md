@@ -1,4 +1,4 @@
-# Quest 2.2 — Look Before You Filter (Inspecting and Filtering Data)
+# Quest 2.2 — Look Before You Filter (Inspecting and Filtering Data) (Day 2)
 
 **Day 2** · Total time: about 35 minutes (this page: about 15 minutes + the interactive reading: about 20 minutes)
 
@@ -202,4 +202,4 @@ At least one weight is blank. pandas stores a blank number as NaN, which is a de
 
 ---
 
-**Next:** [Quest 2.3 — One Row Per Group (Grouping, New Columns, and Merging)](quest-03-group-columns.md)
+**Next:** [Quest 2.3 — One Row Per Group (Grouping, New Columns, and Merging) (Day 3)](quest-03-group-columns.md)

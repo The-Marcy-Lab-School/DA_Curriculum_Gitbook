@@ -1,4 +1,4 @@
-# Quest 2.9 — The Pattern Isn't the Proof (Asking Questions About Your Data)
+# Quest 2.9 — The Pattern Isn't the Proof (Asking Questions About Your Data) (Day 10)
 
 **Day 10** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -139,4 +139,4 @@ Origin (who collected it, and how), Completeness (what's missing, and why), and 
 
 ---
 
-**Next:** [Quest 2.10 — Two Sets of Eyes (Checking AI on Charts)](quest-10-ai-on-charts.md)
+**Next:** [Quest 2.10 — Two Sets of Eyes (Checking AI on Charts) (Day 11)](quest-10-ai-on-charts.md)

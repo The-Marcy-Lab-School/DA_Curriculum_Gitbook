@@ -1,4 +1,4 @@
-# Quest 2.10 — Two Sets of Eyes (Checking AI on Charts)
+# Quest 2.10 — Two Sets of Eyes (Checking AI on Charts) (Day 11)
 
 **Day 11** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -138,4 +138,4 @@ Accept both claims. Your numbers and your chart back them up. Checking means agr
 
 ---
 
-**Next:** [Quest 2.11 — Nobody Was in the Room (Writing for Stakeholders)](quest-11-stakeholder-communication.md)
+**Next:** [Quest 2.11 — Nobody Was in the Room (Writing for Stakeholders) (Day 12)](quest-11-stakeholder-communication.md)

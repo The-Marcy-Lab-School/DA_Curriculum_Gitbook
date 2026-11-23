@@ -1,4 +1,4 @@
-# Quest 2.11 — Nobody Was in the Room (Writing for Stakeholders)
+# Quest 2.11 — Nobody Was in the Room (Writing for Stakeholders) (Day 12)
 
 **Day 12** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -144,4 +144,4 @@ Without the `!`, GitHub shows a plain link instead of the picture.
 
 ---
 
-**Next:** [Module 2 Checkpoint (Review and Solo Practice)](checkpoint.md)
+**Next:** [Module 2 Checkpoint (Review and Solo Practice) (Days 13–14)](checkpoint.md)

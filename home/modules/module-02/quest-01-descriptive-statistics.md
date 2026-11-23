@@ -1,4 +1,4 @@
-# Quest 2.1 — The Loudest Number (Descriptive Statistics)
+# Quest 2.1 — The Loudest Number (Descriptive Statistics) (Day 1)
 
 **Day 1** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -169,4 +169,4 @@ The data is right-skewed. A few big values pull the mean above the median, so th
 
 ---
 
-**Next:** [Quest 2.2 — Look Before You Filter (Inspecting and Filtering Data)](quest-02-inspect-filter.md)
+**Next:** [Quest 2.2 — Look Before You Filter (Inspecting and Filtering Data) (Day 2)](quest-02-inspect-filter.md)

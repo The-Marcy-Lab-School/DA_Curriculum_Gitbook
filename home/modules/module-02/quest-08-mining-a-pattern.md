@@ -1,4 +1,4 @@
-# Quest 2.8 — Beneath the Total (Finding Patterns in Groups)
+# Quest 2.8 — Beneath the Total (Finding Patterns in Groups) (Day 9)
 
 **Day 9** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
@@ -128,4 +128,4 @@ Not yet. One repair is too few to trust. Check it with more data first.
 
 ---
 
-**Next:** [Quest 2.9 — The Pattern Isn't the Proof (Asking Questions About Your Data)](quest-09-clarifying-questions.md)
+**Next:** [Quest 2.9 — The Pattern Isn't the Proof (Asking Questions About Your Data) (Day 10)](quest-09-clarifying-questions.md)

@@ -1,4 +1,4 @@
-# Quest 2.5 — Real Numbers, Wrong Story (Chart Best Practices)
+# Quest 2.5 — Real Numbers, Wrong Story (Chart Best Practices) (Day 5)
 
 **Day 5** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 19 minutes)
 
@@ -142,4 +142,4 @@ Yes, as long as the axis is labeled. A line chart's claim is the change from wee
 
 ---
 
-**Next:** [Practice Day (Review)](practice-day-06.md)
+**Next:** [Practice Day (Review) (Day 6)](practice-day-06.md)
