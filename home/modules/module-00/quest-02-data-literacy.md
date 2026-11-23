@@ -22,11 +22,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can explain the difference between a variable and its value.
-- [ ] I can name the data type of a value, and explain why an ID made of digits should be stored as text.
-- [ ] I can explain the difference between a data type and a data structure.
+* I can explain the difference between a variable and its value.
+* I can name the data type of a value, and explain why an ID made of digits should be stored as text.
+* I can explain the difference between a data type and a data structure.
 
 **Skills:** Data Literacy · General Programming & Coding
 

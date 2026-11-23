@@ -20,11 +20,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can count the worst-case checks in a linear search, and say how they change when the list doubles.
-- [ ] I can explain O(n) and O(1) in plain words.
-- [ ] I can explain why a fast test on a few items doesn't prove the code stays fast on many.
+* I can count the worst-case checks in a linear search, and say how they change when the list doubles.
+* I can explain O(n) and O(1) in plain words.
+* I can explain why a fast test on a few items doesn't prove the code stays fast on many.
 
 **Skills:** Algorithmic Complexity (Big-O)
 

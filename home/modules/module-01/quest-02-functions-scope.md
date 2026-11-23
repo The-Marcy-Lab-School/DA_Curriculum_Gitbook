@@ -22,11 +22,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can write a function with parameters, call it with arguments, and use its return value.
-- [ ] I can explain the difference between `print` and `return`.
-- [ ] I can tell whether a variable is local or global, and say where it can be used.
+* I can write a function with parameters, call it with arguments, and use its return value.
+* I can explain the difference between `print` and `return`.
+* I can tell whether a variable is local or global, and say where it can be used.
 
 **Skills:** Functions & Modular Programming
 

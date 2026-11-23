@@ -20,11 +20,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can split a number by two columns at once to compare every combination.
-- [ ] I can count what each group is made of before I compare groups, and spot a confound.
-- [ ] I can tell a finding worth reporting from one that rests on a tiny group or that everyone already knows.
+* I can split a number by two columns at once to compare every combination.
+* I can count what each group is made of before I compare groups, and spot a confound.
+* I can tell a finding worth reporting from one that rests on a tiny group or that everyone already knows.
 
 **Skills:** Data Mining · Statistical Analysis
 

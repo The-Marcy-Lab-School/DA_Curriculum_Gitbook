@@ -23,11 +23,11 @@ In these two readings, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can stage a change (pick it for my next commit) with `git add` and save it with `git commit`, with a message that says what changed.
-- [ ] I can explain the difference between a commit and a push, and between Git and GitHub.
-- [ ] I can explain why several small commits make a more useful history than one big commit.
+* I can stage a change (pick it for my next commit) with `git add` and save it with `git commit`, with a message that says what changed.
+* I can explain the difference between a commit and a push, and between Git and GitHub.
+* I can explain why several small commits make a more useful history than one big commit.
 
 **Skills:** Git & Version Control · Terminal & Command Line
 

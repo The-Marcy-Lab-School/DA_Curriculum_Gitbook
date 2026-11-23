@@ -23,11 +23,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can name the one branch of an `if`/`elif`/`else` chain that runs.
-- [ ] I can count how many times a loop runs, and spot an off-by-one error.
-- [ ] I can trace a nested loop or a nested conditional and predict every line it prints.
+* I can name the one branch of an `if`/`elif`/`else` chain that runs.
+* I can count how many times a loop runs, and spot an off-by-one error.
+* I can trace a nested loop or a nested conditional and predict every line it prints.
 
 **Skills:** Control Flow & Loops
 

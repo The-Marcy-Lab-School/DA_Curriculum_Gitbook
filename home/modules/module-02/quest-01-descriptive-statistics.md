@@ -22,11 +22,11 @@ In this reading, you'll learn:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can find the mean, median, and mode, and explain which one describes "typical" for a set of numbers.
-- [ ] I can describe how spread out data is with the standard deviation and the five-number summary, and say what units each one is in.
-- [ ] I can tell whether data is skewed, and keep a real outlier while reporting it on its own.
+* I can find the mean, median, and mode, and explain which one describes "typical" for a set of numbers.
+* I can describe how spread out data is with the standard deviation and the five-number summary, and say what units each one is in.
+* I can tell whether data is skewed, and keep a real outlier while reporting it on its own.
 
 **Skills:** Statistical Analysis · Data Distributions & Shape
 

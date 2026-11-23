@@ -22,11 +22,11 @@ You'll also learn how to put all the fixes into one function that you can run on
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can stack two tables and remove repeated records (rows about the same real thing) using a key column.
-- [ ] I can turn text into numbers and tidy up labels, then count what changed.
-- [ ] I can write a cleaning function and prove it's reusable by calling it on two different inputs.
+* I can stack two tables and remove repeated records (rows about the same real thing) using a key column.
+* I can turn text into numbers and tidy up labels, then count what changed.
+* I can write a cleaning function and prove it's reusable by calling it on two different inputs.
 
 **Skills:** Data Cleaning & Imputation · Functions & Modular Programming (from Module 1)
 

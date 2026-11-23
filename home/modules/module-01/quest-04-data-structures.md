@@ -27,11 +27,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can say how a list, a tuple, a dictionary, and a set differ in order, change, and repeats.
-- [ ] I can read, add, and replace values in a list and in a dictionary.
-- [ ] I can pick a container for a job and explain my choice with the rule that decides it.
+* I can say how a list, a tuple, a dictionary, and a set differ in order, change, and repeats.
+* I can read, add, and replace values in a list and in a dictionary.
+* I can pick a container for a job and explain my choice with the rule that decides it.
 
 **Skills:** Data Structures & Algorithms
 

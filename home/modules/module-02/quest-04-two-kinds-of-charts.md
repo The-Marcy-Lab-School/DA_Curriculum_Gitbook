@@ -20,11 +20,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can tell an exploratory chart (for me) apart from an explanatory chart (for a stakeholder, the person who will use your finding), and make the three changes that turn one into the other.
-- [ ] I can choose a chart type by asking what I'm comparing.
-- [ ] I can turn a text column into real dates and chart a count over time.
+* I can tell an exploratory chart (for me) apart from an explanatory chart (for a stakeholder, the person who will use your finding), and make the three changes that turn one into the other.
+* I can choose a chart type by asking what I'm comparing.
+* I can turn a text column into real dates and chart a count over time.
 
 **Skills:** Data Visualization · Stakeholder Communication
 

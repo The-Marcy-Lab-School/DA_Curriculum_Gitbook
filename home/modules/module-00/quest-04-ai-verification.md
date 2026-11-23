@@ -26,11 +26,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can explain the difference between an unverified claim and a verified fact.
-- [ ] I can check an AI claim against a real source: find the claim, find a source, compare, and decide.
-- [ ] I can explain what a hallucination is, and why asking the same chatbot "are you sure?" is not checking.
+* I can explain the difference between an unverified claim and a verified fact.
+* I can check an AI claim against a real source: find the claim, find a source, compare, and decide.
+* I can explain what a hallucination is, and why asking the same chatbot "are you sure?" is not checking.
 
 **Skills:** AI Literacy · Critical Thinking
 

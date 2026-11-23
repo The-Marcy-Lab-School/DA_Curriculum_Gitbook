@@ -20,11 +20,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can count missing values, then ask why they're missing and where.
-- [ ] I can choose drop, fill, or flag for each gap, and explain the choice with a number.
-- [ ] I can pick a fair stand-in for a fill: the mean, median, mode, forward-fill, or backward-fill.
+* I can count missing values, then ask why they're missing and where.
+* I can choose drop, fill, or flag for each gap, and explain the choice with a number.
+* I can pick a fair stand-in for a fill: the mean, median, mode, forward-fill, or backward-fill.
 
 **Skills:** Data Cleaning & Imputation · Statistical Analysis
 

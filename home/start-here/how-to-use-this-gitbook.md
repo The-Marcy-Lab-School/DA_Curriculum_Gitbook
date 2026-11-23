@@ -19,7 +19,7 @@ At the top, you'll see the **total time**. It counts both the GitBook page and t
 Then read these sections:
 
 * **Introduction:** what you're about to learn, and why it matters.
-* **Learning goals:** a checklist of what you'll be able to do.
+* **Learning goals:** a list of what you'll be able to do.
 * **Quick recall:** something you already know that this reading builds on.
 * **New tool** (only when there is one): what the tool is for, and how you'll see it.
 * **Words to know:** the new terms, in plain words.
@@ -33,7 +33,7 @@ Then read these sections:
 ### After you read
 
 * **Main takeaways:** check your understanding against the summary and the common mix-ups.
-* **Quick check:** answer two questions. Then look back at your learning goals and check off each one you can do.
+* **Quick check:** answer two questions. Then look back at your learning goals. If you can't do one yet, review that part of the reading.
 
 ## Try before you look
 
