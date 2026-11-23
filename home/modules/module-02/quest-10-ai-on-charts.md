@@ -1,6 +1,6 @@
 # Quest 2.10 — Two Sets of Eyes (Checking AI on Charts)
 
-**Day 11** · Reading time: about 20 minutes
+**Day 11** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 
@@ -49,8 +49,8 @@ Check off each goal once you can do it.
 | Word | What it means |
 | --- | --- |
 | **`.describe()[["mean", "50%"]]`** | Picks two rows of `describe()`: the mean and the "50%" row, which is the median. Both come out in the column's units, like books per trade-in or dollars. |
-| **`.plot.hist(bins=12)`** | Draws a histogram with 12 bars. |
-| **`plt.savefig("tradeins_hist.png", dpi=150)`** | Saves the chart as an image file. `dpi` sets how sharp the image is: a bigger number makes a sharper picture. |
+| **`.plot.hist(bins=12)`** | Draws a histogram. The parameter `bins=12` sets the number of bars: 12. |
+| **`plt.savefig("tradeins_hist.png", dpi=150)`** | Saves the chart as an image file. The parameter `dpi=150` sets how sharp the image is (dots per inch): a bigger number makes a sharper picture. |
 
 {% hint style="info" %}
 **Save before you show.** `plt.savefig` must come before `plt.show()`. Showing a chart clears it, so saving after that gives you a blank image.

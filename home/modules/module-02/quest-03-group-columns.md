@@ -1,6 +1,6 @@
 # Quest 2.3 — One Row Per Group (Grouping, New Columns, and Merging)
 
-**Day 3** · Reading time: about 20 minutes
+**Day 3** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 
@@ -59,7 +59,7 @@ Check off each goal once you can do it.
 | **Merge** | Combines two tables by matching rows on a shared column, then copies the second table's columns onto the matching rows. |
 | **Key** | The shared column a merge matches on, like `site`. Keys must match exactly, letter for letter. |
 | **Lookup table** | A small second table with one row per key, used to add columns to a bigger table. |
-| **Left merge** (`how="left"`) | A merge that keeps every row of your main table. A row with no match stays, with NaN in the new columns. |
+| **Left merge** (`how="left"`) | The parameter `how="left"` makes a merge keep every row of your main table. A row with no match stays, with NaN in the new columns. |
 
 ## Before you read
 

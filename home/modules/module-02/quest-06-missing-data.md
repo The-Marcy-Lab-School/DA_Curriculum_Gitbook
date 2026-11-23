@@ -1,6 +1,6 @@
 # Quest 2.6 — Drop, Fill, or Flag (Missing Data)
 
-**Day 7** · Reading time: about 20 minutes
+**Day 7** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 
@@ -70,7 +70,7 @@ Statistics books give these patterns formal names, such as *missing completely a
 | --- | --- |
 | **`.shape`** | Gives a pair of numbers: rows first, then columns. `(8, 4)` means 8 rows and 4 columns. |
 | **`.dropna()`** | Removes every row with any blank at all. |
-| **`.dropna(subset=["minutes"])`** | Removes only the rows where `minutes` is blank. `subset=` names the column that decides the drop. |
+| **`.dropna(subset=["minutes"])`** | Removes only the rows where `minutes` is blank. The parameter `subset=["minutes"]` names the column that decides the drop. |
 | **`.mode()[0]`** | `.mode()` gives back a Series, because a column can have more than one most-common value. `[0]` takes the first one. |
 | **`.fillna(value)`** | Puts `value` into every blank in a column, and leaves the real values alone. |
 | **`.ffill()`** | Forward-fill: copies the value above into each blank. |

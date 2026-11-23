@@ -1,6 +1,6 @@
 # Practice Day (Review)
 
-**Day 6** · No new reading
+**Day 6** · No new reading · Time: about 3 minutes
 
 ## Introduction
 

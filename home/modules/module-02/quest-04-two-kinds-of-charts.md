@@ -1,6 +1,6 @@
 # Quest 2.4 — Who's This Chart For? (Exploratory vs. Explanatory Charts)
 
-**Day 4** · Reading time: about 20 minutes
+**Day 4** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 
@@ -30,15 +30,23 @@ Check off each goal once you can do it.
 **How you'll see it in this reading:**
 
 ```python
-import matplotlib.pyplot as plt     # load Matplotlib's chart tools and call them plt
+import matplotlib.pyplot as plt  # load the package
 
-students.plot.scatter(x="hours", y="score_gain", alpha=0.6)   # pandas draws one dot per row; alpha=0.6 makes the dots a bit see-through
-plt.title("More tutoring hours went with slightly bigger gains")   # put a title over the chart
-plt.ylabel("Reading score gain (points)")   # label the y-axis, the one up the side
-plt.show()                                  # draw the chart under the cell
+students.plot.scatter(x="hours", y="score_gain", alpha=0.6)
+plt.title("More tutoring hours went with slightly bigger gains")
+plt.ylabel("Reading score gain (points)")
+plt.show()
 
-daily.plot(rot=45)                  # a line chart; rot=45 tilts the dates so they don't overlap
+daily.plot(rot=45)
 ```
+
+**Code walkthrough:**
+
+1. `import matplotlib.pyplot as plt` loads Matplotlib's charting tools and gives them the short name `plt`.
+2. `students.plot.scatter(...)` asks pandas to draw a scatterplot, with one dot per row. This line has three parameters. The parameter `x="hours"` picks the column for the x-axis (across the bottom). The parameter `y="score_gain"` picks the column for the y-axis (up the side). The parameter `alpha=0.6` sets how see-through the dots are, from 0 (invisible) to 1 (solid), so overlapping dots are easier to see.
+3. `plt.title(...)` puts a title over the chart, and `plt.ylabel(...)` labels the y-axis.
+4. `plt.show()` draws the finished chart under the cell.
+5. `daily.plot(rot=45)` draws a line chart. The parameter `rot=45` rotates (turns) the x-axis labels 45 degrees, so long dates don't overlap.
 
 The x-axis, across the bottom, has its own label function with a matching name. The reading asks you to find it. If `import matplotlib` gives a `ModuleNotFoundError` on your laptop, run `pip install matplotlib` in the terminal once.
 

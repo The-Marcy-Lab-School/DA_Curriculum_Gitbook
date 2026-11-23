@@ -1,6 +1,6 @@
 # Quest 2.8 — Beneath the Total (Finding Patterns in Groups)
 
-**Day 9** · Reading time: about 20 minutes
+**Day 9** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 

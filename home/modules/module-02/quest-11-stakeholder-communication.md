@@ -1,6 +1,6 @@
 # Quest 2.11 — Nobody Was in the Room (Writing for Stakeholders)
 
-**Day 12** · Reading time: about 20 minutes
+**Day 12** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 
@@ -50,7 +50,7 @@ Check off each goal once you can do it.
 
 | Word | What it means |
 | --- | --- |
-| **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. `exist_ok=True` tells Python not to stop with an error when the folder already exists. `os` is a module that comes with Python. |
+| **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. The parameter `exist_ok=True` means it's OK if the folder already exists, so Python won't stop with an error. `os` is a module that comes with Python. |
 | **`.unstack()`** | Turns the inner group labels (morning, evening) into columns, so each route gets two bars side by side. |
 
 ## Before you read

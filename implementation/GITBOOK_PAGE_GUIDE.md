@@ -14,6 +14,8 @@ Module 2 (`home/modules/module-02/`) is the reference: when this guide and a Mod
 ## Writing rules
 
 - **Plain words, about a 6th-grade reading level.** Short sentences, one idea each. Cut any word that adds nothing.
+- **Write for readers whose first language isn't English.** When a common but abstract word carries the idea (like *typical*, *spread*, *distort*, *tendency*), explain it in plain words the first time it appears: "**Typical** means usual or normal." Don't assume an idiom will land.
+- **Explain the "why" behind code facts**, not just the fact: "`sorted_gifts[1]` is the second item, *because Python starts counting positions at 0*."
 - **Define every term the first time it appears**, in the page's "Words to know" section. Include the terms a reader needs even when the interactive reading skips them (for example, *measures of central tendency* or *variance*).
 - **Say what units a result comes in** whenever a page teaches a number: dollars, minutes, rows, a percent, or squared units.
 - **Never name a tool, function, or term before it's defined.** This matters most in "How this connects": describe what the reader will *do* next, not the name of a tool they haven't met.
@@ -24,12 +26,20 @@ Module 2 (`home/modules/module-02/`) is the reference: when this guide and a Mod
 - **Answers stay hidden** in `<details>` blocks, so readers try first.
 - **No module numbers or day numbers in "Quick recall."** Describe what the reader did ("Recall that you built a function that…"), and link the earlier page by its title.
 
+## Code blocks
+
+- **Keep comments short.** A comment should never wrap to a second line: about 30 characters at most (`import numpy as np  # load the package`). Many lines need no comment at all.
+- **Explain the code in a "Code walkthrough" under the block**, as a numbered list with one item per line or idea. This keeps the code readable and the explanation complete.
+- **Introduce every parameter by name.** First say the line has a parameter, then what it means: "This line has a **parameter** called `ddof`. The parameter `ddof=1` tells NumPy to use the sample formula…" Never open with a bare `ddof=1`. Define the word *parameter* the first time a module uses it.
+- Keep code lines under about 65 characters so they don't scroll sideways.
+
 ## Pictures
 
 - Add a diagram when it explains something words can't: a process, a decision, a shape, or a comparison.
 - Save diagrams as SVG in the module's `images/` folder, with a white background and the blue (`#1D4ED8`) and orange (`#C2410C`) palette, so they work for colorblind readers.
 - **Text size:** body labels at least 17px and axis labels at least 20px in the SVG's own units. GitBook shrinks wide images to fit the page, so anything smaller becomes hard to read.
 - **Every chart has a labeled x-axis and y-axis**, even a sketch.
+- **Show shapes, don't just name them.** When a page names shapes or patterns (left-skewed, symmetric, right-skewed), show them side by side in one picture.
 - Every image needs alt text that says what it shows.
 - Before merging, render each SVG and look at it: no text should touch or cross a box edge.
 
@@ -46,8 +56,8 @@ Only mark a video required after someone has watched it and confirmed it's the c
 
 | Order | Page | File | Purpose |
 |---|---|---|---|
-| 1 | Module Introduction | `README.md` | Where you've been, where you're going, why it matters |
-| 2 | Module Overview | `overview.md` | The route, new tools, skills, and how each page works |
+| 1 | Overview of Module M (Read FIRST) | `README.md` | The module's landing page: what it's about, the route, new tools, skills, game words, and how each page works |
+| 2 | Module Introduction | `introduction.md` | Where you've been, where you're going, why it matters |
 | 3 | Quest | `quest-NN-<slug>.md` | One page per reading |
 | 4 | Practice Day | `practice-day-<n>.md` | Review days with no new reading |
 | 5 | Checkpoint (Review and Solo Practice) | `checkpoint.md` | Self-check before the Boss Battle |
@@ -59,25 +69,30 @@ Only mark a video required after someone has watched it and confirmed it's the c
 
 ## Templates
 
-### Module Introduction (`README.md`)
+### Overview of Module M (Read FIRST) (`README.md`)
 
-1. **Where you've been**: 3 to 5 bullets on earlier skills this module uses.
+This is the module's landing page, so it's what readers see when they click the module in the sidebar. In `SUMMARY.md`, list it as `Module M: Overview (Read FIRST)`.
+
+1. **Title**: `Overview of Module M: <Module name> (Read FIRST)`, then **Time**.
+2. **What this module is about**: 2 or 3 sentences.
+3. **What the words mean**: Quest, Practice Day, Checkpoint, Boss Battle, each with its plain name.
+4. **Your route**: a table of day, page (with its plain name), and a one-line goal. Include practice days, the Checkpoint, the Conclusion, and the Boss Battle (Module Project) days, without linking a project page.
+5. **New tools**: one line each, linking to the quest's "New tool" section.
+6. **Skills you'll build**: a table of skill (rubric name), what it means in plain words, and where you'll practice it.
+7. **How each quest page works**: the quest sections in order.
+8. **Next**: the Module Introduction.
+
+### Module Introduction (`introduction.md`)
+
+1. **Where you've been**: 3 to 5 bullets on earlier skills this module uses. No module numbers.
 2. **Where you're going**: what this module teaches, in 2 or 3 sentences.
 3. **Why it matters for data work**: one real example of what goes wrong without these skills.
 4. **The big picture**: one diagram of the module's workflow.
-5. **Next**: link to the Module Overview.
-
-### Module Overview (`overview.md`)
-
-1. **Your route**: a table of day, page (with its plain name), and a one-line goal. Include practice days, the Checkpoint, the Conclusion, and the Boss Battle (Module Project) days, without linking a project page.
-2. **New tools**: one line each, with the quest where its "New tool" section lives.
-3. **Skills you'll build**: a table of skill (rubric name), what it means in plain words, and where you'll practice it.
-4. **What the words mean**: Quest, Practice Day, Checkpoint, Boss Battle, each with its plain name.
-5. **How each quest page works**: the quest sections in order.
+5. **Next**: the first quest.
 
 ### Quest (`quest-NN-<slug>.md`)
 
-1. **Title**: `Quest M.N — <Quest title> (<Plain topic name>)`, then one line: `**Day X** · Reading time: about N minutes`
+1. **Title**: `Quest M.N — <Quest title> (<Plain topic name>)`, then one line at the very top with the **total** time, counting both the GitBook page and the interactive reading: `**Day X** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)`. Estimate the page at 150 words a minute (a careful pace for beginners and English learners), rounded to 5 minutes. Every other page type gets a **Time** line too.
 2. **Introduction** (heading: `## Introduction`): 3 to 5 sentences.
    - Open with a short, everyday hook and a concrete example ("Sometimes averages can be misleading. For example, …").
    - Say what this reading covers.
@@ -87,9 +102,9 @@ Only mark a video required after someone has watched it and confirmed it's the c
 4. **Quick recall**: 1 to 3 bullets reminding the reader of something they already did that this reading builds on. Start each with "Recall that…". Include a line of code when it helps. Link the earlier page by its title. No module or day numbers.
 5. **New tool: <name>** (only when the reading introduces a tool or package). Three parts, nothing more:
    - **What it's for:** 1 or 2 sentences.
-   - **How you'll see it in this reading:** the actual lines from the reading, in a code block with a short comment on each line.
+   - **How you'll see it in this reading:** the actual lines from the reading in a code block, followed by a **Code walkthrough** (see "Code blocks").
    - **Learn more:** 2 or 3 links: the official docs, and W3Schools when it has a page.
-6. **Words to know**: tables of *Word | What it means*. When there are more than 8 terms, split them into small groups with a one-line heading each (for example, "What is typical?" and "How spread out?"). Add a *Units* column when the terms are numbers.
+6. **Words to know**: tables of *Word | What it means*. When there are more than 8 terms, split them into small groups. Write each group heading as the plain question, a colon, then the formal name: `### What is typical?: Measures of central tendency`. Under the heading, explain the key plain word ("**Typical** means usual or normal…") and the formal name. Add a *Units* column when the terms are numbers.
 7. **Before you read**: no hidden answer. Pick the version that fits:
    - **Scenario:** "In the reading, you'll focus on <scenario>. Think about: <question>. Write down your first answer, then see if the reading agrees."
    - **First answer:** "What's your first answer to <question>? Write it down, then check it against the reading."
@@ -127,7 +142,7 @@ Comes after the Checkpoint and before the Boss Battle (Module Project).
 
 Use the curriculum's skill names exactly as the rubric does (for example, **Data Cleaning & Imputation**), so the GitBook, the readings, the tracker, and the rubric all match. Each skill appears in three places:
 
-1. The Module Overview's skills table
+1. The skills table on the Overview (Read FIRST) page
 2. The **Skills:** line on each quest
 3. The conclusion's "How to talk about your skills" section
 
@@ -141,3 +156,5 @@ Use the curriculum's skill names exactly as the rubric does (for example, **Data
 - [ ] No tool or function named before its "New tool" section or "Words to know" entry.
 - [ ] Each quest's takeaways match what its reading actually teaches.
 - [ ] Each diagram rendered and checked for text size and overlap.
+- [ ] No code comment wraps; every code block that teaches something has a Code walkthrough; every parameter is introduced by name.
+- [ ] Every page shows its total time at the top.

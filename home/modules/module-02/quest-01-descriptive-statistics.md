@@ -1,12 +1,12 @@
 # Quest 2.1 — The Loudest Number (Descriptive Statistics)
 
-**Day 1** · Reading time: about 20 minutes
+**Day 1** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 
 Sometimes averages can be misleading. For example, on a street of ten homes, nine sell for about $300,000 and one mansion sells for $3 million. The average price is $570,000, but no home on that street sold for anything close to it. This reading covers when to use the average (the mean), when the middle value (the median) works better, and how to describe how spread out a set of numbers is. The main takeaway: averages are widely used and easy to understand, but they don't always tell the whole story, so look at the data's shape before you pick a number.
 
-**Why it matters at work:** "What's typical?" and "How spread out is it?" are two of the most common questions an analyst answers. If you report the wrong number, people plan budgets and goals around something that isn't true.
+**Why it matters at work:** "What's typical?" (what's the usual, normal value?) and "How spread out is it?" are two of the most common questions an analyst answers. If you report the wrong number, people plan budgets and goals around something that isn't true.
 
 ## Learning goals
 
@@ -21,7 +21,7 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that you added up a week of step counts with a running total (`total += steps`) in [One Job at a Time](../module-01/quest-07-second-function.md). An average goes one step further: divide the total by how many values there are, `sum(steps) / len(steps)`.
-* Recall that a list keeps its items in order, and you can read one item by its position (its index): `sorted_gifts[1]` is the second item. You'll use this idea to find the middle value of a sorted list.
+* Recall that a list keeps its items in order, and you can read one item by its position, called its **index**. `sorted_gifts[1]` is the *second* item, because Python starts counting positions at 0: `sorted_gifts[0]` is the first item. You'll use this idea to find the middle value of a sorted list.
 
 ## New tool: NumPy
 
@@ -30,17 +30,25 @@ Check off each goal once you can do it.
 **How you'll see it in this reading:**
 
 ```python
-import numpy as np                    # load NumPy and call it np
+import numpy as np  # load the package
 
-gifts = np.array([50, 40, 65, 50, 75, 45, 60, 50, 70, 55, 5000])  # an array: NumPy's version of a list
+gifts = np.array([50, 40, 65, 50, 75, 45, 60, 50, 70, 55, 5000])
 
-np.mean(gifts).round(2)               # the mean, rounded to 2 decimal places: 505.45
-np.median(gifts)                      # the median: 55.0
-np.std(gifts, ddof=1).round(2)        # the standard deviation: 1490.71
-np.percentile(gifts, [0, 25, 50, 75, 100])  # the five-number summary
+np.mean(gifts).round(2)         # 505.45
+np.median(gifts)                # 55.0
+np.std(gifts, ddof=1).round(2)  # 1490.71
+np.percentile(gifts, [0, 25, 50, 75, 100])
 ```
 
-`ddof=1` picks the "sample" version of the standard deviation, the one most tools use. If `import numpy` gives a `ModuleNotFoundError` on your laptop, run `pip install numpy` in the terminal once.
+**Code walkthrough:**
+
+1. `import numpy as np` loads NumPy and gives it the short name `np`.
+2. `np.array([...])` turns a list into an **array**, NumPy's version of a list. One math step works on every value inside it.
+3. `np.mean(...)` finds the mean, and `np.median(...)` finds the median. `.round(2)` rounds the answer to 2 decimal places.
+4. `np.std(gifts, ddof=1)` finds the standard deviation. This line has a **parameter** called `ddof`. A parameter is a setting you give a function inside its parentheses. The parameter `ddof=1` tells NumPy to use the **sample** formula, which divides by one less than the number of values. It's the version pandas and most other tools use, so your answers will match theirs.
+5. `np.percentile(gifts, [0, 25, 50, 75, 100])` gives the five-number summary in one line. Each number in the list is a percent of the way up the sorted data: 0% is the minimum, 50% is the median, and 100% is the maximum.
+
+If `import numpy` gives a `ModuleNotFoundError` on your laptop, run `pip install numpy` in the terminal once.
 
 **Learn more:** [NumPy: the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html) (official) · [W3Schools: NumPy tutorial](https://www.w3schools.com/python/numpy/default.asp) · [W3Schools: Mean, median, and mode](https://www.w3schools.com/python/python_ml_mean_median_mode.asp)
 
@@ -48,9 +56,11 @@ np.percentile(gifts, [0, 25, 50, 75, 100])  # the five-number summary
 
 Every number in this reading answers one of two questions: *what is typical?* or *how spread out are the values?*
 
-### What is typical? Measures of central tendency
+### What is typical?: Measures of central tendency
 
-A **measure of central tendency** is one number that describes the center, or the "typical" value, of a set of numbers. There are three.
+**Typical** means usual or normal: the kind of value you'd expect to see most often. For example, if most guests gave between $40 and $75, a typical gift is somewhere in that range.
+
+A **measure of central tendency** is one number that describes the typical value. *Central* means "in the middle," and *tendency* means "where values tend to gather." There are three.
 
 | Word | What it means | Units |
 | --- | --- | --- |
@@ -58,9 +68,9 @@ A **measure of central tendency** is one number that describes the center, or th
 | **Median** | The middle value once the values are sorted. With an even count, it's the average of the two middle values. One far-off value barely moves it. | Same as the data |
 | **Mode** | The value that shows up most often. | Same as the data |
 
-### How spread out? Measures of spread
+### How spread out?: Measures of spread
 
-A **measure of spread** describes how far apart the values are.
+**Spread** means how far apart the values are. Gifts that are all close to $55 have a small spread. Gifts from $40 to $5,000 have a big spread. A **measure of spread** is one number that describes this.
 
 | Word | What it means | Units |
 | --- | --- | --- |
@@ -75,7 +85,7 @@ A **measure of spread** describes how far apart the values are.
 **Variance or standard deviation?** They measure the same spread. Variance comes out in squared units, like "dollars squared," which nobody can picture. Taking the square root puts it back in dollars. That's why reports give the standard deviation.
 {% endhint %}
 
-### What shape is the data?
+### What shape is the data?: Distribution and skew
 
 | Word | What it means |
 | --- | --- |
@@ -83,6 +93,8 @@ A **measure of spread** describes how far apart the values are.
 | **Histogram** | A bar chart where each bar counts how many values fall in a range. It shows a distribution's shape. |
 | **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which pulls the mean below it. |
 | **Outlier** | A value far from the rest. It can still be real. |
+
+![Three histograms side by side. Each has an x-axis for the value, from small to big, and a y-axis for how many values. Left-skewed: most values are big, with a tail of small values on the left, and the mean sits below the median. Symmetric: one peak in the middle, and the mean and median are about the same. Right-skewed: most values are small, with a tail of big values on the right, and the mean sits above the median.](images/skew-shapes.svg)
 
 ## Before you read
 
@@ -107,8 +119,6 @@ As you read, look for:
 * **Every number answers one of two questions:** what is typical (mean, median, mode), or how spread out are the values (range, IQR, standard deviation, five-number summary)?
 * **Look at the shape, then pick the number.** On skewed data, the median describes a typical value better than the mean.
 * **Keep a real outlier, and give units.** Report the median as typical, mention the outlier on its own line, and say what units each number is in.
-
-![A right-skewed histogram. The x-axis shows values from small to big, and the y-axis shows how many values fall in each range. The median line sits among the tall bars. The mean line sits further right, pulled toward a long tail of a few big values.](images/skew-mean-median.svg)
 
 ### Common mix-ups
 

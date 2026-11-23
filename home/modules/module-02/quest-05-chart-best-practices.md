@@ -1,6 +1,6 @@
 # Quest 2.5 — Real Numbers, Wrong Story (Chart Best Practices)
 
-**Day 5** · Reading time: about 19 minutes
+**Day 5** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 19 minutes)
 
 ## Introduction
 
@@ -59,12 +59,12 @@ Check off each goal once you can do it.
 
 | Code | What it does |
 | --- | --- |
-| **`.plot.bar(rot=0)`** | Draws one bar per group, with the labels kept flat. |
+| **`.plot.bar(rot=0)`** | Draws one bar per group. The parameter `rot=0` keeps the group labels flat (rotated 0 degrees). |
 | **`plt.ylim(180, 195)`** | Sets the y-axis to run from 180 to 195. On a bar chart, this cuts off the baseline. |
 | **`.quantile([0.25, 0.75])`** | Gives Q1 and Q3 of a column. |
 | **`.max()`** | Gives the largest value in a column. |
 | **`.plot.box()`** | Draws a boxplot. |
-| **`showfliers`** | A boxplot setting. `showfliers=False` leaves every outlier dot out of the drawing. The default is `True`. |
+| **`showfliers`** | A boxplot parameter. The parameter `showfliers=False` leaves every outlier dot out of the drawing. The default is `True`. |
 
 ## Before you read
 

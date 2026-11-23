@@ -1,6 +1,6 @@
 # Module 2 Checkpoint (Review and Solo Practice)
 
-**Days 13–14** · No new reading
+**Days 13–14** · No new reading · Time: about 7 minutes
 
 ## Introduction
 
@@ -15,13 +15,13 @@ So far, you've practiced each skill with a reading, a guide, or a partner. These
 **Day 13: A short preview of lambda (20 minutes, slides only).** A **lambda** is a one-line function without a name:
 
 ```python
-def add_tax(price):          # a regular function
+def add_tax(price):  # a regular function
     return price * 1.08
 
-add_tax = lambda price: price * 1.08   # the same function, as a lambda
+add_tax = lambda price: price * 1.08  # same, as a lambda
 
-df["price"].apply(lambda p: p * 1.08)  # a lambda used inside .apply
-df["price"] * 1.08                     # but plain column math is simpler here!
+df["price"].apply(lambda p: p * 1.08)  # inside .apply
+df["price"] * 1.08  # simpler here
 ```
 
 Lambda is optional. Your cleaning steps stay in a regular `def` function. You'll use lambda more in Module 4.

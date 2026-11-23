@@ -1,6 +1,6 @@
 # Module 2 Conclusion
 
-**End of Day 14** · Read before the Boss Battle (Module Project)
+**End of Day 14** · Read before the Boss Battle (Module Project) · Time: about 6 minutes
 
 ## Introduction
 

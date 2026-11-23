@@ -1,6 +1,6 @@
 # Quest 2.2 — Look Before You Filter (Inspecting and Filtering Data)
 
-**Day 2** · Reading time: about 20 minutes
+**Day 2** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 
@@ -30,14 +30,20 @@ Check off each goal once you can do it.
 **How you'll see it in this reading:**
 
 ```python
-# Cell [1]. Click into it and press Shift+Enter to run just this cell.
-import pandas as pd               # the kernel now remembers pd...
-df = pd.read_csv("intake.csv")    # ...and df
-df.shape                          # the last line's value shows under the cell, no print() needed
+# Cell 1: press Shift+Enter to run it
+import pandas as pd
+df = pd.read_csv("intake.csv")
+df.shape
 
-# A later cell. It can use df because the kernel still remembers it.
+# A later cell: it can still use df
 df.dtypes
 ```
+
+**Code walkthrough:**
+
+1. Each cell runs on its own when you click into it and press **Shift+Enter**.
+2. After cell 1 runs, the **kernel** (the Python program behind the notebook) remembers `pd` and `df`, so a later cell can use them.
+3. A cell shows the value of its last line right under it, so `df.shape` shows up without `print()`.
 
 Notebooks are for exploring. Finished programs are still `.py` files. If VS Code asks you to install `ipykernel`, click **Install**: it's the piece that connects VS Code to Python.
 
@@ -50,12 +56,20 @@ Notebooks are for exploring. Finished programs are still `.py` files. If VS Code
 **How you'll see it in this reading:**
 
 ```python
-import pandas as pd                 # load pandas and call it pd
-df = pd.read_csv("intake.csv")      # read the CSV file into a DataFrame named df
-df.shape                            # (rows, columns). No parentheses: it's a stored fact, not an action
-df["site"] == "Eastside"            # one True or False per row: is this row's site Eastside?
-df.sort_values("weight_lbs", ascending=False)   # sort the rows, biggest weight first
+import pandas as pd  # load the package
+df = pd.read_csv("intake.csv")
+df.shape
+df["site"] == "Eastside"
+df.sort_values("weight_lbs", ascending=False)
 ```
+
+**Code walkthrough:**
+
+1. `import pandas as pd` loads pandas and gives it the short name `pd`.
+2. `pd.read_csv("intake.csv")` reads the CSV file into a **DataFrame** (a pandas table) named `df`.
+3. `df.shape` gives two numbers: rows, then columns. It has no parentheses because it's a stored fact about the table, not an action.
+4. `df["site"] == "Eastside"` gives one `True` or `False` for each row: is this row's site Eastside?
+5. `df.sort_values("weight_lbs", ascending=False)` puts the rows in order by weight. The parameter `ascending=False` means biggest first. (*Ascending* means smallest to biggest, so `False` flips it.)
 
 If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip install pandas` in the terminal once.
 

@@ -1,6 +1,6 @@
 # Quest 2.7 — Write It Once (Cleaning Functions)
 
-**Day 8** · Reading time: about 20 minutes
+**Day 8** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
 ## Introduction
 
@@ -40,8 +40,8 @@ Check off each goal once you can do it.
 
 | Code | What it does |
 | --- | --- |
-| **`pd.concat([may, june], ignore_index=True)`** | Stacks the two tables, top to bottom. `ignore_index=True` numbers the rows from 0 again, so no row label shows up twice. |
-| **`.duplicated(subset="delivery_id")`** | Marks a row True when its `delivery_id` matches an earlier row, even if other columns differ. |
+| **`pd.concat([may, june], ignore_index=True)`** | Stacks the two tables, top to bottom. The parameter `ignore_index=True` numbers the rows from 0 again, so no row label shows up twice. |
+| **`.duplicated(subset="delivery_id")`** | Marks a row True when it repeats an earlier row. The parameter `subset="delivery_id"` means: compare only the `delivery_id` column, even if other columns differ. |
 | **`.drop_duplicates(subset="delivery_id")`** | Removes the repeats, and keeps the first copy of each ID. |
 
 ### Text into numbers
@@ -49,7 +49,7 @@ Check off each goal once you can do it.
 | Code | What it does |
 | --- | --- |
 | **`pd.to_numeric(...)`** | Turns a column of text into numbers. On its own, it stops with a `ValueError` at the first value that isn't a number. |
-| **Coerce** | Force a change. With `errors="coerce"`, a value that can't become a number becomes NaN instead of stopping with an error. |
+| **Coerce** | Force a change. The parameter `errors="coerce"` means a value that can't become a number becomes NaN instead of stopping with an error. |
 
 ### Tidying labels
 
@@ -100,14 +100,21 @@ def tidy_text(series):
     return series.str.strip().str.lower()
 
 def clean_deliveries(df):
-    df = df.drop_duplicates(subset="delivery_id")  # makes a new table, so the one you pass in stays safe
+    df = df.drop_duplicates(subset="delivery_id")
     df["bags"] = to_number(df["bags"])
     df["country"] = tidy_text(df["country"])
     return df
 
-clean_both = clean_deliveries(both)  # call it once...
-clean_june = clean_deliveries(june)  # ...and again on a different input
+clean_both = clean_deliveries(both)
+clean_june = clean_deliveries(june)
 ```
+
+**Code walkthrough:**
+
+1. `to_number` turns a column into numbers. The parameter `errors="coerce"` means: when a value can't become a number, like `"TBD"`, make it blank (NaN) instead of stopping with an error.
+2. `tidy_text` removes extra spaces with `.str.strip()` and makes every letter lowercase with `.str.lower()`, so `"Kenya "` and `"kenya"` match.
+3. `clean_deliveries` runs every fix in order. Its first line removes repeated deliveries. The parameter `subset="delivery_id"` means: compare only the `delivery_id` column when looking for repeats.
+4. The last two lines call the same function on two different tables. That's what proves it's reusable.
 
 {% hint style="info" %}
 **Why the first line matters:** `df.drop_duplicates(...)` makes a new table, and `df =` points the name at it. If the function set a column on `df` right away instead, your original table would change too, and pandas 3 doesn't stop that.
