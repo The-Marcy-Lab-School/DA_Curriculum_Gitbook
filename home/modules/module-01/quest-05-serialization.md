@@ -22,11 +22,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can open a file to write, add to, or read it, and pick the right mode: `"w"`, `"a"`, or no mode.
-- [ ] I can save a dictionary with `json.dump` and load it back with `json.load`.
-- [ ] I can name what changes on a JSON round trip and check the type of each loaded value.
+* I can open a file to write, add to, or read it, and pick the right mode: `"w"`, `"a"`, or no mode.
+* I can save a dictionary with `json.dump` and load it back with `json.load`.
+* I can name what changes on a JSON round trip and check the type of each loaded value.
 
 **Skills:** Attention to Detail
 

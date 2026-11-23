@@ -19,11 +19,11 @@ In this reading, you'll learn how to check two things against numbers you calcul
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can compute my own numbers and save a chart as an image before I ask an AI about it.
-- [ ] I can split an AI's answer into separate claims and mark each one right, wrong, or unverifiable.
-- [ ] I can judge a chart an AI suggests on two counts: whether the chart type fits, and whether its claims match my numbers.
+* I can compute my own numbers and save a chart as an image before I ask an AI about it.
+* I can split an AI's answer into separate claims and mark each one right, wrong, or unverifiable.
+* I can judge a chart an AI suggests on two counts: whether the chart type fits, and whether its claims match my numbers.
 
 **Skills:** AI as Critic · AI Evaluation · Data Distributions & Shape
 

@@ -21,11 +21,11 @@ Code works the same way. In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can work out the expected behavior of a small example by hand, then compare it with the actual behavior.
-- [ ] I can name a bug precisely: an off-by-one error, a scope bug, an undefined attribute, or a bare `except:` that hides an error.
-- [ ] I can confirm a fix or a refactor by running the same example again and comparing the output.
+* I can work out the expected behavior of a small example by hand, then compare it with the actual behavior.
+* I can name a bug precisely: an off-by-one error, a scope bug, an undefined attribute, or a bare `except:` that hides an error.
+* I can confirm a fix or a refactor by running the same example again and comparing the output.
 
 **Skills:** Attention to Detail
 

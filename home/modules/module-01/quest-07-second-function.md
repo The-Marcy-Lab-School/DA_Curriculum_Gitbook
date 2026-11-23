@@ -22,11 +22,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can describe a function's contract (input, one job, output) before I write it.
-- [ ] I can use an accumulator in a loop to build a total and a count.
-- [ ] I can tell when a function is doing too many jobs, and move the extra job into its own function.
+* I can describe a function's contract (input, one job, output) before I write it.
+* I can use an accumulator in a loop to build a total and a count.
+* I can tell when a function is doing too many jobs, and move the extra job into its own function.
 
 **Skills:** Functions & Modular Programming
 

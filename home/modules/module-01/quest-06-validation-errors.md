@@ -26,11 +26,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can write a validation function that checks a record's shape first, then its values, and returns a list of problems.
-- [ ] I can use `try` and `except` so one bad line doesn't stop a whole batch.
-- [ ] I can name the error I expect, like `ValueError` or `KeyError`, and explain why a bare `except:` is risky.
+* I can write a validation function that checks a record's shape first, then its values, and returns a list of problems.
+* I can use `try` and `except` so one bad line doesn't stop a whole batch.
+* I can name the error I expect, like `ValueError` or `KeyError`, and explain why a bare `except:` is risky.
 
 **Skills:** Functions & Modular Programming · Attention to Detail
 

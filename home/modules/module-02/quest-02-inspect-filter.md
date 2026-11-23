@@ -26,15 +26,15 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can load a CSV (comma-separated values) file into a notebook and explain why the order I run cells in matters.
-- [ ] I can run four checks on any new file:
+* I can load a CSV (comma-separated values) file into a notebook and explain why the order I run cells in matters.
+* I can run four checks on any new file:
   - shape
   - data types
   - missing values
   - duplicates
-- [ ] I can filter rows on one or two conditions and sort the result.
+* I can filter rows on one or two conditions and sort the result.
 
 **Skills:** Data Cleaning & Imputation
 

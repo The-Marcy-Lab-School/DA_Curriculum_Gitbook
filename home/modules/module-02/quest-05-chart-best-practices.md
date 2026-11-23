@@ -23,11 +23,11 @@ In this reading, you'll learn:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can spot a bar chart whose y-axis doesn't start at zero, and fix it.
-- [ ] I can tell when a boxplot is hiding outliers, and say so in a caption.
-- [ ] I can label a chart so any reader can follow it: a title that states the finding, axes with units, a legend, and colors that work for colorblind readers.
+* I can spot a bar chart whose y-axis doesn't start at zero, and fix it.
+* I can tell when a boxplot is hiding outliers, and say so in a caption.
+* I can label a chart so any reader can follow it: a title that states the finding, axes with units, a legend, and colors that work for colorblind readers.
 
 **Skills:** Data Visualization · Data Distributions & Shape · Critical Thinking
 

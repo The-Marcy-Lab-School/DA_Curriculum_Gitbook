@@ -21,11 +21,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can summarize a column for each group, and keep the count next to the mean and median.
-- [ ] I can add a new column calculated from other columns, and change rows in the original table safely.
-- [ ] I can merge in columns from a lookup table and check that the merge worked.
+* I can summarize a column for each group, and keep the count next to the mean and median.
+* I can add a new column calculated from other columns, and change rows in the original table safely.
+* I can merge in columns from a lookup table and check that the merge worked.
 
 **Skills:** Data Mining · Statistical Analysis
 

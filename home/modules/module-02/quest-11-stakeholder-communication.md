@@ -20,11 +20,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can save a chart as an image and embed it in a README with alt text.
-- [ ] I can write a README whose sections each stand on their own.
-- [ ] I can write a data-quality memo with a plain answer, two checkable questions, and what they'd mean for the decision.
+* I can save a chart as an image and embed it in a README with alt text.
+* I can write a README whose sections each stand on their own.
+* I can write a data-quality memo with a plain answer, two checkable questions, and what they'd mean for the decision.
 
 **Skills:** Stakeholder Communication · Data Visualization · Critical Thinking
 

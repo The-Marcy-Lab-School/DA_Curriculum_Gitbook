@@ -80,7 +80,7 @@ The [Module 2 Introduction](introduction.md#skills-youll-build) explains what ea
 Every quest page has the same sections, in the same order. At the top, you'll see the total time and the step of the EDA workflow you're on. The total time counts both the GitBook page and the interactive reading.
 
 1. **Introduction**: an example, what you'll learn, the main takeaway, and why it matters at work
-2. **Learning goals**: a checklist of what you'll be able to do
+2. **Learning goals**: a list of what you'll be able to do
 3. **Quick recall**: something you already know that this reading builds on
 4. **New tool** (only when there is one): what it's for, how you'll see it, and where to learn more
 5. **Words to know**: the new terms, in plain words

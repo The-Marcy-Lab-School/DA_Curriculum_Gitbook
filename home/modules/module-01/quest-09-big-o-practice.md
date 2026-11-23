@@ -21,11 +21,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can explain in plain words why a linear search is O(n) and a dictionary lookup is O(1) on average.
-- [ ] I can build a dictionary from a list with a loop, and look up a key with `.get()` so a missing key gives `None` instead of an error.
-- [ ] I can decide when a list search is fine and when building a dictionary pays off (is worth the extra work).
+* I can explain in plain words why a linear search is O(n) and a dictionary lookup is O(1) on average.
+* I can build a dictionary from a list with a loop, and look up a key with `.get()` so a missing key gives `None` instead of an error.
+* I can decide when a list search is fine and when building a dictionary pays off (is worth the extra work).
 
 **Skills:** Algorithmic Complexity (Big-O) · Data Structures & Algorithms
 

@@ -23,11 +23,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can use `pwd` and `ls` to find out where I am and what's in a folder.
-- [ ] I can use `cd` with a relative path to move into a folder, and `cd ..` to move back up.
-- [ ] I can read a `command not found` error and fix my typo.
+* I can use `pwd` and `ls` to find out where I am and what's in a folder.
+* I can use `cd` with a relative path to move into a folder, and `cd ..` to move back up.
+* I can read a `command not found` error and fix my typo.
 
 **Skills:** Terminal & Command Line
 

@@ -20,11 +20,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can read a dataset's source note and name the questions it leaves open.
-- [ ] I can check data for Origin, Completeness, and Bias, and count rows and blanks by group in code.
-- [ ] I can turn a vague question into a checkable one that a data steward (the person who looks after the data) could answer.
+* I can read a dataset's source note and name the questions it leaves open.
+* I can check data for Origin, Completeness, and Bias, and count rows and blanks by group in code.
+* I can turn a vague question into a checkable one that a data steward (the person who looks after the data) could answer.
 
 **Skills:** Critical Thinking
 

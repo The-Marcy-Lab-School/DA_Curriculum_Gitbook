@@ -23,11 +23,11 @@ In this reading, you'll learn how to:
 
 ## Learning goals
 
-Check off each goal once you can do it.
+After this reading, you should be able to say:
 
-- [ ] I can write a class with `__init__`, make two objects from it, and show that changing one doesn't change the other.
-- [ ] I can tell an attribute from a method, and say what `self` means inside a method.
-- [ ] I can add `__str__` and `__repr__` to a class, and predict which one `print()`, `repr()`, and a list will use.
+* I can write a class with `__init__`, make two objects from it, and show that changing one doesn't change the other.
+* I can tell an attribute from a method, and say what `self` means inside a method.
+* I can add `__str__` and `__repr__` to a class, and predict which one `print()`, `repr()`, and a list will use.
 
 **Skills:** Object-Oriented Programming
 
