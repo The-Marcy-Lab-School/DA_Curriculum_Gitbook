@@ -1,6 +1,6 @@
 # Quest 2.9 — The Pattern Isn't the Proof: Asking Questions About Your Data (Day 10)
 
-**Day 10** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
+**Total time:** about 30 minutes
 
 **EDA workflow:** Inspect → Clean → Explore → **Check** → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 

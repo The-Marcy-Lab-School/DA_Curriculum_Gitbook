@@ -1,6 +1,6 @@
 # Quest 2.5 — Real Numbers, Wrong Story: Chart Best Practices (Day 5)
 
-**Day 5** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 19 minutes)
+**Total time:** about 30 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 

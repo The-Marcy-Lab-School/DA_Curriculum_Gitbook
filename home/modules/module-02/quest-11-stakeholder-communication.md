@@ -1,6 +1,6 @@
 # Quest 2.11 — Nobody Was in the Room: Writing for Stakeholders (Day 12)
 
-**Day 12** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
+**Total time:** about 30 minutes
 
 **EDA workflow:** Inspect → Clean → Explore → Check → **Explain** ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 

@@ -1,6 +1,6 @@
 # Quest 2.8 — Beneath the Total: Finding Patterns in Groups (Day 9)
 
-**Day 9** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
+**Total time:** about 30 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 

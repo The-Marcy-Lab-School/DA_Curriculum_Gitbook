@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 300" width="1060" height="300" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 380" width="1060" height="380" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">The EDA workflow in Module 2</title>
-  <desc id="d">Five steps from left to right: Inspect in Quest 2.2; Clean in Quests 2.6 and 2.7; Explore in Quests 2.1, 2.3 to 2.5 and 2.8; Check in Quests 2.9 and 2.10; Explain in Quest 2.11. The Boss Battle (Module Project) runs all five steps on one real dataset.</desc>
+  <desc id="d">Five steps from left to right: Inspect in Quest 2.2; Clean in Quests 2.6 and 2.7; Explore in Quests 2.1, 2.3 to 2.5 and 2.8; Check in Quests 2.9 and 2.10; Explain in Quest 2.11. A dashed arrow loops from Check back to Clean: the steps are not always a straight line, and a problem you find later can send you back a step. The Boss Battle (Module Project) runs all five steps on one real dataset.</desc>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker>
   </defs>
-  <rect width="1060" height="300" fill="#ffffff"/>
+  <rect width="1060" height="380" fill="#ffffff"/>
   <text x="530" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">The EDA workflow you'll practice in Module 2</text>
   <g font-size="18" fill="#111827" text-anchor="middle">
     <rect x="20" y="66" width="184" height="170" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
@@ -41,5 +41,8 @@
     <line x1="634" y1="150" x2="659" y2="150"/>
     <line x1="848" y1="150" x2="873" y2="150"/>
   </g>
-  <text x="530" y="278" text-anchor="middle" font-size="20" fill="#111827">The Boss Battle (Module Project) runs all five steps on one real dataset.</text>
+  <path d="M 754 238 L 754 276 L 326 276 L 326 244" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <path d="M 319 252 L 326 240 L 333 252 z" fill="#C2410C"/>
+  <text x="540" y="306" text-anchor="middle" font-size="19" fill="#C2410C">Not always a straight line: a problem you find later can send you back a step.</text>
+  <text x="530" y="356" text-anchor="middle" font-size="20" fill="#111827">The Boss Battle (Module Project) runs all five steps on one real dataset.</text>
 </svg>

@@ -1,6 +1,6 @@
 # Practice Day: Review (Day 6)
 
-**Day 6** · No new reading · Time: about 3 minutes
+**Time:** about 3 minutes (no new reading today)
 
 **EDA workflow:** **Inspect** → Clean → **Explore** → Check → Explain (review) ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 

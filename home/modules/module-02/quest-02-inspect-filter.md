@@ -1,8 +1,10 @@
 # Quest 2.2 — Look Before You Filter: Inspecting and Filtering Data (Day 2)
 
-**Day 2** · Total time: about 35 minutes (this page: about 15 minutes + the interactive reading: about 20 minutes)
+**Total time:** about 35 minutes
 
 **EDA workflow:** **Inspect** → Clean → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
+This is step 1. You learned some Explore tools first, in The Loudest Number. Now you'll start where real analysis starts: checking a new file.
 
 ## Introduction
 

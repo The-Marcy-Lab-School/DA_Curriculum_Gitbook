@@ -1,6 +1,6 @@
 # Module 2 Conclusion (Day 14)
 
-**End of Day 14** · Read before the Boss Battle (Module Project) · Time: about 6 minutes
+**Time:** about 6 minutes. Read this before the Boss Battle (Module Project).
 
 ## Introduction
 
@@ -21,7 +21,7 @@ Look at how far you've come. When this module started, your data was a short lis
 
 You've now practiced every step of the [EDA workflow](introduction.md#the-big-picture-the-eda-workflow):
 
-![Five steps from left to right: Inspect, Clean, Explore, Check, and Explain. The Boss Battle (Module Project) runs all five steps on one real dataset.](images/eda-workflow.svg)
+![Five steps from left to right: Inspect, Clean, Explore, Check, and Explain. A dashed arrow loops from Check back to Clean, because a problem you find later can send you back a step. The Boss Battle (Module Project) runs all five steps on one real dataset.](images/eda-workflow.svg)
 
 | Workflow step | You can now... |
 | --- | --- |

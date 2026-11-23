@@ -1,8 +1,10 @@
 # Quest 2.1 — The Loudest Number: Descriptive Statistics (Day 1)
 
-**Day 1** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
+**Total time:** about 30 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
+Why start at Explore? You'll learn the basic numbers that every later step uses, on a short list you can see all at once. Next quest, you'll go back to step 1 and inspect a real file. ([Why the quests don't follow the step order](introduction.md#why-the-quests-dont-follow-the-step-order))
 
 ## Introduction
 

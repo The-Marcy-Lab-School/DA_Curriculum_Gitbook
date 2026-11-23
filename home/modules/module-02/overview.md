@@ -77,7 +77,7 @@ The [Module 2 Introduction](introduction.md#skills-youll-build) explains what ea
 
 ## How each quest page works
 
-Every quest page has the same sections, in the same order. At the top of each page, you'll see three things: the day, the total time, and the step of the EDA workflow you're on. The total time includes the GitBook page and the interactive reading, about 30 minutes in all.
+Every quest page has the same sections, in the same order. At the top, you'll see the total time and the step of the EDA workflow you're on. The total time counts both the GitBook page and the interactive reading.
 
 1. **Introduction**: an example, what you'll learn, the main takeaway, and why it matters at work
 2. **Learning goals**: a checklist of what you'll be able to do

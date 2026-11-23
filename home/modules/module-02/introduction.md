@@ -27,7 +27,7 @@ For example, a manager at an insurance company asks you how much a claim usually
 
 A **workflow** is a set of steps you follow in order. EDA has five steps. Each quest (one day's reading) teaches one of them:
 
-![Five steps from left to right: Inspect in Quest 2.2; Clean in Quests 2.6 and 2.7; Explore in Quests 2.1, 2.3 to 2.5 and 2.8; Check in Quests 2.9 and 2.10; Explain in Quest 2.11. The Boss Battle (Module Project) runs all five steps on one real dataset.](images/eda-workflow.svg)
+![Five steps from left to right: Inspect in Quest 2.2; Clean in Quests 2.6 and 2.7; Explore in Quests 2.1, 2.3 to 2.5 and 2.8; Check in Quests 2.9 and 2.10; Explain in Quest 2.11. A dashed arrow loops from Check back to Clean, because a problem you find later can send you back a step. The Boss Battle (Module Project) runs all five steps on one real dataset.](images/eda-workflow.svg)
 
 | Step | The question you ask |
 | --- | --- |
@@ -36,6 +36,14 @@ A **workflow** is a set of steps you follow in order. EDA has five steps. Each q
 | **3. Explore** | What do the numbers and charts show? Is there a pattern? |
 | **4. Check** | Can I trust this pattern? Can I trust what the AI said? |
 | **5. Explain** | How do I tell someone what I found, so they can act on it? |
+
+### The steps aren't always in a straight line
+
+Real analysis often loops back. For example, while you explore, you might find a column of prices saved as text. That sends you back to Clean. Or a check might show that one group is too small, so you go back to Explore and look again. Going back isn't a mistake. It's how careful analysts work.
+
+### Why the quests don't follow the step order
+
+The quests start with **Explore**, not Inspect. In Quest 2.1, you'll learn the basic numbers for describing data: the mean, the median, and how spread out values are. You'll practice on a short list you can see all at once, so there's nothing to inspect yet. Every later step uses these numbers, so you learn them first. Then Quest 2.2 goes back to step 1 and shows you how to inspect a real file.
 
 At the top of every quest page, you'll see which step you're on, like this:
 
