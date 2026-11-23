@@ -91,7 +91,8 @@ Only mark a video required after someone has watched it and confirmed it's the c
 
 | Order | Page | File | Purpose |
 |---|---|---|---|
-| 1 | Overview of Module M (Read FIRST) | `README.md` | The module's landing page: what it's about, the route, new tools, skills, game words, and how each page works |
+| 0 | Module header | `README.md` | Only the module's name and one line pointing to the Overview. It exists so the module shows as one item in the sidebar that readers expand. |
+| 1 | Overview of Module M (Read FIRST) | `overview.md` | What the module is about, the route, new tools, where each skill is practiced, game words, and how each page works |
 | 2 | Module Introduction | `introduction.md` | Where you've been, where you're going, why it matters |
 | 3 | Quest | `quest-NN-<slug>.md` | One page per reading |
 | 4 | Practice Day | `practice-day-<n>.md` | Review days with no new reading |
@@ -104,9 +105,11 @@ Only mark a video required after someone has watched it and confirmed it's the c
 
 ## Templates
 
-### Overview of Module M (Read FIRST) (`README.md`)
+### Module header (`README.md`)
 
-This is the module's landing page, so it's what readers see when they click the module in the sidebar. In `SUMMARY.md`, list it as `Module M: Overview (Read FIRST)`.
+GitBook needs a page for every item that expands in the sidebar, so keep this page almost empty: `# Module M: <Module name>`, then "Start with the [Overview of Module M (Read FIRST)](overview.md). Then follow the pages in the sidebar, in order." In `SUMMARY.md`, list it as `Module M: <Module name>`, with the Overview as its first child.
+
+### Overview of Module M (Read FIRST) (`overview.md`)
 
 1. **Title**: `Overview of Module M: <Module name> (Read FIRST)`, then **Time**.
 2. **What this module is about**: 2 or 3 sentences.

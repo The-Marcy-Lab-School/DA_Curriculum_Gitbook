@@ -80,4 +80,4 @@ When you finish, you'll have a real project you can show employers. It will show
 
 **Next:** [Quest 2.1 — The Loudest Number: Descriptive Statistics (Day 1)](quest-01-descriptive-statistics.md)
 
-Need the map again? Go back to the [Overview of Module 2 (Read FIRST)](README.md).
+Need the map again? Go back to the [Overview of Module 2 (Read FIRST)](overview.md).

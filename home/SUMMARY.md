@@ -34,8 +34,9 @@
   * [Module 1 Checkpoint](modules/module-01/checkpoint.md)
   * [Module 1 Boss Battle (Project)](modules/module-01/project.md)
 
-* [Module 2: Overview (Read FIRST)](modules/module-02/README.md)
+* [Module 2: Exploratory Data Analysis](modules/module-02/README.md)
 
+  * [Overview of Module 2 (Read FIRST)](modules/module-02/overview.md)
   * [Module 2 Introduction](modules/module-02/introduction.md)
   * [Quest 2.1 — The Loudest Number: Descriptive Statistics (Day 1)](modules/module-02/quest-01-descriptive-statistics.md)
   * [Quest 2.2 — Look Before You Filter: Inspecting and Filtering Data (Day 2)](modules/module-02/quest-02-inspect-filter.md)
