@@ -1,12 +1,12 @@
-# Module 0 Conclusion
+# Module 0 Conclusion (Day 8)
 
 **Time:** about 5 minutes. Read this before the Boss Battle (Module Project).
 
-**Analyst toolkit:** **Understand data** · **Use the terminal** · **Save with Git** · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
+**Analyst toolkit:** **Use the terminal** · **Understand data** · **Save with Git** · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
 ## Introduction
 
-When this module started, you may never have opened a terminal or saved work with Git. Now you've set up a real analyst's toolkit. You can tell what kind of data you have, move around your computer by typing commands, save your work in small steps, and check an AI's answer before you use it.
+When this module started, you may never have opened a terminal or saved work with Git. Now you've set up a real analyst's toolkit. You can move around your computer by typing commands, tell what kind of data you have, save your work in small steps, and check an AI's answer before you use it.
 
 **Main takeaway:** These four habits aren't extra. They're how careful analysts work every day, and you'll use all four in every module from now on.
 
@@ -22,12 +22,12 @@ When this module started, you may never have opened a terminal or saved work wit
 
 You've now practiced every part of your [analyst toolkit](introduction.md#the-big-picture-your-analyst-toolkit):
 
-![A concept map. In the middle is you, the analyst. Around you are four parts of your toolkit: understand data, use the terminal, save with Git, and verify claims.](images/m0-toolkit-map.svg)
+![A concept map. In the middle is you, the analyst. Around you are four parts of your toolkit: use the terminal, understand data, save with Git, and verify claims.](images/m0-toolkit-map.svg)
 
 | Toolkit part | You can now... |
 | --- | --- |
-| **Understand data** | Tell variables, values, data types, and data structures apart, and explain why a ZIP code isn't a number you'd do math on |
 | **Use the terminal** | See where you are, move between folders, run commands, and read an error message calmly |
+| **Understand data** | Tell variables, values, data types, and data structures apart, and explain why a ZIP code isn't a number you'd do math on |
 | **Save with Git** | Save your work in small steps with clear messages, and send it to GitHub |
 | **Verify claims** | Spot an AI answer that sounds sure but has no evidence, and check it before you use it |
 

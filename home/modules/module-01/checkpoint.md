@@ -1,4 +1,4 @@
-# Module 1 Checkpoint: Review and Practice
+# Module 1 Checkpoint: Review and Practice (Day 19)
 
 **Time:** about 10 minutes to read (no new reading)
 
@@ -245,4 +245,4 @@ You're ready when you can say "I can" to each of these:
 
 ---
 
-**Next:** [Module 1 Conclusion](conclusion.md)
+**Next:** [Module 1 Conclusion (Day 19)](conclusion.md)

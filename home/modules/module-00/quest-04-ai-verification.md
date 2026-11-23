@@ -1,8 +1,8 @@
-# Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers
+# Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers (Day 6)
 
 **Total time:** about 30 minutes
 
-**Analyst toolkit:** Understand data · Use the terminal · Save with Git · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
+**Analyst toolkit:** Use the terminal · Understand data · Save with Git · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
 ## Introduction
 
@@ -32,8 +32,8 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that `cat` prints everything in a file, like `cat tomatoes.txt`, from [Meet Your Terminal](quest-02-terminal.md). In this reading, you'll use it to open the real data file and check a number.
-* Recall that structured data sits in rows and columns, and unstructured data is free text with no columns, from [What Kind of Data Is This?](quest-01-data-literacy.md). The reading opens by asking you to sort a chatbot's reply and a data file into these two groups.
+* Recall that `cat` prints everything in a file, like `cat tomatoes.txt`, from [Meet Your Terminal](quest-01-terminal.md). In this reading, you'll use it to open the real data file and check a number.
+* Recall that structured data sits in rows and columns, and unstructured data is free text with no columns, from [What Kind of Data Is This?](quest-02-data-literacy.md). The reading opens by asking you to sort a chatbot's reply and a data file into these two groups.
 
 ## Words to know
 
@@ -129,4 +129,4 @@ Fix the claim. The log says Dev cleaned the basketball court, and Rosa cleaned t
 
 ---
 
-**Next:** [Module 0 Checkpoint: Review and Practice](checkpoint.md)
+**Next:** [Module 0 Checkpoint: Review and Practice (Day 7)](checkpoint.md)

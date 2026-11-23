@@ -1,8 +1,8 @@
-# Quest 0.2 — Meet Your Terminal: The Command Line
+# Quest 0.1 — Meet Your Terminal: The Command Line (Day 1)
 
 **Total time:** about 30 minutes
 
-**Analyst toolkit:** Understand data · **Use the terminal** · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
+**Analyst toolkit:** **Use the terminal** · Understand data · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
 ## Introduction
 
@@ -33,8 +33,10 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that a CSV file is a plain text file that holds a table, like the shelter's `pets.csv` in [What Kind of Data Is This?](quest-01-data-literacy.md). Because it's plain text, the terminal can print it right on the screen.
-* Recall that the reading in [What Kind of Data Is This?](quest-01-data-literacy.md) started with two questions about `cat` and `ls`, and you made your best guess. In this reading, you'll find out what they do.
+This is the first quest, so these come from everyday life and from the Module 0 Introduction.
+
+* Recall that every file on your computer lives inside a folder, and folders can hold other folders. Your Documents folder is one example.
+* Recall that the **terminal** is the window you type in, and the **shell** (zsh on a Mac) is the program inside it that runs your commands. You read about both in [the Module 0 Introduction](introduction.md#the-terminal-and-the-shell).
 
 ## New tool: Terminal
 
@@ -60,7 +62,7 @@ git --version     # is git installed?
 3. `cd plants` moves you into the `plants` folder. It prints nothing when it works. That silence is normal.
 4. `cd ..` moves you up one level, back to the folder that holds the one you're in. Two dots always mean "up one level."
 5. `cat tomatoes.txt` prints everything in the file `tomatoes.txt`, without opening any app.
-6. `git --version` asks whether Git, a tool you'll meet in the next quest, is installed. If it is, it prints a version number. If your Mac asks to install "command line developer tools," click **Install**.
+6. `git --version` asks whether Git, a tool you'll meet later in this module, is installed. If it is, it prints a version number. If your Mac asks to install "command line developer tools," click **Install**.
 
 In the reading, each command line starts with `$`. On your Mac, the line may end in `%` instead. Both are the **prompt**: the terminal's sign that it's ready. You never type it yourself.
 
@@ -132,7 +134,7 @@ As you read, look for:
 
 ### How this connects
 
-* **Next reading:** You'll use these same moves inside a project folder. Then you'll learn to save a snapshot of your work each time you finish a change, so you have a history of every step. You'll also send a copy of that history to a website, so other people can see it.
+* **Next reading:** You'll look inside a data file, like an animal shelter's list of pets, and decide what kind of value each column holds: text, a whole number, a decimal, true/false, or a date. The reading starts with two warm-up questions about `cat` and `ls`.
 * **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll use the terminal to find your project folder, look at the files inside it, and open a data file before you analyze it.
 
 ## Quick check
@@ -161,4 +163,4 @@ It's a typo. The shell doesn't know the word `sl`, and the message names it. Typ
 
 ---
 
-**Next:** [Quest 0.3 — Save the Story of Your Work: Git and Version Control](quest-03-git.md)
+**Next:** [Quest 0.2 — What Kind of Data Is This? Data Types and Data Structures (Day 1)](quest-02-data-literacy.md)

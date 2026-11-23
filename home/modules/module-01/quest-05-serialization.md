@@ -33,7 +33,7 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that a **dictionary** stores key/value pairs, and a **tuple** is an ordered record that can't change. You used both in [Pick the Right Container](quest-04-data-structures.md). In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
-* Recall that `ls` lists the files in a folder, from [Meet Your Terminal](../module-00/quest-02-terminal.md). Recall too that `cat pets.csv` prints what's inside a file, from [What Kind of Data Is This?](../module-00/quest-01-data-literacy.md). You'll use both to look inside the file your program saves.
+* Recall that `ls` lists the files in a folder, from [Meet Your Terminal](../module-00/quest-01-terminal.md). Recall too that `cat pets.csv` prints what's inside a file, from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). You'll use both to look inside the file your program saves.
 
 ## New tool: the json module
 

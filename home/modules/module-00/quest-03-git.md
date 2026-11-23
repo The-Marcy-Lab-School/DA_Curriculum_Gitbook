@@ -1,8 +1,8 @@
-# Quest 0.3 — Save the Story of Your Work: Git and Version Control
+# Quest 0.3 — Save the Story of Your Work: Git and Version Control (Days 2–3)
 
 **Total time:** about 60 minutes
 
-**Analyst toolkit:** Understand data · Use the terminal · **Save with Git** · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
+**Analyst toolkit:** Use the terminal · Understand data · **Save with Git** · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
 ## Introduction
 
@@ -33,8 +33,8 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that `cd` moves you into a folder and `ls` lists what's inside it, from [Meet Your Terminal](quest-02-terminal.md). Every Git command is typed inside a project folder, so you'll start each time with `cd`.
-* Recall that you ran `git --version` in [Meet Your Terminal](quest-02-terminal.md) to check that Git is installed. Now you'll use it.
+* Recall that `cd` moves you into a folder and `ls` lists what's inside it, from [Meet Your Terminal](quest-01-terminal.md). Every Git command is typed inside a project folder, so you'll start each time with `cd`.
+* Recall that you ran `git --version` in [Meet Your Terminal](quest-01-terminal.md) to check that Git is installed. Now you'll use it.
 
 ## New tool: Git
 
@@ -197,4 +197,4 @@ You forgot to stage the change. Run `git add notes.md` first, then commit again.
 
 ---
 
-**Next:** [Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers](quest-04-ai-verification.md)
+**Next:** [Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers (Day 6)](quest-04-ai-verification.md)
