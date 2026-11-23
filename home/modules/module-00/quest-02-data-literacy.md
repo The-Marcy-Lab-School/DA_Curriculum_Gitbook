@@ -1,8 +1,8 @@
-# Quest 0.1 — What Kind of Data Is This? Data Types and Data Structures
+# Quest 0.2 — What Kind of Data Is This? Data Types and Data Structures (Day 1)
 
 **Total time:** about 30 minutes
 
-**Analyst toolkit:** **Understand data** · Use the terminal · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
+**Analyst toolkit:** Use the terminal · **Understand data** · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
 ## Introduction
 
@@ -32,9 +32,8 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-This is the first quest, so these come from everyday life, not from an earlier page.
-
-* Recall that a ZIP code is made of digits, but it names a place. It is not an amount. Some ZIP codes even start with zeros, like `00501`. If you dropped those zeros, the mail would go to the wrong place.
+* Recall that `ls` lists what's inside a folder, and `cat` prints a file on the screen, from [Meet Your Terminal](quest-01-terminal.md). The reading starts with two warm-up questions about them.
+* Recall that a ZIP code is made of digits, but it names a place, from the [Module 0 Introduction](introduction.md#why-this-matters-for-data-work). It is not an amount. Some ZIP codes even start with zeros, like `00501`. If you dropped those zeros, the mail would go to the wrong place.
 * Recall that you already sort things into groups every day. For example, a contact on your phone holds a name, a phone number, and an email together, as one group. A data structure works the same way.
 
 ## Words to know
@@ -91,8 +90,6 @@ Here's an answer from a new volunteer: "A pet's weight, like `12.5`, and its tag
 
 ## Read
 
-The reading starts with two questions about terminal commands, `cat` and `ls`. You'll learn these in the next quest. For now, make your best guess and keep going.
-
 As you read, look for:
 
 1. Why `=` in `pet_of_the_week = "Biscuit"` means "store," not "is equal to."
@@ -121,7 +118,7 @@ As you read, look for:
 
 ### How this connects
 
-* **Next reading:** You'll stop clicking through folders and start typing short commands to your computer. You'll find out which folder you're in, list what's inside it, move between folders, and print a file like `pets.csv` on the screen.
+* **Next reading:** You'll learn to save a snapshot of your work each time you finish a change, so you have a history of every step. You'll also send a copy of that history to a website, so other people can see it.
 * **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll look at a real dataset you've never seen. For each column you look at, you'll decide what kind of data it holds and what it really means.
 
 ## Quick check
@@ -146,4 +143,4 @@ That line is a data structure: one pet's record. It groups five values together.
 
 ---
 
-**Next:** [Quest 0.2 — Meet Your Terminal: The Command Line](quest-02-terminal.md)
+**Next:** [Quest 0.3 — Save the Story of Your Work: Git and Version Control (Days 2–3)](quest-03-git.md)

@@ -10,8 +10,8 @@ This is the first module. You don't need any experience with code, data, or the 
 
 In this module, you'll set up the tools that every analyst uses, and you'll learn four habits:
 
-* Look at a data file and tell what kind of data each column holds.
 * Use the terminal to move around your computer and run tools.
+* Look at a data file and tell what kind of data each column holds.
 * Save every step of your work with Git, and share it on GitHub.
 * Check what an AI tells you before you trust it.
 
@@ -88,25 +88,25 @@ Servers usually run Linux. Linux uses `/` in paths and runs bash, just like your
 
 This module gives you four parts of an analyst's toolkit. Each quest (one reading) teaches one part:
 
-![A concept map. In the middle is you, the analyst. Around you are four parts of your toolkit. Understand data: what kind of data is this? Quest 0.1. Use the terminal: how do I move around and run tools? Quest 0.2. Save with Git: how do I keep every step of my work? Quest 0.3. Verify claims: should I trust what an AI told me? Quest 0.4.](images/m0-toolkit-map.svg)
+![A concept map. In the middle is you, the analyst. Around you are four parts of your toolkit. Use the terminal: how do I move around and run tools? Quest 0.1. Understand data: what kind of data is this? Quest 0.2. Save with Git: how do I keep every step of my work? Quest 0.3. Verify claims: should I trust what an AI told me? Quest 0.4.](images/m0-toolkit-map.svg)
 
 | Part | The question it answers |
 | --- | --- |
-| **Understand data** | What kind of data is this? |
 | **Use the terminal** | How do I move around my computer and run tools? |
+| **Understand data** | What kind of data is this? |
 | **Save with Git** | How do I keep every step of my work, and share it? |
 | **Verify claims** | Should I trust what an AI told me? |
 
 You'll use all four parts together, every day, in every module after this one. At the top of every quest page, you'll see which part you're on, like this:
 
-**Analyst toolkit:** Understand data · **Use the terminal** · Save with Git · Verify claims
+**Analyst toolkit:** **Use the terminal** · Understand data · Save with Git · Verify claims
 
 ## What you'll be able to do
 
 By the end of this module, you'll be able to:
 
-* **Understand data:** Tell variables, values, data types, and data structures apart. Explain why a column made of digits isn't always a number you'd do math on.
 * **Use the terminal:** Open the terminal, see where you are, move between folders, and read an error message calmly.
+* **Understand data:** Tell variables, values, data types, and data structures apart. Explain why a column made of digits isn't always a number you'd do math on.
 * **Save with Git:** Save your work in small steps with clear messages, and send it to GitHub so others can see it.
 * **Verify claims:** Spot when an AI answer sounds sure but has no evidence, and check it before you use it.
 
@@ -134,6 +134,6 @@ When you finish, you'll have your first public portfolio piece. It shows employe
 
 ---
 
-**Next:** [Quest 0.1 — What Kind of Data Is This? Data Types and Data Structures](quest-01-data-literacy.md)
+**Next:** [Quest 0.1 — Meet Your Terminal: The Command Line (Day 1)](quest-01-terminal.md)
 
 Need the map again? Go back to the [Overview of Module 0 (Read FIRST)](overview.md).

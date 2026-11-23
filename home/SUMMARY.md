@@ -14,12 +14,12 @@
 
   * [Overview of Module 0 (Read FIRST)](modules/module-00/overview.md)
   * [Module 0 Introduction](modules/module-00/introduction.md)
-  * [Quest 0.1 — What Kind of Data Is This? Data Types and Data Structures](modules/module-00/quest-01-data-literacy.md)
-  * [Quest 0.2 — Meet Your Terminal: The Command Line](modules/module-00/quest-02-terminal.md)
-  * [Quest 0.3 — Save the Story of Your Work: Git and Version Control](modules/module-00/quest-03-git.md)
-  * [Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers](modules/module-00/quest-04-ai-verification.md)
-  * [Module 0 Checkpoint: Review and Practice](modules/module-00/checkpoint.md)
-  * [Module 0 Conclusion](modules/module-00/conclusion.md)
+  * [Quest 0.1 — Meet Your Terminal: The Command Line (Day 1)](modules/module-00/quest-01-terminal.md)
+  * [Quest 0.2 — What Kind of Data Is This? Data Types and Data Structures (Day 1)](modules/module-00/quest-02-data-literacy.md)
+  * [Quest 0.3 — Save the Story of Your Work: Git and Version Control (Days 2–3)](modules/module-00/quest-03-git.md)
+  * [Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers (Day 6)](modules/module-00/quest-04-ai-verification.md)
+  * [Module 0 Checkpoint: Review and Practice (Day 7)](modules/module-00/checkpoint.md)
+  * [Module 0 Conclusion (Day 8)](modules/module-00/conclusion.md)
 
 * [Module 1: Programming Fundamentals](modules/module-01/README.md)
 
@@ -35,8 +35,8 @@
   * [Quest 1.8 — Meet the Objects: Classes and Objects (Days 13–15)](modules/module-01/quest-08-oop.md)
   * [Quest 1.9 — Lookups Matter: Search Speed in Practice (Days 16–17)](modules/module-01/quest-09-big-o-practice.md)
   * [Quest 1.10 — Looks Right. Is It? Debugging (Days 18–19)](modules/module-01/quest-10-debugging.md)
-  * [Module 1 Checkpoint: Review and Practice](modules/module-01/checkpoint.md)
-  * [Module 1 Conclusion](modules/module-01/conclusion.md)
+  * [Module 1 Checkpoint: Review and Practice (Day 19)](modules/module-01/checkpoint.md)
+  * [Module 1 Conclusion (Day 19)](modules/module-01/conclusion.md)
 
 * [Module 2: Exploratory Data Analysis](modules/module-02/README.md)
 

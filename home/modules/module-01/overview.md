@@ -33,8 +33,8 @@ This GitBook uses a few game words. Here's what each one is:
 | 13–15 | [Quest 1.8 — Meet the Objects: Classes and Objects](quest-08-oop.md) | Build your own class and create objects from it |
 | 16–17 | [Quest 1.9 — Lookups Matter: Search Speed in Practice](quest-09-big-o-practice.md) | Compare searching a list with looking up a dictionary |
 | 18–19 | [Quest 1.10 — Looks Right. Is It? Debugging](quest-10-debugging.md) | Find bugs by predicting output before you run code |
-| — | [Module 1 Checkpoint: Review and Practice](checkpoint.md) | Test yourself on every skill from the module |
-| — | [Module 1 Conclusion](conclusion.md) | See what you can do now, and how to talk about it |
+| 19 | [Module 1 Checkpoint: Review and Practice](checkpoint.md) | Test yourself on every skill from the module |
+| 19 | [Module 1 Conclusion](conclusion.md) | See what you can do now, and how to talk about it |
 | 20–24 | Boss Battle (Module Project) | Build an inventory tracker in plain Python. Your instructor will share the details. |
 
 ## New tools this module

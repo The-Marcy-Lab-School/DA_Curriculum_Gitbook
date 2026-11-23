@@ -6,7 +6,7 @@ Read this page before anything else in Module 0. It's your map: what the module 
 
 ## What this module is about
 
-This module sets up the tools and habits every analyst uses. You'll learn to tell what kind of data you have, use the terminal, save your work with Git, and check what an AI tells you. At the end, the [Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project) asks you to use all four on a real dataset you've never seen.
+This module sets up the tools and habits every analyst uses. You'll learn to use the terminal, tell what kind of data you have, save your work with Git, and check what an AI tells you. At the end, the [Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project) asks you to use all four on a real dataset you've never seen.
 
 ## What the words mean
 
@@ -20,16 +20,17 @@ This GitBook uses a few game words. Here's what each one is:
 
 ## Your route
 
-| Page | You'll learn to... |
-| --- | --- |
-| [Module 0 Introduction](introduction.md) | See what this module covers, how the terminal and the shell work, and why it all matters at work |
-| [Quest 0.1 — What Kind of Data Is This? Data Types and Data Structures](quest-01-data-literacy.md) | Tell what kind of data each column holds |
-| [Quest 0.2 — Meet Your Terminal: The Command Line](quest-02-terminal.md) | Move around your computer by typing commands |
-| [Quest 0.3 — Save the Story of Your Work: Git and Version Control](quest-03-git.md) | Save your work in small steps, and share it on GitHub |
-| [Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers](quest-04-ai-verification.md) | Check an AI's answer before you trust it |
-| [Module 0 Checkpoint: Review and Practice](checkpoint.md) | Test yourself on every skill from the module |
-| [Module 0 Conclusion](conclusion.md) | See what you can do now, and how to talk about it |
-| Boss Battle (Module Project) | Inspect a real dataset and publish your notes. Your instructor will share the details. |
+| Day | Page | You'll learn to... |
+| --- | --- | --- |
+| 1 | [Module 0 Introduction](introduction.md) | See what this module covers, how the terminal and the shell work, and why it all matters at work |
+| 1 | [Quest 0.1 — Meet Your Terminal: The Command Line](quest-01-terminal.md) | Move around your computer by typing commands |
+| 1 | [Quest 0.2 — What Kind of Data Is This? Data Types and Data Structures](quest-02-data-literacy.md) | Tell what kind of data each column holds |
+| 2–3 | [Quest 0.3 — Save the Story of Your Work: Git and Version Control](quest-03-git.md) | Save your work in small steps, and share it on GitHub |
+| 4–5 | Class only (no new reading) | Day 4: structured and unstructured data. Day 5: review data types and Git |
+| 6 | [Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers](quest-04-ai-verification.md) | Check an AI's answer before you trust it |
+| 7 | [Module 0 Checkpoint: Review and Practice](checkpoint.md) | Test yourself on every skill from the module |
+| 8 | [Module 0 Conclusion](conclusion.md) | See what you can do now, and how to talk about it |
+| 8–10 | Boss Battle (Module Project) | Inspect a real dataset and publish your notes. It starts on Day 8, and your instructor will share the details. |
 
 ## New tools this module
 
@@ -40,7 +41,7 @@ A **tool** is anything analysts use to get work done. This module has two kinds:
 
 | Tool | Kind | What it does | Introduced in |
 | --- | --- | --- | --- |
-| **Terminal** | Software (the window) | Lets you type commands to your computer | [Module 0 Introduction](introduction.md#the-terminal-and-the-shell) and [Quest 0.2](quest-02-terminal.md#new-tool-terminal) |
+| **Terminal** | Software (the window) | Lets you type commands to your computer | [Module 0 Introduction](introduction.md#the-terminal-and-the-shell) and [Quest 0.1](quest-01-terminal.md#new-tool-terminal) |
 | **zsh** | Software (the shell inside Terminal) | Reads your commands and runs them | [Module 0 Introduction](introduction.md#bash-and-zsh-two-shells) |
 | **Git** | Software | Saves every step of your work on your computer | [Quest 0.3](quest-03-git.md#new-tool-git) |
 | **GitHub** | Website | Stores your Git history online, so others can see it | [Quest 0.3](quest-03-git.md#new-tool-github) |
@@ -51,11 +52,11 @@ The [Module 0 Introduction](introduction.md#skills-youll-build) explains what ea
 
 | Skill | Where you'll practice |
 | --- | --- |
-| **Data Literacy** | Quest 0.1 |
-| **Critical Thinking** | Quests 0.1, 0.4 |
-| **Curiosity** | Quest 0.1 |
-| **Terminal & Command Line** | Quest 0.2 |
-| **General Programming & Coding** | Quest 0.1 |
+| **Terminal & Command Line** | Quest 0.1 |
+| **Data Literacy** | Quest 0.2 |
+| **Critical Thinking** | Quests 0.2, 0.4 |
+| **Curiosity** | Quest 0.2 |
+| **General Programming & Coding** | Quest 0.2 |
 | **Git & Version Control** | Quest 0.3 |
 | **AI Literacy** | Quest 0.4 |
 

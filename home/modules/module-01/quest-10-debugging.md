@@ -142,4 +142,4 @@ It crashes with `AttributeError: 'Viewer' object has no attribute 'nmae'`. It's 
 
 ---
 
-**Next:** [Module 1 Checkpoint: Review and Practice](checkpoint.md)
+**Next:** [Module 1 Checkpoint: Review and Practice (Day 19)](checkpoint.md)

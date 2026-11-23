@@ -33,8 +33,8 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that a **variable** is a named box that holds a value. `=` means "store," not "is equal to." You also sorted values into data types: text, whole numbers, decimals, and True/False. You did this in [What Kind of Data Is This?](../module-00/quest-01-data-literacy.md). In this reading, comparisons like `runtime > 150` give back True or False.
-* Recall that the terminal runs one typed command each time you press Enter, like `ls` or `cd`. You practiced this in [Meet Your Terminal](../module-00/quest-02-terminal.md). On your own laptop, you'll run a Python file the same way: `python3 theater_notes.py`.
+* Recall that a **variable** is a named box that holds a value. `=` means "store," not "is equal to." You also sorted values into data types: text, whole numbers, decimals, and True/False. You did this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). In this reading, comparisons like `runtime > 150` give back True or False.
+* Recall that the terminal runs one typed command each time you press Enter, like `ls` or `cd`. You practiced this in [Meet Your Terminal](../module-00/quest-01-terminal.md). On your own laptop, you'll run a Python file the same way: `python3 theater_notes.py`.
 
 ## Words to know
 
