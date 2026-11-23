@@ -128,6 +128,14 @@ As you read, look for:
 
 **[Start the reading: Pick the Right Container →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/python-data-structures/reading1-pickrightcontainer/)** (about 24 minutes)
 
+## Optional reading (Side Quest)
+
+Want to go further? These readings are optional. You don't need them for the checkpoint, but you can submit them for credit, the same way as a required reading.
+
+**[Start the optional reading: Link by Link: Linked Lists →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/linked-lists/reading-1-link-by-link/)** (about 24 minutes)
+
+**[Start the optional reading: The Deepest Branch: Binary Trees →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/trees/reading-1-the-deepest-branch/)** (about 23 minutes)
+
 ## Main takeaways
 
 ### Summary
