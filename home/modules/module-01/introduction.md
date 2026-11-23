@@ -9,13 +9,13 @@ You already have the habits this module builds on:
 * **Understand data:** You can tell what kind of data a column holds, and you know that "made of digits" doesn't always mean "a number."
 * **Use the terminal:** You can move between folders and run commands.
 * **Save with Git:** You save your work in small steps and share it on GitHub.
-* **Verify claims:** You check an AI's answer before you trust it.
+* **Verify claims:** You check an answer from an AI (artificial intelligence) tool before you trust it. A **claim** is a statement that says something is true.
 
 Now you'll start writing your own programs.
 
 ## Where you're going
 
-In this module, you'll learn Python, the programming language you'll use for the rest of the program. You'll write programs that make decisions, repeat steps, organize work into functions, hold data in the right container, save data to files, and keep going when the data is bad. You'll also learn to predict what code will do before you run it, and to find bugs when it doesn't.
+In this module, you'll learn Python, the programming language you'll use for the rest of the program. You'll write programs that make decisions, repeat steps, organize work into functions, hold data in the right container, save data to files, and keep going when the data is bad. You'll also learn to predict what code will do before you run it, and to find bugs (mistakes in code) when it doesn't.
 
 ## What is Python?
 
@@ -41,7 +41,7 @@ You save code like this in a file that ends in `.py`. Then you run it from the t
 
 ## Why data professionals use Python
 
-Imagine you need to check 10,000 rows of sales data for missing prices. By hand, that could take days, and you'd probably miss some. A Python program can check every row in seconds, the same way every time. That's the main reason analysts use Python: it **repeats work on many records automatically**.
+Imagine you need to check 10,000 rows of sales data for missing prices. By hand, that could take days, and you'd probably miss some. A Python program can check every row in seconds, the same way every time. That's the main reason analysts use Python: it **repeats work on many records automatically**. A **record** is one row of data, like one sale.
 
 Python is also a good fit for data work because:
 
@@ -147,14 +147,14 @@ These are the skills employers look for. The names in bold are the official skil
 | | **Functions & Modular Programming** | Break work into small, reusable functions |
 | | **Object-Oriented Programming** | Build your own classes and objects |
 | **Making programs fast** | **Algorithmic Complexity (Big-O)** | Explain how a program's speed changes as the data grows |
-| **Making programs correct** | **Attention to Detail** | Check edge cases, handle bad data, find bugs, and make sure the output is right |
+| **Making programs correct** | **Attention to Detail** | Check edge cases (unusual inputs, like an empty list), handle bad data, find bugs, and make sure the output is right |
 | **Practiced in the readings** | **Data Structures & Algorithms** | Pick the right container for your data, and know how fast it is to search |
 
 ## The Boss Battle (Module Project)
 
-At the end of this module, you'll build a real program in plain Python: an **inventory tracker** for a business. It reads a list of transactions, like items coming in and going out, and keeps track of what's in stock.
+At the end of this module, you'll build a real program in plain Python: an **inventory tracker** for a business. A business's **inventory** is the items it has to sell, and how many of each. Your program reads a list of transactions. A **transaction** is one event that changes the count, like items coming in or going out. The program keeps track of what's in stock: the items the business has right now.
 
-Real data is messy, so your program will have to check every transaction, skip bad lines without crashing, and report which items are running low. You'll use every building block: decisions and loops, functions, the right containers, your own class, files, and error handling. You'll also explain why a dictionary lookup is faster than searching a list.
+Real data is messy, so your program will have to check every transaction, skip bad lines without crashing (stopping with an error), and report which items are running low, or almost gone. You'll use every building block: decisions and loops, functions, the right containers, your own class, files, and error handling. You'll also explain why a dictionary lookup is faster than searching a list.
 
 When you finish, you'll have a working program that you built yourself, and you'll be able to explain every line of it. Your instructor will share the exact requirements when the project starts.
 

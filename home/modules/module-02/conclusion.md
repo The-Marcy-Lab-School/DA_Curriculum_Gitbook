@@ -12,30 +12,30 @@ Look at how far you've come. When this module started, your data was a short lis
 
 ## What you did
 
-* **11 readings**, from descriptive statistics to writing for stakeholders
-* **5 Data Challenges** on real public data, from college majors to US births
-* **1 solo lab** on a dataset you'd never seen
-* **2 review days** where you checked AI-written code for hidden problems
+* **11 readings**, from descriptive statistics to writing for stakeholders (people who use your answer to make a decision)
+* **5 Data Challenges** on real public data, from college majors (the main subject a student studies in college) to US (United States) births
+* **1 solo lab** (practice you do on your own) on a dataset you'd never seen
+* **2 review days** where you checked code written by AI (artificial intelligence) for hidden problems
 
 ## What you can do now
 
-You've now practiced every step of the [EDA workflow](introduction.md#the-big-picture-the-eda-workflow):
+You've now practiced every step of the [EDA workflow](introduction.md#the-big-picture-the-eda-workflow) (EDA is short for exploratory data analysis):
 
 ![Five steps from left to right: Inspect, Clean, Explore, Check, and Explain. A dashed arrow loops from Check back to Clean, because a problem you find later can send you back a step. The Boss Battle (Module Project) runs all five steps on one real dataset.](images/eda-workflow.svg)
 
 | Workflow step | You can now... |
 | --- | --- |
-| **Inspect** | Load any CSV in a notebook and check its shape, data types, blanks, and duplicates |
+| **Inspect** | Load any CSV (comma-separated values) file in a notebook and check its shape, data types, blanks, and duplicates |
 | **Clean** | Remove repeats by key, fix text that should be numbers, tidy labels, and drop, fill, or flag blanks with a reason, all in a reusable function |
 | **Explore** | Pick the mean or the median by looking at the shape, summarize groups, choose a chart that fits, and find a pattern that isn't obvious |
-| **Check** | Ask checkable questions about where data came from, and judge an AI's claims against your own numbers |
+| **Check** | Ask checkable questions about where data came from, and judge an AI's claims (statements it says are true, which may be wrong) against your own numbers |
 | **Explain** | Write a README and a memo that stand on their own, and lead with the answer |
 
 ## How to talk about your skills
 
 ### On your resume
 
-After the Boss Battle (Module Project), fill in the blanks with your own project's details and numbers:
+A **resume** is a short document that lists your skills and work for employers. After the Boss Battle (Module Project), fill in the blanks with your own project's details and numbers:
 
 * **Data Cleaning & Imputation:** "Cleaned a dataset of [row count] rows in pandas: removed duplicate records, converted text fields to numbers, and documented every missing-value decision."
 * **Statistical Analysis and Data Distributions & Shape:** "Described [number] key columns with the mean, median, standard deviation, and histograms, and reported the median where the data was skewed."
@@ -55,14 +55,22 @@ For example: "I notice that Downtown's repairs took 15 minutes longer. The numbe
 
 ## Where these skills show up next
 
-**First, in the [Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project).** You'll run all five steps on one real dataset, on your own: inspect, clean, explore, check, and explain. Your instructor will share the project details.
+**First, in the [Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project).** You'll run all five steps on one real dataset, on your own:
+
+* inspect
+* clean
+* explore
+* check
+* explain
+
+Your instructor will share the project details.
 
 **Then, in the modules after this one.** Nothing you learned here goes away. It comes back in new tools.
 
 A few new words you'll see below:
 
 * A **database** is a large, organized place to store many related tables.
-* **SQL** is a language for asking a database questions. You'll start learning it in Module 3.
+* **SQL** (Structured Query Language) is a language for asking a database questions. You'll start learning it in Module 3.
 * A **dashboard** is one screen of key numbers and charts that a team checks often.
 * **Excel** and **Tableau** are software for working with data and making charts.
 

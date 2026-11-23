@@ -13,7 +13,11 @@ Sometimes a total is wrong before you start adding. For example, a shop's sales 
 In this reading, you'll learn how to:
 
 * open a data file in a notebook
-* check the file in four ways
+* check the file in four ways:
+  * **Shape:** did every row and column arrive?
+  * **Data types:** is each column the type you expect?
+  * **Missing values:** where are the blanks?
+  * **Duplicates:** do any rows repeat?
 * keep only the rows you need
 
 **Main takeaway:** Check every new file before you filter it or add anything up. One blank or one repeated row can make every answer wrong.
@@ -24,17 +28,23 @@ In this reading, you'll learn how to:
 
 Check off each goal once you can do it.
 
-- [ ] I can load a CSV file into a notebook and explain why the order I run cells in matters.
-- [ ] I can run four checks on any new file: shape, data types, missing values, and duplicates.
+- [ ] I can load a CSV (comma-separated values) file into a notebook and explain why the order I run cells in matters.
+- [ ] I can run four checks on any new file:
+  - shape
+  - data types
+  - missing values
+  - duplicates
 - [ ] I can filter rows on one or two conditions and sort the result.
 
 **Skills:** Data Cleaning & Imputation
 
 ## Quick recall
 
-* Recall that when you run a `.py` file, Python does every line from top to bottom and shows only what you `print()`. You traced scripts like this in [Trace the Path](../module-01/quest-01-control-flow.md). A notebook works a little differently.
-* Recall that a **class** describes one kind of thing, an **object** is one thing made from it, and a **method** is a function that belongs to the object, from [Meet the Objects](../module-01/quest-08-oop.md). pandas is built the same way.
-* Recall that when one value is far bigger than the rest, the median describes a typical value better than the mean. You saw this with the $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
+You've inspected data before. This reading does the same checks on a whole table at once.
+
+* Recall that in a new folder, you looked before you moved: `pwd` and `ls` first, then `cat` to print a file, from [Meet Your Terminal](../module-00/quest-01-terminal.md). A new data file gets the same habit: look first, then act.
+* Recall that you named the data type of each column, and stored an ID like `00417` as text so it keeps its zeros, in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
+* Recall that your validation function checked each record before you used it, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md). It checked the shape first (the right number of fields?), then the values (is the grade made of digits?).
 
 ## New tool: Jupyter notebooks
 
@@ -79,7 +89,7 @@ df.sort_values("weight_lbs", ascending=False)
 **Code walkthrough:**
 
 1. `import pandas as pd` loads the pandas package and gives it the short name `pd`.
-2. `pd.read_csv("intake.csv")` is a pandas **function**. It reads the CSV file and gives back a **DataFrame**, pandas' table. `DataFrame` is a **class**, and `df` is one **object** made from it, just like the objects you made from your own classes.
+2. `pd.read_csv("intake.csv")` is a pandas **function**. It reads the CSV file and gives back a **DataFrame**, pandas' table. In [Make It Survive](../module-01/quest-05-serialization.md), you loaded a saved file and then checked the type of each value, because loading can change types. `read_csv` loads a whole table in one line, and `df.dtypes` does that type check for every column. `DataFrame` is a **class**, and `df` is one **object** made from it, just like the objects you made from your own classes in [Meet the Objects](../module-01/quest-08-oop.md).
 3. `df.shape` is an **attribute**: a value stored on the object. It has no parentheses because you're reading a fact, not running an action. It gives two numbers: rows, then columns.
 4. `df["site"] == "Eastside"` gives back a **Series**: one column with a `True` or `False` for each row. Is this row's site Eastside?
 5. `df.sort_values(...)` is a **method**: a function that belongs to the object, so it has parentheses. It puts the rows in order by weight. Here, the parameter `ascending` is set to `False`, so the biggest weight comes first. (*Ascending* means smallest to biggest.)
@@ -110,7 +120,7 @@ If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip instal
 | **CSV file** | A plain text file of a table. Each line is a row, commas separate the columns, and the first line holds the column names. |
 | **DataFrame** | pandas' table: a class with rows and named columns, where each column has its own data type. Each table you load is a DataFrame object. |
 | **Series** | One column of a DataFrame: a list of values with row labels. Picking a column, like `df["site"]`, gives you a Series. |
-| **dtype** | The data type pandas gave a column: `str` for text, `int64` for whole numbers, `float64` for decimal numbers. Older tutorials and AI answers say `object` for text. That's the old label. |
+| **dtype** | The data type pandas gave a column: `str` for text, `int64` for whole numbers, `float64` for decimal numbers. Older tutorials and AI (artificial intelligence) answers say `object` for text. That's the old label. |
 | **NaN** | How pandas shows a missing value. It's short for "not a number," but pandas stores it as a decimal number. |
 
 ### The four checks
@@ -123,6 +133,15 @@ Run these on every new file, before you do anything else.
 | **Data types** | The dtype of each column: is each one the type you expect? | A label per column, not a number |
 | **Missing values** | How many cells are blank in each column. | A count of blank cells, per column |
 | **Duplicate** | A row that matches an earlier row exactly, in every column. A donation logged twice adds its weight twice. | A count of rows |
+
+You've done each check before, by hand, on one record or one value at a time:
+
+* **Shape:** your validation function checked that each line had the right number of fields, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md).
+* **Data types:** you named each column's data type, and kept IDs as text, in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
+* **Missing values:** `"".isdigit()` is `False`, so your validation function caught a blank grade, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md).
+* **Duplicates:** a set keeps each value only once, in [Pick the Right Container](../module-01/quest-04-data-structures.md).
+
+pandas runs each check on the whole table in one line.
 
 A count can show as `np.int64(1)`. That's just a whole number, stored the NumPy way.
 
@@ -141,7 +160,7 @@ The partner of `&` is `|`, which means OR. It keeps a row if either condition is
 
 ## Before you read
 
-In the reading, you'll focus on a food bank's donation file. Each row is one donation: who gave it, what kind of food, how much it weighed, and which site got it. The manager asks, "How much produce came into Eastside?"
+In the reading, you'll focus on a food bank's donation file. A **food bank** is a group that collects food and gives it to people who need it. Each row is one donation: who gave it, what kind of food, how much it weighed, and which site (location) got it. The manager asks, "How much produce (fresh fruits and vegetables) came into Eastside?"
 
 Think about: before you add up any weights, what could be wrong in the file that would make your total wrong? Write down your first answer, then see if the reading agrees.
 
@@ -160,7 +179,11 @@ As you read, look for:
 ### Summary
 
 * **A notebook runs one cell at a time.** The kernel remembers what you ran, in the order you ran it. Use Restart & Run All before you share.
-* **Check every new file four ways, every time:** shape (`df.shape`), data types (`df.dtypes`), missing values (`df.isna().sum()`), and duplicates (`df.duplicated().sum()`). Write down what each one finds. Zero problems is still a finding: now you know the file is sound instead of hoping it is.
+* **Check every new file four ways, every time.** Write down what each one finds. Zero problems is still a finding: now you know the file is sound instead of hoping it is.
+  * Shape: `df.shape`
+  * Data types: `df.dtypes`
+  * Missing values: `df.isna().sum()`
+  * Duplicates: `df.duplicated().sum()`
 * **A boolean filter keeps rows where a condition is True.** Join two conditions with `&` (AND) or `|` (OR), each in its own parentheses. Count duplicates before you rank or total anything, because a repeated row can take two top spots.
 
 ### Common mix-ups

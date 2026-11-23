@@ -32,12 +32,13 @@ Check off each goal once you can do it.
 
 * Recall that you counted a loop's passes one at a time. A loop inside a loop runs its inner body (outer passes × inner passes) times. You did this in [Trace the Path](quest-01-control-flow.md). Counting passes is how you'll measure work in this reading.
 * Recall that `return` ends a function right away, even inside a loop, from [Build It Once, Use It Again](quest-02-functions-scope.md). The search in this reading uses that: it returns as soon as it finds a match.
+* Recall that an **ID** is a value that labels one thing, like a pet's tag number, from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). A booking code like `"QX7RT2"` is an ID too. This reading searches a list of them.
 
 ## Words to know
 
 ### How much work?: Algorithms and input size
 
-An **algorithm** is a list of steps that solves a problem. For example, "check each booking in order until one matches" is an algorithm. To compare two algorithms, count their steps, not seconds.
+An **algorithm** is a list of steps that solves a problem. For example, "check each booking in order until one matches" is an algorithm. A **booking** is one person's saved seat on a flight. To compare two algorithms, count their steps, not seconds.
 
 | Word | What it means | Units |
 | --- | --- | --- |
@@ -54,8 +55,10 @@ An **algorithm** is a list of steps that solves a problem. For example, "check e
 | **Linear search** (or **linear scan**) | Check items one at a time, in order, until you find the target or run out of items. *Linear* means "in a line." |
 | **`in`** | `"QX7RT2" in bookings` gives `True` if the list holds that item and `False` if it doesn't. On a list, `in` is a linear search: it checks from the start, one item at a time. |
 | **`len()`** | A function that gives how many items a list holds. `len(bookings)` gives the input size, `n`. |
-| **Lookup** | Go straight to one item by its position or label, like a coat-check worker walking to hook 42. |
+| **Lookup** | Go straight to one item by its position or label, like a coat-check worker walking to hook 42. (At a **coat check**, you leave your coat and get a ticket with a hook number.) |
 | **Index** | An item's position number in a list. Python starts counting at 0, so `bookings[0]` is the first item and `bookings[3]` is the fourth. |
+
+Counting from 0 should look familiar. In [Trace the Path](quest-01-control-flow.md), `range(n)` started at 0 and stopped before `n`. So `range(4)` gives 0, 1, 2, and 3: the four positions in a list of four items.
 
 ![Two panels side by side, with the same 4 bookings in positions 0 to 3: LM2B8K, RT9PW4, BB4HN1, and QX7RT2. Left, linear search: it checks positions 0, 1, 2, and 3 in order, so finding QX7RT2 at the end takes 4 checks. With 8 bookings, it takes 8 checks. This is O(n), the work grows with n. Right, lookup: bookings[3] jumps straight to position 3 in 1 step. With 200,000 bookings, it's still about 1 step. This is O(1), the work stays about the same.](images/m1a-search-vs-lookup.svg)
 
@@ -76,7 +79,7 @@ An **algorithm** is a list of steps that solves a problem. For example, "check e
 
 ## Before you read
 
-In the reading, you'll focus on an airport check-in screen. It finds your booking from a six-letter code. With 200 bookings, any search feels instant.
+In the reading, you'll focus on an airport check-in screen: a screen where travelers show they are there for their flight. It finds your booking from a six-letter code. With 200 bookings, any search feels instant.
 
 Think about: if the airline grows to 200,000 bookings, how many might the screen have to check to find yours? Does it matter where your booking sits in the list? Write down your first answer, then see if the reading agrees.
 

@@ -24,7 +24,7 @@ You'll also learn how to put all the fixes into one function that you can run on
 
 Check off each goal once you can do it.
 
-- [ ] I can stack two tables and remove repeated records using a key column.
+- [ ] I can stack two tables and remove repeated records (rows about the same real thing) using a key column.
 - [ ] I can turn text into numbers and tidy up labels, then count what changed.
 - [ ] I can write a cleaning function and prove it's reusable by calling it on two different inputs.
 
@@ -45,7 +45,7 @@ Check off each goal once you can do it.
 | **Stack** | Put one table under another, so their rows end up in one table. |
 | **Duplicate row** | The same real-world record showing up more than once, often after stacking two lists that overlap. |
 | **Key column** | A column whose value names one record, like a delivery's `delivery_id`. |
-| **Number stored as text** | A column of numbers that pandas loaded as text (`str`), because at least one value, like `"TBD"`, isn't a number. Math on it gives errors or wrong answers. |
+| **Number stored as text** | A column of numbers that pandas loaded as text (`str`), because at least one value, like `"TBD"` (short for "to be determined"), isn't a number. Math on it gives errors or wrong answers. |
 | **Label** | A value in a category column, like a country name. `"Kenya"`, `"kenya "`, and `" Kenya"` are three different labels to pandas. |
 
 ### Stacking and repeats
@@ -61,7 +61,7 @@ Check off each goal once you can do it.
 | Code | What it does |
 | --- | --- |
 | **`pd.to_numeric(...)`** | Turns a column of text into numbers. On its own, it stops with a `ValueError` at the first value that isn't a number. |
-| **Coerce** | Force a change. Setting the parameter `errors` to `"coerce"` means a value that can't become a number becomes NaN instead of stopping with an error. |
+| **Coerce** | Force a change. Setting the parameter `errors` to `"coerce"` means a value that can't become a number becomes NaN ("not a number," pandas' mark for a blank) instead of stopping with an error. |
 
 ### Tidying labels
 

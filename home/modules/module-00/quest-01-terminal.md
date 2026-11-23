@@ -100,7 +100,7 @@ A **directory** is another word for a folder. Programmers say "directory," so yo
 
 ## Before you read
 
-In the reading, you'll focus on a community garden. Its laptop has a folder called `garden`, with plant lists and notes inside.
+In the reading, you'll focus on a community garden (a shared garden where neighbors grow plants together). Its laptop has a folder called `garden`, with plant lists and notes inside.
 
 Think about: when you open a new folder with your mouse, what are the first two things you notice? What do you think the typed version of each one is? Write down your first answer, then see if the reading agrees.
 
@@ -134,7 +134,7 @@ As you read, look for:
 
 ### How this connects
 
-* **Next reading:** You'll look inside a data file, like an animal shelter's list of pets, and decide what kind of value each column holds: text, a whole number, a decimal, true/false, or a date. The reading starts with two warm-up questions about `cat` and `ls`.
+* **Next reading:** You'll look inside a data file, like an animal shelter's list of pets, and decide what kind of value each column holds: text, a whole number, a decimal, true/false, or a date. An **animal shelter** is a place that cares for pets until a new family takes them home. The reading starts with two warm-up questions about `cat` and `ls`.
 * **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll use the terminal to find your project folder, look at the files inside it, and open a data file before you analyze it.
 
 ## Quick check

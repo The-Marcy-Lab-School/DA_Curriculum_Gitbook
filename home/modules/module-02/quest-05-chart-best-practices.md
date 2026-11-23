@@ -6,13 +6,15 @@
 
 ## Introduction
 
-Sometimes a chart tells a story that its numbers don't support. For example, an ad shows two bars for phone battery life: 20 hours for one phone and 19 hours for another. The y-axis starts at 18, so the first bar looks twice as tall. But the real difference is only about 5%.
+Sometimes a chart tells a story that its numbers don't support. For example, an ad (an advertisement) shows two bars for phone battery life: 20 hours for one phone and 19 hours for another. The y-axis starts at 18, so the first bar looks twice as tall. But the real difference is only about 5%.
 
 ![Two bar charts of the same data: phone A lasts 20 hours and phone B lasts 19 hours. Left chart: the y-axis starts at 18, so phone A's bar looks twice as tall as phone B's. Right chart: the y-axis starts at 0, so the bars look almost the same height, which matches the real difference of about 5%.](images/axis-baseline.svg)
 
 In this reading, you'll learn:
 
-* two ways a chart with real numbers can still mislead: a y-axis that doesn't start at zero, and hidden outliers
+* two ways a chart with real numbers can still mislead:
+  * a y-axis that doesn't start at zero
+  * hidden outliers
 * the labels every shared chart needs
 
 **Main takeaway:** Every number can be correct and the chart can still tell the wrong story. Before you share a chart, check where the axis starts and what the chart leaves out.
@@ -31,8 +33,11 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
+You've learned to label a chart, and to doubt a result that only looks right. This reading puts the two together.
+
 * Recall that to compare one number across groups, like an average for each group, you pick a bar chart. You also gave a polished chart a title that states the finding and axis labels with units, using `plt.title("...")` and `plt.ylabel("...")`, in [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
 * Recall that Q1 is the value a quarter of the sorted data falls below, and Q3 is the value three quarters falls below. You found them in the five-number summary in [The Loudest Number](quest-01-descriptive-statistics.md). Here you'll use them to find where outliers start.
+* Recall that code can run with no error and still print a wrong answer, from [Looks Right. Is It?](../module-01/quest-10-debugging.md). So you worked out the expected answer by hand first, then compared.
 
 ## Words to know
 
@@ -44,13 +49,15 @@ Check off each goal once you can do it.
 | **Scale** | The numbers marked along an axis, from the lowest to the highest. |
 | **Baseline** | Where the bars start. On an honest bar chart, the baseline is zero. |
 | **Truncated axis** | A y-axis that doesn't start at zero. On a bar chart, it makes small real differences look big. |
-| **Slope** | How steeply a line goes up or down from one point to the next. A line chart's claim is its slope, not its height. |
+| **Slope** | How steeply a line goes up or down from one point to the next. A line chart's claim (what the chart says is true) is its slope, not its height. |
+
+Use your expected-answer habit on charts, too. 191 swimmers is only about 5% more than 182. So if one bar looks five times taller than the other, the chart is wrong, not the numbers.
 
 ### Outliers and boxplots
 
 | Word | What it means | Units |
 | --- | --- | --- |
-| **Outlier** | A value far from the rest. It can still be real. | Same as the data (here, laps) |
+| **Outlier** | A value far from the rest. It can still be real. | Same as the data (here, laps: one lap is one swim from one end of the pool to the other) |
 | **Boxplot** | A chart of one column's spread: a box from Q1 to Q3, a line at the median, and whiskers above and below. Outliers show as dots. | Same as the data |
 | **Whisker** | The line that sticks out of the box. The top whisker stops at the largest value inside the upper fence. | Same as the data |
 | **Box height** | Q3 − Q1: how tall the box is. (This is the IQR.) | Same as the data |
@@ -77,9 +84,11 @@ Check off each goal once you can do it.
 | **`.plot.box()`** | Draws a boxplot. |
 | **`showfliers`** | A parameter of the boxplot method. Setting `showfliers` to `False` leaves every outlier dot out of the drawing. The default is `True`. |
 
+`showfliers=False` is risky for the same reason a bare `except:` is, from [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md). Both hide something without any warning, and the result still looks fine.
+
 ## Before you read
 
-In the reading, you'll focus on a city's three public pools. The pool manager is making a chart for the city council, which decides where to send more lifeguards. The pools average 182, 188, and 191 swimmers a day, but the draft chart makes the busiest pool look about five times busier than the quietest.
+In the reading, you'll focus on a city's three public pools. The pool manager is making a chart for the city council, which decides where to send more lifeguards. The **city council** is the group of elected leaders who make decisions for the city. **Lifeguards** are workers who watch swimmers and keep them safe. The pools average 182, 188, and 191 swimmers a day, but the draft chart makes the busiest pool look about five times busier than the quietest.
 
 Think about: how can a chart make a gap that big when every number in it is real? Write down your first answer, then see if the reading agrees.
 
@@ -117,7 +126,7 @@ As you read, look for:
 
 ### How this connects
 
-* **Next:** A practice day with no new reading. You'll review what you've learned so far, and practice checking analysis code that an AI writes for you. Later, you'll run these same two chart checks when an AI writes or describes a chart for you.
+* **Next:** A practice day with no new reading. You'll review what you've learned so far, and practice checking analysis code that an AI (artificial intelligence) tool writes for you. Later, you'll run these same two chart checks when an AI writes or describes a chart for you.
 * **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** Every chart you share will need to fit its question and be labeled honestly: a y-axis that starts where it should, nothing hidden without a note, and a title and axes a reader can follow without your code.
 
 ## Quick check

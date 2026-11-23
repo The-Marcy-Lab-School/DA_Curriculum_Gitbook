@@ -6,13 +6,13 @@
 
 ## Introduction
 
-The person who acts on your work usually wasn't there when you did it. For example, a coach finds that the team allows most of its goals in the last ten minutes of games. The athletic director won't read the coach's spreadsheet. The director needs the answer, one number, and a picture, in words they can read in one minute.
+The person who acts on your work usually wasn't there when you did it. For example, a coach finds that the team allows most of its goals (lets the other team score) in the last ten minutes of games. The athletic director (the person in charge of a school's sports teams) won't read the coach's spreadsheet. The director needs the answer, one number, and a picture, in words they can read in one minute.
 
 In this reading, you'll learn how to:
 
 * save a chart as an image file
-* write a README page that shows what you found
-* write a short data-quality memo that says how much to trust it
+* write a README page (the first page people see in a project) that shows what you found
+* write a short data-quality memo (a note for a decision-maker) that says how much to trust it
 
 **Main takeaway:** Write each page so a reader understands it without your code or your notebook. Start with the answer, give one number, and say what still needs checking.
 
@@ -30,9 +30,11 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
+You've saved charts, written checkable questions, and pushed work to GitHub. This reading uses them together to write for a reader.
+
 * Recall that you saved a chart as an image with `plt.savefig("tradeins_hist.png", dpi=150)`, before `plt.show()`, so you could share just the picture, in [Two Sets of Eyes](quest-10-ai-on-charts.md).
 * Recall that you rewrote a vague question like "Why is data missing?" into a checkable one that names a group, a number, or a method, in [The Pattern Isn't the Proof](quest-09-clarifying-questions.md).
-* Recall that a chart made for someone else gets a title that states the finding and axes with units, in [Real Numbers, Wrong Story](quest-05-chart-best-practices.md).
+* Recall that `git add` stages a file and `git commit` saves it. A commit isn't on GitHub until you `git push`. You did this in [Save the Story of Your Work](../module-00/quest-03-git.md). A README and its chart images go through the same steps.
 
 ## Words to know
 
@@ -40,28 +42,32 @@ Check off each goal once you can do it.
 
 | Word | What it means |
 | --- | --- |
-| **Stakeholder** | The person who will use your finding to make a decision. In the reading, it's the transit manager. |
+| **Stakeholder** | The person who will use your finding to make a decision. In the reading, it's the transit manager: the person who runs the city's buses. |
 | **Stakeholder-facing** | Written for a reader who doesn't code. It gives the answer and how sure you are, not the code that found it. |
-| **BLUF** | Bottom Line Up Front: lead with the answer, then give one number, then name one thing still worth checking. |
+| **BLUF** | Bottom Line Up Front. The "bottom line" is your main answer. Lead with the answer, then give one number, then name one thing still worth checking. |
 
 ### The two pages
 
 | Word | What it means |
 | --- | --- |
-| **README** | The landing page of a project: the first page anyone opening the repo sees. It answers "What did you find?" |
+| **README** | The landing page of a project: the first page anyone opening the repo (repository, the project's folder on GitHub) sees. It answers "What did you find?" |
 | **Takeaways** | The README section with findings in plain words, not code. |
 | **Memo** | A short note written for someone who has to make a decision. |
 | **Data-quality memo** | A separate short page whose job is trust. It answers "Can I trust it?" It has four parts, every time. |
 | **Markdown** | A simple way to format plain text. Symbols like `##` and `-` turn into headings and bullets when GitHub shows the file. READMEs are written in Markdown. |
 | **Embed** | Put a picture right inside the page, so readers see the chart instead of a link to it. |
-| **Alt text** | Words that describe what a chart shows, for readers who use a screen reader. Never just a file name. |
+| **Alt text** | Words that describe what a chart shows, for readers who use a screen reader (a program that reads the screen out loud). Never just a file name. |
+
+You've seen a README before. In [Meet Your Terminal](../module-00/quest-01-terminal.md), `ls` listed a `README.md` file in the `garden` folder. The `.md` at the end means it's written in Markdown.
 
 ### New code in this reading
 
 | Word | What it means |
 | --- | --- |
 | **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. `os` is a module that comes with Python. The parameter `exist_ok` is set to `True`, which means it's OK if the folder already exists, so Python won't stop with an error. |
-| **`.unstack()`** | Turns the inner group labels (morning, evening) into columns, so each route gets two bars side by side. |
+| **`.unstack()`** | Turns the inner group labels (morning, evening) into columns, so each route (the path one bus line follows) gets two bars side by side. |
+
+The README finds its chart by a **relative path**, like `images/late_by_route.png`. You used relative paths with `cd` in [Meet Your Terminal](../module-00/quest-01-terminal.md). This one starts from the folder that holds the README.
 
 ## Before you read
 
@@ -83,7 +89,7 @@ As you read, look for:
 
 ### Summary
 
-* **Recompute a number right before you cite it,** and copy what the cell prints, not what you remember. Jordan copies 10.3 minutes late, for Route 12's evening trips, straight from the output.
+* **Recompute a number right before you cite it (use it in your writing),** and copy what the cell prints, not what you remember. Jordan copies 10.3 minutes late, for Route 12's evening trips, straight from the output.
 * **Save the chart as a file, then embed it.** Make an `images` folder, save the chart with `plt.savefig` before `plt.show()`, and embed it with `![alt text](images/name.png)`. Commit the `images` folder along with the README, or the picture won't show up on GitHub.
 * **Two pages, two jobs.** The README says what you found, in the sections the project asks for. The data-quality memo says how far to trust it, in four parts.
 

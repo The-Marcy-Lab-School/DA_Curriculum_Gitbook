@@ -6,7 +6,7 @@ Read this page before anything else in Module 0. It's your map: what the module 
 
 ## What this module is about
 
-This module sets up the tools and habits every analyst uses. You'll learn to use the terminal, tell what kind of data you have, save your work with Git, and check what an AI tells you. At the end, the [Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project) asks you to use all four on a real dataset you've never seen.
+This module sets up the tools and habits every analyst (a person who studies data to answer questions) uses. You'll learn to use the terminal, tell what kind of data you have, save your work with Git, and check what an AI (artificial intelligence) tool tells you. At the end, the [Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project) asks you to use all four on a real dataset you've never seen. A **dataset** is a set of data, often one table or file.
 
 ## What the words mean
 

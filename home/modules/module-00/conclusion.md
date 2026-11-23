@@ -6,7 +6,7 @@
 
 ## Introduction
 
-When this module started, you may never have opened a terminal or saved work with Git. Now you've set up a real analyst's toolkit. You can move around your computer by typing commands, tell what kind of data you have, save your work in small steps, and check an AI's answer before you use it.
+When this module started, you may never have opened a terminal or saved work with Git. Now you've set up a real analyst's toolkit. You can move around your computer by typing commands, tell what kind of data you have, save your work in small steps, and check an answer from an AI (artificial intelligence) tool before you use it.
 
 **Main takeaway:** These four habits aren't extra. They're how careful analysts work every day, and you'll use all four in every module from now on.
 
@@ -29,13 +29,13 @@ You've now practiced every part of your [analyst toolkit](introduction.md#the-bi
 | **Use the terminal** | See where you are, move between folders, run commands, and read an error message calmly |
 | **Understand data** | Tell variables, values, data types, and data structures apart, and explain why a ZIP code isn't a number you'd do math on |
 | **Save with Git** | Save your work in small steps with clear messages, and send it to GitHub |
-| **Verify claims** | Spot an AI answer that sounds sure but has no evidence, and check it before you use it |
+| **Verify claims** | Spot an AI answer that sounds sure but has no evidence, and check it before you use it. A **claim** is a statement that says something is true, which may or may not be correct. |
 
 ## How to talk about your skills
 
 ### On your resume
 
-After the Boss Battle (Module Project), fill in the blanks with your own details:
+A **resume** is a short document that lists your skills and work for employers. After the Boss Battle (Module Project), fill in the blanks with your own details:
 
 * **Data Literacy:** "Inspected a public dataset of [row count] rows and classified each column by data type and structure."
 * **Git & Version Control:** "Tracked my work with Git in small, clearly described commits, and published it on GitHub."
@@ -54,8 +54,8 @@ You'll use these habits in every module. Here's where they matter most:
 
 | In this module, you... | Next, you'll... |
 | --- | --- |
-| Used the terminal to move around and run commands | Run your own Python programs from the terminal **(Module 1)** |
-| Saved your work with Git and GitHub | Save every project with Git **(Modules 1, 4, and 8, and the Capstone)** |
+| Used the terminal to move around and run commands | Run your own Python (a programming language) programs from the terminal **(Module 1)** |
+| Saved your work with Git and GitHub | Save every project with Git **(Modules 1, 4, and 8, and the Capstone, the program's final project)** |
 | Told data types apart | Check the data type of every column in a real table **(Modules 1, 2, 3, and 5)** |
 | Checked an AI's claims | Check code that an AI writes for you **(Modules 4 and 12)** |
 

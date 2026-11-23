@@ -8,12 +8,16 @@
 
 Sounding sure and being right are two different things. For example, a friend tells you the store closes at 9 p.m. They sound completely sure. You get there at 8:30, and the doors are locked. It closed at 8.
 
-AI chatbots work the same way. They give every answer in the same sure, polished tone, whether it's right or wrong.
+AI (artificial intelligence) chatbots work the same way. A chatbot is a program that answers questions in everyday language. Chatbots give every answer in the same sure, polished tone, whether it's right or wrong.
 
 In this reading, you'll learn how to:
 
-* tell an unverified claim apart from a verified fact
-* check an AI answer against a real source, in four steps
+* tell an unverified claim apart from a verified fact. A **claim** is a statement that says something is true, which may or may not be correct. *Unverified* means nobody has checked it yet.
+* check an AI answer against a real source, in four steps:
+  * find the exact claim
+  * find a real source
+  * compare the two
+  * decide whether to use the claim, fix it, or drop it
 * spot a hallucination: a sure-sounding answer that is wrong
 
 **Main takeaway:** How sure an answer sounds tells you nothing about whether it's true. Only checking it against a real source does.
@@ -64,16 +68,16 @@ Check off each goal once you can do it.
 
 ## Before you read
 
-In the reading, you'll focus on a park cleanup. Volunteers wrote down every bag of trash they filled. Afterward, a chatbot says: "Your volunteers collected 64 bags of trash, the most of any park cleanup this year, according to a 2025 city news report."
+In the reading, you'll focus on a park cleanup (a day when people pick up trash in a park). Volunteers wrote down every bag of trash they filled. Afterward, a chatbot says: "Your volunteers collected 64 bags of trash, the most of any park cleanup this year, according to a 2025 city news report."
 
-Think about: before you print that sentence on a flyer, what would you check, and where? Write down your first answer, then see if the reading agrees.
+Think about: before you print that sentence on a flyer (a printed page that shares news with many people), what would you check, and where? Write down your first answer, then see if the reading agrees.
 
 ## Read
 
 As you read, look for:
 
 1. Why the chatbot's tone can't tell you whether its answer is right.
-2. What the bags in the cleanup log add up to, compared with the chatbot's number.
+2. What the bags in the cleanup log (the written record of each volunteer's bags) add up to, compared with the chatbot's number.
 3. What happens when the volunteer searches for the "2025 city news report."
 
 **[Start the reading: Confidence Is Not Evidence →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/ai-literacy/reading1-confidenceisnotevidence/)** (about 20 minutes)
@@ -84,7 +88,11 @@ As you read, look for:
 
 * **Every AI answer is an unverified claim** until you check it against a real source, like the original data file.
 * **Confidence is not accuracy.** A chatbot sounds just as sure when it's wrong. A specific number or a named source doesn't make an answer true.
-* **Check in four steps:** find the exact claim, find a real source, compare the two, and decide whether to use the claim, fix it, or drop it.
+* **Check in four steps:**
+  1. Find the exact claim.
+  2. Find a real source.
+  3. Compare the two.
+  4. Decide whether to use the claim, fix it, or drop it.
 
 ![The chatbot's answer at the top: Your volunteers collected 64 bags of trash, the most of any park cleanup this year, according to a 2025 city news report. Below, four steps in order. 1, Find the claim: the number, 64 bags, and the source, a 2025 city news report. 2, Find a source: the cleanup log, cleanup_log.csv, and the city's news site. 3, Compare: 9 plus 12 plus 7 plus 10 plus 8 equals 46 bags, not 64, and there is no such report on the news site. 4, Decide: fix the number to 46 bags, and drop the report because it was made up. At the bottom: how sure an answer sounds does not tell you if it is true. Checking does.](images/m0-check-a-claim.svg)
 
@@ -101,7 +109,7 @@ As you read, look for:
 ### How this connects
 
 * **Next page:** In the Checkpoint, you'll answer questions from all four quests on your own, and find out which ones to review.
-* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** Before you write down a claim about your dataset, including one from an AI tool, you'll check it against the data itself and say how you checked.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** Before you write down a claim about your dataset (the set of data you'll work with), including one from an AI tool, you'll check it against the data itself and say how you checked.
 
 ## Quick check
 

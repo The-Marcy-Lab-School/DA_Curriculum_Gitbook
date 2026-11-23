@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Many things in a program come in sets of the same kind. For example, a gym uses one sign-up form for every member. The form has the same blanks each time: name, plan, and visits this month. Each member fills in their own copy. Ana's visits never change Jay's.
+Many things in a program come in sets of the same kind. For example, a gym uses one sign-up form for every member. The form has the same blanks each time: name, plan (the type of membership the person pays for), and visits this month. Each member fills in their own copy. Ana's visits never change Jay's.
 
 In Python, the blank form is a **class**. Each filled-in copy is an **object**.
 
@@ -19,7 +19,7 @@ In this reading, you'll learn how to:
 
 **Main takeaway:** A class describes one kind of thing, once. Each object made from it keeps its own values.
 
-**Why it matters at work:** Data programs handle many records of the same kind. A class keeps each record's values together, and apart from every other record. Many Python packages for data are built from classes, so these words will come up again and again.
+**Why it matters at work:** Data programs handle many records of the same kind. A **record** is the data about one thing, like one gym member. A class keeps each record's values together, and apart from every other record. Many Python packages for data are built from classes, so these words will come up again and again.
 
 ## Learning goals
 
@@ -33,9 +33,9 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that a **parameter** is a name in a function's `def` line, and an **argument** is the value you pass in when you call it, from [Build It Once, Use It Again](quest-02-functions-scope.md). A class has a function inside it with parameters, too.
+* Recall that a **record** is one row of data about one thing. A **column** is one kind of information that every record has. Every pet in `pets.csv` had the same columns, like name, age, and weight. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
 * Recall that a dictionary stores values under labels called keys, like `goal["saved_amount"]`, from [Pick the Right Container](quest-04-data-structures.md). A class also groups labeled values. It adds the actions that use them.
-* Recall the **f-string** from [Build It Once, Use It Again](quest-02-functions-scope.md): `f"Hi, {name}!"` fills in the value of `name`. The second reading builds strings this way.
+* Recall that a **parameter** is a name in a function's `def` line, and an **argument** is the value you pass in when you call it. Recall too that `f"Hi, {name}!"` is an **f-string**: it fills in the value of `name`. Both come from [Build It Once, Use It Again](quest-02-functions-scope.md). A class has a function inside it with parameters, and the second reading builds f-strings.
 
 ## Words to know
 
@@ -47,7 +47,9 @@ Check off each goal once you can do it.
 | **Object** | One specific thing made from a class, with its own values. |
 | **Instance** | Another word for object. "`goal_a` is an instance of `SavingsGoal`" means `goal_a` was made from that class. |
 | **Object-Oriented Programming (OOP)** | A way of writing programs around objects. Each object holds its data and the actions that use that data. |
-| **CapWords** | The naming style for classes. Each word starts with a capital letter, with no spaces or underscores: `SavingsGoal`. Variables, functions, and methods use lowercase words joined by underscores: `saved_amount`. Both rules come from PEP 8, Python's style guide. See [the Module 1 Introduction](introduction.md#python-syntax-and-style). |
+| **CapWords** | The naming style for classes. Each word starts with a capital letter, with no spaces or underscores: `SavingsGoal`. Variables, functions, and methods use lowercase words joined by underscores: `saved_amount`. Both rules come from PEP 8 (PEP stands for "Python Enhancement Proposal"), Python's style guide. See [the Module 1 Introduction](introduction.md#python-syntax-and-style). |
+
+A class works like the column names at the top of `pets.csv`. It lists the same blanks once. Each object is one record that fills in those blanks with its own values.
 
 ### What is inside an object?: Attributes, methods, and self
 
@@ -59,7 +61,9 @@ Check off each goal once you can do it.
 | **`self`** | Inside a method, the object the method is working on: the object before the dot. Python passes it in for you. |
 | **Dunder** | Short for "double underscore." `__init__` is said "dunder init." |
 
-For example, this is the class from the first reading:
+You've already called methods, like `stops.append("Oak Rd")` in [Pick the Right Container](quest-04-data-structures.md). Now you'll write your own.
+
+For example, this is the class from the first reading. It describes a **savings goal**: an amount of money you want to save for one thing, like a bike.
 
 ```python
 class SavingsGoal:  # CapWords name
@@ -79,7 +83,7 @@ goal_a = SavingsGoal("Bike Fund", 500, 420)
 1. `class SavingsGoal:` starts the class. Everything indented under it belongs to the class.
 2. `def __init__(self, name, target_amount, saved_amount):` is the setup method. `self` is the new object. The other three parameters receive the values you pass in.
 3. `self.name = name` stores the value of the parameter `name` on this object, as an attribute called `name`. The next two lines do the same for the other values.
-4. `def is_funded(self):` is a method. It reads this object's own attributes and returns `True` or `False`.
+4. `def is_funded(self):` is a method. It reads this object's own attributes and returns `True` or `False`. A goal is **funded** when the saved amount has reached the target amount.
 5. `SavingsGoal("Bike Fund", 500, 420)` makes a new object, and Python runs `__init__` once. The parameter `name` is set to `"Bike Fund"`, `target_amount` is set to `500`, and `saved_amount` is set to `420`. You never pass `self` yourself.
 
 ### How does an object describe itself?: Magic methods
@@ -94,7 +98,7 @@ goal_a = SavingsGoal("Bike Fund", 500, 420)
 
 ## Before you read
 
-In the first reading, you'll focus on a budgeting app that saves for several goals at once, like a Bike Fund and a Trip Fund. Both goals are made from the same class.
+In the first reading, you'll focus on a budgeting app: an app that helps you plan how to spend and save money. It saves for several goals at once, like a Bike Fund and a Trip Fund. A **fund** is money you save for one purpose. Both goals are made from the same class.
 
 Think about: you add money to the Bike Fund. Should the Trip Fund's saved amount change too? Why or why not? Write down your first answer, then see if the reading agrees.
 

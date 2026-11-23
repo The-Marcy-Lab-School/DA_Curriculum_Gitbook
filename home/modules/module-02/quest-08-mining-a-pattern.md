@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Sometimes one average hides important differences. For example, Sam's deliveries take 40 minutes on average, and Alex's take 25 minutes. Sam looks slow. But Sam drives a long route outside the city, and Alex delivers downtown. On the same route, they may be equally fast.
+Sometimes one average hides important differences. For example, Sam's deliveries take 40 minutes on average, and Alex's take 25 minutes. Sam looks slow. But Sam drives a long route (the path a driver follows) outside the city, and Alex delivers downtown (in the center of the city). On the same route, they may be equally fast.
 
 In this reading, you'll learn how to:
 
@@ -30,8 +30,11 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
+You've grouped by one column and checked every pair in a nested loop. This reading puts the two ideas together.
+
 * Recall that you turned many rows into one row per group with `drives.groupby("site")["units"].agg(["count", "mean", "median"])` in [One Row Per Group](quest-03-group-columns.md). Keeping the count next to the mean showed how many rows each number rested on. This reading groups by two columns at once.
 * Recall that when a group's mean sits well above its median, a few big values are pulling the mean up, so the median is the better typical value. You saw this in [The Loudest Number](quest-01-descriptive-statistics.md).
+* Recall that a nested loop runs its inner body once for every outer pass, in [Trace the Path](../module-01/quest-01-control-flow.md). 3 worlds × 4 checkpoints printed 12 lines. Grouping by two columns gives every combination the same way.
 
 ## Words to know
 
@@ -43,6 +46,8 @@ Check off each goal once you can do it.
 | **Mix** | Which kinds of rows make up a group. A group's mix can drive its average. |
 | **`groupby(["shop", "repair"])`** | Groups by two columns at once. Pass a list of columns, and you get one group for each combination, like "Downtown, screen" or "Eastside, battery." |
 
+Each group's label is a pair of values, like `("Downtown", "screen")`. That's a tuple, from [Pick the Right Container](../module-01/quest-04-data-structures.md). A tuple can't change, so it can be a dictionary key. Here, it works as each group's key.
+
 ### Numbers that describe each group
 
 | Word | What it means | Units |
@@ -51,6 +56,8 @@ Check off each goal once you can do it.
 | **Sample size** | How many rows a number rests on. In a tiny group, one unusual row can move the average a lot. | Rows |
 | **Standard deviation (std)** | How far values usually sit from the mean. A small std means the values are close together. | Same as the data (here, minutes) |
 | **`.agg(["count", "mean", "median", "std"])`** | Works out several summaries for each group at once, one column each. `"std"` adds the standard deviation. | Count is in rows. The others are in the data's units (minutes). |
+
+You've seen a small test mislead before. In [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md), a fast test on a few items didn't prove much. The code could still be slow on many. An average from a tiny group is the same: a few rows can't prove a pattern.
 
 ### Is the pattern real?
 
