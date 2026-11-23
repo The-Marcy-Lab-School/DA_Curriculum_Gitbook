@@ -50,7 +50,7 @@ Check off each goal once you can do it.
 
 | Word | What it means |
 | --- | --- |
-| **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. The parameter `exist_ok=True` means it's OK if the folder already exists, so Python won't stop with an error. `os` is a module that comes with Python. |
+| **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. `os` is a module that comes with Python. The parameter `exist_ok` is set to `True`, which means it's OK if the folder already exists, so Python won't stop with an error. |
 | **`.unstack()`** | Turns the inner group labels (morning, evening) into columns, so each route gets two bars side by side. |
 
 ## Before you read

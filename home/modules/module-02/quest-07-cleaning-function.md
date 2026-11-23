@@ -40,8 +40,8 @@ Check off each goal once you can do it.
 
 | Code | What it does |
 | --- | --- |
-| **`pd.concat([may, june], ignore_index=True)`** | Stacks the two tables, top to bottom. The parameter `ignore_index=True` numbers the rows from 0 again, so no row label shows up twice. |
-| **`.duplicated(subset="delivery_id")`** | Marks a row True when it repeats an earlier row. The parameter `subset="delivery_id"` means: compare only the `delivery_id` column, even if other columns differ. |
+| **`pd.concat([may, june], ignore_index=True)`** | Stacks the two tables, top to bottom. Setting the parameter `ignore_index` to `True` numbers the rows from 0 again, so no row label shows up twice. |
+| **`.duplicated(subset="delivery_id")`** | Marks a row True when it repeats an earlier row. Setting the parameter `subset` to `"delivery_id"` means: compare only the `delivery_id` column, even if other columns differ. |
 | **`.drop_duplicates(subset="delivery_id")`** | Removes the repeats, and keeps the first copy of each ID. |
 
 ### Text into numbers
@@ -49,13 +49,13 @@ Check off each goal once you can do it.
 | Code | What it does |
 | --- | --- |
 | **`pd.to_numeric(...)`** | Turns a column of text into numbers. On its own, it stops with a `ValueError` at the first value that isn't a number. |
-| **Coerce** | Force a change. The parameter `errors="coerce"` means a value that can't become a number becomes NaN instead of stopping with an error. |
+| **Coerce** | Force a change. Setting the parameter `errors` to `"coerce"` means a value that can't become a number becomes NaN instead of stopping with an error. |
 
 ### Tidying labels
 
 | Code | What it does |
 | --- | --- |
-| **`.str`** | Runs a string method on every value in a column, like `.str.lower()`. |
+| **`.str`** | Lets a column use string methods. `.str.lower()` runs `.lower()` on every value in the column. |
 | **`.strip()`** | Removes spaces from the start and end of text: `" Kenya"` becomes `"Kenya"`. |
 | **`.lower()`** | Makes every letter lowercase: `"PERU"` becomes `"peru"`. |
 | **`.value_counts()`** | Counts how many rows hold each different value in a column. Good for spotting one label spelled more than one way. |
@@ -78,7 +78,7 @@ Think about: after you stack the two lists into one table, how many rows will it
 
 As you read, look for:
 
-1. Why `.duplicated()` with no settings finds 0 repeats when there are really 2.
+1. Why `.duplicated()` with no arguments finds 0 repeats when there are really 2.
 2. What `errors="coerce"` does to the value `"TBD"`, and what you should count right after.
 3. Why the first line of the cleaning function keeps the original table safe.
 
@@ -111,9 +111,9 @@ clean_june = clean_deliveries(june)
 
 **Code walkthrough:**
 
-1. `to_number` turns a column into numbers. The parameter `errors="coerce"` means: when a value can't become a number, like `"TBD"`, make it blank (NaN) instead of stopping with an error.
+1. `to_number` turns a column into numbers. The parameter `errors` is set to `"coerce"`, which means: when a value can't become a number, like `"TBD"`, make it blank (NaN) instead of stopping with an error.
 2. `tidy_text` removes extra spaces with `.str.strip()` and makes every letter lowercase with `.str.lower()`, so `"Kenya "` and `"kenya"` match.
-3. `clean_deliveries` runs every fix in order. Its first line removes repeated deliveries. The parameter `subset="delivery_id"` means: compare only the `delivery_id` column when looking for repeats.
+3. `clean_deliveries` runs every fix in order. Its first line removes repeated deliveries. The parameter `subset` is set to `"delivery_id"`, which means: compare only the `delivery_id` column when looking for repeats.
 4. The last two lines call the same function on two different tables. That's what proves it's reusable.
 
 {% hint style="info" %}

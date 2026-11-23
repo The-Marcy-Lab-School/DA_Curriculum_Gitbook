@@ -59,7 +59,7 @@ Check off each goal once you can do it.
 | **Merge** | Combines two tables by matching rows on a shared column, then copies the second table's columns onto the matching rows. |
 | **Key** | The shared column a merge matches on, like `site`. Keys must match exactly, letter for letter. |
 | **Lookup table** | A small second table with one row per key, used to add columns to a bigger table. |
-| **Left merge** (`how="left"`) | The parameter `how="left"` makes a merge keep every row of your main table. A row with no match stays, with NaN in the new columns. |
+| **Left merge** (`how="left"`) | Setting the parameter `how` to `"left"` makes a merge keep every row of your main table. A row with no match stays, with NaN in the new columns. |
 
 ## Before you read
 

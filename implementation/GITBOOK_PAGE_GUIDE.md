@@ -26,11 +26,29 @@ Module 2 (`home/modules/module-02/`) is the reference: when this guide and a Mod
 - **Answers stay hidden** in `<details>` blocks, so readers try first.
 - **No module numbers or day numbers in "Quick recall."** Describe what the reader did ("Recall that you built a function that…"), and link the earlier page by its title.
 
+## Technical terms
+
+Use these words the same way on every page. Students learned *function*, *parameter*, *argument*, *module*, *class*, *object*, *method*, and *attribute* in Module 1, so use those exact meanings and say "recall that…" when it helps.
+
+| Term | Use it for | Example |
+| --- | --- | --- |
+| **Tool** | The umbrella word for anything analysts use: a package, software, or a language. Never use it to mean a specific kind. | "four new tools" |
+| **Software** | A program you open and use. | VS Code, Excel, Tableau, a web browser |
+| **Package** (also *library*) | A collection of Python code other people wrote. You install it once with `pip`, then load it with `import`. Say "package" first; mention "library" once as another name. | NumPy, pandas, Matplotlib |
+| **Module** | One file of Python code you `import`. Some come with Python; a package is made of many. | `json`, `os`, `matplotlib.pyplot` |
+| **File type** | Something you open and run in software, not something you import. | a Jupyter notebook (`.ipynb`), a CSV |
+| **Function** | Named code you call with parentheses. | `np.mean(gifts)`, `pd.read_csv(...)`, `plt.title(...)` |
+| **Class / object** | A class describes one kind of thing; an object is one thing made from it. | `DataFrame` is a class; `df` is a DataFrame object |
+| **Method** | A function that belongs to an object. Has parentheses. | `df.sort_values(...)`, `.round(2)` |
+| **Attribute** | A value stored on an object. No parentheses. | `df.shape`, `df.dtypes` |
+| **Parameter / argument** | A parameter is the name a function expects; the argument is the value you pass in. Write "the parameter `ddof` is set to `1`", never "the parameter `ddof=1`". | `ddof`, `ascending`, `subset` |
+| **Series** (pandas) vs. **data series** (charts) | A pandas Series is one column of a table. A data series is one set of values drawn on a chart. Never let the two share a name on a page. | `df["site"]` vs. one line on a line chart |
+
 ## Code blocks
 
 - **Keep comments short.** A comment should never wrap to a second line: about 30 characters at most (`import numpy as np  # load the package`). Many lines need no comment at all.
 - **Explain the code in a "Code walkthrough" under the block**, as a numbered list with one item per line or idea. This keeps the code readable and the explanation complete.
-- **Introduce every parameter by name.** First say the line has a parameter, then what it means: "This line has a **parameter** called `ddof`. The parameter `ddof=1` tells NumPy to use the sample formula…" Never open with a bare `ddof=1`. Define the word *parameter* the first time a module uses it.
+- **Introduce every parameter by name, then its argument.** "This line sets the parameter `ddof` to the argument `1`. That tells NumPy to use the sample formula…" Never open with a bare `ddof=1`, and never call `ddof=1` itself "the parameter." Recall *parameter* and *argument* the first time a module uses them.
 - Keep code lines under about 65 characters so they don't scroll sideways.
 
 ## Pictures
@@ -158,3 +176,4 @@ Use the curriculum's skill names exactly as the rubric does (for example, **Data
 - [ ] Each diagram rendered and checked for text size and overlap.
 - [ ] No code comment wraps; every code block that teaches something has a Code walkthrough; every parameter is introduced by name.
 - [ ] Every page shows its total time at the top.
+- [ ] Tool, software, package, module, class, method, attribute, parameter, and argument are used as the "Technical terms" table says.

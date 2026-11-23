@@ -49,8 +49,8 @@ Check off each goal once you can do it.
 
 | Word | What it means |
 | --- | --- |
-| **Series** | One set of values drawn on a chart, like one line or one set of bars. |
-| **Legend** | A small key that says which color or pattern is which series. Needed when a chart has more than one series. |
+| **Data series** | One set of values drawn on a chart, like one line or one set of bars. (This is a charting word. It isn't the same as a pandas Series, which is one column of a table.) |
+| **Legend** | A small key that says which color or pattern is which data series. Needed when a chart has more than one data series. |
 | **Caption** | A short note under a chart, like "1 swim of 110 laps is not shown." |
 | **Chart junk** | Decoration that doesn't help a reader, like 3D effects or extra gridlines. |
 | **Colorblind-safe palette** | Colors that differ in lightness, not just in hue, so readers who can't tell red from green can still tell them apart. |
@@ -59,12 +59,12 @@ Check off each goal once you can do it.
 
 | Code | What it does |
 | --- | --- |
-| **`.plot.bar(rot=0)`** | Draws one bar per group. The parameter `rot=0` keeps the group labels flat (rotated 0 degrees). |
+| **`.plot.bar(rot=0)`** | Draws one bar per group. The parameter `rot` is set to `0`, which keeps the group labels flat (rotated 0 degrees). |
 | **`plt.ylim(180, 195)`** | Sets the y-axis to run from 180 to 195. On a bar chart, this cuts off the baseline. |
 | **`.quantile([0.25, 0.75])`** | Gives Q1 and Q3 of a column. |
 | **`.max()`** | Gives the largest value in a column. |
 | **`.plot.box()`** | Draws a boxplot. |
-| **`showfliers`** | A boxplot parameter. The parameter `showfliers=False` leaves every outlier dot out of the drawing. The default is `True`. |
+| **`showfliers`** | A parameter of the boxplot method. Setting `showfliers` to `False` leaves every outlier dot out of the drawing. The default is `True`. |
 
 ## Before you read
 
@@ -88,7 +88,7 @@ As you read, look for:
 
 * **A bar's height is the claim, so a bar chart's y-axis starts at zero.** pandas starts bars at zero on its own, so look for any line that sets axis limits, like `plt.ylim(...)`. A line chart can zoom in, because its claim is the slope, the change from point to point.
 * **`showfliers=False` hides outliers.** Compare the top of the chart with the column's real `.max()`. If you hide anything, say so in a caption.
-* **Label everything:** a title that states the finding, both axes with units, a legend when there's more than one series, no chart junk, and colors that don't rely on red vs. green.
+* **Label everything:** a title that states the finding, both axes with units, a legend when there's more than one data series, no chart junk, and colors that don't rely on red vs. green.
 
 | Before you share a chart, ask | How to check |
 | --- | --- |

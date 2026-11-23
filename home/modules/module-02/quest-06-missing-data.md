@@ -70,7 +70,7 @@ Statistics books give these patterns formal names, such as *missing completely a
 | --- | --- |
 | **`.shape`** | Gives a pair of numbers: rows first, then columns. `(8, 4)` means 8 rows and 4 columns. |
 | **`.dropna()`** | Removes every row with any blank at all. |
-| **`.dropna(subset=["minutes"])`** | Removes only the rows where `minutes` is blank. The parameter `subset=["minutes"]` names the column that decides the drop. |
+| **`.dropna(subset=["minutes"])`** | Removes only the rows where `minutes` is blank. The parameter `subset` is set to `["minutes"]`, the column that decides the drop. |
 | **`.mode()[0]`** | `.mode()` gives back a Series, because a column can have more than one most-common value. `[0]` takes the first one. |
 | **`.fillna(value)`** | Puts `value` into every blank in a column, and leaves the real values alone. |
 | **`.ffill()`** | Forward-fill: copies the value above into each blank. |

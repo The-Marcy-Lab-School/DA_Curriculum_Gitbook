@@ -21,11 +21,14 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that you added up a week of step counts with a running total (`total += steps`) in [One Job at a Time](../module-01/quest-07-second-function.md). An average goes one step further: divide the total by how many values there are, `sum(steps) / len(steps)`.
+* Recall that a **parameter** is a name in a function's `def` line, and an **argument** is the value you pass in when you call it, from [Build It Once, Use It Again](../module-01/quest-02-functions-scope.md). The functions in this reading have parameters too.
 * Recall that a list keeps its items in order, and you can read one item by its position, called its **index**. `sorted_gifts[1]` is the *second* item, because Python starts counting positions at 0: `sorted_gifts[0]` is the first item. You'll use this idea to find the middle value of a sorted list.
 
 ## New tool: NumPy
 
-**What it's for:** NumPy is a free Python package, which means code other people wrote that you load into your own file. It does math on many numbers at once. Plain Python lists can add and count, but they don't have a median or a standard deviation built in. NumPy does, so each answer takes one line.
+**What it's for:** NumPy does math on many numbers at once. Plain Python lists can add and count, but they don't have a median or a standard deviation built in. NumPy does, so each answer takes one line.
+
+NumPy is a Python **package** (some people say *library*): a collection of code other people wrote. Recall that you loaded a **module** that comes with Python by writing `import json`. You load a package the same way, with `import`. The difference: a package is a bigger set of modules, and it doesn't come with Python, so you install it yourself, once.
 
 **How you'll see it in this reading:**
 
@@ -42,10 +45,10 @@ np.percentile(gifts, [0, 25, 50, 75, 100])
 
 **Code walkthrough:**
 
-1. `import numpy as np` loads NumPy and gives it the short name `np`.
+1. `import numpy as np` loads the NumPy package and gives it the short name `np`.
 2. `np.array([...])` turns a list into an **array**, NumPy's version of a list. One math step works on every value inside it.
-3. `np.mean(...)` finds the mean, and `np.median(...)` finds the median. `.round(2)` rounds the answer to 2 decimal places.
-4. `np.std(gifts, ddof=1)` finds the standard deviation. This line has a **parameter** called `ddof`. A parameter is a setting you give a function inside its parentheses. The parameter `ddof=1` tells NumPy to use the **sample** formula, which divides by one less than the number of values. It's the version pandas and most other tools use, so your answers will match theirs.
+3. `np.mean(...)` and `np.median(...)` are NumPy **functions** that find the mean and the median. `.round(2)` is a **method**, a function that belongs to the number NumPy gives back. It rounds that number to 2 decimal places.
+4. `np.std(gifts, ddof=1)` finds the standard deviation. This line sets the parameter `ddof` to the argument `1`. That tells NumPy to use the **sample** formula, which divides by one less than the number of values. It's the version pandas and most other tools use, so your answers will match theirs.
 5. `np.percentile(gifts, [0, 25, 50, 75, 100])` gives the five-number summary in one line. Each number in the list is a percent of the way up the sorted data: 0% is the minimum, 50% is the median, and 100% is the maximum.
 
 If `import numpy` gives a `ModuleNotFoundError` on your laptop, run `pip install numpy` in the terminal once.

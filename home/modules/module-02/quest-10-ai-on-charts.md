@@ -49,8 +49,8 @@ Check off each goal once you can do it.
 | Word | What it means |
 | --- | --- |
 | **`.describe()[["mean", "50%"]]`** | Picks two rows of `describe()`: the mean and the "50%" row, which is the median. Both come out in the column's units, like books per trade-in or dollars. |
-| **`.plot.hist(bins=12)`** | Draws a histogram. The parameter `bins=12` sets the number of bars: 12. |
-| **`plt.savefig("tradeins_hist.png", dpi=150)`** | Saves the chart as an image file. The parameter `dpi=150` sets how sharp the image is (dots per inch): a bigger number makes a sharper picture. |
+| **`.plot.hist(bins=12)`** | Draws a histogram. The parameter `bins` is set to `12`, so the chart has 12 bars. |
+| **`plt.savefig("tradeins_hist.png", dpi=150)`** | Saves the chart as an image file. The parameter `dpi` (dots per inch) is set to `150`. A bigger number makes a sharper picture. |
 
 {% hint style="info" %}
 **Save before you show.** `plt.savefig` must come before `plt.show()`. Showing a chart clears it, so saving after that gives you a blank image.

@@ -42,14 +42,19 @@ This GitBook uses a few game words. Here's what each one is:
 
 ## New tools this module
 
+A **tool** is anything analysts use to get work done. This module has two kinds:
+
+* A Python **package** (also called a *library*) is a collection of code other people wrote. You install it once, then load it into your code with `import`. NumPy, pandas, and Matplotlib are packages.
+* **Software** is a program you open and use, like VS Code. Jupyter notebooks are files that you open and run in software. You don't `import` them.
+
 Each tool is introduced on the quest page where you first use it, in a section called "New tool."
 
-| Tool | What it does | Introduced in |
-| --- | --- | --- |
-| **NumPy** | Does math on many numbers at once | [Quest 2.1](quest-01-descriptive-statistics.md#new-tool-numpy) |
-| **Jupyter notebooks** | Run code in small steps and see each result right below it | [Quest 2.2](quest-02-inspect-filter.md#new-tool-jupyter-notebooks) |
-| **pandas** | Load, check, clean, and summarize tables of data | [Quest 2.2](quest-02-inspect-filter.md#new-tool-pandas) |
-| **Matplotlib** | Draw charts and save them as images | [Quest 2.4](quest-04-two-kinds-of-charts.md#new-tool-matplotlib) |
+| Tool | Kind | What it does | Introduced in |
+| --- | --- | --- | --- |
+| **NumPy** | Python package | Does math on many numbers at once | [Quest 2.1](quest-01-descriptive-statistics.md#new-tool-numpy) |
+| **Jupyter notebooks** | A kind of file, run in software like VS Code | Run code in small steps and see each result right below it | [Quest 2.2](quest-02-inspect-filter.md#new-tool-jupyter-notebooks) |
+| **pandas** | Python package | Load, check, clean, and summarize tables of data | [Quest 2.2](quest-02-inspect-filter.md#new-tool-pandas) |
+| **Matplotlib** | Python package | Draw charts and save them as images | [Quest 2.4](quest-04-two-kinds-of-charts.md#new-tool-matplotlib) |
 
 ## Skills you'll build
 

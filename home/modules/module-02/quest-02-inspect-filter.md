@@ -21,11 +21,12 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that when you run a `.py` file, Python does every line from top to bottom and shows only what you `print()`. You traced scripts like this in [Trace the Path](../module-01/quest-01-control-flow.md). A notebook works a little differently.
+* Recall that a **class** describes one kind of thing, an **object** is one thing made from it, and a **method** is a function that belongs to the object, from [Meet the Objects](../module-01/quest-08-oop.md). pandas is built the same way.
 * Recall that when one value is far bigger than the rest, the median describes a typical value better than the mean. You saw this with the $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
 
 ## New tool: Jupyter notebooks
 
-**What it's for:** A Jupyter notebook (a file ending in `.ipynb`) splits your code into small boxes called cells. You run one cell at a time and see its result right under it, which fits the way analysts explore: ask one small question, look, then ask the next.
+**What it's for:** A Jupyter notebook is a kind of **file** (its name ends in `.ipynb`), not a package you import. You open it in **software** such as VS Code, which runs it for you. A notebook splits your code into small boxes called cells. You run one cell at a time and see its result right under it, which fits the way analysts explore: ask one small question, look, then ask the next.
 
 **How you'll see it in this reading:**
 
@@ -65,11 +66,11 @@ df.sort_values("weight_lbs", ascending=False)
 
 **Code walkthrough:**
 
-1. `import pandas as pd` loads pandas and gives it the short name `pd`.
-2. `pd.read_csv("intake.csv")` reads the CSV file into a **DataFrame** (a pandas table) named `df`.
-3. `df.shape` gives two numbers: rows, then columns. It has no parentheses because it's a stored fact about the table, not an action.
-4. `df["site"] == "Eastside"` gives one `True` or `False` for each row: is this row's site Eastside?
-5. `df.sort_values("weight_lbs", ascending=False)` puts the rows in order by weight. The parameter `ascending=False` means biggest first. (*Ascending* means smallest to biggest, so `False` flips it.)
+1. `import pandas as pd` loads the pandas package and gives it the short name `pd`.
+2. `pd.read_csv("intake.csv")` is a pandas **function**. It reads the CSV file and gives back a **DataFrame**, pandas' table. `DataFrame` is a **class**, and `df` is one **object** made from it, just like the objects you made from your own classes.
+3. `df.shape` is an **attribute**: a value stored on the object. It has no parentheses because you're reading a fact, not running an action. It gives two numbers: rows, then columns.
+4. `df["site"] == "Eastside"` gives back a **Series**: one column with a `True` or `False` for each row. Is this row's site Eastside?
+5. `df.sort_values(...)` is a **method**: a function that belongs to the object, so it has parentheses. It puts the rows in order by weight. Here, the parameter `ascending` is set to `False`, so the biggest weight comes first. (*Ascending* means smallest to biggest.)
 
 If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip install pandas` in the terminal once.
 
@@ -95,7 +96,8 @@ If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip instal
 | Word | What it means |
 | --- | --- |
 | **CSV file** | A plain text file of a table. Each line is a row, commas separate the columns, and the first line holds the column names. |
-| **DataFrame** | pandas' table. It has rows and named columns, and each column has its own data type. |
+| **DataFrame** | pandas' table: a class with rows and named columns, where each column has its own data type. Each table you load is a DataFrame object. |
+| **Series** | One column of a DataFrame: a list of values with row labels. Picking a column, like `df["site"]`, gives you a Series. |
 | **dtype** | The data type pandas gave a column: `str` for text, `int64` for whole numbers, `float64` for decimal numbers. Older tutorials and AI answers say `object` for text. That's the old label. |
 | **NaN** | How pandas shows a missing value. It's short for "not a number," but pandas stores it as a decimal number. |
 
