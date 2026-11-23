@@ -69,7 +69,7 @@ The [Module 2 Introduction](introduction.md#skills-youll-build) explains what ea
 | **Data Mining** | Quests 2.3, 2.8, Checkpoint |
 | **Data Cleaning & Imputation** | Quests 2.2, 2.6, 2.7 |
 | **Data Visualization** | Quests 2.4, 2.5 |
-| **Critical Thinking** | Quests 2.5, 2.9 |
+| **Critical Thinking** | Quests 2.5, 2.9, Checkpoint |
 | **Stakeholder Communication** | Quests 2.4, 2.11 |
 | **AI as Critic** | Quest 2.10 |
 | **AI Evaluation** | Practice Day, Quest 2.10, Checkpoint |

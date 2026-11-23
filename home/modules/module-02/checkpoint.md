@@ -30,9 +30,9 @@ df["price"] * 1.08  # simpler here
 
 Lambda is optional. Your cleaning steps stay in a regular `def` function. You'll use lambda more in Module 4.
 
-**Day 14: Final practice.** Two recall questions, a classmate-led cleaning code-along, and one more AI check. This time, you'll check AI-written *cleaning* code for hidden problems. Use the [checklist from the Practice Day](practice-day-06.md#before-you-trust-ai-analysis-code).
+**Day 14: Final practice.** Three recall questions (one from Module 1), a classmate-led cleaning code-along, and one more AI check. This time, you'll check AI-written *cleaning* code for hidden problems. Use the [checklist from the Practice Day](practice-day-06.md#before-you-trust-ai-analysis-code).
 
-**Skills:** Every skill from this module, with a focus on Data Mining and AI Evaluation
+**Skills:** Every skill from this module, with a focus on Data Mining, Critical Thinking, and AI Evaluation
 
 ## Self-check challenges
 

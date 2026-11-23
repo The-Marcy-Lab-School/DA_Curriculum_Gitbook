@@ -65,6 +65,8 @@ np.percentile(gifts, [0, 25, 50, 75, 100])
 
 If `import numpy` gives a `ModuleNotFoundError` on your laptop, run `pip install numpy` in the terminal once.
 
+In class today, you'll run this code in a **Jupyter notebook**: a file that splits your code into small boxes called cells. For now, run the cells from top to bottom, one at a time. [Look Before You Filter](quest-02-inspect-filter.md#new-tool-jupyter-notebooks) explains how notebooks work.
+
 **Learn more:** [NumPy: the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html) (official) · [W3Schools: NumPy tutorial](https://www.w3schools.com/python/numpy/default.asp) · [W3Schools: Mean, median, and mode](https://www.w3schools.com/python/python_ml_mean_median_mode.asp)
 
 ## Words to know
