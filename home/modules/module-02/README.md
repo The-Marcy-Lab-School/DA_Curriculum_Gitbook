@@ -2,11 +2,11 @@
 
 **Time:** about 7 minutes
 
-Read this page before anything else in Module 2. It's your map: what the module is about, the order of the pages, the new tools, and the skills you'll build. Come back to it whenever you want to see where you are.
+Read this page before anything else in Module 2. It's your map: what the module is about, the order of the pages, the new tools, and where you'll practice each skill. Come back to it whenever you want to see where you are.
 
 ## What this module is about
 
-In this module, you'll learn **exploratory data analysis (EDA)**: getting to know a real, messy table of data before you make any claims about it. Step by step, you'll learn to check a table for problems, clean it, describe it with numbers and charts, find a pattern you can trust, and explain it to someone who will never read your code. At the end, the Boss Battle (Module Project) asks you to do all of it on your own, with one real dataset.
+In this module, you'll learn **exploratory data analysis (EDA)**. EDA means getting to know a real, messy table of data before you say anything about it. Step by step, you'll learn to check a table for problems and clean it. Then you'll describe it with numbers and charts, find a pattern you can trust, and explain it to someone who will never read your code. At the end, the [Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project) asks you to do all of it on your own, with one real dataset.
 
 ## What the words mean
 
@@ -24,7 +24,7 @@ This GitBook uses a few game words. Here's what each one is:
 | Day | Page | You'll learn to... |
 | --- | --- | --- |
 | 1 | [Module 2 Introduction](introduction.md) | See where this module fits: what you already know, what's new, and why it matters at work |
-| 1 | [Quest 2.1 — The Loudest Number (Descriptive Statistics)](quest-01-descriptive-statistics.md) | Pick the number that honestly describes a typical (usual) value, and measure how spread out the values are |
+| 1 | [Quest 2.1 — The Loudest Number (Descriptive Statistics)](quest-01-descriptive-statistics.md) | Pick the number that best shows the usual value, and measure how spread out the values are |
 | 2 | [Quest 2.2 — Look Before You Filter (Inspecting and Filtering Data)](quest-02-inspect-filter.md) | Load a file in a notebook, check it four ways, and keep only the rows you need |
 | 3 | [Quest 2.3 — One Row Per Group (Grouping, New Columns, and Merging)](quest-03-group-columns.md) | Summarize groups, add new columns, and combine two tables |
 | 4 | [Quest 2.4 — Who's This Chart For? (Exploratory vs. Explanatory Charts)](quest-04-two-kinds-of-charts.md) | Pick a chart type on purpose, and polish a chart for someone else |
@@ -56,28 +56,28 @@ Each tool is introduced on the quest page where you first use it, in a section c
 | **pandas** | Python package | Load, check, clean, and summarize tables of data | [Quest 2.2](quest-02-inspect-filter.md#new-tool-pandas) |
 | **Matplotlib** | Python package | Draw charts and save them as images | [Quest 2.4](quest-04-two-kinds-of-charts.md#new-tool-matplotlib) |
 
-## Skills you'll build
+## Where you'll practice each skill
 
-These are the skills the Boss Battle (Module Project) checks. Each quest names the ones it builds.
+The [Module 2 Introduction](introduction.md#skills-youll-build) explains what each skill means. This table shows where you'll practice it.
 
-| Skill | In plain words | Where you'll practice |
-| --- | --- | --- |
-| **Statistical Analysis** | Pick the number that fits (mean, median, standard deviation) and explain what it means | Quests 2.1, 2.3, 2.8 |
-| **Data Distributions & Shape** | Read a column's shape: where most values sit, which way they lean, and any outliers | Quests 2.1, 2.5, 2.10 |
-| **Data Mining** | Find a real pattern hiding inside groups | Quests 2.3, 2.8, Checkpoint |
-| **Data Cleaning & Imputation** | Fix problems on purpose, and handle blanks with a reason | Quests 2.2, 2.6, 2.7 |
-| **Data Visualization** | Choose a chart that fits the question, and label it honestly | Quests 2.4, 2.5 |
-| **Critical Thinking** | Question the data before you trust a pattern | Quests 2.5, 2.9 |
-| **Stakeholder Communication** | Explain a finding to someone who won't open your code | Quests 2.4, 2.11 |
-| **AI as Critic** | Check an AI's description of your chart against your own numbers | Quest 2.10 |
-| **AI Evaluation** | Judge a chart or code an AI suggests before you use it | Practice Day, Quest 2.10, Checkpoint |
-| **Presentations** | Present a finding clearly, answer first | Boss Battle (Module Project) |
+| Skill | Where you'll practice |
+| --- | --- |
+| **Statistical Analysis** | Quests 2.1, 2.3, 2.8 |
+| **Data Distributions & Shape** | Quests 2.1, 2.5, 2.10 |
+| **Data Mining** | Quests 2.3, 2.8, Checkpoint |
+| **Data Cleaning & Imputation** | Quests 2.2, 2.6, 2.7 |
+| **Data Visualization** | Quests 2.4, 2.5 |
+| **Critical Thinking** | Quests 2.5, 2.9 |
+| **Stakeholder Communication** | Quests 2.4, 2.11 |
+| **AI as Critic** | Quest 2.10 |
+| **AI Evaluation** | Practice Day, Quest 2.10, Checkpoint |
+| **Presentations** | Boss Battle (Module Project) |
 
 ## How each quest page works
 
-Every quest page has the same sections, in the same order. At the very top, you'll see the day and the total time, which counts both the GitBook page and the interactive reading (about 30 minutes).
+Every quest page has the same sections, in the same order. At the top of each page, you'll see three things: the day, the total time, and the step of the EDA workflow you're on. The total time includes the GitBook page and the interactive reading, about 30 minutes in all.
 
-1. **Introduction**: what you're about to learn, the main takeaway, and why it matters at work
+1. **Introduction**: an example, what you'll learn, the main takeaway, and why it matters at work
 2. **Learning goals**: a checklist of what you'll be able to do
 3. **Quick recall**: something you already know that this reading builds on
 4. **New tool** (only when there is one): what it's for, how you'll see it, and where to learn more

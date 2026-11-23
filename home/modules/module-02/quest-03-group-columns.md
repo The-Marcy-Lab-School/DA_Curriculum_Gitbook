@@ -2,11 +2,22 @@
 
 **Day 3** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-Managers rarely ask about one row. For example, a pizza chain logs every order: which store, what time, and how much it cost. The owner asks, "Which store sells the most?" You can't read 5,000 orders by eye, and writing a separate filter for every store gets old fast. This reading covers how to turn many rows into one summary row per group, add new columns worked out from the ones you have, change rows safely, and bring in columns from a second table. The main takeaway: compare groups with one summary row per group, and check your work after every change, because pandas can quietly do nothing or leave blanks without an error.
+Managers rarely ask about just one row. For example, a pizza company records every order: the store, the time, and the price. The owner asks, "Which store sells the most?" You can't read 5,000 orders one by one. Writing a separate filter for every store is slow.
 
-**Why it matters at work:** Questions like "Which location collects the most?" or "Which team is slowest?" are answered by comparing groups. Most findings start this way.
+In this reading, you'll learn how to:
+
+* turn many rows into one summary row for each group
+* add new columns that you calculate from other columns
+* change rows safely
+* bring in columns from a second table
+
+**Main takeaway:** Compare groups by making one summary row for each group. Check your work after every change, because pandas can sometimes do nothing, or add blanks, without showing an error.
+
+**Why it matters at work:** Many work questions compare groups, like "Which location collects the most?" or "Which team is slowest?" Most findings start this way.
 
 ## Learning goals
 
@@ -99,7 +110,7 @@ As you read, look for:
 ### How this connects
 
 * **Next reading:** You'll turn group summaries like these into charts: quick, rough ones to find a pattern for yourself, and one clear chart for someone who wasn't there while you explored.
-* **Boss Battle (Module Project):** When you look for a finding in a real dataset, you'll compare groups with one summary row per group, add new columns when raw numbers hide something, and check your row counts and blanks after every change.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** When you look for a finding in a real dataset, you'll compare groups with one summary row per group, add new columns when raw numbers hide something, and check your row counts and blanks after every change.
 
 ## Quick check
 

@@ -2,11 +2,21 @@
 
 **Day 9** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-Sometimes one average hides what's inside it. For example, Sam's deliveries take 40 minutes on average and Alex's take 25, so Sam looks slow. But Sam drives the long route out of town, and Alex delivers downtown. On the same route, they may be just as fast. This reading covers how to split a number by two columns at once, how to check what each group is made of before you compare groups, and how to tell a real finding from one caused by something else or one everyone already knows. The main takeaway: one average can hide groups that differ a lot, so split it before you trust it.
+Sometimes one average hides important differences. For example, Sam's deliveries take 40 minutes on average, and Alex's take 25 minutes. Sam looks slow. But Sam drives a long route outside the city, and Alex delivers downtown. On the same route, they may be equally fast.
 
-**Why it matters at work:** Acting on a wrong pattern costs money, like retraining a team that was never slow. Finding a real pattern that someone can act on, and that they didn't already know, is one of the most valuable things an analyst does.
+In this reading, you'll learn how to:
+
+* split a number by two columns at the same time
+* check what each group is made of before you compare groups
+* tell a real finding apart from one that has another cause, or one that everyone already knows
+
+**Main takeaway:** One average can hide groups that are very different. Split it into groups before you trust it.
+
+**Why it matters at work:** Acting on a wrong pattern costs money. For example, a company might retrain a team that was never slow. Finding a real pattern that people didn't know, and can act on, is one of the most valuable things an analyst does.
 
 ## Learning goals
 
@@ -100,7 +110,7 @@ The 15-minute gap came from the mix. Downtown did more screen repairs, which tak
 ### How this connects
 
 * **Next reading:** You'll take a pattern like this and question the data behind it: who collected it, what's missing, and which groups got counted less. Then you'll write questions specific enough that the person who looks after the data could answer them.
-* **Boss Battle (Module Project):** You'll look for a non-obvious finding in a real dataset. Before you report a gap between groups, you'll check each group's mix and size, and compare the same kind of row across groups.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll look for a non-obvious finding in a real dataset. Before you report a gap between groups, you'll check each group's mix and size, and compare the same kind of row across groups.
 
 ## Quick check
 

@@ -2,11 +2,20 @@
 
 **Day 5** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 19 minutes)
 
+**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-Sometimes a chart tells a story its own numbers don't. For example, an ad shows two bars for phone battery life: 20 hours for one phone and 19 hours for its rival. The y-axis starts at 18, so the first bar looks twice as tall, even though the real gap is about 5%. This reading covers two ways a chart of real numbers can still mislead, a cut-off y-axis and hidden outliers, and the labels every shared chart needs. The main takeaway: every number can be real and the chart can still tell the wrong story, so check where the axis starts and what the chart leaves out before you share it.
+Sometimes a chart tells a story that its numbers don't support. For example, an ad shows two bars for phone battery life: 20 hours for one phone and 19 hours for another. The y-axis starts at 18, so the first bar looks twice as tall. But the real difference is only about 5%.
 
-**Why it matters at work:** People decide things from how a chart looks, often without seeing your code. A misleading chart can send money, staff, or time to the wrong place.
+In this reading, you'll learn:
+
+* two ways a chart with real numbers can still mislead: a y-axis that doesn't start at zero, and hidden outliers
+* the labels every shared chart needs
+
+**Main takeaway:** Every number can be correct and the chart can still tell the wrong story. Before you share a chart, check where the axis starts and what the chart leaves out.
+
+**Why it matters at work:** People make decisions based on how a chart looks, often without seeing your code. A misleading chart can send money, staff, or time to the wrong place.
 
 ## Learning goals
 
@@ -107,7 +116,7 @@ As you read, look for:
 ### How this connects
 
 * **Next:** A practice day with no new reading. You'll review what you've learned so far, and practice checking analysis code that an AI writes for you. Later, you'll run these same two chart checks when an AI writes or describes a chart for you.
-* **Boss Battle (Module Project):** Every chart you share will need to fit its question and be labeled honestly: a y-axis that starts where it should, nothing hidden without a note, and a title and axes a reader can follow without your code.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** Every chart you share will need to fit its question and be labeled honestly: a y-axis that starts where it should, nothing hidden without a note, and a title and axes a reader can follow without your code.
 
 ## Quick check
 

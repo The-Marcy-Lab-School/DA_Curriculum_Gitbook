@@ -2,11 +2,21 @@
 
 **Day 7** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-Real data almost always has blank cells, and what you do with them changes the answer. For example, a store survey asks customers to rate their visit from 1 to 5, and 30 people skip the question. Count those blanks as 0 and the average rating drops, but delete those customers and you lose all their other answers. This reading covers how to count the gaps, ask why they're missing, and pick one of three moves for each one: drop the row, fill the gap, or flag it. The main takeaway: every gap needs a choice, and every choice needs a reason you can back up with a number.
+Real data almost always has blank cells, and what you do with them changes the answer. For example, a store survey asks customers to rate their visit from 1 to 5, and 30 people skip the question. If you count those blanks as 0, the average rating drops. If you delete those customers, you lose all their other answers.
 
-**Why it matters at work:** What you do with blanks changes every total and average in a report. "I dropped the nulls" isn't a reason, and a teammate, a manager, or an interviewer will ask you why.
+In this reading, you'll learn how to:
+
+* count the blanks
+* ask why they're missing
+* choose one of three actions for each blank: drop the row, fill the blank, or flag it
+
+**Main takeaway:** Every blank needs a choice, and every choice needs a reason that you can support with a number.
+
+**Why it matters at work:** What you do with blanks changes every total and average in a report. "I dropped the blanks" is not a reason. A teammate, a manager, or an interviewer will ask you why.
 
 ## Learning goals
 
@@ -122,7 +132,7 @@ As you read, look for:
 ### How this connects
 
 * **Next reading:** You'll fix other common problems in a file, like repeated rows and numbers stored as text. Then you'll put all your cleaning steps into one function, so the same decisions run on every new file.
-* **Boss Battle (Module Project):** You'll decide whether to drop, fill, or flag the gaps in a real dataset, and write each reason with a number: which rows, why, and how many. Look for placeholder values before you work out any statistics.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll decide whether to drop, fill, or flag the gaps in a real dataset, and write each reason with a number: which rows, why, and how many. Look for placeholder values before you work out any statistics.
 
 ## Quick check
 

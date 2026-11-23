@@ -1,12 +1,22 @@
 # Quest 2.2 — Look Before You Filter (Inspecting and Filtering Data)
 
-**Day 2** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
+**Day 2** · Total time: about 35 minutes (this page: about 15 minutes + the interactive reading: about 20 minutes)
+
+**EDA workflow:** **Inspect** → Clean → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
 ## Introduction
 
-Sometimes a total is wrong before you even start adding. For example, a shop's sales sheet lists the same $200 order twice because a cashier pressed Save twice. Add up the sheet, and the shop looks $200 richer than it is. This reading covers how to open a data file in a notebook, check it four ways, and then keep only the rows you need. The main takeaway: look at every new file before you filter or add anything up, because one blank or one repeated row can make every answer wrong.
+Sometimes a total is wrong before you start adding. For example, a shop's sales sheet lists the same $200 order twice, because a cashier clicked Save two times. If you add up the sheet, the shop looks like it made $200 more than it really did.
 
-**Why it matters at work:** Almost every data task starts the same way: load a file, check it, then pull out the rows you need. If you skip the checks, a wrong total can reach your manager, and nobody will know it's wrong.
+In this reading, you'll learn how to:
+
+* open a data file in a notebook
+* check the file in four ways
+* keep only the rows you need
+
+**Main takeaway:** Check every new file before you filter it or add anything up. One blank or one repeated row can make every answer wrong.
+
+**Why it matters at work:** Almost every data task starts the same way: load a file, check it, and then choose the rows you need. If you skip the checks, a wrong total can reach your manager, and no one will notice it's wrong.
 
 ## Learning goals
 
@@ -162,7 +172,7 @@ As you read, look for:
 ### How this connects
 
 * **Next reading:** Instead of keeping one group of rows at a time, you'll split all the rows into groups and get one summary number for each group, such as total pounds for each site. You'll also add new columns and bring in columns from a second table.
-* **Boss Battle (Module Project):** When you get a real dataset, you'll start with these same four checks and write down what each one finds before you analyze anything.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** When you get a real dataset, you'll start with these same four checks and write down what each one finds before you analyze anything.
 
 ## Quick check
 

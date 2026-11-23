@@ -2,9 +2,13 @@
 
 **Day 6** · No new reading · Time: about 3 minutes
 
+**EDA workflow:** **Inspect** → Clean → **Explore** → Check → Explain (review) ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-There's no new topic today. You'll practice what you learned in the first five quests, and you'll learn a routine for checking analysis code that an AI writes for you. The main takeaway: AI-written code can run with no errors and still give a wrong answer, so you check it before you trust it.
+There's no new topic today. You'll practice what you learned in the first five quests, and you'll learn a routine for checking analysis code that an AI writes for you.
+
+**Main takeaway:** AI-written code can run with no errors and still give a wrong answer. Check it before you trust it.
 
 **Why it matters at work:** Practicing something a few days after you learn it is what makes it stick. And at work, AI tools will write analysis code for you, so you need a quick way to check it.
 
@@ -80,7 +84,7 @@ Where does the y-axis start? Was anything (like an outlier) left out of view?
 ## How this connects
 
 * **Data Challenge:** Today finishes "Seattle Weather, Two Tools," where you compare the same work in Python and a spreadsheet.
-* **Boss Battle (Module Project):** Whenever an AI gives you code, you'll check it with this same checklist before you use its answer.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** Whenever an AI gives you code, you'll check it with this same checklist before you use its answer.
 
 ---
 

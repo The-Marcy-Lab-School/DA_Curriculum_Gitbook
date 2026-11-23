@@ -2,15 +2,19 @@
 
 **Days 13–14** · No new reading · Time: about 7 minutes
 
+**EDA workflow:** **Inspect** → **Clean** → **Explore** → **Check** → **Explain** (all five steps) ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-So far, you've practiced each skill with a reading, a guide, or a partner. These two days check whether you can do it on your own. You'll find a pattern in data you've never seen, then review every skill from the module. The main takeaway: the questions you miss here show you exactly which quest to revisit before the Boss Battle (Module Project).
+So far, you've practiced each skill with a reading, a guide, or a partner. These two days check whether you can do it on your own. You'll find a pattern in data you've never seen, then review every skill from the module.
 
-**Why it matters at work:** On the job, nobody hands you step-by-step instructions for a new dataset. Knowing what you can do alone, and what you still need to review, is how you get there.
+**Main takeaway:** The questions you miss here show you which quest to review before the Boss Battle (Module Project).
+
+**Why it matters at work:** At work, no one gives you step-by-step instructions for a new dataset. You need to know what you can do alone, and what you still need to practice.
 
 ## What happens in class
 
-**Day 13: Solo pattern-mining rep (35 minutes).** You'll get a dataset you've never seen (FiveThirtyEight's Bechdel test and box office data) and find one pattern on your own. Use everything from Quest 2.8: check the mix, compare the same kind of row across groups, and watch for a confound.
+**Day 13: Find a pattern on your own (35 minutes).** You'll get a dataset you've never seen (FiveThirtyEight's Bechdel test and box office data) and find one pattern on your own. Use everything from Quest 2.8: check the mix, compare the same kind of row across groups, and watch for a confound.
 
 **Day 13: A short preview of lambda (20 minutes, slides only).** A **lambda** is a one-line function without a name:
 
@@ -28,7 +32,7 @@ Lambda is optional. Your cleaning steps stay in a regular `def` function. You'll
 
 **Day 14: Final practice.** Two recall questions, a classmate-led cleaning code-along, and one more AI check. This time, you'll check AI-written *cleaning* code for hidden problems. Use the [checklist from the Practice Day](practice-day-06.md#before-you-trust-ai-analysis-code).
 
-**Skills:** Every skill from this module, with Data Mining and AI Evaluation front and center
+**Skills:** Every skill from this module, with a focus on Data Mining and AI Evaluation
 
 ## Self-check challenges
 

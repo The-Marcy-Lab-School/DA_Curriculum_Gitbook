@@ -14,7 +14,12 @@ Module 2 (`home/modules/module-02/`) is the reference: when this guide and a Mod
 ## Writing rules
 
 - **Plain words, about a 6th-grade reading level.** Short sentences, one idea each. Cut any word that adds nothing.
-- **Write for readers whose first language isn't English.** When a common but abstract word carries the idea (like *typical*, *spread*, *distort*, *tendency*), explain it in plain words the first time it appears: "**Typical** means usual or normal." Don't assume an idiom will land.
+- **Write for readers whose first language isn't English.**
+  - Keep most sentences under 20 words. Split a sentence that lists three or more ideas into a short bulleted list.
+  - Use the simple word instead of the hard word plus a gloss. Write "how much a claim usually pays," not "a typical (usual) claim."
+  - When a hard word *is* the idea being taught (like *typical*, *spread*, *tendency*), explain it in plain words the first time: "**Typical** means usual or normal."
+  - No idioms or slang ("gets old fast," "front and center," "on the job," "rep," "stands on its own").
+  - Introduce an example with "For example, …", not "Here's an example."
 - **Explain the "why" behind code facts**, not just the fact: "`sorted_gifts[1]` is the second item, *because Python starts counting positions at 0*."
 - **Define every term the first time it appears**, in the page's "Words to know" section. Include the terms a reader needs even when the interactive reading skips them (for example, *measures of central tendency* or *variance*).
 - **Say what units a result comes in** whenever a page teaches a number: dollars, minutes, rows, a percent, or squared units.
@@ -96,46 +101,50 @@ This is the module's landing page, so it's what readers see when they click the 
 3. **What the words mean**: Quest, Practice Day, Checkpoint, Boss Battle, each with its plain name.
 4. **Your route**: a table of day, page (with its plain name), and a one-line goal. Include practice days, the Checkpoint, the Conclusion, and the Boss Battle (Module Project) days, without linking a project page.
 5. **New tools**: one line each, linking to the quest's "New tool" section.
-6. **Skills you'll build**: a table of skill (rubric name), what it means in plain words, and where you'll practice it.
+6. **Where you'll practice each skill**: a table of skill (rubric name) and the quests that practice it. The meanings live on the Introduction page.
 7. **How each quest page works**: the quest sections in order.
 8. **Next**: the Module Introduction.
 
 ### Module Introduction (`introduction.md`)
 
-1. **Where you've been**: 3 to 5 bullets on earlier skills this module uses. No module numbers.
-2. **Where you're going**: what this module teaches, in 2 or 3 sentences.
-3. **Why it matters for data work**: one real example of what goes wrong without these skills.
-4. **The big picture**: one diagram of the module's workflow.
-5. **Next**: the first quest.
+1. **Where you've been**: 2 to 5 bullets on earlier skills this module uses. No module numbers.
+2. **Where you're going**: what this module teaches, in 2 or 3 short sentences.
+3. **Why it matters for data work**: one real example of what goes wrong without these skills ("For example, a manager at…").
+4. **The big picture: the <name> workflow**: define *workflow*, show the diagram, then a table of each step and the question it answers. End with the tracker line exactly as quest pages show it.
+5. **What you'll be able to do**: the module's outcomes, one bullet per workflow step.
+6. **Skills you'll build**: every rubric skill, grouped (for example: Working with numbers, Preparing data, Showing and telling, Thinking critically), with a plain meaning for each.
+7. **The Boss Battle (Module Project)**: its own section, written to excite. Say what students will do as the analyst, that they'll run the whole workflow on their own, and what they'll have at the end. Stay at the skill level: no topics, deliverables, or file names. End with "Your instructor will share the dataset choices and the exact requirements."
+8. **Next**: the first quest.
 
 ### Quest (`quest-NN-<slug>.md`)
 
 1. **Title**: `Quest M.N — <Quest title> (<Plain topic name>)`, then one line at the very top with the **total** time, counting both the GitBook page and the interactive reading: `**Day X** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)`. Estimate the page at 150 words a minute (a careful pace for beginners and English learners), rounded to 5 minutes. Every other page type gets a **Time** line too.
-2. **Introduction** (heading: `## Introduction`): 3 to 5 sentences.
-   - Open with a short, everyday hook and a concrete example ("Sometimes averages can be misleading. For example, …").
-   - Say what this reading covers.
-   - End with the main takeaway, starting "The main takeaway: …"
-   - Then one line: `**Why it matters at work:** …`
-3. **Learning goals**: a checklist (`- [ ] I can …`), 3 items, with "Check off each goal once you can do it." Then a **Skills:** line with the rubric skill names.
-4. **Quick recall**: 1 to 3 bullets reminding the reader of something they already did that this reading builds on. Start each with "Recall that…". Include a line of code when it helps. Link the earlier page by its title. No module or day numbers.
-5. **New tool: <name>** (only when the reading introduces a tool or package). Three parts, nothing more:
+2. **Workflow tracker**, right under the time line: `**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#…))`, with the quest's step in bold. Practice days and checkpoints bold every step they review. The Conclusion shows the workflow diagram again.
+3. **Introduction** (heading: `## Introduction`), in this order:
+   - A short, everyday hook and a concrete example, in short sentences ("Sometimes averages can be misleading. For example, …"). Use a different example from the reading's own scenario.
+   - "In this reading, you'll learn how to:" followed by 2 to 4 short bullets.
+   - `**Main takeaway:**` in one or two short sentences.
+   - `**Why it matters at work:**` in one or two short sentences.
+4. **Learning goals**: a checklist (`- [ ] I can …`), 3 items, with "Check off each goal once you can do it." Then a **Skills:** line with the rubric skill names.
+5. **Quick recall**: 1 to 3 bullets reminding the reader of something they already did that this reading builds on. Start each with "Recall that…". Include a line of code when it helps. Link the earlier page by its title. No module or day numbers.
+6. **New tool: <name>** (only when the reading introduces a tool or package). Three parts, nothing more:
    - **What it's for:** 1 or 2 sentences.
    - **How you'll see it in this reading:** the actual lines from the reading in a code block, followed by a **Code walkthrough** (see "Code blocks").
    - **Learn more:** 2 or 3 links: the official docs, and W3Schools when it has a page.
-6. **Words to know**: tables of *Word | What it means*. When there are more than 8 terms, split them into small groups. Write each group heading as the plain question, a colon, then the formal name: `### What is typical?: Measures of central tendency`. Under the heading, explain the key plain word ("**Typical** means usual or normal…") and the formal name. Add a *Units* column when the terms are numbers.
-7. **Before you read**: no hidden answer. Pick the version that fits:
+7. **Words to know**: tables of *Word | What it means*. When there are more than 8 terms, split them into small groups. Write each group heading as the plain question, a colon, then the formal name: `### What is typical?: Measures of central tendency`. Under the heading, explain the key plain word ("**Typical** means usual or normal…") and the formal name. Add a *Units* column when the terms are numbers.
+8. **Before you read**: no hidden answer. Pick the version that fits:
    - **Scenario:** "In the reading, you'll focus on <scenario>. Think about: <question>. Write down your first answer, then see if the reading agrees."
    - **First answer:** "What's your first answer to <question>? Write it down, then check it against the reading."
    - **Spot the problem** (when the Introduction already covers the idea): "Here's an answer: '<plausible but wrong claim>'. Something is off about it. What? See if the reading agrees with you."
-8. **Read**: first "As you read, look for:" with 3 numbered prompts, **then** the reading link and its time.
-9. **Main takeaways**:
+9. **Read**: first "As you read, look for:" with 3 numbered prompts, **then** the reading link and its time.
+10. **Main takeaways**:
    - **Summary**: 3 bullets, bold lead-in on each.
    - **Common mix-ups**: table of *If you think… | What's actually true*.
    - **How this connects**: two bullets.
      - **Next reading:** what the reader will *do* next, in plain words, with no undefined tool or function names.
      - **Boss Battle (Module Project):** where this skill shows up, at the skill level only.
-10. **Quick check**: 2 questions, answers hidden.
-11. **Next**: one link.
+11. **Quick check**: 2 questions, answers hidden.
+12. **Next**: one link.
 
 ### Practice Day and Checkpoint
 
@@ -160,7 +169,7 @@ Comes after the Checkpoint and before the Boss Battle (Module Project).
 
 Use the curriculum's skill names exactly as the rubric does (for example, **Data Cleaning & Imputation**), so the GitBook, the readings, the tracker, and the rubric all match. Each skill appears in three places:
 
-1. The skills table on the Overview (Read FIRST) page
+1. The grouped skills table on the Module Introduction (and the "where you'll practice" table on the Overview)
 2. The **Skills:** line on each quest
 3. The conclusion's "How to talk about your skills" section
 

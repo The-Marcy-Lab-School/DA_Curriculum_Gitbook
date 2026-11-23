@@ -2,11 +2,21 @@
 
 **Day 12** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → Clean → Explore → Check → **Explain** ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-The person who acts on your work usually wasn't there when you did it. For example, a coach finds that the team gives up most of its goals in the last ten minutes of a game. The athletic director won't read the coach's spreadsheet. The director needs the answer, one number, and a picture, in words they can read in a minute. This reading covers how to save a chart as an image file, write a README page that shows what you found, and write a short data-quality memo that says how far to trust it. The main takeaway: write each page so it stands on its own: lead with the answer, give one number, and say what's still worth checking.
+The person who acts on your work usually wasn't there when you did it. For example, a coach finds that the team allows most of its goals in the last ten minutes of games. The athletic director won't read the coach's spreadsheet. The director needs the answer, one number, and a picture, in words they can read in one minute.
 
-**Why it matters at work:** The person who makes a decision from your work won't open your notebook. If your finding doesn't stand on its own, it doesn't get used. A clear README is also what an employer sees first when they open your GitHub.
+In this reading, you'll learn how to:
+
+* save a chart as an image file
+* write a README page that shows what you found
+* write a short data-quality memo that says how much to trust it
+
+**Main takeaway:** Write each page so a reader understands it without your code or your notebook. Start with the answer, give one number, and say what still needs checking.
+
+**Why it matters at work:** The person who makes a decision from your work won't open your notebook. If your finding can't be understood on its own, no one will use it. A clear README is also the first thing an employer sees on your GitHub.
 
 ## Learning goals
 
@@ -109,7 +119,7 @@ Without the `!`, GitHub shows a plain link instead of the picture.
 ### How this connects
 
 * **Next:** In the Module 2 Checkpoint (Review and Solo Practice), you'll find a pattern on your own in a dataset you've never seen, then review every skill from this module with self-check questions.
-* **Boss Battle (Module Project):** You'll explain your finding in writing to someone who won't read your code. You'll lead with the answer, embed a chart with alt text that says what it shows, and name what's still worth checking before anyone acts on it.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll explain your finding in writing to someone who won't read your code. You'll lead with the answer, embed a chart with alt text that says what it shows, and name what's still worth checking before anyone acts on it.
 
 ## Quick check
 

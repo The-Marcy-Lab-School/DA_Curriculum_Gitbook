@@ -2,11 +2,20 @@
 
 **Day 11** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → Clean → Explore → **Check** → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-AI tools answer fast and sound sure, even when part of the answer is wrong. For example, you share a chart of a month's daily temperatures with an AI, and it says, "Temperatures rose steadily all month." It sounds confident, but your own numbers show a cold week right in the middle. This reading covers how to check an AI's description of a chart you made, and a chart an AI suggests, against numbers you worked out yourself. The main takeaway: compute your own numbers first, then check each AI claim on its own, because the person who shares a result is responsible for it, not the tool.
+AI tools answer quickly and sound confident, even when part of the answer is wrong. For example, you share a chart of daily temperatures for one month with an AI. It says, "Temperatures rose steadily all month." But your own numbers show a cold week in the middle of the month.
 
-**Why it matters at work:** AI tools are now part of most analysts' work. Knowing how to check an AI's read of a chart, and its chart ideas, is a skill employers are starting to ask about.
+In this reading, you'll learn how to check two things against numbers you calculated yourself:
+
+* an AI's description of a chart you made
+* a chart that an AI suggests
+
+**Main takeaway:** Calculate your own numbers first. Then check each AI claim one at a time. When you share a result, you are responsible for it, not the AI.
+
+**Why it matters at work:** Most analysts now use AI tools. Employers are starting to ask whether you can check an AI's description of a chart and judge its chart ideas.
 
 ## Learning goals
 
@@ -103,7 +112,7 @@ In Direction 2, the AI suggested a bar chart with one bar for every book's price
 ### How this connects
 
 * **Next reading:** You'll take a finding from your notebook and write it up for a manager who will never open it: one short page that says what you found, with your chart in it, and one that says how far to trust it.
-* **Boss Battle (Module Project):** You'll ask an AI to describe one of your own charts and to suggest a chart. Then you'll judge each claim against numbers you computed yourself, and name the number that settles it.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll ask an AI to describe one of your own charts and to suggest a chart. Then you'll judge each claim against numbers you computed yourself, and name the number that settles it.
 
 ## Quick check
 

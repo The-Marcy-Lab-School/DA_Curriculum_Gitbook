@@ -2,11 +2,21 @@
 
 **Day 10** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → Clean → Explore → **Check** → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-Sometimes a pattern in a file says more about how the data was collected than about the world. For example, a review app shows that one neighborhood has very few highly rated restaurants. Maybe its food really is worse. Or maybe fewer people there use the app, so fewer reviews got written. This reading covers how to read the note that comes with a dataset, check the data for where it came from, what's missing, and who got counted less, and turn a vague question into one someone can actually answer. The main takeaway: a pattern can be real in the file and still be wrong about the world, so ask specific questions about where the data came from before you trust it.
+Sometimes a pattern in a file tells you more about how the data was collected than about the real world. For example, a review app shows that one neighborhood has very few highly rated restaurants. Maybe the food there is worse. Or maybe fewer people there use the app, so fewer reviews were written.
 
-**Why it matters at work:** Data is collected by people, with choices and gaps built in. If you act on a pattern that the collecting created, money and effort go to the wrong place. Analysts who ask clear, answerable questions catch this before anyone makes a decision.
+In this reading, you'll learn how to:
+
+* read the note that comes with a dataset
+* check where the data came from, what's missing, and which groups were counted less
+* turn an unclear question into one that someone can actually answer
+
+**Main takeaway:** A pattern can be real in the file but wrong about the world. Before you trust it, ask specific questions about where the data came from.
+
+**Why it matters at work:** People collect data, and they make choices and leave gaps. If you act on a pattern that the collection process created, money and effort go to the wrong place. Clear, answerable questions help you catch this before anyone makes a decision.
 
 ## Learning goals
 
@@ -99,7 +109,7 @@ As you read, look for:
 ### How this connects
 
 * **Next reading:** You'll use the same habit on AI. You'll save a chart as an image, ask an AI chat to describe it, and check each thing it says against numbers you worked out yourself.
-* **Boss Battle (Module Project):** Before you trust a pattern in a real dataset, you'll check where the data came from, what's missing, and who got counted less. Then you'll write checkable questions about it for someone who knows the data.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** Before you trust a pattern in a real dataset, you'll check where the data came from, what's missing, and who got counted less. Then you'll write checkable questions about it for someone who knows the data.
 
 ## Quick check
 

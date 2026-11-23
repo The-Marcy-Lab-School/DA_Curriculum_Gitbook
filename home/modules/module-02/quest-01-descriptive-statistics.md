@@ -2,11 +2,21 @@
 
 **Day 1** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-Sometimes averages can be misleading. For example, on a street of ten homes, nine sell for about $300,000 and one mansion sells for $3 million. The average price is $570,000, but no home on that street sold for anything close to it. This reading covers when to use the average (the mean), when the middle value (the median) works better, and how to describe how spread out a set of numbers is. The main takeaway: averages are widely used and easy to understand, but they don't always tell the whole story, so look at the data's shape before you pick a number.
+Sometimes averages can be misleading. For example, a street has ten homes. Nine sell for about $300,000, and one large home sells for $3 million. The average price is $570,000. But no home on that street sold for a price close to that.
 
-**Why it matters at work:** "What's typical?" (what's the usual, normal value?) and "How spread out is it?" are two of the most common questions an analyst answers. If you report the wrong number, people plan budgets and goals around something that isn't true.
+In this reading, you'll learn:
+
+* when to use the average (the mean)
+* when the middle value (the median) works better
+* how to describe how spread out a set of numbers is
+
+**Main takeaway:** Averages are widely used and easy to understand, but they don't always tell the whole story. Look at the shape of the data before you pick a number.
+
+**Why it matters at work:** Analysts are often asked two questions: "What is the usual value?" and "How spread out are the values?" If you report the wrong number, people may plan budgets and goals around something that isn't true.
 
 ## Learning goals
 
@@ -135,7 +145,7 @@ As you read, look for:
 ### How this connects
 
 * **Next reading:** Instead of a short list you typed, you'll open a whole table of data saved in a file. Before you calculate anything, you'll check it: how many rows and columns it has, what kind of data each column holds, where values are missing, and whether any rows repeat. Then you'll keep only the rows you need.
-* **Boss Battle (Module Project):** You'll describe key columns of a real dataset. For each one, you'll check its shape, pick the mean or the median, and explain its spread in plain words, with units.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll describe key columns of a real dataset. For each one, you'll check its shape, pick the mean or the median, and explain its spread in plain words, with units.
 
 ## Quick check
 

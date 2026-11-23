@@ -2,11 +2,21 @@
 
 **Day 4** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-Sometimes the same numbers need two different charts. For example, a coffee shop owner sketches a rough chart of daily sales on a napkin, just to spot her slow days. Later, she asks a bank for a loan, and that chart needs a clear title, labeled axes, and nothing extra, because the banker never saw the napkin. This reading covers how to tell a chart made for you apart from a chart made for someone else, how to pick a chart type on purpose, and how to chart a count over time. The main takeaway: before you draw, ask who the chart is for and what you're comparing, and check a number before you trust a picture.
+Sometimes the same numbers need two different charts. For example, a coffee shop owner draws a quick chart of daily sales to find her slow days. Later, she asks a bank for a loan. The chart for the bank needs a clear title, labeled axes, and nothing extra, because the banker never saw her first chart.
 
-**Why it matters at work:** Every chart you share gets judged by someone who never saw your notebook. If the chart type doesn't fit the question, or the title doesn't say what you found, the reader can miss your point or believe the wrong thing.
+In this reading, you'll learn how to:
+
+* tell a chart made for you apart from a chart made for someone else
+* choose a chart type on purpose
+* chart a count over time
+
+**Main takeaway:** Before you make a chart, ask two questions: Who is this chart for? What am I comparing? Also check a number before you trust a picture.
+
+**Why it matters at work:** People will judge every chart you share, and most of them never saw your notebook. If the chart type doesn't fit the question, or the title doesn't say what you found, the reader may miss your point.
 
 ## Learning goals
 
@@ -129,7 +139,7 @@ As you read, look for:
 ### How this connects
 
 * **Next reading:** You'll check these same chart types for honesty: where an axis starts, and what a chart leaves out.
-* **Boss Battle (Module Project):** When you share findings, you'll choose a chart type for each question, say why you chose it, and polish the charts you share so a reader who never saw your notebook gets the point.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** When you share findings, you'll choose a chart type for each question, say why you chose it, and polish the charts you share so a reader who never saw your notebook gets the point.
 
 ## Quick check
 

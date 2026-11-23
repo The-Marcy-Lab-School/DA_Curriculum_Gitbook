@@ -4,7 +4,9 @@
 
 ## Introduction
 
-Look at how far you've come. When this module started, your data was a short list you typed yourself. Now you can take a real, messy table, check it, clean it, describe it, find a pattern you can trust, and explain it to someone who will never read your code. That's the core of a data analyst's job. The main takeaway: every skill from this module is one step in the same workflow, and the Boss Battle (Module Project) asks you to run that whole workflow on your own.
+Look at how far you've come. When this module started, your data was a short list you typed yourself. Now you can take a real, messy table and check it, clean it, and describe it. You can find a pattern you can trust, and explain it to someone who will never read your code. That's the core of a data analyst's job.
+
+**Main takeaway:** Every skill from this module is one step in the same workflow. The Boss Battle (Module Project) asks you to run the whole workflow on your own.
 
 **Why it matters at work:** Employers don't ask what modules you finished. They ask what you can do and how you did it. This page helps you say it.
 
@@ -16,6 +18,10 @@ Look at how far you've come. When this module started, your data was a short lis
 * **2 review days** where you checked AI-written code for hidden problems
 
 ## What you can do now
+
+You've now practiced every step of the [EDA workflow](introduction.md#the-big-picture-the-eda-workflow):
+
+![Five steps from left to right: Inspect, Clean, Explore, Check, and Explain. The Boss Battle (Module Project) runs all five steps on one real dataset.](images/eda-workflow.svg)
 
 | Workflow step | You can now... |
 | --- | --- |
@@ -47,7 +53,7 @@ For example: "I noticed Downtown's repairs took 15 minutes longer. The numbers s
 
 ## Where these skills show up next
 
-**First, in the Boss Battle (Module Project).** You'll run all five steps on one real dataset, on your own: inspect, clean, explore, check, and explain. Your instructor will share the project details.
+**First, in the [Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project).** You'll run all five steps on one real dataset, on your own: inspect, clean, explore, check, and explain. Your instructor will share the project details.
 
 **Then, in the modules after this one.** Nothing you learned here goes away. It comes back in new tools.
 

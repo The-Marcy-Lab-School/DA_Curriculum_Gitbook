@@ -2,11 +2,23 @@
 
 **Day 8** · Total time: about 30 minutes (this page: about 10 minutes + the interactive reading: about 20 minutes)
 
+**EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
+
 ## Introduction
 
-Some messes show up again and again. For example, every Monday a gym's sign-up sheet lists someone twice and spells "Yoga" three ways. Fixing it by hand each week is slow, and one busy Monday you'll miss a step. This reading covers three common problems in a file (repeated rows, numbers stored as text, and labels spelled more than one way) and how to put all the fixes into one function you can run on every new file. The main takeaway: write your cleaning steps once, in a function, and prove it's reusable by running it on more than one input.
+Some data problems happen again and again. For example, every Monday a gym's sign-up sheet lists one person twice and spells "Yoga" three different ways. Fixing this by hand every week is slow, and one day you'll forget a step.
 
-**Why it matters at work:** Data arrives every week or every month, usually with the same problems. A cleaning function fixes them the same way every time, and when a fix needs to change, you change it in one place.
+In this reading, you'll learn how to fix three common problems:
+
+* repeated rows
+* numbers saved as text
+* labels spelled more than one way
+
+You'll also learn how to put all the fixes into one function that you can run on every new file.
+
+**Main takeaway:** Write your cleaning steps once, in a function. Prove it's reusable by running it on more than one table.
+
+**Why it matters at work:** New data arrives every week or every month, usually with the same problems. A cleaning function fixes them the same way every time. When a fix needs to change, you change it in one place.
 
 ## Learning goals
 
@@ -132,7 +144,7 @@ clean_june = clean_deliveries(june)
 ### How this connects
 
 * **Next reading:** A clean table is where analysis starts. You'll take an average that looks like a clear answer, split it by two columns at once, and check what each group is made of, so you can tell a real pattern from a misleading total.
-* **Boss Battle (Module Project):** You'll clean a real dataset with your own reusable cleaning function, called on more than one input, instead of copying and pasting the same fixes.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll clean a real dataset with your own reusable cleaning function, called on more than one input, instead of copying and pasting the same fixes.
 
 ## Quick check
 
