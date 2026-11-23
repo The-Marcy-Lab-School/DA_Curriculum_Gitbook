@@ -18,7 +18,7 @@ In this reading, you'll learn:
 
 **Main takeaway:** Averages are widely used and easy to understand, but they don't always tell the whole story. Look at the shape of the data before you pick a number.
 
-**Why it matters at work:** Analysts are often asked two questions: "What is the usual value?" and "How spread out are the values?" If you report the wrong number, people may plan budgets and goals around something that isn't true.
+**Why it matters at work:** Analysts are often asked two questions: "What is the usual value?" and "How spread out are the values?" If you report the wrong number, people may plan budgets (plans for how much money to spend) and goals around something that isn't true.
 
 ## Learning goals
 
@@ -32,15 +32,17 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
+You've already added up numbers and read items by position. This reading uses both to describe a whole list with a few numbers.
+
 * Recall that you added up a week of step counts with a running total (`total += steps`) in [One Job at a Time](../module-01/quest-07-second-function.md). An average goes one step further: divide the total by how many values there are, `sum(steps) / len(steps)`.
-* Recall that a **parameter** is a name in a function's `def` line, and an **argument** is the value you pass in when you call it, from [Build It Once, Use It Again](../module-01/quest-02-functions-scope.md). The functions in this reading have parameters too.
-* Recall that a list keeps its items in order, and you can read one item by its position, called its **index**. `sorted_gifts[1]` is the *second* item, because Python starts counting positions at 0: `sorted_gifts[0]` is the first item. You'll use this idea to find the middle value of a sorted list.
+* Recall that you read a list item by its position, called its **index**, in [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md). Python starts counting at 0, so `sorted_gifts[0]` is the first item and `sorted_gifts[1]` is the second. You'll use this to find the middle value of a sorted list.
+* Recall that a **quantitative** value measures an amount, like a weight or a price. Math on it makes sense. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). An ID made of digits is not quantitative, so never take its mean.
 
 ## New tool: NumPy
 
 **What it's for:** NumPy does math on many numbers at once. Plain Python lists can add and count, but they don't have a median or a standard deviation built in. NumPy does, so each answer takes one line.
 
-NumPy is a Python **package** (some people say *library*): a collection of code other people wrote. Recall that you loaded a **module** that comes with Python by writing `import json`. You load a package the same way, with `import`. The difference: a package is a bigger set of modules, and it doesn't come with Python, so you install it yourself, once.
+NumPy is a Python **package** (some people say *library*): a collection of code other people wrote. Recall that you loaded a **module** that comes with Python by writing `import json`, in [Make It Survive](../module-01/quest-05-serialization.md). You load a package the same way, with `import`. The difference: a package is a bigger set of modules, and it doesn't come with Python, so you install it yourself, once.
 
 **How you'll see it in this reading:**
 
@@ -60,7 +62,7 @@ np.percentile(gifts, [0, 25, 50, 75, 100])
 1. `import numpy as np` loads the NumPy package and gives it the short name `np`.
 2. `np.array([...])` turns a list into an **array**, NumPy's version of a list. One math step works on every value inside it.
 3. `np.mean(...)` and `np.median(...)` are NumPy **functions** that find the mean and the median. `.round(2)` is a **method**, a function that belongs to the number NumPy gives back. It rounds that number to 2 decimal places.
-4. `np.std(gifts, ddof=1)` finds the standard deviation. This line sets the parameter `ddof` to the argument `1`. That tells NumPy to use the **sample** formula, which divides by one less than the number of values. It's the version pandas and most other tools use, so your answers will match theirs.
+4. `np.std(gifts, ddof=1)` finds the standard deviation. This line sets the parameter `ddof` to the argument `1`. You passed arguments to your own functions the same way in [Build It Once, Use It Again](../module-01/quest-02-functions-scope.md). That tells NumPy to use the **sample** formula, which divides by one less than the number of values. It's the version pandas and most other tools use, so your answers will match theirs.
 5. `np.percentile(gifts, [0, 25, 50, 75, 100])` gives the five-number summary in one line. Each number in the list is a percent of the way up the sorted data: 0% is the minimum, 50% is the median, and 100% is the maximum.
 
 If `import numpy` gives a `ModuleNotFoundError` on your laptop, run `pip install numpy` in the terminal once.
@@ -111,11 +113,13 @@ A **measure of central tendency** is one number that describes the typical value
 | **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which pulls the mean below it. |
 | **Outlier** | A value far from the rest. It can still be real. |
 
+An outlier is not the same as a bad value. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), a grade of 14 broke a rule. So your function flagged it as a problem. A $5,000 gift breaks no rule. It's far from the rest, but it's real, so it stays in the data.
+
 ![Three histograms side by side. Each has an x-axis for the value, from small to big, and a y-axis for how many values. Left-skewed: most values are big, with a tail of small values on the left, and the mean sits below the median. Symmetric: one peak in the middle, and the mean and median are about the same. Right-skewed: most values are small, with a tail of big values on the right, and the mean sits above the median.](images/skew-shapes.svg)
 
 ## Before you read
 
-In the reading, you'll focus on a fundraising dinner. Ten guests gave between $40 and $75, and one local company gave $5,000. The organizer wants to print "Our typical gift is ___" on next year's invitation.
+In the reading, you'll focus on a fundraising dinner. A **fundraising dinner** is a meal where guests give money to support a cause. Ten guests gave between $40 and $75, and one local company gave $5,000. The organizer wants to print "Our typical gift is ___" on next year's invitation.
 
 Think about: which number would you print, and why? Write down your first answer, then see if the reading agrees.
 

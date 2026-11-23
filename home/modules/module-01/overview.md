@@ -32,10 +32,10 @@ This GitBook uses a few game words. Here's what each one is:
 | 11–12 | [Quest 1.7 — One Job at a Time: Writing a Second Function](quest-07-second-function.md) | Give each function one job |
 | 13–15 | [Quest 1.8 — Meet the Objects: Classes and Objects](quest-08-oop.md) | Build your own class and create objects from it |
 | 16–17 | [Quest 1.9 — Lookups Matter: Search Speed in Practice](quest-09-big-o-practice.md) | Compare searching a list with looking up a dictionary |
-| 18–19 | [Quest 1.10 — Looks Right. Is It? Debugging](quest-10-debugging.md) | Find bugs by predicting output before you run code |
+| 18–19 | [Quest 1.10 — Looks Right. Is It? Debugging](quest-10-debugging.md) | Find bugs (mistakes in code) by predicting output before you run code |
 | 19 | [Module 1 Checkpoint: Review and Practice](checkpoint.md) | Test yourself on every skill from the module |
 | 19 | [Module 1 Conclusion](conclusion.md) | See what you can do now, and how to talk about it |
-| 20–24 | Boss Battle (Module Project) | Build an inventory tracker in plain Python. Your instructor will share the details. |
+| 20–24 | Boss Battle (Module Project) | Build an inventory tracker in plain Python: a program that keeps count of the items a business has. Your instructor will share the details. |
 
 ## New tools this module
 
@@ -44,7 +44,7 @@ This GitBook uses a few game words. Here's what each one is:
 | **Python** | Programming language | Lets you write instructions for the computer | [Module 1 Introduction](introduction.md#what-is-python) |
 | **`json`** | A module that comes with Python | Saves data to a file and loads it back | [Quest 1.5](quest-05-serialization.md#new-tool-the-json-module) |
 
-A **module** is one file of Python code that you load with `import`. The `json` module comes with Python, so you don't install anything.
+A **module** is one file of Python code that you load with `import`. The `json` module comes with Python, so you don't install anything. **JSON** (JavaScript Object Notation) is a common text format for saving data.
 
 ## Where you'll practice each skill
 

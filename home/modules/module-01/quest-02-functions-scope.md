@@ -32,6 +32,7 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
+* Recall that a **variable** is a labeled box, and it holds only its newest value. `pet_of_the_week` held `"Biscuit"`, then `"Mango"`. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). A function's inputs work like these boxes.
 * Recall that `minutes = minutes - 10` works out the right side first. Then it stores the result back under the same name. You traced it in [Trace the Path](quest-01-control-flow.md). Function bodies use the same kind of update.
 * Recall that indentation tells Python which lines belong to a block, from [Trace the Path](quest-01-control-flow.md). A function's steps are a block too. Where a line sits changes when it runs.
 
@@ -52,7 +53,7 @@ Check off each goal once you can do it.
 | **Return value** | The value a function hands back. The calling line can store it, add it to a total, or print it. |
 | **`None`** | Python's word for "no value." A function with no `return` line hands back `None`. |
 
-Function names follow the same style as variable names: lowercase words joined by underscores, like `wash_cost`. This is called `snake_case`. The rule comes from PEP 8, Python's style guide. See [the Module 1 Introduction](introduction.md#python-syntax-and-style).
+Function names follow the same style as variable names: lowercase words joined by underscores, like `wash_cost`. This is called `snake_case`. The rule comes from PEP 8, Python's style guide. (PEP stands for "Python Enhancement Proposal.") See [the Module 1 Introduction](introduction.md#python-syntax-and-style).
 
 ### What goes in?: Parameters and arguments
 
@@ -62,6 +63,8 @@ You'll use these two words in every module after this one, so learn them exactly
 | --- | --- |
 | **Parameter** | A name in the function's `def` line. It holds a spot for an input value. |
 | **Argument** | The value passed in at a call. It fills the matching parameter. |
+
+So a parameter is a labeled box, like any variable. Each call puts a new argument inside it.
 
 For example:
 
@@ -105,6 +108,8 @@ print(total)  # 7.5
 
 ### What went wrong?: Error messages
 
+You've read an error message before. In [Meet Your Terminal](../module-00/quest-01-terminal.md), `zsh: command not found: pdw` named the exact word the shell didn't know. Python's error messages work the same way: they name the problem.
+
 | Word | What it means |
 | --- | --- |
 | **Traceback** | What Python prints when it stops with an error. Read the last line first: it names the error. Then find the line number and the `^^^` marks under the part that failed. |
@@ -113,7 +118,7 @@ print(total)  # 7.5
 
 ## Before you read
 
-In the first reading, you'll focus on a laundromat. One load of washing costs $3.50. The program works out each bill by copying the same math for every customer. Then the price goes up to $4.00.
+In the first reading, you'll focus on a laundromat. A **laundromat** is a shop where people pay to use washing machines. One load of washing (one machine full of clothes) costs $3.50. The program works out each bill by copying the same math for every customer. Then the price goes up to $4.00.
 
 Think about: what could go wrong when someone updates the price? How could you write the math so there's only one place to change? Write down your first answer, then see if the reading agrees.
 

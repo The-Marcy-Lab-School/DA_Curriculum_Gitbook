@@ -6,9 +6,9 @@
 
 You already have the skills this module builds on:
 
-* **Working habits:** You used the terminal and Git. You learned to tell what kind of data you have. You also checked what an AI told you before you trusted it.
+* **Working habits:** You used the terminal and Git. You learned to tell what kind of data you have. You also checked what an AI (artificial intelligence) tool told you before you trusted it.
 * **Python:** You wrote loops, conditionals, functions, and classes. You used lists and dictionaries. You saved data to files, handled errors, and fixed bugs.
-* **Checking and tidying data:** You wrote a validation function that checked each record against rules before you used it. You tidied text with string methods, like `.strip()` to remove extra spaces and `.lower()` to make letters lowercase, so `" Peru "` and `"peru"` match.
+* **Checking and tidying data:** You wrote a validation function that checked each record (one item of data, like one row) against rules before you used it. You tidied text with string methods, like `.strip()` to remove extra spaces and `.lower()` to make letters lowercase, so `" Peru "` and `"peru"` match.
 
 Until now, your data was short lists that you typed yourself. In this module, you'll work with real tables that have hundreds or thousands of rows.
 
@@ -24,7 +24,7 @@ You'll also learn four new tools that analysts use every day: NumPy, Jupyter not
 
 Analysts spend most of their time understanding and cleaning data. Only then can they trust their answers.
 
-For example, a manager at an insurance company asks you how much a claim usually pays. A few claims are very large, and they pull the average up. If you report that average, the company may plan its budget around the wrong number. EDA helps you catch problems like this before anyone makes a decision.
+For example, a manager at an insurance company asks you how much a claim usually pays. A **claim** is a request a customer makes for the company to pay for a loss, like a car accident or a flooded home. A few claims are very large, and they pull the average up. If you report that average, the company may plan its budget (its plan for how much money to spend) around the wrong number. EDA helps you catch problems like this before anyone makes a decision.
 
 ## The big picture: the EDA workflow
 
@@ -59,7 +59,7 @@ By the end of this module, you'll be able to:
 * **Inspect:** Open a data file and check how many rows it has, what kind of data each column holds, what's missing, and what's repeated.
 * **Clean:** Fix repeated rows, numbers saved as text, and messy labels. Decide what to do with each blank, and give a reason. Put all your fixes in one function you can use again.
 * **Explore:** Pick the right number to describe your data. Summarize groups. Choose a chart that fits your question. Find a pattern that isn't obvious.
-* **Check:** Ask clear questions about where the data came from. Check an AI's claims against your own numbers.
+* **Check:** Ask clear questions about where the data came from. Check an AI's claims against your own numbers. Here, a **claim** is a statement that says something is true, which may or may not be correct.
 * **Explain:** Write a short page that someone can act on without reading your code, and share your answer first.
 
 ## Skills you'll build
@@ -71,7 +71,7 @@ These are the skills employers look for. They're also the skills the Boss Battle
 | **Working with numbers** | **Statistical Analysis** | Pick the right number (mean, median, standard deviation) and explain what it means |
 | | **Data Distributions & Shape** | Describe how values are spread out, which way they lean, and any values far from the rest |
 | | **Data Mining** | Find a real pattern hiding inside groups |
-| **Preparing data** | **Data Cleaning & Imputation** | Fix problems on purpose, and handle blanks with a reason |
+| **Preparing data** | **Data Cleaning & Imputation** | Fix problems on purpose, and handle blanks with a reason. **Imputation** means filling in blanks with a stand-in value. |
 | **Showing and telling** | **Data Visualization** | Choose a chart that fits the question, and label it honestly |
 | | **Stakeholder Communication** | Explain a finding to someone who won't read your code |
 | | **Presentations** | Share a finding out loud, answer first |

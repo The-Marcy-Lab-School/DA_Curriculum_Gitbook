@@ -51,4 +51,4 @@ Every picture has a text description, and important information is never shown b
 
 ---
 
-**Next:** [Overview of Module 0 (Read FIRST)](../modules/module-00/overview.md)
+**Next:** [Overview of Module 0: Foundations (Read FIRST)](../modules/module-00/overview.md)

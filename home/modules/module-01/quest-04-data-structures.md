@@ -23,7 +23,7 @@ In this reading, you'll learn how to:
 
 **Main takeaway:** No container is best for every job. Name the rule the job needs, then pick the container that follows it.
 
-**Why it matters at work:** Most data you'll handle is a list of records, and each record is a dictionary. The wrong container causes quiet bugs, like one customer using a one-time coupon twice.
+**Why it matters at work:** Most data you'll handle is a list of records, and each record is a dictionary. A **record** is the data about one thing, like one order. The wrong container causes quiet bugs (mistakes in code that show no error), like one customer using a one-time coupon twice.
 
 ## Learning goals
 
@@ -37,9 +37,9 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that a **list** keeps several values in order, inside square brackets, like `[98, 165, 122]`. A `for` loop visits each item once. You looped over a list of movie lengths in [Trace the Path](quest-01-control-flow.md).
-* Recall that you can read a list item by its position: `bookings[3]` is the *fourth* item, because Python starts counting positions at 0. You did this in [When the Crowd Grows](quest-03-big-o-intuition.md).
-* Recall that `"QX7RT2" in bookings` checks a list one item at a time, so its work grows with the list. That's O(n). A **lookup** goes straight to one item, like a coat-check ticket, so its work stays the same. That's O(1). You saw both in [When the Crowd Grows](quest-03-big-o-intuition.md). This reading shows the container that lets you look up a value by a label.
+* Recall that a **data structure** groups several values together as one unit. One pet's row in `pets.csv` was a small one, called a **record**. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). This reading shows Python's four main data structures.
+* Recall that a **list** keeps several values in order, inside square brackets, like `[98, 165, 122]`. A `for` loop visits each item once. You looped over a list of movie lengths in [Trace the Path](quest-01-control-flow.md). `bookings[3]` reads an item by its position, and Python starts counting at 0.
+* Recall that `"QX7RT2" in bookings` checks a list one item at a time, so its work grows with the list: O(n). A **lookup** goes straight to one item, like a coat-check ticket with a hook number: O(1). You saw both in [When the Crowd Grows](quest-03-big-o-intuition.md). This reading shows the container that lets you look up a value by a label.
 
 ## Words to know
 
@@ -83,9 +83,9 @@ used.add("Noor")
 
 **Code walkthrough:**
 
-1. `stops` is a list of a driver's stops. The stops come in order, and the list can change.
+1. `stops` is a list of a driver's stops: the streets where the driver drops off food. The stops come in order, and the list can change.
 2. `stops.append("Oak Rd")` adds `"Oak Rd"` to the end of the list. `.append()` is a **method**: a function that belongs to a value, called with a dot.
-3. `order` is a tuple: a finished order's code and drop-off time. It can never change, so the record stays correct.
+3. `order` is a tuple: a finished order's code and drop-off time (when the food was delivered). It can never change, so the record stays correct.
 4. `drivers` is a dictionary. The key `"D-5520"` is an order code, and the value `"Noor"` is the driver's name.
 5. `drivers["D-5521"] = "Sam"` adds a new pair. If the key already existed, this line would replace its value instead.
 6. `set()` makes an empty set, and `used.add("Noor")` puts a customer's name in it. Adding `"Noor"` a second time would change nothing.
@@ -106,6 +106,11 @@ used.add("Noor")
 | **Unpacking** | Taking a tuple apart into separate variables. In `for code, time in finished:`, the first item goes into `code` and the second into `time`. |
 | **Built-in function** | A function that comes with Python, like `len()`, `set()`, and `type()`. `type()` tells you what kind of value something is. |
 | **`TypeError`** | The error Python raises when a value can't do what you asked. For example, trying to change an item in a tuple raises a `TypeError`. |
+
+A dictionary builds on two ideas from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md):
+
+* A **key** works like an ID: it labels one thing. The order code `"D-5520"` is an ID, so it's stored as text.
+* One dictionary can hold one **record**. Each key works like a column name. For example, `{"name": "Mango", "age": 1}` holds part of one pet's record.
 
 ## Before you read
 
@@ -140,7 +145,7 @@ Want to go further? These readings are optional. You don't need them for the che
 
 ### Summary
 
-* **A list changes, and a tuple doesn't.** Both keep their order. Use a list for data that grows or changes, like a shopping cart. Use a tuple for a record that must stay fixed, like a posted rating. Changing a tuple raises a `TypeError`, and that error protects the record.
+* **A list changes, and a tuple doesn't.** Both keep their order. Use a list for data that grows or changes, like a shopping cart. Use a tuple for a record that must stay fixed, like a posted rating (a review score that is already shared online). Changing a tuple raises a `TypeError`, and that error protects the record.
 * **A dictionary finds a value by its key.** Each key appears once and maps to one value. A lookup takes about one step, and each key stays with its value, so pairs can't get mixed up.
 * **A set keeps each value once.** Use it when you only need to know "is this value here?" Make an empty set with `set()`, because `{}` makes an empty dictionary.
 

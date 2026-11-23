@@ -6,14 +6,14 @@
 
 ## Introduction
 
-AI tools answer quickly and sound confident, even when part of the answer is wrong. For example, you share a chart of daily temperatures for one month with an AI. It says, "Temperatures rose steadily all month." But your own numbers show a cold week in the middle of the month.
+AI (artificial intelligence) tools answer quickly and sound confident, even when part of the answer is wrong. For example, you share a chart of daily temperatures for one month with an AI. It says, "Temperatures rose steadily all month." But your own numbers show a cold week in the middle of the month.
 
 In this reading, you'll learn how to check two things against numbers you calculated yourself:
 
 * an AI's description of a chart you made
 * a chart that an AI suggests
 
-**Main takeaway:** Calculate your own numbers first. Then check each AI claim one at a time. When you share a result, you are responsible for it, not the AI.
+**Main takeaway:** Calculate your own numbers first. Then check each AI claim one at a time. A **claim** is a statement that says something is true, which may or may not be correct. When you share a result, you are responsible for it, not the AI.
 
 **Why it matters at work:** Most analysts now use AI tools. Employers are starting to ask whether you can check an AI's description of a chart and judge its chart ideas.
 
@@ -29,9 +29,11 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
+You've checked an AI's answer against a data file before. This reading checks an AI's answer about a chart.
+
 * Recall that one very large value pulls the mean up more than the median, so a mean far above the median is a sign of skew. You saw this with one $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
 * Recall that to see the shape of one number column, you pick a histogram or a boxplot, in [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
-* Recall that a confident AI answer still needs evidence before you use it, in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md).
+* Recall that in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said volunteers filled 64 bags. The cleanup log added up to 46. You found the claim, found a real source, compared the two, and then decided.
 
 ## Words to know
 
@@ -46,6 +48,8 @@ Check off each goal once you can do it.
 | **Verdict** | Your ruling on one claim: right, wrong, or unverifiable, with the number that settles it. |
 | **Unverifiable** | A claim that nothing you computed can settle. It isn't right or wrong yet. It's unchecked. |
 
+Computing your own numbers first is the habit from [Looks Right. Is It?](../module-01/quest-10-debugging.md). There, you worked out the expected answer by hand before you ran the code. Here, you work out the numbers before you read the AI's answer.
+
 ### Reading the shape
 
 | Word | What it means |
@@ -53,11 +57,13 @@ Check off each goal once you can do it.
 | **Right-skewed** | Most values are small, with a long tail to the right. The mean gets pulled above the median. |
 | **Peak** | A high spot on a histogram, where many values bunch together. Two peaks often mean two groups are mixed together in one column. |
 
+Two groups mixed in one column is the problem you met in [Beneath the Total](quest-08-mining-a-pattern.md). There, Downtown's average mixed screen repairs and battery repairs. The fix is the same: group by the column that might split them.
+
 ### Code in this reading
 
 | Word | What it means |
 | --- | --- |
-| **`.describe()[["mean", "50%"]]`** | Picks two rows of `describe()`: the mean and the "50%" row, which is the median. Both come out in the column's units, like books per trade-in or dollars. |
+| **`.describe()[["mean", "50%"]]`** | Picks two rows of `describe()`: the mean and the "50%" row, which is the median. Both come out in the column's units, like books per trade-in (old books a customer gives the shop in exchange for credit) or dollars. |
 | **`.plot.hist(bins=12)`** | Draws a histogram. The parameter `bins` is set to `12`, so the chart has 12 bars. |
 | **`plt.savefig("tradeins_hist.png", dpi=150)`** | Saves the chart as an image file. The parameter `dpi` (dots per inch) is set to `150`. A bigger number makes a sharper picture. |
 
@@ -67,7 +73,7 @@ Check off each goal once you can do it.
 
 ## Before you read
 
-In the reading, you'll focus on Devon, who runs a small used-book shop where customers trade in old books for store credit. Devon saves a chart of the trade-ins and asks an AI chat to describe it. The AI answers fast and sounds sure.
+In the reading, you'll focus on Devon, who runs a small used-book shop where customers trade in old books for store credit. **Store credit** is money that can only be spent in that shop. Devon saves a chart of the trade-ins and asks an AI chat to describe it. The AI answers fast and sounds sure.
 
 Think about: what would you need in hand before you could tell whether the AI is right? Write down your first answer, then see if the reading agrees.
 
@@ -76,7 +82,7 @@ Think about: what would you need in hand before you could tell whether the AI is
 As you read, look for:
 
 1. Why you compute your own numbers *before* you read any AI answer.
-2. Why a mean and median that are close together don't always mean the data has one hump.
+2. Why a mean and median that are close together don't always mean the data has one hump (one peak).
 3. The two counts you judge an AI's chart idea on.
 
 **[Start the reading: Two Sets of Eyes →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/ai-on-charts/reading-1-twosetsofeyes/)** (about 20 minutes)
@@ -97,7 +103,7 @@ In the reading's book-price example, the AI made five claims:
 | --- | --- | --- |
 | "The mean price is about $9." | Right | The mean is $9.17. |
 | "The mean and median are close." | Right | The median is $9.00. |
-| "Fairly symmetric, with one hump." | Wrong | The histogram has two peaks: paperbacks average $3.83 and hardcovers average $14.50. |
+| "Fairly symmetric, with one hump." | Wrong | The histogram has two peaks: paperbacks (books with soft paper covers) average $3.83 and hardcovers (books with stiff covers) average $14.50. |
 | "$9 is a typical price." | Wrong | $9 sits in the gap between the two groups, where no book is priced. |
 | "Most books are in good condition." | Unverifiable | The data has no condition column. |
 

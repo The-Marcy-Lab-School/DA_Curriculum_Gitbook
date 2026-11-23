@@ -6,14 +6,14 @@
 
 ## Introduction
 
-Sometimes your work disappears when a program stops. For example, you type a long shopping list into a phone app. The app crashes before it saves. When you open it again, the list is gone. It lived only in the app's memory, not in a file.
+Sometimes your work disappears when a program stops. For example, you type a long shopping list into a phone app. The app crashes (stops suddenly) before it saves. When you open it again, the list is gone. It lived only in the app's memory, not in a file.
 
 Python programs work the same way. When a program stops, every variable is gone. To keep data, the program must write it to a file. Later, a program can read the file and build the data again.
 
 In this reading, you'll learn how to:
 
 * write text to a file and read it back
-* save a dictionary to a JSON file and load it again
+* save a dictionary to a JSON (JavaScript Object Notation) file and load it again
 * check what changed about your data on the way
 
 **Main takeaway:** A file holds a text version of your data, not the data itself. Loading builds new values, and some come back as a different type.
@@ -32,7 +32,7 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that a **dictionary** stores key/value pairs, and a **tuple** is an ordered record that can't change. You used both in [Pick the Right Container](quest-04-data-structures.md). In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
+* Recall that a **dictionary** stores key/value pairs, and a **tuple** is an ordered record (a group of values about one thing) that can't change. You used both in [Pick the Right Container](quest-04-data-structures.md). In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
 * Recall that `ls` lists the files in a folder, from [Meet Your Terminal](../module-00/quest-01-terminal.md). Recall too that `cat pets.csv` prints what's inside a file, from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). You'll use both to look inside the file your program saves.
 
 ## New tool: the json module
@@ -99,10 +99,12 @@ TXT:   7:00 rain 1.2 mm
 | Format | What it holds | Use it for |
 | --- | --- | --- |
 | **JSON** | Data with structure inside it. A JSON **object** looks like a Python dictionary. A JSON **array** looks like a Python list. | One record that holds a list or another record inside it |
-| **CSV** | A table. The column names come once, in a **header row**. Then each line is one row, with commas between the values. | A table someone will open in a spreadsheet |
-| **TXT** | Plain text with no built-in structure. Your program decides the layout. | A simple log that only your own program writes and reads |
+| **CSV** | Short for "comma-separated values." A table. The column names come once, in a **header row**. Then each line is one row, with commas between the values. | A table someone will open in a spreadsheet |
+| **TXT** | Short for "text." Plain text with no built-in structure. Your program decides the layout. | A simple log (a file that gets one new line each time something happens) that only your own program writes and reads |
 
-JSON text has three rules that Python dictionaries don't follow. Check them when you read a JSON file by hand, for example one an AI assistant wrote:
+You've opened a CSV file before. In [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), `pets.csv` had the column names on its first line. Each line after it was one pet's record. Now your own program can write a file like that.
+
+JSON text has three rules that Python dictionaries don't follow. Check them when you read a JSON file by hand, for example one an AI (artificial intelligence) assistant wrote. That's the habit from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md): check what an AI gives you before you trust it. The three rules:
 
 * Strings and keys use double quotes: `"roof"`, never `'roof'`.
 * `true`, `false`, and `null` are lowercase. Python's `True`, `False`, and `None` aren't valid JSON.
@@ -147,7 +149,7 @@ The mode matters most when a program adds one line at a time. For example, the r
 
 ## Before you read
 
-In the reading, you'll focus on a school's rooftop weather station. A Python program keeps each hour's rain in a dictionary, like `{6: (0.4, 58), 7: (1.2, 55)}`.
+In the reading, you'll focus on a school's rooftop weather station: tools on the roof that measure rain and temperature. A Python program keeps each hour's rain in a dictionary, like `{6: (0.4, 58), 7: (1.2, 55)}`.
 
 Think about: if you save this dictionary to a file and load it back tomorrow, will you get exactly the same dictionary? Write down your first answer, then see if the reading agrees.
 

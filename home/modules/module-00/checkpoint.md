@@ -65,7 +65,7 @@ A student ID is a label, not an amount. Nobody adds or averages IDs. Stored as a
 
 </details>
 
-**5. (Quest 0.2)** A shop has two files. One is a CSV of orders, with the same columns on every row. The other holds customer reviews, written as paragraphs. Which one is structured data, and how can you tell?
+**5. (Quest 0.2)** A shop has two files. One is a CSV (comma-separated values) file of orders, with the same columns on every row. The other holds customer reviews, written as paragraphs. Which one is structured data, and how can you tell?
 
 <details>
 <summary>Answer</summary>
@@ -92,7 +92,7 @@ One big commit mixes every change together. If something breaks midweek, there's
 
 </details>
 
-**8. (Quest 0.4)** An AI tool says, "This dataset has exactly 8,250 rows." You have the file. Name one real way to check the claim.
+**8. (Quest 0.4)** An AI (artificial intelligence) tool makes a **claim**, a statement that may or may not be true: "This dataset has exactly 8,250 rows." You have the dataset's file. Name one real way to check the claim.
 
 <details>
 <summary>Answer</summary>
@@ -101,12 +101,12 @@ Open the file and count the rows yourself. Any check works if it uses a real sou
 
 </details>
 
-**9. (Quest 0.4)** A job candidate says, "If ChatGPT gives me a detailed explanation and the code runs, I know the answer is right." What's wrong with that?
+**9. (Quest 0.4)** A job candidate (a person who is applying for a job) says, "If ChatGPT gives me a detailed explanation and the code runs, I know the answer is right." What's wrong with that?
 
 <details>
 <summary>Answer</summary>
 
-A detailed answer can still be a hallucination, and code that runs only proves there was no error. The result can still be wrong. Check it against something real: the original data, a small example where you know the answer, or a trusted source.
+A detailed answer can still be a hallucination: a sure-sounding AI answer that is wrong. And code that runs only proves there was no error. The result can still be wrong. Check it against something real: the original data, a small example where you know the answer, or a trusted source.
 
 </details>
 

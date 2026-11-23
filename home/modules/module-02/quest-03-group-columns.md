@@ -31,9 +31,11 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
+You've added up values in a loop, and looked up values by key. This reading does both for a whole table at once.
+
 * Recall that you kept only the rows that matched two conditions, each in its own parentheses, joined with `&`, in [Look Before You Filter](quest-02-inspect-filter.md): `df[(df["site"] == "Eastside") & (df["category"] == "Produce")]`.
-* Recall that `df.isna().sum()` counted the blank cells in each column, in the same reading. You'll use that count again to check your work.
-* Recall that when the mean and median are close, no single far-off value is pulling the mean, from [The Loudest Number](quest-01-descriptive-statistics.md).
+* Recall that `df.isna().sum()` counted the blank cells in each column, also in [Look Before You Filter](quest-02-inspect-filter.md). You'll use that count again to check your work after a merge.
+* Recall that you built a dictionary once, then found values by key with `.get()`, in [Lookups Matter](../module-01/quest-09-big-o-practice.md). A missing key gave `None` instead of an error. A merge looks up keys the same way, and a missing key gives NaN.
 
 ## Words to know
 
@@ -46,6 +48,8 @@ Check off each goal once you can do it.
 | **count** (in `.agg()`) | How many values in the group are *not* blank. It shows how many rows each number rests on, so you can spot a group too small to trust. | A count of rows |
 | **mean and median** (in `.agg()`) | The average and the middle value for each group. Side by side, they're a quick skew check for each group. | Same as the column (here, units of blood) |
 
+You've built a summary like this by hand. In [One Job at a Time](../module-01/quest-07-second-function.md), `summarize_steps` looped over each day and kept a running total with `total += steps`. To total each site that way, you'd need a separate total for every site. `groupby` keeps one for every group, with no loop.
+
 ### New columns
 
 | Word | What it means |
@@ -53,6 +57,8 @@ Check off each goal once you can do it.
 | **Derived column** | A new column worked out from columns you already have. You write the formula once, and pandas applies it to every row at once, with no loop. A blank in, a blank (NaN) out. |
 | **Rate** | A derived column that divides one number by another, like units per volunteer hour. It can show what raw counts hide. Its units come from both columns: units of blood *per hour*. |
 | **Mask** | A True/False column saved under a name, like `big = drives["units"] >= 30`, so you can reuse it to pick rows. |
+
+In [Trace the Path](../module-01/quest-01-control-flow.md), `for temp in temps:` checked `temp > 80` on one number per pass. A derived column or a mask does the same kind of math or check on every row at once.
 
 ### Changing rows safely
 
@@ -74,7 +80,7 @@ Check off each goal once you can do it.
 
 ## Before you read
 
-In the reading, you'll focus on a nonprofit that runs blood drives at a library, a community center, and a fire station. A volunteer writes one row per drive. A unit is one bag of donated blood. The team asks, "Which place collects the most blood?"
+In the reading, you'll focus on a nonprofit that runs blood drives at a library, a community center, and a fire station. A **nonprofit** is a group that works for a cause, not to make money. A **blood drive** is an event where people come to give blood. A volunteer writes one row per drive. A unit is one bag of donated blood. The team asks, "Which place collects the most blood?"
 
 Think about: besides each place's average, what else would you want to know before you call one place the winner? Write down your first answer, then see if the reading agrees.
 

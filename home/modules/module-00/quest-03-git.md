@@ -25,7 +25,7 @@ In these two readings, you'll learn how to:
 
 Check off each goal once you can do it.
 
-- [ ] I can stage a change with `git add` and save it with `git commit`, with a message that says what changed.
+- [ ] I can stage a change (pick it for my next commit) with `git add` and save it with `git commit`, with a message that says what changed.
 - [ ] I can explain the difference between a commit and a push, and between Git and GitHub.
 - [ ] I can explain why several small commits make a more useful history than one big commit.
 
@@ -57,7 +57,7 @@ git diff                 # show changed lines
 2. `git status` tells you what's going on: which files changed, and which are ready to save. It never changes anything, so you can run it any time.
 3. `git add notes.md` puts the changes in `notes.md` into the **staging area**: the list of changes you've picked for your next snapshot. Files you edited but didn't add stay out.
 4. `git commit -m "Add first tree counts"` saves everything in the staging area as one **commit**, a snapshot. `-m` stands for "message." The text in quotes after it is the commit message.
-5. `git log --oneline` lists every saved commit, newest first. Each line shows the commit's short ID, then its message.
+5. `git log --oneline` lists every saved commit, newest first. Each line shows the commit's short ID (short for identifier: a code that labels that one commit), then its message.
 6. `git diff` shows the exact lines you changed that aren't committed yet. A line starting with `-` was removed. A line starting with `+` was added.
 
 **Learn more:** [Pro Git: About Version Control](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (official, from Git's own team) · [W3Schools: Git tutorial](https://www.w3schools.com/git/)
@@ -77,7 +77,7 @@ git push
 **Code walkthrough:**
 
 1. `git remote add origin <url>` tells Git where your online copy lives, and gives it the short name `origin`. The URL is the repository's address on GitHub.
-2. `git push -u origin main` sends your commits to `origin`. `main` is the name Git gives your project's history by default. `-u` tells Git to remember where to push.
+2. `git push -u origin main` sends your commits to `origin`. `main` is the name Git gives your project's history by default (when you don't choose a different name). `-u` tells Git to remember where to push.
 3. After that first time, plain `git push` is enough.
 
 **Learn more:** [GitHub Docs: About GitHub and Git](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git) (official) · [W3Schools: Get started with GitHub](https://www.w3schools.com/git/git_remote_getstarted.asp)
@@ -168,7 +168,7 @@ As you read, look for:
 
 ### How this connects
 
-* **Next reading:** An AI chatbot will give you an answer that sounds very sure, with a number and a source. You'll check it against the real data file, step by step, before you decide whether to trust it.
+* **Next reading:** An AI (artificial intelligence) chatbot will give you an answer that sounds very sure, with a number and a source. A chatbot is a program that answers questions in everyday language. You'll check it against the real data file, step by step, before you decide whether to trust it.
 * **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll save your project as you go, in small commits with clear messages, and push them to GitHub. Your history will show how your work grew, step by step.
 
 ## Quick check

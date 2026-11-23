@@ -34,7 +34,7 @@ Check off each goal once you can do it.
 
 * Recall that `return` hands a value back to the caller, and a function with no `return` gives back `None`. You also kept a running total with `total += loads`. You did both in [Build It Once, Use It Again](quest-02-functions-scope.md).
 * Recall that `for code, time in finished:` takes each tuple apart into two variables. That's **unpacking**, from [Pick the Right Container](quest-04-data-structures.md). This reading loops over `(day, steps)` tuples the same way.
-* Recall that a validation function checks each record against rules before the program uses it. You built one in [Validate, Catch, Keep Going](quest-06-validation-errors.md). This reading starts after that check is done.
+* Recall that a validation function checks each record (one entry, like one day's step count) against rules before the program uses it. You built one in [Validate, Catch, Keep Going](quest-06-validation-errors.md). This reading starts after that check is done.
 
 ## Words to know
 
@@ -54,6 +54,8 @@ Check off each goal once you can do it.
 
 The broader name for this idea is the **single-responsibility principle**: each piece of code should have one job, and so only one reason to change.
 
+You've used this idea before. In [Save the Story of Your Work](../module-00/quest-03-git.md), an atomic commit held one focused change. You could describe it in a short sentence. A single-purpose function is the same idea for code: one job, said in one sentence.
+
 ### Adding things up: Accumulators
 
 | Word | What it means |
@@ -64,6 +66,8 @@ The broader name for this idea is the **single-responsibility principle**: each 
 | **Counter** | An accumulator that adds 1 each time something happens, like `goal_days += 1` when a day meets the goal. |
 | **`continue`** | Skips the rest of the loop body for this pass and moves on to the next item. |
 
+You've built a running total by hand. In [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), you added up the bags in the cleanup log: 9 + 12 + 7 + 10 + 8 = 46. An accumulator does the same adding, one pass at a time.
+
 For example, here's how the reading's two accumulators change on each pass, with the goal set to 8,000 steps:
 
 ![A worked example of summarize_steps with the goal set to 8,000 steps. Before the loop, total = 0 and goal_days = 0. Mon, 6,200 steps, misses the goal: total 6,200, goal_days 0. Tue, 9,120 steps, meets it: total 15,320, goal_days 1. Wed, 8,000 steps, meets it: total 23,320, goal_days 2. Thu, 4,300 steps, misses it: total 27,620, goal_days 2. Fri, 10,450 steps, meets it: total 38,070, goal_days 3. Days that met the goal are blue. After the loop, the function returns {"total": 38070, "goal_days": 3}.](images/m1b-accumulator-trace.svg)
@@ -72,7 +76,7 @@ Wednesday counts because the check is `steps >= goal`: 8,000 is *at least* 8,000
 
 ## Before you read
 
-In the reading, you'll focus on a fitness tracker. One function already checked a week of step counts and kept only the good days. Now you want a weekly summary: the total steps, and how many days met the step goal.
+In the reading, you'll focus on a fitness tracker: an app that counts how many steps you walk each day. One function already checked a week of step counts and kept only the good days. Now you want a weekly summary: the total steps, and how many days met the step goal (the number of steps you aim for each day).
 
 Think about: should the checking function also make the summary, or should the summary get its own function? Write down your first answer, then see if the reading agrees.
 

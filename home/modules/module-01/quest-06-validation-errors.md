@@ -37,7 +37,7 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that `return` hands a value back to the line that called the function. You wrote functions that return values in [Build It Once, Use It Again](quest-02-functions-scope.md). This reading's function returns a whole list.
-* Recall that after a JSON round trip, `restored[7]` raised a `KeyError`, because the key had become the string `"7"`. You saw this in [Make It Survive](quest-05-serialization.md). The second reading shows how to catch an error like that.
+* Recall that you saved a dictionary to a JSON (JavaScript Object Notation) file and loaded it back. After that round trip, `restored[7]` raised a `KeyError`, because the key had become the string `"7"`. You saw this in [Make It Survive](quest-05-serialization.md). The second reading shows how to catch an error like that.
 * Recall that code that sounds sure, or runs without errors, can still be wrong. You check it against something real, as you did in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md). Here, you'll test a function on a few made-up lines instead of trusting it.
 
 ## Words to know
@@ -46,7 +46,7 @@ Check off each goal once you can do it.
 
 **Validation** means checking data against your rules before you use it. It answers one question: does this input meet our rules?
 
-For example, each line in the reading's file looks like this: a student ID, a grade, and a class, with a bar between them.
+For example, each line in the reading's file looks like this: a student ID, a grade, and a class, with a bar between them. Here, the **grade** is the student's year in school, from 9 to 12.
 
 ```text
 S-2041|10|Biology
@@ -54,7 +54,7 @@ S-2041|10|Biology
 
 | Word | What it means |
 | --- | --- |
-| **Record** | One full entry, like one sign-up form or one room request. |
+| **Record** | One full entry, like one sign-up form or one hotel room request. |
 | **Field** | One part of a record. Each sign-up line in the reading has three fields: a student ID, a grade, and a class. A bar character separates them. |
 | **Batch file** | A file with one record on each line. A program checks it one line at a time. |
 | **Valid input** | Input that passes every rule, so the program can safely use it. |
@@ -63,6 +63,8 @@ S-2041|10|Biology
 | **Structure check** | Checks that a record has the right shape, such as exactly 3 fields. It always runs first. |
 | **Value check** | Checks what a field holds, such as "is the grade a whole number from 9 to 12?" |
 | **Contract** | What a function takes in and what it gives back. The rest of the program relies on it. |
+
+You've met records before. In [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), one line of `pets.csv` was one pet's record, with commas between its values. Here, one line is one student's record, and a bar separates its fields.
 
 ### Tools for checking a line
 
@@ -77,6 +79,8 @@ S-2041|10|Biology
 | **`enumerate(forms, start=1)`** | Gives a loop two things on each pass: a position number and the item. The parameter `start` is set to `1`, so the count begins at 1, not 0. |
 | **f-string** | Text with an `f` in front, like `f"Line {num}"`. Python puts the value of `num` where the braces are. |
 
+Each piece from `.split()` is text, even `"10"`. Recall from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) that digits in quotes are text. An ID stays text, because it's a label. So the code turns the grade into a number with `int()`, to compare it with 9 and 12. The student ID `S-2041` stays text.
+
 ### When a step fails: Exceptions and error handling
 
 **Error handling** means deciding, in code, what should happen when a step fails, so one failure doesn't stop the whole program.
@@ -88,14 +92,14 @@ S-2041|10|Biology
 | **Traceback** | The report Python prints when no code catches an exception. Read its last line first: it names the error. |
 | **`try`** | The block that holds the risky step you want Python to attempt. |
 | **`except ValueError:`** | The block that runs only if a line in `try` raises a `ValueError`. It catches that error and no other. |
-| **Bare `except:`** | `except:` with no error name. It catches every error, even typos and real bugs, so avoid it. |
+| **Bare `except:`** | `except:` with no error name. It catches every error, even typos (typing mistakes) and real bugs (mistakes in code), so avoid it. |
 
 Four errors come up again and again. Each name tells you what went wrong:
 
 | Error | Example from the reading | What went wrong |
 | --- | --- | --- |
 | **`ValueError`** | `int("4 nights")` | The right operation, but this value can't be used. |
-| **`KeyError`** | `rates["penthouse"]` | The dictionary has no entry for that key. |
+| **`KeyError`** | `rates["penthouse"]` | The dictionary has no entry for that key. (`rates` holds room prices. A penthouse is a room on the top floor.) |
 | **`IndexError`** | `rooms[5]` when `rooms` has 3 items | The list has no item at that position. |
 | **`NameError`** | `print(totl)` when only `total` exists | Python can't find that name, often because of a typo. |
 
@@ -123,7 +127,7 @@ As you read, look for:
 
 As you read, look for:
 
-1. How many guests get booked before the program stops on `"4 nights"`, and what changes once you add `try` and `except`.
+1. How many guests get booked (given a hotel room) before the program stops on `"4 nights"`, and what changes once you add `try` and `except`.
 2. Where Python goes when a line inside `try` raises an error, and which line runs after that.
 3. Why `except ValueError:` is safer than a bare `except:`.
 
@@ -183,7 +187,7 @@ for request in requests:
 
 **Code walkthrough:**
 
-1. `requests` is the list of room requests, like `"Okafor|2|double"`.
+1. `requests` is the list of room requests, like `"Okafor|2|double"`: a guest's name, the number of nights, and the room type.
 2. `request.split("|")` cuts each request into three fields. The three names on the left each get one field, in order.
 3. `int(nights_text)` is the risky step. For `"4 nights"`, it raises a `ValueError`.
 4. When that happens, Python leaves `try` at that line, so `"Booked"` doesn't print. It jumps to `except ValueError:` and prints `"Skipped Batista"`.

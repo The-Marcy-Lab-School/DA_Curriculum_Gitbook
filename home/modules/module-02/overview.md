@@ -29,13 +29,13 @@ This GitBook uses a few game words. Here's what each one is:
 | 3 | [Quest 2.3 — One Row Per Group: Grouping, New Columns, and Merging](quest-03-group-columns.md) | Summarize groups, add new columns, and combine two tables |
 | 4 | [Quest 2.4 — Who's This Chart For? Exploratory vs. Explanatory Charts](quest-04-two-kinds-of-charts.md) | Pick a chart type on purpose, and polish a chart for someone else |
 | 5 | [Quest 2.5 — Real Numbers, Wrong Story: Chart Best Practices](quest-05-chart-best-practices.md) | Catch charts that mislead, even when every number is real |
-| 6 | [Practice Day: Review](practice-day-06.md) | Review the first five quests and check code an AI wrote |
+| 6 | [Practice Day: Review](practice-day-06.md) | Review the first five quests and check code an AI (artificial intelligence) tool wrote |
 | 7 | [Quest 2.6 — Drop, Fill, or Flag: Missing Data](quest-06-missing-data.md) | Decide what to do with each missing value, and say why |
 | 8 | [Quest 2.7 — Write It Once: Cleaning Functions](quest-07-cleaning-function.md) | Put your cleaning steps in one function you can reuse |
 | 9 | [Quest 2.8 — Beneath the Total: Finding Patterns in Groups](quest-08-mining-a-pattern.md) | Find a pattern you can trust by splitting the data into groups |
 | 10 | [Quest 2.9 — The Pattern Isn't the Proof: Asking Questions About Your Data](quest-09-clarifying-questions.md) | Ask clear questions about where data came from |
 | 11 | [Quest 2.10 — Two Sets of Eyes: Checking AI on Charts](quest-10-ai-on-charts.md) | Check an AI's description of a chart, and an AI's chart ideas |
-| 12 | [Quest 2.11 — Nobody Was in the Room: Writing for Stakeholders](quest-11-stakeholder-communication.md) | Write a README and a memo someone can act on |
+| 12 | [Quest 2.11 — Nobody Was in the Room: Writing for Stakeholders](quest-11-stakeholder-communication.md) | Write a README (the first page people see in a project) and a memo (a short note) that a stakeholder can act on. A **stakeholder** is a person who uses your answer to make a decision. |
 | 13–14 | [Module 2 Checkpoint: Review and Solo Practice](checkpoint.md) | Find a pattern on your own, then review everything |
 | 14 | [Module 2 Conclusion](conclusion.md) | See what you can do now, and how to talk about it |
 | 15–19 | Boss Battle (Module Project) | Run the whole workflow on one real dataset. Your instructor will share the details. |

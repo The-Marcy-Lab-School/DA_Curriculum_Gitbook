@@ -12,7 +12,7 @@ In this reading, you'll learn how to:
 
 * explain why searching a list gets slower as the list grows
 * build a dictionary once, with a loop, so you can find any item by its key
-* look up a key safely, so a missing key doesn't crash your program
+* look up a key safely, so a missing key doesn't crash your program (stop it with an error)
 * decide when a simple list search is still fine
 
 **Main takeaway:** A list search checks items one at a time, so its work grows with the list. A dictionary lookup jumps straight to the key, so its work stays about the same.
@@ -25,13 +25,13 @@ Check off each goal once you can do it.
 
 - [ ] I can explain in plain words why a linear search is O(n) and a dictionary lookup is O(1) on average.
 - [ ] I can build a dictionary from a list with a loop, and look up a key with `.get()` so a missing key gives `None` instead of an error.
-- [ ] I can decide when a list search is fine and when building a dictionary pays off.
+- [ ] I can decide when a list search is fine and when building a dictionary pays off (is worth the extra work).
 
 **Skills:** Algorithmic Complexity (Big-O) · Data Structures & Algorithms
 
 ## Quick recall
 
-* Recall that a linear search checks items one at a time, and that Big-O describes how the work grows as the input grows, from [When the Crowd Grows](quest-03-big-o-intuition.md). When a list of 300 bookings doubles to 600, the worst case doubles from 300 checks to 600.
+* Recall that a linear search checks items one at a time, and that Big-O describes how the work grows as the input grows, from [When the Crowd Grows](quest-03-big-o-intuition.md). When a list of 300 bookings (saved seats on flights) doubles to 600, the worst case doubles from 300 checks to 600.
 * Recall that a dictionary stores each value under a key, from [Pick the Right Container](quest-04-data-structures.md). `drivers["D-5521"]` gives the value stored under the key `"D-5521"`, and `drivers["D-5522"] = "Ari"` adds a new pair.
 * Recall that a **method** is a function that belongs to an object, called with a dot and parentheses, from [Meet the Objects](quest-08-oop.md). In this reading, `.get()` is a method that every dictionary has.
 
@@ -48,6 +48,11 @@ Check off each goal once you can do it.
 | **`None`** | Python's value for "nothing here." Python code checks for it with `is`: `if name is None:`. |
 | **`KeyError`** | The error Python raises when you use square brackets with a key that isn't in the dictionary. |
 
+Two ideas here build on earlier pages:
+
+* The keys are phone numbers, like `"555-0113"`. Recall from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) that a phone number is a label, not an amount. So it's stored as text, in quotes.
+* You caught a `KeyError` with `try` and `except KeyError:` in [Validate, Catch, Keep Going](quest-06-validation-errors.md). `.get()` is another way to handle a missing key, with no error at all.
+
 ### How does the work grow?: Big-O and complexity
 
 Big-O counts **steps** (checks), not seconds on a clock.
@@ -63,7 +68,7 @@ Big-O counts **steps** (checks), not seconds on a clock.
 
 ## Before you read
 
-In the reading, you'll focus on a help line. When someone calls, the screen shows the caller's name. The program finds it by searching a list of saved callers for the phone number. With 20 saved callers, the name appeared at once. With 400,000, people wait several seconds.
+In the reading, you'll focus on a help line: a phone number people call to get help. When someone calls, the screen shows the caller's name. The program finds it by searching a list of saved callers for the phone number. With 20 saved callers, the name appeared at once. With 400,000, people wait several seconds.
 
 Think about: the code didn't change, so why did it slow down? What would you change? Write down your first answer, then see if the reading agrees.
 
@@ -108,7 +113,7 @@ A list search is still fine when the list is tiny or you search only once. Then 
 ### How this connects
 
 * **Next reading:** Fast code can still give the wrong answer. You'll learn to work out the right answer by hand first, then compare it with what the code prints. That catches mistakes that never show an error message.
-* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll choose how to store and search your program's records. Then you'll explain, in plain words, the tradeoff between searching a list and looking up a key.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll choose how to store and search your program's records. Then you'll explain, in plain words, the tradeoff between searching a list and looking up a key. A **tradeoff** is a choice where you gain one thing but give up another.
 
 ## Quick check
 

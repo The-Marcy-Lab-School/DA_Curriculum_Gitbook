@@ -19,7 +19,7 @@ In this reading, you'll learn how to:
 
 **Main takeaway:** Python runs the same steps in the same order every time. So if you trace code one step at a time, you can predict exactly what it will do.
 
-**Why it matters at work:** Analysts go through rows of data and decide what to do with each one: keep it, fix it, or flag it. If a loop stops one row early, no error shows up. The numbers are just wrong.
+**Why it matters at work:** Analysts go through rows of data and decide what to do with each one: keep it, fix it, or flag it (mark it so someone checks it). If a loop stops one row early, no error shows up. The numbers are just wrong.
 
 ## Learning goals
 
@@ -33,7 +33,9 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that a **variable** is a named box that holds a value. `=` means "store," not "is equal to." You also sorted values into data types: text, whole numbers, decimals, and True/False. You did this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). In this reading, comparisons like `runtime > 150` give back True or False.
+You've already used the terminal and named data types. This reading puts both to work in Python.
+
+* Recall that a **variable** is a named box that holds a value. `=` means "store," not "is equal to." You also sorted values into data types: text, whole numbers, decimals, and True/False. You did this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). In this reading, comparisons like `runtime > 150` (is the movie longer than 150 minutes?) give back True or False.
 * Recall that the terminal runs one typed command each time you press Enter, like `ls` or `cd`. You practiced this in [Meet Your Terminal](../module-00/quest-01-terminal.md). On your own laptop, you'll run a Python file the same way: `python3 theater_notes.py`.
 
 ## Words to know
@@ -54,6 +56,11 @@ This is your first Python reading. The [Module 1 Introduction](introduction.md#p
 | **Boolean** | A value that is either `True` or `False`. Every comparison gives back a Boolean. |
 | **Comment** | A line that starts with `#`. It's a note for people. Python skips it. |
 | **Block** | The lines under a line that ends with a colon (`:`). Each line in the block is pushed in by 4 spaces. That push is called **indentation**. It tells Python which lines belong together. |
+
+Two of these words are Python's names for data types you met in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md):
+
+* A **string** is Python's name for text. Quotes mark it, just like `"00417"`.
+* A **Boolean** is Python's name for a true/false value.
 
 For example, this short script uses most of these words:
 
@@ -108,7 +115,7 @@ A **condition** is a question with a True or False answer, like `temp > 80`.
 | **Trace** | Follow the code by hand, one line and one pass at a time. Write down each variable's value as it changes. |
 | **Predict** | Say what the code will print *before* you run it. Then run it and compare. |
 | **Off-by-one error** | A loop that runs one time too many or one time too few. A start or stop number is one step off. Python shows no error. The result is just wrong by one. |
-| **Edge case** | A value right at the edge of a rule. For example, a movie is exactly 150 minutes, and the rule says "over 150." Bugs often hide there. |
+| **Edge case** | A value right at the edge of a rule. For example, a movie is exactly 150 minutes, and the rule says "over 150." Bugs (mistakes in code) often hide there. |
 
 {% hint style="info" %}
 **Count the first and last pass.** Off-by-one errors don't cause an error message. To catch them, trace the first pass and the last pass by hand, and count the lines that print.
@@ -116,7 +123,7 @@ A **condition** is a question with a True or False answer, like `temp > 80`.
 
 ## Before you read
 
-In the first reading, you'll focus on a movie theater. A script gives a long time slot to any movie *over* 150 minutes. Every other movie gets a regular slot.
+In the first reading, you'll focus on a movie theater. A script gives a long time slot to any movie *over* 150 minutes. A **time slot** is a block of time on the theater's schedule for one movie. Every other movie gets a regular slot.
 
 Think about: does a movie that is exactly 150 minutes get a long slot? Write down your first answer, then see if the reading agrees.
 
@@ -169,7 +176,7 @@ As you read, look for:
 ### How this connects
 
 * **Next reading:** You'll write a set of steps once, give it a name, and reuse it with different numbers. That way, you don't copy the same lines into many places.
-* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll write code that goes through every record in a set of data. It will decide what to do with each one. Tracing it by hand is how you'll check it does what you meant.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll write code that goes through every record (one row of data) in a set of data. It will decide what to do with each one. Tracing it by hand is how you'll check it does what you meant.
 
 ## Quick check
 

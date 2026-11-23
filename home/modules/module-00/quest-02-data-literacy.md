@@ -18,7 +18,7 @@ In this reading, you'll learn how to:
 
 **Main takeaway:** Look at what a value means, not only at what it looks like. If you would never do math with it, treat it as text, even when it's made of digits.
 
-**Why it matters at work:** The wrong data type quietly changes your data. For example, a customer ID like `00417` can lose its first zeros and turn into `417`. Then it may match the wrong customer.
+**Why it matters at work:** The wrong data type quietly changes your data. For example, a customer ID (short for identifier: a code that labels one customer) like `00417` can lose its first zeros and turn into `417`. Then it may match the wrong customer.
 
 ## Learning goals
 
@@ -61,7 +61,7 @@ A **data type** is what kind of value something is. The reading uses plain names
 
 | Word | What it means |
 | --- | --- |
-| **Identifier (ID)** | A value that names or labels one thing, like a pet's tag number, a student ID, or a ZIP code. It can be made of digits, but you never do math with it. Store it as text. |
+| **Identifier (ID)** | A value that names or labels one thing, like a pet's tag number (the number on the small label each pet wears), a student ID, or a ZIP code. It can be made of digits, but you never do math with it. Store it as text. |
 | **Leading zero** | A zero at the start of a value, like the first two zeros in `00417`. A whole number drops them, so `00417` becomes `417`. |
 | **Quantitative** | Describes a value that measures an amount, so math makes sense: an age, a weight, a price. An ID is not quantitative, even when it's made of digits. |
 
@@ -84,7 +84,7 @@ You'll need *structured* and *unstructured* again in a later quest, so learn the
 
 ## Before you read
 
-In the reading, you'll focus on an animal shelter. It keeps a record for every pet: its name, age, weight, whether it has been adopted, and the day it arrived.
+In the reading, you'll focus on an animal shelter. An **animal shelter** is a place that cares for pets until a new family adopts them, or takes them home. It keeps a record for every pet: its name, age, weight, whether it has been adopted, and the day it arrived.
 
 Here's an answer from a new volunteer: "A pet's weight, like `12.5`, and its tag number, like `00417`, are both made of digits. So the computer should store both as numbers." Something is off about it. What? See if the reading agrees with you.
 
@@ -120,12 +120,12 @@ Want to go further? This reading is optional. You don't need it for the checkpoi
 | "`=` means the two sides are equal." | In code, `=` stores a value in a variable. |
 | "A variable holds every value it ever had." | It holds only its newest value. After `"Mango"` is stored, `"Biscuit"` is gone. |
 | "Data type and data structure mean the same thing." | A data type describes one value. A data structure groups many values together. |
-| "Data in a spreadsheet is always structured." | Structured means the same, clear columns for every row. A spreadsheet full of messy notes is not well structured. |
+| "Data in a spreadsheet is always structured." | A spreadsheet is a file of rows and columns, like one in Excel or Google Sheets. Structured means the same, clear columns for every row. A spreadsheet full of messy notes is not well structured. |
 
 ### How this connects
 
 * **Next reading:** You'll learn to save a snapshot of your work each time you finish a change, so you have a history of every step. You'll also send a copy of that history to a website, so other people can see it.
-* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll look at a real dataset you've never seen. For each column you look at, you'll decide what kind of data it holds and what it really means.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll look at a real dataset (a set of data, often one table or file) you've never seen. For each column you look at, you'll decide what kind of data it holds and what it really means.
 
 ## Quick check
 

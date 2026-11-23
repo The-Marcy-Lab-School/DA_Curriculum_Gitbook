@@ -8,12 +8,12 @@ This is the first module. You don't need any experience with code, data, or the 
 
 ## Where you're going
 
-In this module, you'll set up the tools that every analyst uses, and you'll learn four habits:
+In this module, you'll set up the tools that every analyst (a person who studies data to answer questions) uses, and you'll learn four habits:
 
 * Use the terminal to move around your computer and run tools.
 * Look at a data file and tell what kind of data each column holds.
-* Save every step of your work with Git, and share it on GitHub.
-* Check what an AI tells you before you trust it.
+* Save every step of your work with Git (software that keeps a history of your files), and share it on GitHub (a website where others can see it).
+* Check what an AI (artificial intelligence) tool tells you before you trust it.
 
 ## Why this matters for data work
 
@@ -32,7 +32,7 @@ Most of the time, you use a computer by clicking on icons, windows, and menus. T
 Analysts use the terminal because:
 
 * **It's fast for repeated work.** One typed command can do what takes many clicks.
-* **Many data tools only work this way.** You'll start Git, Python, and databases by typing commands.
+* **Many data tools only work this way.** You'll start Git, Python (a programming language), and databases (organized stores of data) by typing commands.
 * **Many computers have no windows to click.** The computers that store and process data for companies, called **servers**, often have only a command line.
 
 ### The terminal and the shell are two different things
@@ -49,14 +49,14 @@ There's more than one shell. You'll see two names often:
 | | zsh | bash |
 | --- | --- | --- |
 | **Full name** | Z shell | Bourne Again SHell |
-| **Where you'll see it** | The shell on every new Mac. It's what your Terminal runs. | The shell on most Linux computers and servers, and the name most guides use for terminal commands |
-| **What your prompt ends with** | `%` | `$` |
+| **Where you'll see it** | The shell on every new Mac. It's what your Terminal runs. | The shell on most Linux computers and servers, and the name most guides use for terminal commands. Linux is a free system that runs a computer, like macOS runs a Mac. |
+| **What your prompt (the sign that the shell is ready for a command) ends with** | `%` | `$` |
 | **What an error starts with** | `zsh: command not found: pdw` | `bash: pdw: command not found` |
 
 For the commands you'll use in this program, like `cd`, `ls`, `pwd`, `mkdir`, and `git`, the two shells work the same way.
 
 {% hint style="info" %}
-**When a guide says "bash," you can still use your Mac.** Guides and READMEs often label terminal commands as `bash`. That label means "type this in a terminal." The same commands work in zsh. That's also why your projects ask you to label your terminal commands as `bash`: it's the label everyone recognizes.
+**When a guide says "bash," you can still use your Mac.** Guides and READMEs (the help file that comes with a project) often label terminal commands as `bash`. That label means "type this in a terminal." The same commands work in zsh. That's also why your projects ask you to label your terminal commands as `bash`: it's the label everyone recognizes.
 {% endhint %}
 
 To see which shell you're using, type this and press Enter:
@@ -95,7 +95,7 @@ This module gives you four parts of an analyst's toolkit. Each quest (one readin
 | **Use the terminal** | How do I move around my computer and run tools? |
 | **Understand data** | What kind of data is this? |
 | **Save with Git** | How do I keep every step of my work, and share it? |
-| **Verify claims** | Should I trust what an AI told me? |
+| **Verify claims** | Should I trust what an AI told me? A **claim** is a statement that says something is true, which may or may not be correct. |
 
 You'll use all four parts together, every day, in every module after this one. At the top of every quest page, you'll see which part you're on, like this:
 
@@ -126,11 +126,11 @@ These are the skills the Boss Battle (Module Project) checks. The names in bold 
 
 ## The Boss Battle (Module Project)
 
-At the end of this module, you'll get a real public dataset that you've never seen before. Your job is to be its first careful reader.
+At the end of this module, you'll get a real public dataset that you've never seen before. A **dataset** is a set of data, often one table or file. *Public* means anyone can see and use it. Your job is to be its first careful reader.
 
-You'll open the raw file and decide what kind of data each column holds. You'll write down a good question about how the data was collected. You'll keep a record of the terminal commands you ran, save your work in small steps with Git, and publish it on GitHub.
+You'll open the raw file (the data as it first came, before anyone changed it) and decide what kind of data each column holds. You'll write down a good question about how the data was collected. You'll keep a record of the terminal commands you ran, save your work in small steps with Git, and publish it on GitHub.
 
-When you finish, you'll have your first public portfolio piece. It shows employers more than an answer: it shows how you think, check, and work. Your instructor will share the dataset and the exact requirements when the project starts.
+When you finish, you'll have your first public portfolio piece (a sample of your work that you show to employers). It shows employers more than an answer: it shows how you think, check, and work. Your instructor will share the dataset and the exact requirements when the project starts.
 
 ---
 

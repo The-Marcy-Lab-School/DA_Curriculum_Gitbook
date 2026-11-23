@@ -78,7 +78,7 @@ Python value → ? → text in a file → ? → Python value
 
 </details>
 
-**5. (Quest 1.6)** The rules: each sign-up line has 3 fields (name, grade, class), and the grade must be from 9 to 12. Which line should be rejected, and which rule does it break?
+**5. (Quest 1.6)** The rules: each sign-up line has 3 fields (name, grade, class), and the grade must be from 9 to 12. Here, the grade is the student's year in school. Which line should be rejected, and which rule does it break?
 
 ```text
 Leo,10,Art
@@ -104,7 +104,7 @@ Maya,14,Art
 
 </details>
 
-**7. (Quest 1.7)** A teammate wants one function that checks a week of step counts, adds them up, and prints the weekly summary. What's the problem with that plan?
+**7. (Quest 1.7)** A teammate wants one function that checks a week of step counts (how many steps someone walked each day), adds them up, and prints the weekly summary. What's the problem with that plan?
 
 <details>
 <summary>Answer</summary>
@@ -159,7 +159,7 @@ Big-O describes how the work grows as the data grows. It doesn't describe who wo
 
 </details>
 
-**12. (Quest 1.10)** This loop should process positions 0, 1, 2, 3, and 4. Name the bug precisely.
+**12. (Quest 1.10)** This loop should process positions 0, 1, 2, 3, and 4. Name the bug (the mistake in the code) precisely.
 
 ```python
 for index in range(4):
@@ -173,16 +173,16 @@ An off-by-one error. `range(4)` gives `0`, `1`, `2`, `3`, so position 4 is never
 
 </details>
 
-**13. (Quest 1.10)** An AI tool writes a function for you. It runs with no error, has clear names and comments, and prints a result. Is that enough to trust it? What do you do next?
+**13. (Quest 1.10)** An AI (artificial intelligence) tool writes a function for you. It runs with no error, has clear names and comments, and prints a result. Is that enough to trust it? What do you do next?
 
 <details>
 <summary>Answer</summary>
 
-No. Running without an error doesn't prove the logic is right. Work out the expected answer by hand for a small example, including an edge case like an empty list. Then run the function and compare. If they differ, trace the code to find the line where they split.
+No. Running without an error doesn't prove the logic is right. Work out the expected answer by hand for a small example, including an edge case, an unusual input like an empty list. Then run the function and compare. If they differ, trace the code to find the line where they split.
 
 </details>
 
-**14. (Quests 1.7 and 1.8)** A library program reads checkout records, checks each one, keeps track of each book's title and copies available, and prints a daily summary. Name one job that fits a standalone function, and one that fits a method on a `Book` class. Say why.
+**14. (Quests 1.7 and 1.8)** A library program reads checkout records. A **checkout record** shows who borrowed which book, and when. The program checks each one, keeps track of each book's title and copies available, and prints a daily summary. Name one job that fits a standalone function, and one that fits a method on a `Book` class. Say why.
 
 <details>
 <summary>Example answer</summary>
@@ -213,7 +213,7 @@ The `SavingsGoal` class is written once. It makes two objects, and each one stor
 <details>
 <summary>Answer</summary>
 
-First, work out what the code should print, by hand: 286. Then run it. If it crashes, the traceback's last line names the error and the line. If it doesn't crash, compare: it printed 236, so something is quietly wrong, here an off-by-one loop. After the fix, run the same example again to check that it prints 286.
+First, work out what the code should print, by hand: 286. Then run it. If it crashes, or stops with an error, the traceback's last line names the error and the line. If it doesn't crash, compare: it printed 236, so something is quietly wrong, here an off-by-one loop. After the fix, run the same example again to check that it prints 286. It's the habit from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md): check against something real before you trust it.
 
 </details>
 

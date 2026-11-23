@@ -11,13 +11,13 @@ A neat answer can still be wrong. For example, you buy 5 things at a store, but 
 Code works the same way. In this reading, you'll learn how to:
 
 * work out the right answer by hand before you run the code
-* find bugs that crash, by reading the error report from the bottom up
+* find bugs (mistakes in code) that crash, or stop the program, by reading the error report from the bottom up
 * find bugs that don't crash, but quietly print a wrong answer
 * check a fix by running the same example again
 
 **Main takeaway:** Code that runs is not always code that is correct. Decide what the answer should be first, then compare.
 
-**Why it matters at work:** A wrong number in a report looks just like a right one. Analysts check code before they trust it, whether they wrote it, a teammate did, or an AI tool did. "Find the bug in this function" is also a common interview task.
+**Why it matters at work:** A wrong number in a report looks just like a right one. Analysts check code before they trust it, whether they wrote it, a teammate did, or an AI (artificial intelligence) tool did. "Find the bug in this function" is also a common interview task.
 
 ## Learning goals
 
@@ -32,8 +32,8 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that `range(3)` gives `0`, `1`, `2`: it starts at 0 and stops *before* 3, from [Trace the Path](quest-01-control-flow.md). This reading adds a start number: `range(2, 5)` gives `2`, `3`, `4`.
-* Recall that a variable created inside a function exists only inside that function, from [Build It Once, Use It Again](quest-02-functions-scope.md). Using it outside raises a `NameError`.
-* Recall that a bare `except:` has no error name after it, so it catches every error, from [Validate, Catch, Keep Going](quest-06-validation-errors.md). It also catches real bugs.
+* Recall that a variable created inside a function exists only inside that function, from [Build It Once, Use It Again](quest-02-functions-scope.md). Using it outside raises a `NameError`. Recall too that a bare `except:` catches every error, even real bugs, from [Validate, Catch, Keep Going](quest-06-validation-errors.md).
+* Recall that an AI answer can sound sure and still be wrong. In [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said 64 bags, but the log added up to 46. In this reading, an AI tool wrote the code, so you check it the same way.
 
 ## Words to know
 
@@ -46,6 +46,8 @@ Check off each goal once you can do it.
 | **Expected behavior** | What the code should do, worked out before you run it, often by hand on a small example. |
 | **Actual behavior** | What the code really does when it runs: the printed output, the returned value, or the error. |
 | **Edge case** | An unusual input, like an empty list, a 0, or a missing value. Edge cases show bugs that normal inputs hide. |
+
+Working out the expected behavior is the same habit as **predict** in [Trace the Path](quest-01-control-flow.md): say what the code will print before you run it, then compare.
 
 ### What went wrong?: Kinds of bugs
 
@@ -66,7 +68,7 @@ Check off each goal once you can do it.
 
 ## Before you read
 
-In the reading, you'll focus on a TV streaming app. It emails each viewer a monthly summary of minutes watched. An AI tool wrote the code. The code runs and prints neat numbers, but viewers write in to say their numbers are wrong.
+In the reading, you'll focus on a TV streaming app: an app for watching shows over the internet. It emails each viewer a monthly summary of minutes watched. An AI tool wrote the code. The code runs and prints neat numbers, but viewers send messages to say their numbers are wrong.
 
 Think about: the code never crashed. How would you find out what's wrong? Write down your first answer, then see if the reading agrees.
 
@@ -74,7 +76,7 @@ Think about: the code never crashed. How would you find out what's wrong? Write 
 
 As you read, look for:
 
-1. The expected total for the five viewing sessions, and why the code prints a different number.
+1. The expected total for the five viewing sessions (times a viewer watched something), and why the code prints a different number.
 2. Which bugs crash with a traceback, and which ones quietly print a wrong answer.
 3. How you confirm that a refactor didn't change what the code does.
 

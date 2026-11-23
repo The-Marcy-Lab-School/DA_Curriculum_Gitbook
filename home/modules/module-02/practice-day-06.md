@@ -6,7 +6,7 @@
 
 ## Introduction
 
-There's no new topic today. You'll practice what you learned in the first five quests, and you'll learn a routine for checking analysis code that an AI writes for you.
+There's no new topic today. You'll practice what you learned in the first five quests, and you'll learn a routine for checking analysis code that an AI (artificial intelligence) tool writes for you.
 
 **Main takeaway:** AI-written code can run with no errors and still give a wrong answer. Check it before you trust it.
 
@@ -15,12 +15,14 @@ There's no new topic today. You'll practice what you learned in the first five q
 ## What you'll do in class
 
 * Answer three recall questions from memory. One of them is from Module 1.
-* Follow a classmate-led code-along that uses stats, pandas, and a chart.
-* Check a piece of AI-written profiling code. It quietly drops rows, and your job is to catch it.
+* Follow a classmate-led code-along that uses stats (statistics), pandas, and a chart. In a **code-along**, everyone writes the same code together, step by step.
+* Check a piece of AI-written profiling code (code that sums up what's in a table). It quietly drops rows, and your job is to catch it.
 
 **Skills:** AI Evaluation · Statistical Analysis · Data Distributions & Shape
 
 ## Before you trust AI analysis code
+
+You learned the rule behind this checklist in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md). If AI-written code runs, that only means there was no error. The answer can still be wrong.
 
 Use this checklist every time an AI writes analysis code for you, in class and in the Boss Battle (Module Project):
 
@@ -31,6 +33,13 @@ Use this checklist every time an AI writes analysis code for you, in class and i
 | **3. Data types** | A number column stored as text gives wrong math or errors. |
 | **4. What got dropped or filled** | Every removed row or filled-in value changes the answer. Count them. |
 | **5. Does the statistic fit the shape?** | An AI may use the mean on skewed data. Look at the chart first. |
+
+You've already done most of these checks on your own work:
+
+* **Rows before and after:** you checked `df.shape` in [Look Before You Filter](quest-02-inspect-filter.md). You counted rows after a merge in [One Row Per Group](quest-03-group-columns.md).
+* **One number by hand:** in [Looks Right. Is It?](../module-01/quest-10-debugging.md), your total by hand was 286 minutes. That caught a loop that printed 236.
+* **Data types:** you named each value's type and kept IDs as text in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
+* **Does the statistic fit the shape?:** you picked the median for skewed gifts in [The Loudest Number](quest-01-descriptive-statistics.md).
 
 ## Review: the first five quests
 

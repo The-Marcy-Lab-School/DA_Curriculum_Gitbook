@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Sometimes the same numbers need two different charts. For example, a coffee shop owner draws a quick chart of daily sales to find her slow days. Later, she asks a bank for a loan. The chart for the bank needs a clear title, labeled axes, and nothing extra, because the banker never saw her first chart.
+Sometimes the same numbers need two different charts. For example, a coffee shop owner draws a quick chart of daily sales to find her slow days. Later, she asks a bank for a loan (money she borrows and must pay back). The chart for the bank needs a clear title, labeled axes, and nothing extra, because the banker never saw her first chart.
 
 In this reading, you'll learn how to:
 
@@ -22,7 +22,7 @@ In this reading, you'll learn how to:
 
 Check off each goal once you can do it.
 
-- [ ] I can tell an exploratory chart (for me) apart from an explanatory chart (for a stakeholder), and make the three changes that turn one into the other.
+- [ ] I can tell an exploratory chart (for me) apart from an explanatory chart (for a stakeholder, the person who will use your finding), and make the three changes that turn one into the other.
 - [ ] I can choose a chart type by asking what I'm comparing.
 - [ ] I can turn a text column into real dates and chart a count over time.
 
@@ -30,8 +30,11 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that a group summary gives you one row per group, from [One Row Per Group](quest-03-group-columns.md): `drives.groupby("site")["units"].mean()` gives one average per site.
-* Recall that double brackets pick a list of columns, from [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
+You've summarized groups and checked claims before. This reading turns your numbers into charts, and checks a chart against a number.
+
+* Recall that a group summary gives you one row per group, from [One Row Per Group](quest-03-group-columns.md): `drives.groupby("site")["units"].mean()` gives one average per site. Recall too that double brackets pick a list of columns, from the reading in [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
+* Recall that a date is its own data type, in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). Only date math makes sense on it, like "how many days ago?" In this reading, you'll turn date text into real dates.
+* Recall that a sure-sounding AI answer is only a claim until you check it, from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md). You check it against a real source. Here, your own `.corr()` number is that source.
 
 ## New tool: Matplotlib
 
@@ -70,8 +73,10 @@ The x-axis, across the bottom, has its own label function with a matching name. 
 | --- | --- |
 | **Exploratory chart** | A quick, rough chart you make for yourself to find a pattern. No title, raw column names as labels. That's fine, because nobody else sees it. |
 | **Explanatory chart** | A polished chart, chosen on purpose, that tells a stakeholder one clear finding. Every explanatory chart starts as a rough one. |
-| **Stakeholder** | The person a finding is for, who wasn't there while you explored. In the reading, the grant committee. |
+| **Stakeholder** | The person a finding is for, who wasn't there while you explored. In the reading, the grant committee: the group that decides who gets a **grant**, money for a project that doesn't have to be paid back. |
 | **Finding title** | A chart title that states what you found, in under 10 words, like "Sign-ins jumped the day before the test." A title that only names the columns makes the reader work out the point alone. |
+
+You've written for a later reader before. In [Save the Story of Your Work](../module-00/quest-03-git.md), a good commit message named the change, like `Fix the test date`. Then a reader could tell what happened without opening any file. A finding title does the same job for a chart.
 
 ### Parts of a chart
 
@@ -86,7 +91,7 @@ The x-axis, across the bottom, has its own label function with a matching name. 
 | Word | What it means | Use it when you're comparing... |
 | --- | --- | --- |
 | **Histogram** | Bars that count how many values fall in each range. | One column's shape |
-| **Boxplot** | A box that shows the middle half of the values, with a line at the median and lines out to the low and high values. It's the five-number summary as a picture. | One column's shape, or the spread inside each group |
+| **Boxplot** | A box that shows the middle half of the values, with a line at the median and lines out to the low and high values. It's the five-number summary from [The Loudest Number](quest-01-descriptive-statistics.md), as a picture. | One column's shape, or the spread inside each group |
 | **Line chart** | Points joined in order, to show change from one time to the next. | A change over time |
 | **Scatterplot** | One dot per row, with one number column across and another up the side. | Two number columns |
 | **Bar chart** | One bar per group, with the bar's height showing a number. | One number across groups |
@@ -101,9 +106,11 @@ The x-axis, across the bottom, has its own label function with a matching name. 
 | **`.size()`** | After a groupby, counts the rows in each group. | A count of rows (in the reading, sign-ins per day) |
 | **Series** | A single pandas column of values with labels, like the counts per day. A Series's `.plot()` draws a line chart unless you ask for another kind. | — |
 
+In [Make It Survive](../module-01/quest-05-serialization.md), `date(2026, 10, 3)` stored a real calendar date, and JSON couldn't save it. A CSV file holds only text, so dates load back as text, too. `pd.to_datetime` turns that text into real dates again.
+
 ## Before you read
 
-In the reading, you'll focus on a free after-school tutoring center that's asking a city grant committee for money. The director asks you for one chart that shows how tutoring helps.
+In the reading, you'll focus on a free after-school tutoring center (a place where students get extra help with schoolwork) that's asking a city grant committee for money. The director asks you for one chart that shows how tutoring helps.
 
 Think about: what should be different between the charts you make while exploring the data and the one chart you hand the committee? Write down your first answer, then see if the reading agrees.
 
@@ -112,7 +119,7 @@ Think about: what should be different between the charts you make while explorin
 As you read, look for:
 
 1. The three changes that turn a rough chart into a chart for someone else.
-2. Why you check `.corr()` before you trust a chart, or an AI's words about it.
+2. Why you check `.corr()` before you trust a chart, or what an AI (artificial intelligence) tool says about it.
 3. The steps that turn sign-in times into a count of sign-ins per day.
 
 **[Start the reading: Who's This Chart For? →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/exploratory-vs-explanatory-charts/reading-1-whoschartisfor/)** (about 20 minutes)
@@ -157,7 +164,7 @@ A scatterplot. You're comparing two number columns: books read and points gained
 <details>
 <summary>Answer</summary>
 
-That the two tended to rise together, but the link is weak. Your number settles the claim, not the AI's wording.
+That the two tended to rise together, but the link is weak. A **claim** is a statement that says something is true, which may or may not be correct. Your number settles the claim, not the AI's wording.
 
 </details>
 

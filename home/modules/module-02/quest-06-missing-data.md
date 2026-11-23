@@ -30,8 +30,11 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
+You've found blanks before, one value at a time and then a whole column at once. This reading decides what to do with them.
+
 * Recall that you counted the blanks in every column of a new file with `df.isna().sum()`, in [Look Before You Filter](quest-02-inspect-filter.md). `.isna()` marks each empty cell True, and `.sum()` adds them up, because True counts as 1.
 * Recall that one very long or very large value pulls the mean up, so the median describes a typical value better on skewed data. You saw this in [The Loudest Number](quest-01-descriptive-statistics.md).
+* Recall that `"".isdigit()` is `False`, so your validation function caught a blank grade, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md). It reported the blank. It didn't make up a grade.
 
 ## Words to know
 
@@ -39,9 +42,11 @@ Check off each goal once you can do it.
 
 | Word | What it means |
 | --- | --- |
-| **Missing value** | A cell with no value in it. In a CSV file, it's just an empty field, like `Kai,,,`. |
+| **Missing value** | A cell with no value in it. In a CSV (comma-separated values) file, it's just an empty field (one value's place in a row), like `Kai,,,`. |
 | **NaN** | How pandas shows an empty cell. It's short for "Not a Number," but it shows up in text columns too. |
 | **Placeholder** | A stand-in typed where a real value should be, like `0` or `"unknown"`. It's missing too, but `.isna()` doesn't count it. |
+
+A placeholder `0` is a quiet problem, like the bare `except:` in [Looks Right. Is It?](../module-01/quest-10-debugging.md) that returned 0. Both hide a problem behind a 0 that looks real.
 
 ### Why and where is it missing?
 
@@ -49,8 +54,8 @@ Ask these two questions about every gap before you decide anything.
 
 | Word | What it means |
 | --- | --- |
-| **Never collected** | Nobody asked for the value, like a dog's size when people book by phone. |
-| **Lost** | The value existed but didn't get saved, like a walk logged while the app crashed. |
+| **Never collected** | Nobody asked for the value, like a dog's size when people book (schedule a walk) by phone. |
+| **Lost** | The value existed but didn't get saved, like a walk logged (recorded) while the app crashed. |
 | **Spread out at random** | The gaps are scattered across the data, with no group in common. |
 | **Bunched in one group** | The gaps all come from one kind of row, like every phone booking. |
 
@@ -63,6 +68,8 @@ Statistics books give these patterns formal names, such as *missing completely a
 | **Drop** | Remove a row entirely. It's the right choice when the row has nothing left to work with. |
 | **Fill** | Replace a missing value with a stand-in, like the median or the value before it. Filling in missing values is also called **imputation**. |
 | **Flag** | Leave the value missing, and add a True/False column that marks it, instead of guessing. |
+
+A flag works like the list of problems your validation function returned. It records which rows had a gap, so you can count them and report them, without guessing a value.
 
 ### Stand-ins for a fill
 
@@ -136,7 +143,7 @@ As you read, look for:
 
 ## Quick check
 
-**1.** 3 of 40 walks are missing miles because a phone lost GPS. Their minutes are fine. Most walks are 1 to 2 miles, but one hike was 9 miles. What's the best plan?
+**1.** 3 of 40 walks are missing miles because a phone lost GPS (Global Positioning System, the signal that tracks location). Their minutes are fine. Most walks are 1 to 2 miles, but one hike was 9 miles. What's the best plan?
 
 <details>
 <summary>Answer</summary>
@@ -145,7 +152,7 @@ Fill the 3 gaps with the median miles, and add a flag column that marks them. Th
 
 </details>
 
-**2.** A teammate writes, "I dropped the nulls." What's missing from that reason?
+**2.** A teammate writes, "I dropped the nulls." (A **null** is another name for a missing value.) What's missing from that reason?
 
 <details>
 <summary>Answer</summary>

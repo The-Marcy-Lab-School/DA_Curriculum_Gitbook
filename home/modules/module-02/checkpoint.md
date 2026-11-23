@@ -14,7 +14,7 @@ So far, you've practiced each skill with a reading, a guide, or a partner. These
 
 ## What happens in class
 
-**Day 13: Find a pattern on your own (35 minutes).** You'll get a dataset you've never seen (FiveThirtyEight's Bechdel test and box office data) and find one pattern on your own. Use everything from Quest 2.8: check the mix, compare the same kind of row across groups, and watch for a confound.
+**Day 13: Find a pattern on your own (35 minutes).** You'll get a dataset you've never seen (FiveThirtyEight's Bechdel test and box office data) and find one pattern on your own. FiveThirtyEight is a news website that writes about data. The **Bechdel test** asks if a movie has two women who talk about something besides a man. **Box office** means the money a movie earns from ticket sales. Use everything from Quest 2.8: check the mix, compare the same kind of row across groups, and watch for a confound.
 
 **Day 13: A short preview of lambda (20 minutes, slides only).** A **lambda** is a one-line function without a name:
 
@@ -30,7 +30,7 @@ df["price"] * 1.08  # simpler here
 
 Lambda is optional. Your cleaning steps stay in a regular `def` function. You'll use lambda more in Module 4.
 
-**Day 14: Final practice.** Three recall questions (one from Module 1), a classmate-led cleaning code-along, and one more AI check. This time, you'll check AI-written *cleaning* code for hidden problems. Use the [checklist from the Practice Day](practice-day-06.md#before-you-trust-ai-analysis-code).
+**Day 14: Final practice.** Three recall questions (one from Module 1), a classmate-led cleaning code-along (everyone writes the same code together, step by step), and one more AI (artificial intelligence) check. This time, you'll check AI-written *cleaning* code for hidden problems. Use the [checklist from the Practice Day](practice-day-06.md#before-you-trust-ai-analysis-code). You first did this kind of check in [Looks Right. Is It?](../module-01/quest-10-debugging.md), where AI-written code ran with no errors but gave viewers the wrong totals.
 
 **Skills:** Every skill from this module, with a focus on Data Mining, Critical Thinking, and AI Evaluation
 
@@ -38,7 +38,7 @@ Lambda is optional. Your cleaning steps stay in a regular `def` function. You'll
 
 Try each one before you open the answer. If you miss one, go back to the quest in parentheses.
 
-**1. (Quest 2.1)** A city's household incomes have a mean of $72,000 and a median of $48,000. Which do you report as "typical," and what shape is the data?
+**1. (Quest 2.1)** A city's household incomes (the money everyone living in one home earns in a year) have a mean of $72,000 and a median of $48,000. Which do you report as "typical," and what shape is the data?
 
 <details>
 <summary>Answer</summary>
@@ -72,16 +72,16 @@ df.groupby("category")["price"].agg(["count", "median"])
 <details>
 <summary>Answer</summary>
 
-A bar's height is the claim, so a cut-off axis makes small differences look big. Delete the `plt.ylim(...)` line so the axis starts at zero.
+A bar's height is the claim (what the chart says is true), so a cut-off axis makes small differences look big. Delete the `plt.ylim(...)` line so the axis starts at zero.
 
 </details>
 
-**5. (Quest 2.6)** 30% of an `age` column is blank, and every blank comes from one clinic's online form. Drop, fill, or flag?
+**5. (Quest 2.6)** 30% of an `age` column is blank, and every blank comes from one clinic's online form. A **clinic** is a small health center where people see a doctor. Drop, fill, or flag?
 
 <details>
 <summary>Answer</summary>
 
-Flag it. The blanks are bunched in one group, so filling them would be a guess, and dropping them would remove that clinic. Then ask the data steward why that form leaves age blank.
+Flag it. The blanks are bunched in one group, so filling them would be a guess, and dropping them would remove that clinic. Then ask the data steward (the person who looks after the data) why that form leaves age blank.
 
 </details>
 
@@ -112,7 +112,7 @@ Something like: "12 hospitals have no wait time listed. Did they not report it, 
 
 </details>
 
-**9. (Quest 2.10)** An AI says your histogram is "roughly symmetric." Your mean is 41 and your median is 28. What's your verdict?
+**9. (Quest 2.10)** An AI says your histogram is "roughly symmetric." Your mean is 41 and your median is 28. What's your verdict (your ruling: right, wrong, or can't be checked)?
 
 <details>
 <summary>Answer</summary>
@@ -126,7 +126,7 @@ Wrong. A mean that far above the median means the data is right-skewed. Check th
 <details>
 <summary>Answer</summary>
 
-Your answer in one plain sentence, with one number and no code words. That's BLUF: Bottom Line Up Front.
+Your answer in one plain sentence, with one number and no code words. That's BLUF: Bottom Line Up Front. The "bottom line" is your main answer, so it goes first.
 
 </details>
 
@@ -171,7 +171,11 @@ First, I'd read the source note and run four checks: shape, data types, blanks, 
 
 You're ready when you can say "I can" to each of these:
 
-* I can run four checks on a new file and write down what each one found.
+* I can run four checks on a new file and write down what each one found:
+  * shape
+  * data types
+  * missing values
+  * duplicates
 * I can write a cleaning function and call it on more than one input.
 * I can decide to drop, fill, or flag, and give a reason with a number.
 * I can pick the mean or the median by looking at a column's shape first.
@@ -180,6 +184,17 @@ You're ready when you can say "I can" to each of these:
 * I can write two checkable questions about a dataset.
 * I can check an AI's chart reading claim by claim.
 * I can write a README and a memo that someone can act on without my code.
+
+Many of these skills grew out of earlier modules:
+
+* **The four checks** grew out of [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), where you named data types. They also grew out of [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), where you checked each record.
+* **A cleaning function** follows the one-job rule from [One Job at a Time](../module-01/quest-07-second-function.md).
+* **Checking an AI claim by claim** uses the steps from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md):
+  * find the claim
+  * find a source
+  * compare the two
+  * decide
+* **Sharing a README** uses `git add`, `git commit`, and `git push` from [Save the Story of Your Work](../module-00/quest-03-git.md).
 
 ---
 
