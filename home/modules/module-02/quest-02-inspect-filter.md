@@ -124,6 +124,8 @@ Run these on every new file, before you do anything else.
 
 A count can show as `np.int64(1)`. That's just a whole number, stored the NumPy way.
 
+![A flow from top to bottom. First, load a new file with pd.read_csv. Then run four checks in order. 1, Shape: did every row arrive? df.shape. 2, Data types: is each column the right type? df.dtypes. 3, Missing values: where are the blanks? df.isna().sum(). 4, Duplicates: do any rows repeat? df.duplicated().sum(). Only then filter to keep the rows you need.](images/four-checks.svg)
+
 ### Keeping and ranking rows
 
 | Word | What it means |

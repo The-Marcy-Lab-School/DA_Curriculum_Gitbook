@@ -51,6 +51,8 @@ Check off each goal once you can do it.
 | **Completeness** | What's missing, and why? Example: a tree with no species written down. |
 | **Bias** | Who or what got **under-sampled**, meaning counted less than the rest? Example: volunteers walked many blocks in one area and only a few in another. |
 
+![You find a pattern. Before you trust it, ask three questions. Origin: who collected this, and how? Completeness: what's missing, and why? Bias: who or what was counted less? Then write a checkable question that names a group, a number, or a method.](images/three-questions.svg)
+
 ### Asking good questions
 
 | Word | What it means |

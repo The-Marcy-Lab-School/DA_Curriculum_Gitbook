@@ -38,7 +38,7 @@ You've now practiced every step of the [EDA workflow](introduction.md#the-big-pi
 After the Boss Battle (Module Project), fill in the blanks with your own project's details and numbers:
 
 * **Data Cleaning & Imputation:** "Cleaned a dataset of [row count] rows in pandas: removed duplicate records, converted text fields to numbers, and documented every missing-value decision."
-* **Statistical Analysis and Data Distributions & Shape:** "Profiled [number] key variables with summary statistics and histograms, and reported medians where the data was skewed."
+* **Statistical Analysis and Data Distributions & Shape:** "Described [number] key columns with the mean, median, standard deviation, and histograms, and reported the median where the data was skewed."
 * **Data Mining:** "Found a non-obvious pattern in [topic] by comparing groups across two columns and ruling out a confound."
 * **Data Visualization and Stakeholder Communication:** "Explained findings to a [stakeholder role] with labeled charts and specific, checkable questions about the data."
 * **AI Evaluation:** "Checked an AI tool's chart interpretation claim by claim against my own statistics, and corrected its errors."
@@ -47,9 +47,11 @@ After the Boss Battle (Module Project), fill in the blanks with your own project
 
 When someone asks about a finding, use this four-part answer from [The Loudest Number](quest-01-descriptive-statistics.md):
 
-> "I noticed **___**. The numbers show **___**. That means **___**. One caveat is **___**."
+> "I notice **___**. The numbers show **___**. That means **___**. One caveat is **___**."
 
-For example: "I noticed Downtown's repairs took 15 minutes longer. The numbers show Downtown did mostly screen repairs, and for screen repairs both shops took about 50 minutes. That means the location wasn't the problem. One caveat is that it was only one week of data."
+A **caveat** is a warning about a limit of your finding, like a small sample or a short time period.
+
+For example: "I notice that Downtown's repairs took 15 minutes longer. The numbers show Downtown did mostly screen repairs, and for screen repairs both shops took about 50 minutes. That means the location wasn't the problem. One caveat is that it was only one week of data."
 
 ## Where these skills show up next
 
@@ -57,17 +59,23 @@ For example: "I noticed Downtown's repairs took 15 minutes longer. The numbers s
 
 **Then, in the modules after this one.** Nothing you learned here goes away. It comes back in new tools.
 
+A few new words you'll see below:
+
+* A **database** is a large, organized place to store many related tables.
+* **SQL** is a language for asking a database questions. You'll start learning it in Module 3.
+* A **dashboard** is one screen of key numbers and charts that a team checks often.
+* **Excel** and **Tableau** are software for working with data and making charts.
+
 | In this module, you... | Next, you'll... |
 | --- | --- |
 | Kept only the rows you needed with a filter | Filter rows with `WHERE` in SQL **(Module 3)** |
 | Summarized groups with `groupby` | Summarize groups with `GROUP BY` in SQL **(Module 3)** |
 | Combined two tables on a shared column with `merge` | Combine tables with `JOIN` in SQL **(Module 3)** |
-| Saw missing values as `NaN` | See them as `NULL` in a database **(Module 3)** |
+| Saw missing values as `NaN` | See them as `NULL`, SQL's word for a blank **(Module 3)** |
 | Used pandas on CSV files | Use pandas on data pulled from a database **(Module 4)** |
 | Described the shape and spread of your data | Measure how sure you can be about a result **(Module 5)** |
+| Checked for a confound before you trusted a pattern | Name a confound and explain why a test alone can't prove that one thing causes another **(Module 5)** |
 | Made charts that explain a finding to one person | Build dashboards in Excel and Tableau **(Module 6)** |
-
-**SQL** is a language for asking questions of a database, a large, organized store of tables. You'll meet it in Module 3.
 
 The habits come with you too: check before you trust, give a reason for every decision, and lead with the answer.
 

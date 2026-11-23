@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 440" width="1040" height="440" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Three questions before you trust a pattern</title>
+  <desc id="d">Start with a pattern in the data. Ask three questions. Origin: who collected this, and how? Completeness: what is missing, and why? Bias: who or what was counted less? Then write a checkable question that names a group, a number, or a method.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="440" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Three questions before you trust a pattern</text>
+  <rect x="370" y="58" width="300" height="50" rx="25" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="520" y="90" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">You find a pattern</text>
+  <line x1="520" y1="110" x2="180" y2="150" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="40" y="154" width="280" height="120" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="180" y="192" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Origin</text>
+  <text x="180" y="224" text-anchor="middle" font-size="18" fill="#111827">Who collected this,</text>
+  <text x="180" y="250" text-anchor="middle" font-size="18" fill="#111827">and how?</text>
+  <line x1="180" y1="276" x2="180" y2="330" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="520" y1="110" x2="510" y2="150" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="370" y="154" width="280" height="120" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="510" y="192" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Completeness</text>
+  <text x="510" y="224" text-anchor="middle" font-size="18" fill="#111827">What's missing,</text>
+  <text x="510" y="250" text-anchor="middle" font-size="18" fill="#111827">and why?</text>
+  <line x1="510" y1="276" x2="510" y2="330" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="520" y1="110" x2="840" y2="150" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="700" y="154" width="280" height="120" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="840" y="192" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Bias</text>
+  <text x="840" y="224" text-anchor="middle" font-size="18" fill="#111827">Who or what was</text>
+  <text x="840" y="250" text-anchor="middle" font-size="18" fill="#111827">counted less?</text>
+  <line x1="840" y1="276" x2="840" y2="330" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="40" y="334" width="940" height="84" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="520" y="368" text-anchor="middle" font-size="21" font-weight="bold" fill="#C2410C">Write a checkable question</text>
+  <text x="520" y="400" text-anchor="middle" font-size="19" fill="#111827">It names a group, a number, or a method.</text>
+</svg>

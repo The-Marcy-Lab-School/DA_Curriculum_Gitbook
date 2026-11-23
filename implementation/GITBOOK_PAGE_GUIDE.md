@@ -58,7 +58,19 @@ Use these words the same way on every page. Students learned *function*, *parame
 
 ## Pictures
 
-- Add a diagram when it explains something words can't: a process, a decision, a shape, or a comparison.
+- **Every quest page gets at least one picture.** Pick the kind that fits the idea:
+
+  | Kind | Use it when the idea is… | Module 2 examples |
+  | --- | --- | --- |
+  | **Flow** | steps in order | `four-checks.svg`, `cleaning-pipeline.svg`, `ai-claim-check.svg` |
+  | **Decision tree** | a choice that depends on answers | `drop-fill-flag.svg`, `chart-chooser.svg` |
+  | **Concept map** | how things relate to each other | `tools-map.svg`, `three-questions.svg`, `two-pages.svg` |
+  | **Side-by-side comparison** | the same data shown two ways, or before and after | `skew-shapes.svg`, `axis-baseline.svg`, `confound-gap.svg` |
+  | **Worked example** | what code does to a table | `groupby-split-apply-combine.svg` |
+
+- **Use the reading's own numbers and names** in the picture, and check them against the reading.
+- **Don't repeat a table in a picture.** If a picture shows the same thing as a table, keep one.
+- **Revisit the most important pictures.** The module's workflow diagram appears in the Introduction and again in the Conclusion. The Checkpoint has an "Explain the picture" section where readers explain two key diagrams from memory.
 - Save diagrams as SVG in the module's `images/` folder, with a white background and the blue (`#1D4ED8`) and orange (`#C2410C`) palette, so they work for colorblind readers.
 - **Text size:** body labels at least 17px and axis labels at least 20px in the SVG's own units. GitBook shrinks wide images to fit the page, so anything smaller becomes hard to read.
 - **Every chart has a labeled x-axis and y-axis**, even a sketch.

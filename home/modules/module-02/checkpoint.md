@@ -1,6 +1,6 @@
 # Module 2 Checkpoint (Review and Solo Practice)
 
-**Days 13–14** · No new reading · Time: about 7 minutes
+**Days 13–14** · No new reading · Time: about 8 minutes
 
 **EDA workflow:** **Inspect** → **Clean** → **Explore** → **Check** → **Explain** (all five steps) ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -127,6 +127,32 @@ Wrong. A mean that far above the median means the data is right-skewed. Check th
 <summary>Answer</summary>
 
 Your answer in one plain sentence, with one number and no code words. That's BLUF: Bottom Line Up Front.
+
+</details>
+
+## Explain the picture
+
+Look at each picture. Explain it out loud in two or three sentences, as if to a classmate. Then open the answer.
+
+**1. (Quest 2.1)**
+
+![Three histograms side by side: left-skewed, symmetric, and right-skewed, each with a mean line and a median line.](images/skew-shapes.svg)
+
+<details>
+<summary>Answer</summary>
+
+In left-skewed data, a tail of small values pulls the mean below the median. In symmetric data, the mean and median are about the same. In right-skewed data, a tail of big values pulls the mean above the median. When the data is skewed, report the median as the usual value.
+
+</details>
+
+**2. (Quest 2.8)**
+
+![Two bar charts of repair times. Left, all repairs: Downtown 45.7 minutes and Eastside 30.5. Right, screen repairs only: Downtown 50.0 and Eastside 51.0.](images/confound-gap.svg)
+
+<details>
+<summary>Answer</summary>
+
+Overall, Downtown looks about 15 minutes slower. But when you compare the same kind of repair, the shops take about the same time. The gap came from the mix: Downtown did more screen repairs, which take longer. That's a confound.
 
 </details>
 

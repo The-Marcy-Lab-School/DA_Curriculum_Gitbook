@@ -89,7 +89,9 @@ As you read, look for:
 * **Split the AI's reply into claims.** Mark each one right, wrong, or unverifiable, and name the number that settles it. An AI is often partly right, so check every claim on its own.
 * **Look at the chart, not just the summary numbers.** If the mean lands where almost no data sits, the rows may be two groups mixed together. Group by the column that might split them.
 
-Here's how the reading's book-price example sorts out. The AI said:
+![A flow. Step 1: calculate your own numbers first. Step 2: ask the AI about your chart. Step 3: split its answer into separate claims. Each claim gets a verdict: right (your numbers agree), wrong (your numbers disagree), or unverifiable (nothing you have settles it). Step 4: you decide what to share. Name the number that settles each claim. You are responsible for what you share, not the AI.](images/ai-claim-check.svg)
+
+In the reading's book-price example, the AI made five claims:
 
 | AI's claim | Verdict | What settles it |
 | --- | --- | --- |

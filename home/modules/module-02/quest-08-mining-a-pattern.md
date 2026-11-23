@@ -89,13 +89,7 @@ As you read, look for:
 * **A finding worth reporting** is real, checkable, and something the reader would act on. It holds in every group and rests on enough rows. "Screen repairs take longer" is true, but the owner already knows it.
 * **Use the statistic that fits.** The mean is fine when it's close to the median and the std is small. In the reading, that's true in every group, so the mean backs up the finding.
 
-Here's how the shop comparison sorts out:
-
-| Comparison | Downtown | Eastside |
-| --- | --- | --- |
-| All repairs (mean minutes) | 45.7 | 30.5 |
-| Mix: screen / battery repairs | 5 / 1 | 2 / 4 |
-| Screen repairs only (mean minutes) | 50.0 | 51.0 |
+![Two bar charts of FixIt's repair times, with a y-axis of average minutes. Left, all repairs: Downtown 45.7 minutes and Eastside 30.5, about 15 minutes apart. Right, screen repairs only: Downtown 50.0 and Eastside 51.0, about the same. Downtown did 5 screen repairs and 1 battery repair. Eastside did 2 and 4. Screen repairs take longer.](images/confound-gap.svg)
 
 The 15-minute gap came from the mix. Downtown did more screen repairs, which take longer. For the same job, the shops take about the same time. The real finding was elsewhere: old phones take about 8 minutes longer for a battery repair and about 10 minutes longer for a screen repair. Because the counts are small, the next step is to check that it holds over more weeks.
 

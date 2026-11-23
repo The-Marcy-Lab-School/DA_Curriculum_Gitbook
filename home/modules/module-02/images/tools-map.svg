@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" width="1040" height="500" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">How the Module 2 tools fit together</title>
+  <desc id="d">VS Code is software. It opens a Jupyter notebook, which is a file that holds your code in cells. The code imports three Python packages: NumPy for math on many numbers, pandas for tables of data, and Matplotlib for charts. pandas is built on NumPy, and pandas uses Matplotlib to draw charts.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="500" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">How the Module 2 tools fit together</text>
+  <rect x="20" y="190" width="210" height="110" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="125" y="228" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">VS Code</text>
+  <text x="125" y="252" text-anchor="middle" font-size="18" fill="#111827">Software: a program</text>
+  <text x="125" y="276" text-anchor="middle" font-size="18" fill="#111827">you open</text>
+  <line x1="232" y1="245" x2="288" y2="245" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="260" y="232" text-anchor="middle" font-size="17" fill="#475569">opens</text>
+  <rect x="292" y="190" width="250" height="110" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="417" y="228" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">Jupyter notebook</text>
+  <text x="417" y="252" text-anchor="middle" font-size="18" fill="#111827">A file (.ipynb) that</text>
+  <text x="417" y="276" text-anchor="middle" font-size="18" fill="#111827">holds your code in cells</text>
+  <line x1="544" y1="245" x2="676" y2="110" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="544" y1="245" x2="676" y2="245" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="544" y1="245" x2="676" y2="380" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="612" y="236" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">import</text>
+  <rect x="680" y="70" width="300" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="830" y="102" text-anchor="middle" font-size="21" font-weight="bold" fill="#1D4ED8">NumPy</text>
+  <text x="830" y="128" text-anchor="middle" font-size="18" fill="#111827">Math on many numbers</text>
+  <rect x="680" y="205" width="300" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="830" y="237" text-anchor="middle" font-size="21" font-weight="bold" fill="#1D4ED8">pandas</text>
+  <text x="830" y="263" text-anchor="middle" font-size="18" fill="#111827">Tables of data</text>
+  <rect x="680" y="340" width="300" height="80" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="830" y="372" text-anchor="middle" font-size="21" font-weight="bold" fill="#1D4ED8">Matplotlib</text>
+  <text x="830" y="398" text-anchor="middle" font-size="18" fill="#111827">Charts</text>
+  <line x1="750" y1="205" x2="750" y2="154" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="762" y="185" text-anchor="start" font-size="17" fill="#475569">is built on</text>
+  <line x1="750" y1="285" x2="750" y2="336" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="762" y="316" text-anchor="start" font-size="17" fill="#475569">draws charts with</text>
+  <rect x="150" y="452" width="22" height="22" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="180" y="469" text-anchor="start" font-size="18" fill="#111827">Software</text>
+  <rect x="330" y="452" width="22" height="22" rx="4" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="360" y="469" text-anchor="start" font-size="18" fill="#111827">File</text>
+  <rect x="470" y="452" width="22" height="22" rx="4" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="500" y="469" text-anchor="start" font-size="18" fill="#111827">Python package (you install it, then import it)</text>
+</svg>

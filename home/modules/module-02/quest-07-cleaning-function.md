@@ -104,6 +104,8 @@ As you read, look for:
 * **Coerce, then count.** `pd.to_numeric(..., errors="coerce")` turns bad values into NaN. Count the new blanks right away, because `.mean()` skips NaN without warning you. Tidy labels with `.str.strip().str.lower()`, and check `.value_counts()` before and after.
 * **Put the fixes in one function.** Its first line should make a new table, so the table you pass in stays unchanged. Call it on at least two different inputs to prove it's reusable.
 
+![The May list has 5 rows and the June list has 5. Stacked, they make 10 rows. The function clean_deliveries runs three steps in order: remove repeats by delivery_id, turn bags into numbers, and tidy the country labels. The result is a clean table of 8 deliveries. The same function can run again on the next file.](images/cleaning-pipeline.svg)
+
 ```python
 def to_number(series):
     return pd.to_numeric(series, errors="coerce")

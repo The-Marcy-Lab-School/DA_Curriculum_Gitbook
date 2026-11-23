@@ -8,6 +8,8 @@
 
 Sometimes a chart tells a story that its numbers don't support. For example, an ad shows two bars for phone battery life: 20 hours for one phone and 19 hours for another. The y-axis starts at 18, so the first bar looks twice as tall. But the real difference is only about 5%.
 
+![Two bar charts of the same data: phone A lasts 20 hours and phone B lasts 19 hours. Left chart: the y-axis starts at 18, so phone A's bar looks twice as tall as phone B's. Right chart: the y-axis starts at 0, so the bars look almost the same height, which matches the real difference of about 5%.](images/axis-baseline.svg)
+
 In this reading, you'll learn:
 
 * two ways a chart with real numbers can still mislead: a y-axis that doesn't start at zero, and hidden outliers

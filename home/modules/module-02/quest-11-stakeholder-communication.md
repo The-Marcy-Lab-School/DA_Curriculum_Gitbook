@@ -87,10 +87,7 @@ As you read, look for:
 * **Save the chart as a file, then embed it.** Make an `images` folder, save the chart with `plt.savefig` before `plt.show()`, and embed it with `![alt text](images/name.png)`. Commit the `images` folder along with the README, or the picture won't show up on GitHub.
 * **Two pages, two jobs.** The README says what you found, in the sections the project asks for. The data-quality memo says how far to trust it, in four parts.
 
-| | README | Data-quality memo |
-| --- | --- | --- |
-| Answers | "What did you find?" | "Can I trust it?" |
-| Includes | The sections the project asks for. In the reading: the scenario, a data overview, a statistical summary, the embedded chart, and takeaways in plain words. | Four parts: domain and stakeholder on one line, a one-sentence answer with no code words, two checkable questions, and whether a bad answer would change your advice. |
+![Your finding starts in your notebook, which the stakeholder won't open. It becomes two pages. The README answers "What did you find?": the answer first in plain words, one key number, and an embedded chart with alt text. The data-quality memo answers "Can I trust it?" in four parts: domain and stakeholder on one line, your answer in one sentence with no code words, two checkable questions about the data, and whether a bad answer would change your advice.](images/two-pages.svg)
 
 Every README is built from the same five Markdown pieces:
 
