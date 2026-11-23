@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 420" width="1040" height="420" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Digits are not always a number</title>
+  <desc id="d">Side-by-side comparison of a pet's tag number, 00417. Left, stored as text: it stays 00417, so it still matches the right pet. Right, stored as a whole number: the computer drops the first zeros and keeps 417, which could be confused with a different pet's tag. Rule: if you would never do math with it, store it as text.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="420" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Digits are not always a number</text>
+  <rect x="20" y="62" width="490" height="270" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="265" y="100" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Stored as text</text>
+  <rect x="60" y="130" width="160" height="64" rx="10" fill="#ffffff" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="140" y="172" text-anchor="middle" font-size="22" font-family="Menlo, Consolas, monospace" fill="#111827">"00417"</text>
+  <line x1="224" y1="162" x2="304" y2="162" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="310" y="130" width="160" height="64" rx="10" fill="#ffffff" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="390" y="172" text-anchor="middle" font-size="22" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">00417</text>
+  <text x="140" y="220" text-anchor="middle" font-size="17" fill="#475569">You enter</text>
+  <text x="390" y="220" text-anchor="middle" font-size="17" fill="#475569">The computer keeps</text>
+  <text x="265" y="270" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">It still matches</text>
+  <text x="265" y="300" text-anchor="middle" font-size="19" fill="#111827">the right pet.</text>
+  <rect x="530" y="62" width="490" height="270" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="775" y="100" text-anchor="middle" font-size="22" font-weight="bold" fill="#C2410C">Stored as a whole number</text>
+  <rect x="570" y="130" width="160" height="64" rx="10" fill="#ffffff" stroke="#C2410C" stroke-width="2"/>
+  <text x="650" y="172" text-anchor="middle" font-size="22" font-family="Menlo, Consolas, monospace" fill="#111827">00417</text>
+  <line x1="734" y1="162" x2="814" y2="162" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="820" y="130" width="160" height="64" rx="10" fill="#ffffff" stroke="#C2410C" stroke-width="2"/>
+  <text x="900" y="172" text-anchor="middle" font-size="22" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#C2410C">417</text>
+  <text x="650" y="220" text-anchor="middle" font-size="17" fill="#475569">You enter</text>
+  <text x="900" y="220" text-anchor="middle" font-size="17" fill="#475569">The computer keeps</text>
+  <text x="775" y="270" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">The first zeros are gone.</text>
+  <text x="775" y="300" text-anchor="middle" font-size="19" fill="#111827">It looks like tag 417.</text>
+  <rect x="130" y="350" width="780" height="50" rx="25" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="520" y="382" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">Rule: if you would never do math with it, store it as text.</text>
+</svg>

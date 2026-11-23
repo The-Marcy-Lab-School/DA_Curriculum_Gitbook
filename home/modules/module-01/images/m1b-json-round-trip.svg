@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">What comes back different after a JSON round trip</title>
+  <desc id="d">Three panels. Panel one, in Python while the program runs: rain is a dictionary with integer keys 6 and 7, and tuple values (0.4, 58) and (1.2, 55). An arrow labeled json.dump leads to panel two, the file rain.json on disk, where the keys are the strings "6" and "7" and the values are lists in square brackets. An arrow labeled json.load leads to panel three, back in Python later: the keys are still strings and the values are still lists. Notes underneath: the key 6 came back as the string "6", so rain[6] raises a KeyError, and the tuple (0.4, 58) came back as the list [0.4, 58].</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="470" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">What comes back different after a JSON round trip</text>
+  <text x="145" y="92" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">In Python (running)</text>
+  <rect x="20" y="108" width="250" height="180" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="42" y="156" text-anchor="start" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">rain = {</text>
+  <text x="66" y="190" text-anchor="start" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">6: (0.4, 58),</text>
+  <text x="66" y="224" text-anchor="start" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">7: (1.2, 55)</text>
+  <text x="42" y="258" text-anchor="start" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">}</text>
+  <line x1="274" y1="198" x2="391" y2="198" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="332" y="184" text-anchor="middle" font-size="17" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">json.dump()</text>
+  <text x="332" y="228" text-anchor="middle" font-size="18" fill="#475569">save</text>
+  <text x="520" y="92" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">rain.json (on disk)</text>
+  <rect x="395" y="108" width="250" height="180" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="417" y="156" text-anchor="start" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">{</text>
+  <text x="441" y="190" text-anchor="start" font-size="19" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#C2410C">"6": [0.4, 58],</text>
+  <text x="441" y="224" text-anchor="start" font-size="19" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#C2410C">"7": [1.2, 55]</text>
+  <text x="417" y="258" text-anchor="start" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">}</text>
+  <line x1="649" y1="198" x2="766" y2="198" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="707" y="184" text-anchor="middle" font-size="17" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">json.load()</text>
+  <text x="707" y="228" text-anchor="middle" font-size="18" fill="#475569">load</text>
+  <text x="895" y="92" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">Back in Python (later)</text>
+  <rect x="770" y="108" width="250" height="180" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="792" y="156" text-anchor="start" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">rain = {</text>
+  <text x="816" y="190" text-anchor="start" font-size="19" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#C2410C">"6": [0.4, 58],</text>
+  <text x="816" y="224" text-anchor="start" font-size="19" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#C2410C">"7": [1.2, 55]</text>
+  <text x="792" y="258" text-anchor="start" font-size="19" font-family="Menlo, Consolas, monospace" fill="#111827">}</text>
+  <rect x="20" y="320" width="490" height="120" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="265" y="356" text-anchor="middle" font-size="20" font-weight="bold" fill="#C2410C">Key change</text>
+  <text x="265" y="388" text-anchor="middle" font-size="18" fill="#111827">The integer 6 came back as the string "6",</text>
+  <text x="265" y="414" text-anchor="middle" font-size="18" fill="#111827">so rain[6] now raises a KeyError.</text>
+  <rect x="530" y="320" width="490" height="120" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="775" y="356" text-anchor="middle" font-size="20" font-weight="bold" fill="#C2410C">Value change</text>
+  <text x="775" y="388" text-anchor="middle" font-size="18" fill="#111827">The tuple (0.4, 58) came back as</text>
+  <text x="775" y="414" text-anchor="middle" font-size="18" fill="#111827">the list [0.4, 58]. JSON has no tuples.</text>
+</svg>

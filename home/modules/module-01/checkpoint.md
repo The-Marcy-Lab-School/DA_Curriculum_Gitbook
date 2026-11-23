@@ -1,33 +1,26 @@
-## Module 1 Checkpoint
+# Module 1 Checkpoint: Review and Practice
 
-### 🎯 Ready for the Boss Battle (Project)?
+**Time:** about 10 minutes to read (no new reading)
 
-No new reading here.
+**Building blocks:** **Decide and repeat** · **Organize steps** · **Hold data** · **Load, save, and protect** · **Check your work** (all five) ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
-This is your **readiness gate**.
+## Introduction
 
-Your Inventory Tracker will require you to combine skills from across Module 1, so this Checkpoint tests whether you can retrieve those skills without being told exactly which lesson to use.
+So far, each quest told you which skill to use. This page mixes them up. You'll answer questions from every quest without being told where to look. Then you'll explain two pictures from memory.
 
-### Rules
+**How to use this page:** Answer each question first, with no notes and no readings. Then open the answer. If you miss one, go back to the quest in parentheses, review it, close it, and try again from memory.
 
-**First attempt: no notes and no readings.**
+**Main takeaway:** The questions you miss show you which quest to review before the Boss Battle (Module Project).
 
-For each challenge:
+**Why it matters at work:** At work, no one tells you which skill a problem needs. You need to know what you can do on your own, and what you still need to practice.
 
-1. Answer from memory.
-2. If you're wrong or stuck, open the Hint.
-3. Try again.
-4. Then open the Answer and explanation.
+**Skills:** Every skill from this module
 
-Anything you miss becomes a **Reload** before the Boss Battle.
+## Self-check questions
 
----
+**1. (Quest 1.1)** Don't run this code. What does it print?
 
-# 🎮 Challenge 1 — Trace It
-
-Don't run this code.
-
-```python id="y9m5f4"
+```python
 total = 0
 
 for number in range(1, 4):
@@ -37,646 +30,219 @@ for number in range(1, 4):
 print(total)
 ```
 
-What prints?
-
-Write the exact output.
-
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Trace `number` through:
+It prints `5`. `range(1, 4)` gives `1`, `2`, `3`.
 
-```text id="yr1wpe"
-1
-2
-3
-```
-
-For each Iteration, evaluate:
-
-```python id="b5s82j"
-number > 1
-```
-
-Only update `total` when the condition is True.
+* `number` is 1: `1 > 1` is False, so `total` stays 0.
+* `number` is 2: True, so `total` becomes 2.
+* `number` is 3: True, so `total` becomes 5.
 
 </details>
 
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+**2. (Quest 1.2)** This function creates a local variable named `total`. After the function runs, can the rest of the script use the name `total`? Why or why not?
 
-The output is:
-
-```text id="5mpt9w"
-5
-```
-
-Trace:
-
-```text id="4hvsfn"
-number = 1 → condition False → total = 0
-number = 2 → condition True  → total = 2
-number = 3 → condition True  → total = 5
-```
-
-So:
-
-**2 + 3 = 5**
-
-</details>
-
----
-
-# 🎮 Challenge 2 — Function + Scope
-
-Consider:
-
-```python id="0dhgva"
+```python
 def calculate_total(price, quantity):
     total = price * quantity
     return total
 ```
 
-The Function creates a Local Variable named:
+<details>
+<summary>Answer</summary>
 
-```python id="9ujknr"
-total
+No. `total` is a local variable, so it exists only inside the function, while it runs. Using it outside raises a `NameError`. The function returns the *value*, not the name. To keep the value, store it: `result = calculate_total(5, 3)`.
+
+</details>
+
+**3. (Quest 1.4)** A delivery app needs to find a driver's name from an order code, many times a night. Each order code is unique. Should it store the data in a list or a dictionary? Why?
+
+<details>
+<summary>Answer</summary>
+
+A dictionary, with the order code as the key and the driver's name as the value. A dictionary finds a value by its key. With a list, the app would have to check items one at a time.
+
+</details>
+
+**4. (Quest 1.5)** Fill in the two missing steps.
+
+```text
+Python value → ? → text in a file → ? → Python value
 ```
 
-Does the Local Variable's **name** automatically become available everywhere else in the script after the Function runs?
-
-Explain why or why not.
-
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Separate these two ideas:
-
-**Local Variable Name**
-
-and
-
-**Returned Value**
+**Serialization** (saving) turns a Python value into text that can be saved to a file. **Deserialization** (loading) builds the Python value again from that text.
 
 </details>
 
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+**5. (Quest 1.6)** The rules: each sign-up line has 3 fields (name, grade, class), and the grade must be from 9 to 12. Which line should be rejected, and which rule does it break?
 
-No.
-
-`total` is a Local Variable created inside the Function's Local Scope.
-
-The Function can return the **value** stored in `total`, but returning that value doesn't make the Local Variable name automatically available everywhere else.
-
-For example:
-
-```python id="62d97s"
-result = calculate_total(5, 3)
+```text
+Leo,10,Art
+Maya,14,Art
 ```
 
-stores the returned value in `result`.
+<details>
+<summary>Answer</summary>
+
+`Maya,14,Art`. It has the right shape, 3 fields, but its grade is outside 9 to 12. It's invalid input. The right number of fields doesn't make the values right.
 
 </details>
 
----
+**6. (Quest 1.6)** Is each one validation or error handling?
 
-# 🎮 Challenge 3 — Pick the Container
-
-Your program needs to store inventory Items and frequently retrieve each Item using its unique Name.
-
-Which is the stronger starting choice?
-
-**A. List**
-
-**B. Dictionary keyed by Item Name**
-
-Don't answer with only the letter.
-
-Explain why the structure matches the requirement.
+* **A.** A hotel program checks `nights >= 1`, because a stay must be at least one night.
+* **B.** The program runs `int(nights_text)` inside `try`, and catches the `ValueError` when a guest types `"4 nights"`.
 
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-The requirement says:
-
-> **Retrieve using a unique Name**
-
-Which structure naturally supports:
-
-**Key → Value**
-
-relationships?
+**A is validation:** it checks the data against a rule. **B is error handling:** it decides what happens when an operation fails. They work together, but each has its own job.
 
 </details>
+
+**7. (Quest 1.7)** A teammate wants one function that checks a week of step counts, adds them up, and prints the weekly summary. What's the problem with that plan?
 
 <details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+<summary>Answer</summary>
 
-**B. Dictionary keyed by Item Name**
-
-A Dictionary naturally supports Key–Value relationships.
-
-If Item Names are unique, each Name can serve as a Key associated with the corresponding Item.
-
-This also prepares the program for Dictionary Lookup rather than requiring a one-by-one Linear Search through a List.
+The function has several jobs. Give each job its own function: one checks the data, one summarizes it, and one prints it. Each one is then easier to describe in one sentence, test, fix, and reuse.
 
 </details>
 
----
+**8. (Quest 1.8)** Should `goal_b.saved_amount` change to 480? Why or why not?
 
-# 🎮 Challenge 4 — Make It Survive
+```python
+goal_a = SavingsGoal("Bike Fund", 500, 420)
+goal_b = SavingsGoal("Trip Fund", 1200, 1200)
 
-Complete this conceptual pipeline:
-
-```text id="9jv8fm"
-Python Data
-    ↓
-?
-    ↓
-Stored Representation
-    ↓
-?
-    ↓
-Python Data
+goal_a.saved_amount = 480
 ```
 
-Name both missing processes.
-
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-One process prepares data to be stored or transferred.
-
-The other converts the stored representation back into usable data.
+No. `goal_a` and `goal_b` come from the same class, but each object stores its own attributes. `goal_b.saved_amount` is still `1200`.
 
 </details>
 
+**9. (Quest 1.8)** A teammate says, "`__init__` runs every time I use an object." Is that right?
+
 <details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+<summary>Answer</summary>
 
-```text id="rx3lvg"
-Python Data
-    ↓
-Serialization
-    ↓
-Stored Representation
-    ↓
-Deserialization
-    ↓
-Python Data
-```
-
-**Serialization** creates a representation suitable for storage or transfer.
-
-**Deserialization** converts that representation back into data the program can work with.
+No. `__init__` runs once, when the object is made. Reading an attribute or calling a method later doesn't run it again.
 
 </details>
 
----
-
-# 🎮 Challenge 5 — Validate the Transaction
-
-Your transaction rules require:
-
-```text id="cd50v2"
-OPERATION,ITEM,QUANTITY
-```
-
-and Quantity must be non-negative.
-
-Which transaction should be rejected?
-
-```text id="6egqzt"
-ADD,laptop,3
-REMOVE,camera,-2
-```
-
-Explain the rule that determines your answer.
+**10. (Quest 1.8)** The `Pet` class has both `__str__` and `__repr__`. Which one does `print(biscuit)` use? Which one does `print([biscuit, mochi])` use?
 
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Check both:
-
-**Structure**
-
-and
-
-**Quantity**
+`print(biscuit)` uses `__str__`, the friendly view for people. `print([biscuit, mochi])` uses `__repr__` for each item, because a list always shows its items with `__repr__`.
 
 </details>
 
+**11. (Quests 1.3 and 1.9)** Match each search to its Big-O, then explain both in plain words: a linear search by name, and a dictionary lookup by key. The choices are O(n) and O(1) average-case.
+
 <details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+<summary>Answer</summary>
 
-This transaction should be rejected:
+* **Linear search: O(n).** In the worst case, it checks every item, so the work grows with the number of items.
+* **Dictionary lookup: O(1) average-case.** It takes about one step, no matter how many items there are.
 
-```text id="rzohbk"
-REMOVE,camera,-2
-```
-
-Its Quantity is negative, so it fails the stated Validation rule.
-
-The line having the expected number of fields does not automatically make the values valid.
+Big-O describes how the work grows as the data grows. It doesn't describe who won one small timing test.
 
 </details>
 
----
+**12. (Quest 1.10)** This loop should process positions 0, 1, 2, 3, and 4. Name the bug precisely.
 
-# 🎮 Challenge 6 — Validation or Error Handling?
-
-Match each situation.
-
-### Situation A
-
-Your program checks:
-
-```python id="rvz8m7"
-quantity >= 0
-```
-
-because negative Quantities violate your rules.
-
-### Situation B
-
-Your program attempts:
-
-```python id="0r8ojp"
-int(raw_quantity)
-```
-
-and handles the `ValueError` that occurs when `raw_quantity` is `"three"`.
-
-Your choices:
-
-**Validation**
-
-**Error Handling**
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Ask:
-
-**Does this data meet my rules?**
-
-versus:
-
-**What should happen when this operation fails?**
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-**Situation A → Validation**
-
-The program is checking the data against an explicit rule.
-
-**Situation B → Error Handling**
-
-The program is responding to an Exception raised during execution.
-
-Validation and Error Handling can work together, but they have different responsibilities.
-
-</details>
-
----
-
-# 🎮 Challenge 7 — One Job at a Time
-
-Your program needs to:
-
-* Read transaction data.
-* Validate transactions.
-* Update inventory.
-* Search inventory.
-* Produce a summary.
-
-A teammate proposes putting all five responsibilities into one giant Function.
-
-What's the design concern?
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Think:
-
-**Responsibilities → Testing → Debugging → Reuse**
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-One Function would be responsible for several different jobs.
-
-Separating major responsibilities into focused Functions can make each piece easier to understand, test, debug, and reuse.
-
-The goal isn't to make every Function tiny.
-
-The goal is to give Functions **clear responsibilities**.
-
-</details>
-
----
-
-# 🎮 Challenge 8 — Object Independence
-
-Consider:
-
-```python id="6i3jbf"
-laptop = Item("Laptop", 4, "Electronics")
-camera = Item("Camera", 9, "Electronics")
-
-laptop.quantity = 2
-```
-
-Should `camera.quantity` automatically become `2`?
-
-Explain why or why not.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Both Objects come from the same Class.
-
-Are they the same **instance**?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-No.
-
-`laptop` and `camera` are independent Objects created from the same Class.
-
-Changing an instance Attribute on `laptop` should not automatically change the corresponding Attribute on `camera`.
-
-`camera.quantity` should remain:
-
-```text id="6qgrfa"
-9
-```
-
-</details>
-
----
-
-# 🎮 Challenge 9 — When Does `__init__` Run?
-
-A teammate says:
-
-> **“`__init__` runs every time I use an Object.”**
-
-Correct or incorrect?
-
-Explain when `__init__` actually runs.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Think about:
-
-**Creating a new instance**
-
-versus:
-
-**Using an existing instance**
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-The statement is **incorrect**.
-
-`__init__` runs as part of initializing a new instance when the Object is created.
-
-It does not rerun every time you later access an Attribute or call another Method on that existing Object.
-
-</details>
-
----
-
-# 🎮 Challenge 10 — Complexity
-
-Match each search strategy to its expected complexity.
-
-### Linear Search by Item Name
-
-### Dictionary Lookup by Key
-
-Choices:
-
-**O(n)**
-
-**O(1) Average-Case**
-
-Then explain both in plain language.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Which approach may need to inspect more Items as the inventory grows?
-
-Which retrieves information using a Dictionary Key?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-**Linear Search → O(n)**
-
-The search may need to inspect more Items as the collection grows.
-
-**Dictionary Lookup → O(1) Average-Case**
-
-The average lookup work doesn't grow linearly with the number of Items in the same way.
-
-Big-O describes how the amount of work **grows with Input Size**.
-
-It does not describe which approach won one small timing experiment.
-
-</details>
-
----
-
-# 🐛 Challenge 11 — Attention to Detail
-
-A Loop should process indexes:
-
-```text id="fvsg0z"
-0, 1, 2, 3, 4
-```
-
-but uses:
-
-```python id="a2pnq8"
+```python
 for index in range(4):
     process(index)
 ```
 
-Name the bug precisely.
-
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Write out the values produced by:
-
-```python id="5u1hfd"
-range(4)
-```
-
-Then compare them with the expected values.
+An off-by-one error. `range(4)` gives `0`, `1`, `2`, `3`, so position 4 is never processed. The loop runs with no error, but it does one pass too few.
 
 </details>
 
+**13. (Quest 1.10)** An AI tool writes a function for you. It runs with no error, has clear names and comments, and prints a result. Is that enough to trust it? What do you do next?
+
 <details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+<summary>Answer</summary>
 
-This is an **Off-by-One Error**.
-
-`range(4)` produces:
-
-```text id="frv8we"
-0, 1, 2, 3
-```
-
-so index `4` is never processed.
-
-The Loop runs successfully, but its behavior is incorrect.
+No. Running without an error doesn't prove the logic is right. Work out the expected answer by hand for a small example, including an edge case like an empty list. Then run the function and compare. If they differ, trace the code to find the line where they split.
 
 </details>
+
+**14. (Quests 1.7 and 1.8)** A library program reads checkout records, checks each one, keeps track of each book's title and copies available, and prints a daily summary. Name one job that fits a standalone function, and one that fits a method on a `Book` class. Say why.
+
+<details>
+<summary>Example answer</summary>
+
+Checking each checkout record fits a standalone function: it takes a record and returns whether it's valid, and it doesn't belong to any one book. Checking whether a book has copies left fits a method on `Book`, like `is_available()`, because it uses that book's own attributes. There's more than one good design. Your reason is what matters.
+
+</details>
+
+## Explain the picture
+
+Look at each picture. Explain it out loud in two or three sentences, as if to a classmate. Then open the answer.
+
+**1. (Quest 1.8)**
+
+![The SavingsGoal class, with three attributes and one method, creates two objects: goal_a with Bike Fund, 500, and 420, and goal_b with Trip Fund, 1200, and 1200. goal_a.is_funded() returns False, and goal_b.is_funded() returns True.](images/m1c-class-objects.svg)
+
+<details>
+<summary>Answer</summary>
+
+The `SavingsGoal` class is written once. It makes two objects, and each one stores its own attribute values. When you call `is_funded()`, `self` is the object before the dot. So the same method checks 420 against 500 for `goal_a`, and 1200 against 1200 for `goal_b`. Changing `goal_a` doesn't change `goal_b`.
+
+</details>
+
+**2. (Quest 1.10)**
+
+![A debugging flow. Step 1, work out the expected answer by hand: 286. Step 2, run the code. If it crashed, read the traceback from the last line up. If not, compare the actual output, 236, with the expected 286. Step 3, fix one line and rerun the same case.](images/m1c-debug-flow.svg)
+
+<details>
+<summary>Answer</summary>
+
+First, work out what the code should print, by hand: 286. Then run it. If it crashes, the traceback's last line names the error and the line. If it doesn't crash, compare: it printed 236, so something is quietly wrong, here an off-by-one loop. After the fix, run the same example again to check that it prints 286.
+
+</details>
+
+## Interview practice
+
+> **"Walk me through how you'd plan a small Python program before you start coding it."**
+
+<details>
+<summary>Example answer</summary>
+
+First, I'd list what the program needs to do and what data it holds. Then I'd split the work into jobs, and give each job its own function. If many records share the same values and actions, I'd use a class. I'd pick containers by how I'll use the data. For example, I'd use a dictionary when I need to find things by a key. Before I build it all, I'd write a few small examples with known answers, including edge cases, so I can check each piece as I go.
+
+</details>
+
+## Ready for the Boss Battle (Module Project)?
+
+You're ready when you can say "I can" to each of these:
+
+* I can trace loops and `if` statements and predict the output without running the code.
+* I can explain parameters, return values, and local scope.
+* I can choose a list, tuple, dictionary, or set based on what the program needs to do.
+* I can explain saving (serialization) and loading (deserialization).
+* I can check input against clear rules, and tell validation apart from error handling.
+* I can split a program into functions that each do one job.
+* I can write a class, make independent objects, and explain when `__init__` runs.
+* I can compare a linear search, O(n), with a dictionary lookup, O(1) average-case, in plain words.
+* I can work out the expected answer first, then find and name a bug precisely.
+* I can check code by testing it, instead of trusting that it ran.
 
 ---
 
-# 🐛 Challenge 12 — Code Runs. Is It Correct?
-
-An AI assistant generates code that:
-
-* Runs without an Exception.
-* Uses clear variable names.
-* Includes comments.
-* Produces output.
-
-Is that enough evidence that the code is correct?
-
-Explain what you should do next.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Retrieve your Module 0 rule:
-
-**Confidence Is Not Evidence.**
-
-Think:
-
-**Expected Behavior → Actual Behavior**
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-No.
-
-Successful execution and polished presentation do not prove that the program's logic is correct.
-
-Define the Expected Behavior, test the code using known cases and important edge cases, and compare the Actual Behavior with the expected result.
-
-If they differ, trace the code to locate where the behavior diverges.
-
-</details>
-
----
-
-# 🧠 Final Challenge — Design Before Code
-
-Your Inventory Tracker needs to:
-
-* Read transaction data.
-* Validate transactions.
-* Represent independent Items.
-* Search inventory.
-* Handle malformed input.
-* Update inventory.
-* Produce a summary.
-
-Before writing the project, identify:
-
-### One responsibility that belongs in a standalone Function
-
-and:
-
-### One responsibility that belongs on the `Item` Class
-
-For each choice, explain:
-
-> **Why does this responsibility belong there?**
-
-There isn't one perfect architecture.
-
-Your reasoning matters.
-
----
-
-# 💼 Interview Arena
-
-> **Walk me through how you would design a small Python program before you start coding it.**
-
-<details>
-<summary>💡 Hint — Open If You're Stuck</summary>
-
-Think:
-
-**Requirements → Responsibilities → Data → Functions / Objects → Tests**
-
-</details>
-
-<details>
-<summary>✅ Example Answer — Open After You've Answered</summary>
-
-I start by identifying what the program needs to do and what data it needs to represent.
-
-Then I separate the major responsibilities, decide which behaviors belong in standalone Functions and whether any data and behavior make sense as Objects.
-
-I choose Data Structures based on the operations the program needs, define clear inputs and outputs for my Functions, and identify small test cases and edge cases before building everything together.
-
-</details>
-
----
-
-# 🏁 Readiness Check
-
-You're ready for the Boss Battle when you can:
-
-* Trace Control Flow without running the code.
-* Explain Parameters, Return Values, and Local Scope.
-* Choose a Data Structure based on a requirement.
-* Explain Serialization and Deserialization.
-* Validate input using explicit rules.
-* Distinguish Validation from Error Handling.
-* Design Functions with clear responsibilities.
-* Create independent Objects.
-* Explain when `__init__` runs.
-* Compare O(n) Linear Search with O(1) Average-Case Dictionary Lookup.
-* Identify an Off-by-One Error precisely.
-* Verify code instead of assuming that running means correct.
-* Decide what belongs in a Function versus a Class.
-
-If you missed something, reload that specific concept before continuing.
-
----
-
-# 🏆 Boss Battle (Project) Unlocked
-
-You've practiced the pieces separately.
-
-Now you'll combine them in one plain-Python program.
-
-[**Start the Module 1 Boss Battle (Project) — Inventory Tracker →**](project.md)
+**Next:** [Module 1 Conclusion](conclusion.md)

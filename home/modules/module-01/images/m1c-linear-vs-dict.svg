@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560" width="1040" height="560" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Two ways to find a caller</title>
+  <desc id="d">Side by side. Left, a linear search with find_caller looks for 555-0199 in a list of three saved callers: 555-0142 Ana Ruiz, 555-0178 Sam Lee, and 555-0113 Kim Park. Each record is checked and marked no, then it returns None. In the worst case it checks all n records, which is O(n). Right, a dictionary lookup. Step 1: build callers_by_phone once with a loop, which visits every record one time, O(n). Step 2: callers_by_phone.get with 555-0113 goes straight to Kim Park in about one step, which is O(1) average-case. At the bottom: with 400,000 saved callers, a linear search can make up to 400,000 checks for one call, and a dictionary lookup takes about 1 step.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="560" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Two ways to find a caller</text>
+  <line x1="520" y1="62" x2="520" y2="456" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="270" y="84" text-anchor="middle" font-size="21" font-weight="bold" fill="#C2410C">Linear search: find_caller</text>
+  <text x="270" y="116" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">Looking for "555-0199"</text>
+  <rect x="40" y="138" width="340" height="52" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="60" y="171" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">555-0142  Ana Ruiz</text>
+  <text x="440" y="171" text-anchor="middle" font-size="18" font-weight="bold" fill="#C2410C">check 1: no</text>
+  <rect x="40" y="204" width="340" height="52" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="60" y="237" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">555-0178  Sam Lee</text>
+  <text x="440" y="237" text-anchor="middle" font-size="18" font-weight="bold" fill="#C2410C">check 2: no</text>
+  <rect x="40" y="270" width="340" height="52" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="60" y="303" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">555-0113  Kim Park</text>
+  <text x="440" y="303" text-anchor="middle" font-size="18" font-weight="bold" fill="#C2410C">check 3: no</text>
+  <text x="270" y="372" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">Returns None after 3 checks</text>
+  <text x="270" y="408" text-anchor="middle" font-size="18" fill="#111827">Worst case: checks all n records</text>
+  <text x="270" y="440" text-anchor="middle" font-size="21" font-weight="bold" fill="#C2410C">O(n)</text>
+  <text x="780" y="84" text-anchor="middle" font-size="21" font-weight="bold" fill="#1D4ED8">Dictionary lookup</text>
+  <rect x="560" y="104" width="440" height="92" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="780" y="136" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">Step 1: build callers_by_phone</text>
+  <text x="780" y="166" text-anchor="middle" font-size="18" fill="#111827">once, with a loop: O(n), one time</text>
+  <line x1="780" y1="198" x2="780" y2="230" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="560" y="234" width="440" height="70" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="780" y="264" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">Step 2: every lookup after that</text>
+  <text x="780" y="290" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">.get("555-0113")</text>
+  <line x1="780" y1="306" x2="780" y2="338" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="660" y="342" width="240" height="48" rx="24" fill="#ffffff" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="780" y="373" text-anchor="middle" font-size="19" font-weight="bold" fill="#1D4ED8">Kim Park</text>
+  <text x="780" y="418" text-anchor="middle" font-size="18" fill="#111827">About 1 step, at any size</text>
+  <text x="780" y="448" text-anchor="middle" font-size="21" font-weight="bold" fill="#1D4ED8">O(1) average-case</text>
+  <rect x="20" y="474" width="1000" height="66" rx="8" fill="#ffffff" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="520" y="500" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">With 400,000 saved callers, one call can mean:</text>
+  <text x="520" y="528" text-anchor="middle" font-size="18" fill="#111827">up to 400,000 checks (linear search)   vs.   about 1 step (dictionary lookup)</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 540" width="1040" height="540" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">One class, two separate objects</title>
+  <desc id="d">On the left, the SavingsGoal class is written once. It lists three attributes, name, target_amount, and saved_amount, and one method, is_funded(). An arrow labeled creates points to two objects. goal_a holds name Bike Fund, target_amount 500, and saved_amount 420. goal_b holds name Trip Fund, target_amount 1200, and saved_amount 1200. On the right, goal_a.is_funded() runs with self set to goal_a, so it checks 420 &gt;= 500 and returns False. goal_b.is_funded() runs with self set to goal_b, so it checks 1200 &gt;= 1200 and returns True. At the bottom: changing goal_a.saved_amount to 480 changes only goal_a.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="540" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">One class, two separate objects</text>
+  <rect x="20" y="120" width="270" height="290" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="155" y="158" text-anchor="middle" font-size="20" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">class SavingsGoal</text>
+  <text x="155" y="196" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">Attributes:</text>
+  <text x="155" y="224" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">name</text>
+  <text x="155" y="250" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">target_amount</text>
+  <text x="155" y="276" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">saved_amount</text>
+  <text x="155" y="320" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">Method:</text>
+  <text x="155" y="348" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">is_funded()</text>
+  <text x="155" y="390" text-anchor="middle" font-size="18" fill="#475569">written once</text>
+  <line x1="298" y1="222" x2="368" y2="155" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="298" y1="310" x2="368" y2="375" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="334" y="272" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">creates</text>
+  <rect x="372" y="70" width="330" height="170" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="537" y="104" text-anchor="middle" font-size="20" font-weight="bold" fill="#C2410C">goal_a  (an object)</text>
+  <text x="392" y="142" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">name: "Bike Fund"</text>
+  <text x="392" y="174" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">target_amount: 500</text>
+  <text x="392" y="206" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">saved_amount: 420</text>
+  <rect x="372" y="290" width="330" height="170" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="537" y="324" text-anchor="middle" font-size="20" font-weight="bold" fill="#C2410C">goal_b  (an object)</text>
+  <text x="392" y="362" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">name: "Trip Fund"</text>
+  <text x="392" y="394" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">target_amount: 1200</text>
+  <text x="392" y="426" text-anchor="start" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">saved_amount: 1200</text>
+  <line x1="704" y1="155" x2="742" y2="155" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="746" y="70" width="274" height="170" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="883" y="106" text-anchor="middle" font-size="18" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#111827">goal_a.is_funded()</text>
+  <text x="883" y="144" text-anchor="middle" font-size="18" fill="#111827">self is goal_a</text>
+  <text x="883" y="176" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">420 &gt;= 500</text>
+  <text x="883" y="214" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">returns False</text>
+  <line x1="704" y1="375" x2="742" y2="375" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="746" y="290" width="274" height="170" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="883" y="326" text-anchor="middle" font-size="18" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#111827">goal_b.is_funded()</text>
+  <text x="883" y="364" text-anchor="middle" font-size="18" fill="#111827">self is goal_b</text>
+  <text x="883" y="396" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">1200 &gt;= 1200</text>
+  <text x="883" y="434" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">returns True</text>
+  <rect x="20" y="478" width="1000" height="46" rx="8" fill="#ffffff" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="520" y="508" text-anchor="middle" font-size="18" fill="#111827">goal_a.saved_amount = 480 changes only goal_a. goal_b still has 1200.</text>
+</svg>

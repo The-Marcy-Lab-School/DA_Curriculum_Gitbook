@@ -1,626 +1,186 @@
-## Quest 1.8 — Meet the Objects (Days 13–15)
+# Quest 1.8 — Meet the Objects: Classes and Objects (Days 13–15)
 
-### 🎯 Your Mission
+**Total time:** about 55 minutes
 
-Functions help organize behavior.
+**Building blocks:** Decide and repeat · Organize steps · **Hold data** · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
-Data Structures help organize collections.
+## Introduction
 
-Now you'll learn another way to organize a program: **Object-Oriented Programming (OOP)**.
+Many things in a program come in sets of the same kind. For example, a gym uses one sign-up form for every member. The form has the same blanks each time: name, plan, and visits this month. Each member fills in their own copy. Ana's visits never change Jay's.
 
-A Class lets you define a blueprint for a kind of thing. From that blueprint, you can create multiple independent Objects that share a common structure and behavior.
+In Python, the blank form is a **class**. Each filled-in copy is an **object**.
 
-**Target:** Define a Class, create independent Objects, and explain the roles of `__init__`, `__str__`, and `__repr__`.
+In this reading, you'll learn how to:
 
----
+* write a class that stores each object's starting values
+* make several objects from one class, and keep their values apart
+* write a method that works on one object's own values
+* choose what an object shows when you print it
 
-## 🔑 Vocabulary Mission
+**Main takeaway:** A class describes one kind of thing, once. Each object made from it keeps its own values.
 
-Be ready to recognize and explain:
+**Why it matters at work:** Data programs handle many records of the same kind. A class keeps each record's values together, and apart from every other record. Many Python packages for data are built from classes, so these words will come up again and again.
 
-* **Object-Oriented Programming (OOP)**
-* **Class**
-* **Object**
-* **Instance**
-* **Attribute**
-* **Method**
-* `self`
-* `__init__`
-* `__str__`
-* `__repr__`
+## Learning goals
 
-Keep this relationship in mind:
+Check off each goal once you can do it.
 
-**Class → Blueprint**
+- [ ] I can write a class with `__init__`, make two objects from it, and show that changing one doesn't change the other.
+- [ ] I can tell an attribute from a method, and say what `self` means inside a method.
+- [ ] I can add `__str__` and `__repr__` to a class, and predict which one `print()`, `repr()`, and a list will use.
 
-**Object / Instance → One specific thing created from that blueprint**
+**Skills:** Object-Oriented Programming
 
----
+## Quick recall
 
-## 🎮 Warm-Up: One Blueprint, Two Items
+* Recall that a **parameter** is a name in a function's `def` line, and an **argument** is the value you pass in when you call it, from [Build It Once, Use It Again](quest-02-functions-scope.md). A class has a function inside it with parameters, too.
+* Recall that a dictionary stores values under labels called keys, like `goal["saved_amount"]`, from [Pick the Right Container](quest-04-data-structures.md). A class also groups labeled values. It adds the actions that use them.
+* Recall the **f-string** from [Build It Once, Use It Again](quest-02-functions-scope.md): `f"Hi, {name}!"` fills in the value of `name`. The second reading builds strings this way.
 
-Imagine your Inventory Tracker needs to represent:
+## Words to know
 
-```text
-Item A
-Name: Laptop
-Quantity: 4
-Category: Electronics
-```
+### What is a class?: Classes and objects
 
-and:
+| Word | What it means |
+| --- | --- |
+| **Class** | A description of one kind of thing: what each one stores (attributes) and what it can do (methods). You write it once and make many objects from it. |
+| **Object** | One specific thing made from a class, with its own values. |
+| **Instance** | Another word for object. "`goal_a` is an instance of `SavingsGoal`" means `goal_a` was made from that class. |
+| **Object-Oriented Programming (OOP)** | A way of writing programs around objects. Each object holds its data and the actions that use that data. |
+| **CapWords** | The naming style for classes. Each word starts with a capital letter, with no spaces or underscores: `SavingsGoal`. Variables, functions, and methods use lowercase words joined by underscores: `saved_amount`. Both rules come from PEP 8, Python's style guide. See [the Module 1 Introduction](introduction.md#python-syntax-and-style). |
 
-```text
-Item B
-Name: Camera
-Quantity: 9
-Category: Electronics
-```
+### What is inside an object?: Attributes, methods, and self
 
-Both are Items.
+| Word | What it means |
+| --- | --- |
+| **Attribute** | A value stored on an object. You read it with a dot and no parentheses: `goal_a.name`. |
+| **Method** | A function written inside a class. You call it with a dot and parentheses: `goal_a.is_funded()`. The parentheses mean "run this method." |
+| **`__init__`** | The setup method. Python runs it by itself, once, each time a new object is made. It stores the incoming values as that object's attributes. |
+| **`self`** | Inside a method, the object the method is working on: the object before the dot. Python passes it in for you. |
+| **Dunder** | Short for "double underscore." `__init__` is said "dunder init." |
 
-But they're not the **same** Item.
-
-If both Objects come from the same Class, should changing Item A's Quantity automatically change Item B's Quantity?
-
-Why or why not?
-
-Lock in your prediction.
-
----
-
-# 🎯 Main Mission — REQUIRED
-
-Days 13–14 have **two required readings**.
-
-Day 15 is your independent Class-design rep.
-
-Complete both readings before moving to the solo challenge.
-
----
-
-## 🏗️ Part 1 — Meet the Objects — Day 13
-
-**Lecture Connection:** OOP: Building a Class With a Partner
-
-Your first mission is to understand the relationship between a Class and the Objects created from it.
-
-[**Start Required Reading: Meet the Objects →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/oop-buildingaclass/reading-1-meettheobjects/)
-
-As you read, hunt for:
-
-* What a Class represents.
-* What an Object or Instance represents.
-* How Attributes store information about an Object.
-* How Methods define behavior.
-* What `self` refers to.
-* How multiple Objects created from one Class remain independent.
-
-When you return, be ready to answer:
-
-> **What's the difference between a Class and an Object?**
-
----
-
-## ✨ Part 2 — Two Ways to Introduce an Object — Day 14
-
-**Lecture Connection:** Magic Methods — `__init__` / `__str__` / `__repr__`
-
-Now focus on the special Methods Python can use when Objects are created and represented.
-
-[**Start Required Reading: Two Ways to Introduce an Object →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/magic-methods/reading-1-twowaystointroduceanobject/)
-
-As you read, hunt for:
-
-* When `__init__` runs.
-* How `__init__` establishes an Object's initial Attributes.
-* What `__str__` controls.
-* What `__repr__` is meant to communicate.
-* Why useful Object representations can make debugging easier.
-
-When you return, be ready to explain:
-
-> **Why might the way an Object represents itself matter while you're debugging or inspecting a program?**
-
----
-
-# ⚡ Checkpoint 1: Class or Object?
-
-Consider:
+For example, this is the class from the first reading:
 
 ```python
-class Item:
-    pass
-
-laptop = Item()
-camera = Item()
-```
-
-Identify:
-
-**The Class**
-
-**Object 1**
-
-**Object 2**
-
-### First Attempt
-
-Answer before opening the Hint.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Which thing defines the blueprint?
-
-Which things were created from it?
-
-</details>
-
-### Second Attempt
-
-Try again.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-The **Class** is:
-
-```python
-Item
-```
-
-The two **Objects / Instances** are:
-
-```python
-laptop
-camera
-```
-
-Both Objects were created from the same `Item` Class, but they are independent instances.
-
-</details>
-
----
-
-# ⚡ Checkpoint 2: What Is `self`?
-
-Consider:
-
-```python
-class Item:
-    def __init__(self, name, quantity):
+class SavingsGoal:  # CapWords name
+    def __init__(self, name, target_amount, saved_amount):
         self.name = name
-        self.quantity = quantity
+        self.target_amount = target_amount
+        self.saved_amount = saved_amount
+
+    def is_funded(self):
+        return self.saved_amount >= self.target_amount
+
+goal_a = SavingsGoal("Bike Fund", 500, 420)
 ```
 
-In:
+**Code walkthrough:**
+
+1. `class SavingsGoal:` starts the class. Everything indented under it belongs to the class.
+2. `def __init__(self, name, target_amount, saved_amount):` is the setup method. `self` is the new object. The other three parameters receive the values you pass in.
+3. `self.name = name` stores the value of the parameter `name` on this object, as an attribute called `name`. The next two lines do the same for the other values.
+4. `def is_funded(self):` is a method. It reads this object's own attributes and returns `True` or `False`.
+5. `SavingsGoal("Bike Fund", 500, 420)` makes a new object, and Python runs `__init__` once. The parameter `name` is set to `"Bike Fund"`, `target_amount` is set to `500`, and `saved_amount` is set to `420`. You never pass `self` yourself.
+
+### How does an object describe itself?: Magic methods
+
+| Word | What it means |
+| --- | --- |
+| **Magic method** | A method whose name starts and ends with two underscores, like `__init__`, `__str__`, or `__repr__`. Python calls it for you at the right moment. Also called a dunder method. |
+| **`__str__`** | Returns a friendly string for a person to read. `print(obj)`, `str(obj)`, and `f"{obj}"` use it. |
+| **`__repr__`** | Returns an exact string for programmers, usually shaped like the code that made the object, such as `Pet('Biscuit', 'dog')`. `repr(obj)` and lists use it. |
+| **Default representation** | What Python shows when a class has neither method: the class name plus a memory address, like `<__main__.Pet object at 0x7f2b1c0a4d90>`. |
+| **Memory address** | Where an object is stored in the computer's memory. It changes each time you run the file, so it doesn't tell you which object you have. |
+
+## Before you read
+
+In the first reading, you'll focus on a budgeting app that saves for several goals at once, like a Bike Fund and a Trip Fund. Both goals are made from the same class.
+
+Think about: you add money to the Bike Fund. Should the Trip Fund's saved amount change too? Why or why not? Write down your first answer, then see if the reading agrees.
+
+## Read
+
+There are two readings. Do them in order.
+
+As you read the first one, look for:
+
+1. The four steps Python takes when `goal_a = SavingsGoal("Bike Fund", 500, 420)` runs.
+2. What `self` is when you call `goal_a.is_funded()`, and what it is when you call `goal_b.is_funded()`.
+3. What happens to `goal_b` when `goal_a`'s saved amount changes.
+
+**[Start the reading: Meet the Objects →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/oop-buildingaclass/reading-1-meettheobjects/)** (about 23 minutes)
+
+As you read the second one, look for:
+
+1. What Python shows when you print an object whose class has no `__str__` and no `__repr__`.
+2. Who each method is written for: people, or programmers.
+3. The question you ask to predict which method Python uses, and what a list does.
+
+**[Start the reading: Two Ways to Introduce an Object →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/magic-methods/reading-1-twowaystointroduceanobject/)** (about 24 minutes)
+
+## Main takeaways
+
+### Summary
+
+* **Write the class once. Each object keeps its own values.** `__init__` runs once for each new object and stores its starting values on `self`. Changing `goal_a.saved_amount` leaves `goal_b` alone.
+* **An attribute is a stored value. A method is a function inside the class.** Read an attribute with no parentheses. Call a method with parentheses. When a method runs, `self` is the object before the dot.
+* **`__str__` is for people. `__repr__` is for programmers.** `print()` uses `__str__`, and falls back to `__repr__` when there is no `__str__`. `repr()` and lists always use `__repr__`. If you write only one, write `__repr__`.
+
+![On the left, the SavingsGoal class lists three attributes, name, target_amount, and saved_amount, and one method, is_funded(). It creates two objects. goal_a holds Bike Fund, 500, and 420. goal_b holds Trip Fund, 1200, and 1200. goal_a.is_funded() runs with self as goal_a, checks 420 >= 500, and returns False. goal_b.is_funded() runs with self as goal_b, checks 1200 >= 1200, and returns True. A note says changing goal_a.saved_amount to 480 changes only goal_a.](images/m1c-class-objects.svg)
+
+One class makes two objects. The same method gives different answers, because `self` points to a different object each time.
+
+![A decision tree that starts with the question: what is asking Python to describe the object? print, str, or an f-string asks for the friendly view. If the class has __str__, Python shows Biscuit the dog. If not, it falls back to __repr__ and shows Pet('Biscuit', 'dog'). repr, or an object inside a list, always uses __repr__, so a list prints [Pet('Biscuit', 'dog'), Pet('Mochi', 'cat')]. With neither method, Python shows the class name and a memory address.](images/m1c-str-repr.svg)
+
+To predict the output, ask what is asking Python to describe the object.
+
+### Common mix-ups
+
+| If you think... | What's actually true |
+| --- | --- |
+| "`__init__` runs every time I use an object." | It runs once, when the object is made. Reading an attribute or calling a method doesn't run it again. |
+| "Two objects from the same class share their values." | Each object stores its own attributes. Changing one object leaves the others alone. |
+| "I pass `self` when I make an object." | Python passes `self` for you. Write `SavingsGoal("Bike Fund", 500, 420)`, not `SavingsGoal(self, "Bike Fund", 500, 420)`. |
+| "`__str__` should print the string." | It must **return** the string. `print()` then shows what it returns. |
+| "A list of objects uses `__str__`." | A list shows each item with `__repr__`, even when the class has a `__str__`. |
+
+### How this connects
+
+* **Next reading:** You'll go back to finding things in a collection. You'll compare checking items one at a time with jumping straight to an item by its key, and see how the gap grows as the data grows.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll design a small class for the records your program keeps track of. You'll choose its attributes and methods, and show that two objects don't affect each other.
+
+## Quick check
+
+**1.** What does this code print? Name the class, the objects, and one attribute.
 
 ```python
-self.quantity
-```
-
-what does `self` refer to?
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Imagine creating:
-
-```python
-laptop = Item("Laptop", 4)
-camera = Item("Camera", 9)
-```
-
-Whose Quantity should `self.quantity` refer to during each Object's initialization?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-`self` refers to the **current instance** the Method is working with.
-
-When initializing `laptop`, `self.quantity` belongs to the `laptop` Object.
-
-When initializing `camera`, `self.quantity` belongs to the `camera` Object.
-
-That's how different Objects created from the same Class can maintain their own instance Attributes.
-
-</details>
-
----
-
-# 🐛 Misconception Check: When Does `__init__` Run?
-
-A teammate says:
-
-> “`__init__` runs every time I use an Object.”
-
-Correct or incorrect?
-
-### First Attempt
-
-Explain what event actually triggers `__init__`.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Think about the moment you write:
-
-```python
-item = Item(...)
-```
-
-Is the Object being created—or merely used again later?
-
-</details>
-
-### Second Attempt
-
-Try again.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-The statement is **incorrect**.
-
-`__init__` runs as part of initializing a new instance when that Object is created.
-
-It does not rerun every time you later access an Attribute or call another Method on the Object.
-
-Think:
-
-**Create New Object → `__init__`**
-
-not:
-
-**Use Existing Object → `__init__` Again**
-
-</details>
-
----
-
-# 🔍 Object Independence Check
-
-Consider:
-
-```python
-laptop = Item("Laptop", 4)
-camera = Item("Camera", 9)
-
-laptop.quantity = 2
-```
-
-What should `camera.quantity` still be?
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-The Objects share a Class.
-
-Do they share the same instance Attributes?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-`camera.quantity` should still be:
-
-```text
-9
-```
-
-`laptop` and `camera` are independent Objects.
-
-Changing an instance Attribute on `laptop` does not automatically change the corresponding Attribute on `camera`.
-
-This independence is essential for your Inventory Tracker.
-
-</details>
-
----
-
-# ✨ Magic Method Match
-
-Match each Method with its main role.
-
-### `__init__`
-
-### `__str__`
-
-### `__repr__`
-
-Choices:
-
-**A.** Establish an Object's initial state when the instance is created.
-
-**B.** Provide a readable string representation of the Object.
-
-**C.** Provide a representation useful for understanding or inspecting the Object.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Retrieve the role of each Method rather than focusing only on its spelling.
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-A useful match is:
-
-**`__init__` → A**
-
-Establishes the initial state of a new Object.
-
-**`__str__` → B**
-
-Provides a readable string representation.
-
-**`__repr__` → C**
-
-Provides a representation intended to help describe or inspect the Object.
-
-The important distinction is that these Methods have different responsibilities.
-
-</details>
-
----
-
-# 🧪 Solo Class Design — Day 15
-
-**Lab Connection:** Solo Class Design Rep
-
-The partner scaffolding is gone.
-
-Design an `Item` Class that could support your future Inventory Tracker.
-
-Your Class needs to represent:
-
-* A Name.
-* A Quantity.
-* A Category.
-
-It also needs behavior that can determine whether the Item is **low-stock**.
-
-## Step 1 — Design Before Syntax
-
-Complete:
-
-```text
-Class:
-Item
-
-Attributes:
-- ?
-- ?
-- ?
-
-Behavior:
-- ?
-```
-
-Ask:
-
-**What information belongs to each Item?**
-
-**What behavior belongs to an Item?**
-
----
-
-## Step 2 — Build Independently
-
-Create the Class without copying a finished solution.
-
-Then create at least **two different Objects**.
-
-For example, your Objects should be able to represent two Items with different Names and Quantities.
-
----
-
-## Step 3 — Test Independence
-
-Change the Quantity of one Object.
-
-Verify that the other Object does **not** change.
-
-Don't assume.
-
-Run the test.
-
----
-
-## Step 4 — Inspect Your Objects
-
-Try your Object representations.
-
-Ask:
-
-* What happens when I print the Object?
-* Is the output useful to a person?
-* What representation would help me while debugging?
-
-Connect those questions to `__str__` and `__repr__`.
-
----
-
-# 🐛 Bug Hunt: Undefined Attribute
-
-Consider:
-
-```python
-class Item:
-    def __init__(self, name, quantity):
+class Pet:
+    def __init__(self, name, species):
         self.name = name
-        self.quantity = quantity
+        self.species = species
 
-    def describe(self):
-        return f"{self.name}: {self.category}"
+biscuit = Pet("Biscuit", "dog")
+mochi = Pet("Mochi", "cat")
+mochi.name = "Miso"
+print(biscuit.name)
 ```
-
-The programmer creates:
-
-```python
-laptop = Item("Laptop", 4)
-```
-
-Then calls:
-
-```python
-laptop.describe()
-```
-
-What's the problem?
-
-### First Attempt
-
-Trace the Attributes created during `__init__`.
 
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Which Attributes exist?
-
-```text
-name
-quantity
-category
-```
-
-Were all three created?
+It prints `Biscuit`. `Pet` is the class. `biscuit` and `mochi` are objects. `name` and `species` are attributes. Changing `mochi.name` doesn't touch `biscuit`.
 
 </details>
 
-### Second Attempt
-
-Try again.
+**2.** The `Pet` class has the reading's `__repr__` method but no `__str__`. What does `print(biscuit)` show? What does `print([biscuit])` show?
 
 <details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+<summary>Answer</summary>
 
-The Method tries to access:
-
-```python
-self.category
-```
-
-but `category` was never created on the Object.
-
-`__init__` created only:
-
-```python
-self.name
-self.quantity
-```
-
-This is an **Undefined Attribute** problem.
-
-One fix would be to make `category` part of the Object's initialization if every Item is expected to have one.
-
-The key debugging habit is to compare:
-
-**Attribute Used → Attribute Actually Created**
+`Pet('Biscuit', 'dog')`, then `[Pet('Biscuit', 'dog')]`. With no `__str__`, `print()` falls back to `__repr__`. A list always uses `__repr__`.
 
 </details>
 
 ---
 
-# 🧠 OOP or Just Functions?
-
-A teammate says:
-
-> “Now that we know Classes, every program should use OOP.”
-
-Do you agree?
-
-Explain your reasoning.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Think back to your single-purpose Functions.
-
-Does learning a new tool mean every problem requires that tool?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-No.
-
-A Class can be useful when you need multiple independent instances that share a common structure and related behavior.
-
-But a short program may be clearer with simple Data Structures and Functions.
-
-The goal isn't:
-
-> **“Use OOP everywhere.”**
-
-The goal is:
-
-> **“Choose an organization that fits the problem.”**
-
-</details>
-
----
-
-# 💼 Interview Arena
-
-> **When might you choose a Class instead of only using Functions and loose data?**
-
-<details>
-<summary>💡 Hint — Open If You're Stuck</summary>
-
-Think:
-
-**Multiple Instances → Related Data → Related Behavior**
-
-</details>
-
-<details>
-<summary>✅ Example Answer — Open After You've Answered</summary>
-
-I might use a Class when I need to represent multiple independent instances of the same kind of thing and keep their related data and behavior together.
-
-For example, an Inventory Tracker may have many Item Objects that each have their own Name, Quantity, and Category while sharing behaviors defined by the `Item` Class.
-
-I wouldn't automatically use a Class for every program. I'd use it when that organization makes the problem clearer.
-
-</details>
-
----
-
-# 🏁 Final Check
-
-You're ready to move on when you can:
-
-* Explain **Class** versus **Object / Instance**.
-* Identify Attributes and Methods.
-* Explain what `self` refers to.
-* Explain when `__init__` runs.
-* Explain the basic roles of `__str__` and `__repr__`.
-* Create multiple independent Objects from one Class.
-* Verify that changing one Object doesn't automatically change another.
-* Recognize an Undefined Attribute problem.
-* Design a simple Class independently.
-* Explain when a Class may be useful without claiming every program needs OOP.
-
----
-
-# 🔓 Next Unlock
-
-You now have Objects that can represent individual inventory Items.
-
-But your inventory may eventually contain thousands of them.
-
-Remember your Day 6 question:
-
-> **What happens as the collection grows?**
-
-Now you're ready to compare two real lookup strategies.
-
-[**Continue to Quest 1.9 — Lookups Matter (Days 16–17) →**](quest-09-big-o-practice.md)
+**Next:** [Quest 1.9 — Lookups Matter: Search Speed in Practice (Days 16–17)](quest-09-big-o-practice.md)

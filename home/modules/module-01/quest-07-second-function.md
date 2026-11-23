@@ -1,537 +1,163 @@
-## Quest 1.7 — One Job at a Time (Days 11–12)
+# Quest 1.7 — One Job at a Time: Writing a Second Function (Days 11–12)
 
-### 🎯 Your Mission
+**Total time:** about 35 minutes
 
-You've already built a Function that answers a focused question:
+**Building blocks:** Decide and repeat · **Organize steps** · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
-> **Is this transaction valid?**
+## Introduction
 
-Now the scaffolding starts to fade.
+Work goes better when each person has one clear job. For example, at a busy café, one worker takes orders, makes coffee, and cleans tables. Orders get mixed up, and it's hard to tell what went wrong. With one job each, everyone knows who to ask when something breaks.
 
-You'll design another Function that takes validated data and produces a useful summary.
+Functions work the same way. A function with one job is easier to test, fix, and reuse. When someone asks for something new, you write a new function instead of making an old one longer.
 
-The challenge isn't just getting the code to run.
+In this reading, you'll learn how to:
 
-It's deciding what the Function should be responsible for—and what it should **not** be responsible for.
+* decide a function's input, its one job, and its output before you write code
+* add things up with an accumulator inside a loop
+* return a summary instead of printing it, so other functions can use it
 
-**Target:** Use Loops and Conditional logic inside a single-purpose Function to summarize validated transaction data.
+**Main takeaway:** Give each function one job you can say in one sentence. Return the result, and give each new job its own function.
 
----
+**Why it matters at work:** "Can you split this into two functions?" is common feedback on code. Small one-job functions are easier to change when your manager asks for one more report.
 
-## 🔑 Vocabulary Mission
+## Learning goals
 
-This time, most of the vocabulary is retrieval.
+Check off each goal once you can do it.
 
-Be ready to use:
+- [ ] I can describe a function's contract (input, one job, output) before I write it.
+- [ ] I can use an accumulator in a loop to build a total and a count.
+- [ ] I can tell when a function is doing too many jobs, and move the extra job into its own function.
 
-* **Function**
-* **Parameter**
-* **Return Value**
-* **Accumulator**
-* **Validation**
-* **Single-Purpose Function**
+**Skills:** Functions & Modular Programming
 
-Connect the ideas:
+## Quick recall
 
-**Input → Function Responsibility → Processing → Return Value**
+* Recall that `return` hands a value back to the caller, and a function with no `return` gives back `None`. You also kept a running total with `total += loads`. You did both in [Build It Once, Use It Again](quest-02-functions-scope.md).
+* Recall that `for code, time in finished:` takes each tuple apart into two variables. That's **unpacking**, from [Pick the Right Container](quest-04-data-structures.md). This reading loops over `(day, steps)` tuples the same way.
+* Recall that a validation function checks each record against rules before the program uses it. You built one in [Validate, Catch, Keep Going](quest-06-validation-errors.md). This reading starts after that check is done.
 
----
+## Words to know
 
-## 🎮 Warm-Up: What's the Job?
+### What counts as one job?: Single-purpose functions
 
-Imagine a Function named:
+| Word | What it means |
+| --- | --- |
+| **Function** | A named, reusable block of code that runs when you call it. |
+| **Parameter** | A name in a function's `def` line that gets a value when the function is called. In `summarize_steps(days, goal)`, `days` and `goal` are parameters. |
+| **Argument** | The value you pass in when you call the function. In `summarize_steps(days, 8000)`, the argument `8000` fills the parameter `goal`. |
+| **Return value** | The value a function hands back to the code that called it, using `return`. |
+| **Caller** | The line of code that calls a function and gets its return value. |
+| **Contract** | What a function takes in, its one job, and what it gives back. Decide it before you write any code. |
+| **Single-purpose function** | A function that does one job, which you can describe in one sentence. That job can still give several related results, like a total and a count. |
+| **Summarizing** | Reporting useful facts, like a total, from data that was already checked. |
+| **Summary dict** | A dictionary that holds the results under names, like `{"total": 38070, "goal_days": 3}`. |
 
-```python id="6g6m6x"
-summarize_transactions(valid_transactions)
+The broader name for this idea is the **single-responsibility principle**: each piece of code should have one job, and so only one reason to change.
+
+### Adding things up: Accumulators
+
+| Word | What it means |
+| --- | --- |
+| **Accumulator** | A variable set before a loop and updated on every pass, like a running total. After the loop ends, it holds the answer. |
+| **Pass** | One time through the loop body. Another word for it is *iteration*. |
+| **`+=`** | `total += steps` is short for `total = total + steps`. It takes the old total, adds `steps`, and stores the result back in `total`. |
+| **Counter** | An accumulator that adds 1 each time something happens, like `goal_days += 1` when a day meets the goal. |
+| **`continue`** | Skips the rest of the loop body for this pass and moves on to the next item. |
+
+For example, here's how the reading's two accumulators change on each pass, with the goal set to 8,000 steps:
+
+![A worked example of summarize_steps with the goal set to 8,000 steps. Before the loop, total = 0 and goal_days = 0. Mon, 6,200 steps, misses the goal: total 6,200, goal_days 0. Tue, 9,120 steps, meets it: total 15,320, goal_days 1. Wed, 8,000 steps, meets it: total 23,320, goal_days 2. Thu, 4,300 steps, misses it: total 27,620, goal_days 2. Fri, 10,450 steps, meets it: total 38,070, goal_days 3. Days that met the goal are blue. After the loop, the function returns {"total": 38070, "goal_days": 3}.](images/m1b-accumulator-trace.svg)
+
+Wednesday counts because the check is `steps >= goal`: 8,000 is *at least* 8,000. The total is in steps. `goal_days` is a count of days.
+
+## Before you read
+
+In the reading, you'll focus on a fitness tracker. One function already checked a week of step counts and kept only the good days. Now you want a weekly summary: the total steps, and how many days met the step goal.
+
+Think about: should the checking function also make the summary, or should the summary get its own function? Write down your first answer, then see if the reading agrees.
+
+## Read
+
+As you read, look for:
+
+1. The three things to decide before writing `summarize_steps`: what goes in, its one job, and what comes out.
+2. What changes in the output when the goal changes, and what stays the same in the function.
+3. Why the teammate's version, with `try` and `except` inside the summary, is a design problem even though it gives the right answer.
+
+**[Start the reading: One Job at a Time →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/summarizing-data-second-function/reading-1-onejobatatime/)** (about 23 minutes)
+
+Day 12 has no new reading. In class, you'll practice functions, validation, `try` and `except`, and saving data, without notes first.
+
+## Main takeaways
+
+### Summary
+
+* **Decide the contract first.** Input: a list of good `(day, steps)` tuples and a goal. One job: summarize the week. Output: a summary dict.
+* **An accumulator starts before the loop**, changes on every pass, and holds the answer after the loop. If you set it to 0 inside the loop, it starts over on every pass.
+* **Return the result, and don't check twice.** Returning the dict lets another function print it, save it, or email it. `summarize_steps` trusts the days that `validate_days` already checked.
+
+Here is the finished function from the reading:
+
+```python
+def summarize_steps(days, goal):
+    total = 0
+    goal_days = 0
+    for day, steps in days:
+        total += steps
+        if steps >= goal:
+            goal_days += 1
+    return {"total": total, "goal_days": goal_days}
+
+summary = summarize_steps(days, 8000)
 ```
 
-Its job is to count how many transactions are:
+**Code walkthrough:**
 
-```text id="k0th8q"
-ADD
-REMOVE
-SEARCH
-```
+1. The `def` line names two parameters: `days`, a list of good `(day, steps)` tuples, and `goal`, the daily step goal.
+2. `total = 0` and `goal_days = 0` set up the two accumulators before the loop.
+3. `for day, steps in days:` unpacks each tuple, so `day` gets a name like `"Mon"` and `steps` gets a number like `6200`.
+4. `total += steps` adds this day's steps to the running total.
+5. `if steps >= goal:` decides what to count. It isn't validation: the data was already checked.
+6. `return` hands a summary dict back to the caller. It sits outside the loop, so it runs once, after every day.
+7. In the call, `days` is the reading's list of five good days. The parameter `goal` is set to the argument `8000`. To use a different goal, change only the argument. The function stays the same.
 
-Which responsibility probably **doesn't** belong inside this Function?
+![Three functions in a chain. validate_days(), with the job "check records," passes good days, like [("Mon", 6200), ...], to summarize_steps(), with the job "summarize the week." summarize_steps() passes a summary, {"total": 38070, "goal_days": 3}, to print_week(), with the job "print the summary." Two dashed boxes branch from the summary: "New job: email the summary" and "New job: save it to a file," each a new function. Note: summarize_steps() returns its result, so new jobs never change it.](images/m1b-three-functions.svg)
 
-**A.** Loop through the validated transactions.
+### Common mix-ups
 
-**B.** Count operation types.
+| If you think... | What's actually true |
+| --- | --- |
+| "One job means one result." | Count jobs, not results. A total and a count about the same week are one job. |
+| "Every function should re-check its data, to be safe." | Checking twice mixes two jobs. Validation happens once, in `validate_days`. |
+| "`if steps >= goal` is validation." | It decides what to count. It's part of summarizing. |
+| "Printing the summary is the same as returning it." | Printing only shows it on the screen. Returning hands it back, so other code can use it. |
+| "A new request means adding code to the old function." | A new job, like emailing the summary, gets its own function. That function takes the returned summary. |
 
-**C.** Return a summary.
+### How this connects
 
-**D.** Rebuild the entire file-reading and Validation process from scratch.
+* **Next reading:** So far, you've kept data in containers and work in functions, separately. Next, you'll bundle related data and the functions that work on it into one unit. Then you'll make several separate copies of that unit, each with its own data.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll build your program from small functions. Each one will have a job you can say in one sentence, and each will pass its result to the next.
 
-Lock in your answer and explain why.
+## Quick check
 
----
-
-# 🎯 Main Mission — REQUIRED
-
-## 🧩 One Job at a Time — Day 11
-
-**Lecture Connection:** Summarizing Data With a Second Function
-
-This reading deliberately gives you **less scaffolding** than your first Validation Function.
-
-That's the point.
-
-You're moving from:
-
-**“Follow these steps.”**
-
-toward:
-
-**“Define the responsibility and design the steps.”**
-
-[**Start Required Reading: One Job at a Time →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/summarizing-data-second-function/reading-1-onejobatatime/)
-
-As you read, hunt for:
-
-* How to define one clear Function responsibility.
-* How a Loop can process a collection.
-* How Conditionals can separate categories.
-* How an Accumulator changes during Iteration.
-* Why the Function should return a useful result.
-* How this Function can consume data that another Function already validated.
-
-When you return, be ready to answer:
-
-> **What makes a Function single-purpose?**
-
----
-
-# ⚡ Checkpoint 1: Define the Contract Before the Code
-
-Imagine:
-
-```python id="qaxfse"
-summary = summarize_transactions(valid_transactions)
-```
-
-Before writing any Function body, define its contract.
-
-### Input
-
-What should go in?
-
-### Job
-
-What should the Function do?
-
-### Output
-
-What should come back?
-
-### First Attempt
-
-Write your contract without looking at a finished solution.
+**1.** Using the reading's five days, what does `summarize_steps(days, 10000)` return?
 
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Don't start with Python syntax.
-
-Complete these sentences:
-
-> “This Function receives…”
-
-> “Its one job is…”
-
-> “It returns…”
+`{"total": 38070, "goal_days": 1}`. The total doesn't depend on the goal. Only Friday (10,450 steps) reaches 10,000.
 
 </details>
 
-### Second Attempt
-
-Refine your contract.
+**2.** A teammate's `summarize_steps` ends with `print(summary)` and has no `return`. What does `result = summarize_steps(days, 8000)` store in `result`? Why is that a problem?
 
 <details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+<summary>Answer</summary>
 
-One reasonable contract is:
-
-**Input:** A collection of already-validated transactions.
-
-**Job:** Loop through the transactions and summarize their operation types.
-
-**Output:** A summary that another part of the program can use.
-
-The exact representation of the summary can vary.
-
-The important design idea is that the Function has a **clear, limited responsibility**.
+`None`, because a function with no `return` gives back `None`. The summary shows on the screen, but no other code can use it to save, compare, or email it.
 
 </details>
 
 ---
 
-# 🔢 Checkpoint 2: Meet the Accumulator
-
-Suppose you want to count `ADD` transactions.
-
-You start with:
-
-```python id="nnb2qn"
-add_count = 0
-```
-
-Then, while looping through transactions, you increase `add_count` whenever you encounter an `ADD`.
-
-What role is `add_count` playing?
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Its value starts somewhere and changes as the Loop processes more data.
-
-Retrieve today's vocabulary.
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-`add_count` is acting as an **Accumulator**.
-
-An Accumulator stores a running result as a Loop processes values.
-
-For example:
-
-```python id="5khbsn"
-add_count = 0
-
-for transaction in transactions:
-    if transaction["operation"] == "ADD":
-        add_count += 1
-```
-
-Each matching transaction updates the running count.
-
-</details>
-
----
-
-# 🎮 Build the Logic Before the Syntax
-
-You receive these validated operation types:
-
-```text id="64p8yg"
-ADD
-REMOVE
-ADD
-SEARCH
-ADD
-REMOVE
-```
-
-Without writing Python first, determine:
-
-```text id="unmffg"
-ADD    → ?
-REMOVE → ?
-SEARCH → ?
-```
-
-Then describe the algorithm in plain language.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Try:
-
-1. Start each count at zero.
-2. Inspect one transaction.
-3. Identify its operation.
-4. Update the matching count.
-5. Repeat.
-6. Return the summary.
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-The counts are:
-
-```text id="h7z00b"
-ADD    → 3
-REMOVE → 2
-SEARCH → 1
-```
-
-A plain-language algorithm could be:
-
-1. Create a count for each operation type.
-2. Loop through the validated transactions.
-3. Check each transaction's operation.
-4. Increase the matching count.
-5. Return the completed summary.
-
-Notice that you can reason about the algorithm **before** deciding on every line of Python syntax.
-
-</details>
-
----
-
-# 🧠 Single-Purpose Challenge
-
-Consider this proposed Function:
-
-```text id="tpxs9c"
-summarize_transactions()
-```
-
-It:
-
-* Opens the file.
-* Reads every line.
-* Converts quantities.
-* Validates transactions.
-* Handles malformed input.
-* Counts operation types.
-* Prints the final report.
-* Saves another file.
-
-What's the design concern?
-
-### First Attempt
-
-Don't just say:
-
-> “It's too long.”
-
-Explain the responsibility problem.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-How many different jobs is this one Function responsible for?
-
-Could those jobs change independently?
-
-</details>
-
-### Second Attempt
-
-Try again.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-The Function has **too many responsibilities**.
-
-It's handling file input, conversion, Validation, Error Handling, Summarization, output, and storage.
-
-Separating major responsibilities into focused Functions can make each piece easier to reason about, test, debug, and reuse.
-
-The goal isn't:
-
-> “Every Function must be tiny.”
-
-The goal is:
-
-> **Each Function should have a clear responsibility.**
-
-</details>
-
----
-
-# 🔗 Pipeline Challenge
-
-You've now learned several pieces that can cooperate.
-
-Put them into a reasonable order:
-
-**Summarize**
-
-**Deserialize / Read**
-
-**Validate**
-
-**Handle Expected Failures**
-
-A simplified processing pipeline might look like:
-
-```text id="x3nzt4"
-Stored Data
-    ↓
-?
-    ↓
-?
-    ↓
-?
-    ↓
-Summary
-```
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Ask:
-
-1. How does data enter the program?
-2. When should you determine whether it meets your rules?
-3. When would Error Handling matter?
-4. When should already-validated data be summarized?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-One reasonable conceptual pipeline is:
-
-```text id="w2n67b"
-Stored Data
-    ↓
-Read / Deserialize
-    ↓
-Validate
-    ↓
-Handle Expected Failures Where Needed
-    ↓
-Summarize Valid Data
-```
-
-Real programs may organize these responsibilities differently, and Error Handling can appear at multiple points.
-
-The important idea is that the responsibilities **work together without becoming the same responsibility**.
-
-</details>
-
----
-
-# ⚔️ Recall & Practice — Day 12
-
-**Lecture Connection:** Recall & Practice: Functions, Validation, `try` / `except`, Serialization
-
-No new reading.
-
-This is retrieval.
-
-Try every round **without notes first**.
-
-### Round 1 — Functions
-
-Explain:
-
-**Parameter → Function Body → Return Value**
-
-### Round 2 — Scope
-
-Why can't unrelated code automatically access every Local Variable created inside another Function?
-
-### Round 3 — Serialization
-
-What's the difference between Serialization and Deserialization?
-
-### Round 4 — Validation
-
-What question should a Validation Function answer?
-
-### Round 5 — Error Handling
-
-What's the purpose of `try` / `except`?
-
-### Round 6 — Summarization
-
-What's an Accumulator, and why might a summary Function need one?
-
-### Round 7 — Put It Together
-
-Explain one possible role for each:
-
-**Serialization → Validation → Error Handling → Summary Function**
-
-Anything you can't explain clearly becomes a **Reload**.
-
-Review only that concept, close the material, and retrieve it again.
-
----
-
-# 🐛 Debug the Candidate Answer
-
-An interview candidate says:
-
-> “A good Function should read the file, validate everything, handle every error, calculate the results, print them, and save them so all the code stays in one place.”
-
-What's the weakness in that reasoning?
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-“One place” can sound convenient.
-
-But think about:
-
-**Responsibilities → Testing → Debugging → Change**
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-Keeping everything in one Function can mix many unrelated responsibilities.
-
-That can make individual behaviors harder to test, debug, reuse, and change independently.
-
-A stronger design usually separates major responsibilities into focused Functions with clear inputs and outputs.
-
-</details>
-
----
-
-# 💼 Interview Arena
-
-> **What makes a Function single-purpose?**
-
-<details>
-<summary>💡 Hint — Open If You're Stuck</summary>
-
-Ask yourself:
-
-> **Can I describe this Function's responsibility in one clear sentence?**
-
-Then connect that responsibility to its inputs and outputs.
-
-</details>
-
-<details>
-<summary>✅ Example Answer — Open After You've Answered</summary>
-
-A single-purpose Function has one clearly defined responsibility and inputs and outputs that support that job.
-
-For example, a Validation Function can answer whether a transaction meets the program's rules, while a separate summary Function can take validated transactions and calculate a result.
-
-Separating those responsibilities makes each Function easier to reason about and test.
-
-</details>
-
----
-
-# 🏁 Final Check
-
-You're ready to move on when you can:
-
-* Define a Function's **Input, Job, and Output** before coding.
-* Explain what an **Accumulator** does.
-* Use Loops and Conditionals inside a Function.
-* Return a useful result instead of relying only on printing.
-* Explain what makes a Function single-purpose.
-* Explain why Validation and Summarization can be separate responsibilities.
-* Connect Serialization, Validation, Error Handling, and Functions.
-* Design a basic algorithm before translating it into Python syntax.
-* Retrieve the Days 3–12 concepts without depending on the readings.
-
----
-
-# 🔓 Next Unlock
-
-So far, you've organized behavior into Functions and data into structures.
-
-Next, you'll learn another way to organize a program:
-
-> **What if related data and behavior belong together—and you need multiple independent versions of the same thing?**
-
-[**Continue to Quest 1.8 — Meet the Objects (Days 13–15) →**](quest-08-oop.md)
+**Next:** [Quest 1.8 — Meet the Objects: Classes and Objects (Days 13–15)](quest-08-oop.md)

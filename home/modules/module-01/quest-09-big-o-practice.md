@@ -1,454 +1,135 @@
-## Quest 1.9 — Lookups Matter (Days 16–17)
+# Quest 1.9 — Lookups Matter: Search Speed in Practice (Days 16–17)
 
-### 🎯 Your Mission
+**Total time:** about 35 minutes
 
-Back on Day 6, you built your first Big-O intuition:
+**Building blocks:** Decide and repeat · Organize steps · Hold data · Load, save, and protect · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
-> **What happens to the amount of work as the input grows?**
+## Introduction
 
-Now you'll connect that question to real Python code.
+How you look for something matters more as the pile grows. For example, you need one word in a book. You can turn the pages one by one from the start. Or you can use the index at the back, which sends you straight to the right page. In a 10-page booklet, turning pages is fine. In a 900-page book, the index saves a lot of time.
 
-You'll compare two ways to find an Item:
+In this reading, you'll learn how to:
 
-**Linear Search → Check Items one by one**
+* explain why searching a list gets slower as the list grows
+* build a dictionary once, with a loop, so you can find any item by its key
+* look up a key safely, so a missing key doesn't crash your program
+* decide when a simple list search is still fine
 
-**Dictionary Lookup → Retrieve an Item using its Key**
+**Main takeaway:** A list search checks items one at a time, so its work grows with the list. A dictionary lookup jumps straight to the key, so its work stays about the same.
 
-Both can work.
+**Why it matters at work:** Data keeps growing. Code that feels instant on 20 rows can make people wait on 400,000. "Why did you use a dict instead of a list?" is also a common interview question.
 
-But they don't scale the same way.
+## Learning goals
 
-**Target:** Compare Linear Search with Dictionary Lookup and explain why their growth behavior differs as inventory size increases.
+Check off each goal once you can do it.
 
----
+- [ ] I can explain in plain words why a linear search is O(n) and a dictionary lookup is O(1) on average.
+- [ ] I can build a dictionary from a list with a loop, and look up a key with `.get()` so a missing key gives `None` instead of an error.
+- [ ] I can decide when a list search is fine and when building a dictionary pays off.
 
-## 🔑 Vocabulary Mission
+**Skills:** Algorithmic Complexity (Big-O) · Data Structures & Algorithms
 
-Be ready to recognize and explain:
+## Quick recall
 
-* **Linear Search**
-* **Dictionary Lookup**
-* **Input Size**
-* **O(n)**
-* **O(1) Average-Case**
-* **Scale**
-* **Complexity**
+* Recall that a linear search checks items one at a time, and that Big-O describes how the work grows as the input grows, from [When the Crowd Grows](quest-03-big-o-intuition.md). When a list of 300 bookings doubles to 600, the worst case doubles from 300 checks to 600.
+* Recall that a dictionary stores each value under a key, from [Pick the Right Container](quest-04-data-structures.md). `drivers["D-5521"]` gives the value stored under the key `"D-5521"`, and `drivers["D-5522"] = "Ari"` adds a new pair.
+* Recall that a **method** is a function that belongs to an object, called with a dot and parentheses, from [Meet the Objects](quest-08-oop.md). In this reading, `.get()` is a method that every dictionary has.
 
-Don't stop at the notation.
+## Words to know
 
-You should be able to translate:
+### How do you find one item?: Linear search and dictionary lookup
 
-**O(n)**
+| Word | What it means |
+| --- | --- |
+| **Record** | One saved entry with a few values that belong together, like a phone number and a name. In the reading, each record is a small dictionary. |
+| **Linear search** | Checking items one at a time, in order, until one matches or none are left. |
+| **Dictionary lookup** | Finding a value straight from its key, like `callers_by_phone.get("555-0113")`. |
+| **`.get(key)`** | A dictionary method that looks up a key. It returns the value, or `None` when the key is missing. |
+| **`None`** | Python's value for "nothing here." Python code checks for it with `is`: `if name is None:`. |
+| **`KeyError`** | The error Python raises when you use square brackets with a key that isn't in the dictionary. |
 
-and
+### How does the work grow?: Big-O and complexity
 
-**O(1) Average-Case**
+Big-O counts **steps** (checks), not seconds on a clock.
 
-into plain language.
+| Word | What it means |
+| --- | --- |
+| **Input size (n)** | How many items the code has to work through. For the help line, n is the number of saved callers. |
+| **Worst case** | The input that makes code do the most work. For a linear search, the item is last or not there at all, so every item gets checked. |
+| **O(n)** | The work grows in step with the input size. Double n, and the worst case doubles. A linear search is O(n). |
+| **O(1) average-case** | A typical lookup takes about one step, no matter how big n gets. A rare one can take a little longer. A dictionary lookup is O(1) on average. |
+| **Complexity** | How much work code does as its input grows, written in Big-O, such as O(n) or O(1). |
+| **Scale** | How a cost changes as the data grows. Two searches can tie on 10 items and be far apart on 10 million. |
 
----
+## Before you read
 
-## 🎮 Warm-Up: The Inventory Grows
+In the reading, you'll focus on a help line. When someone calls, the screen shows the caller's name. The program finds it by searching a list of saved callers for the phone number. With 20 saved callers, the name appeared at once. With 400,000, people wait several seconds.
 
-Imagine your inventory contains **10 Items**.
+Think about: the code didn't change, so why did it slow down? What would you change? Write down your first answer, then see if the reading agrees.
 
-Then it grows to **10,000 Items**.
+## Read
 
-You need to find `"camera"`.
+As you read, look for:
 
-### Approach A — Linear Search
+1. How many records the search checks when the phone number is last, or not saved at all.
+2. What it costs to build the dictionary, and how often you pay that cost.
+3. What square brackets do with a missing key, and what `.get()` does instead.
 
-Check each Item one by one until the Name matches.
+**[Start the reading: Lookups Matter →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/python-data-structures/reading-2-lookupsmatter/)** (about 23 minutes)
 
-### Approach B — Dictionary Lookup
+## Main takeaways
 
-Use `"camera"` as a Dictionary Key.
+### Summary
 
-Which approach do you predict will be more affected as the inventory grows?
+* **A linear search is O(n).** In the worst case, it checks every record. With 400,000 saved callers, one call can mean 400,000 checks.
+* **Build the dictionary once, then look up many times.** Building `callers_by_phone` with a loop visits every record once: O(n), paid one time. Each lookup after that is O(1) on average, about one step at any size.
+* **Use `.get()` when a key might be missing.** Square brackets raise a `KeyError` and stop the program. `.get()` returns `None`, so your code can treat the number as a new caller.
 
-Explain **why** before starting the reading.
+![Side by side. Left, a linear search looks for 555-0199 in three saved callers, Ana Ruiz, Sam Lee, and Kim Park. Each check says no, and it returns None after 3 checks. In the worst case it checks all n records: O(n). Right, a dictionary lookup. Step 1 builds callers_by_phone once with a loop, O(n), one time. Step 2, .get("555-0113"), goes straight to Kim Park in about 1 step at any size: O(1) average-case. At the bottom: with 400,000 saved callers, one call can mean up to 400,000 checks with a linear search, or about 1 step with a dictionary lookup.](images/m1c-linear-vs-dict.svg)
 
----
+A list search is still fine when the list is tiny or you search only once. Then building a dictionary costs about as much as the search it replaces. A dictionary pays off when you search many times, or when the data keeps growing.
 
-# 🎯 Main Mission — REQUIRED
+### Common mix-ups
 
-## 🔎 Lookups Matter — Day 16
+| If you think... | What's actually true |
+| --- | --- |
+| "A dictionary is faster at every size, so always build one." | For one search on 12 items, building the dictionary costs about as much as the search. It pays off when you search many times. |
+| "My list search finished first on 3 items, so it has better Big-O." | Big-O describes how the work grows as the data grows. It doesn't describe who wins one small timing test. |
+| "O(1) means exactly one step, every time." | It means about the same work at any size, on average. A rare lookup can take a little longer. |
+| "`callers_by_phone["555-0199"]` gives `None` when the number isn't saved." | Square brackets raise a `KeyError`. Only `.get()` returns `None`. |
+| "A linear search always checks every item." | It stops as soon as it finds a match. Only the worst case checks every item. |
 
-**Lecture Connection:** Big-O in Practice: Linear Scan vs. Dict Lookup, With a Partner
+### How this connects
 
-This is where your Day 6 Big-O intuition meets your Day 7 Data Structures work.
+* **Next reading:** Fast code can still give the wrong answer. You'll learn to work out the right answer by hand first, then compare it with what the code prints. That catches mistakes that never show an error message.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll choose how to store and search your program's records. Then you'll explain, in plain words, the tradeoff between searching a list and looking up a key.
 
-[**Start Required Reading: Lookups Matter →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/python-data-structures/reading-2-lookupsmatter/)
+## Quick check
 
-As you read, hunt for:
-
-**Linear Search → O(n)**
-
-versus:
-
-**Dictionary Lookup → O(1) Average-Case**
-
-Pay attention to:
-
-* What happens during a Linear Search.
-* Why the amount of Linear Search work can grow with the collection.
-* How Dictionary Keys support lookup.
-* Why Dictionary Lookup is described as O(1) Average-Case.
-* Why tiny examples can hide meaningful differences.
-* Why the Data Structure you choose affects the operations available to your program.
-
-When you return, be ready to answer:
-
-> **Why can Dictionary Lookup scale differently from Linear Search?**
-
----
-
-# ⚡ Checkpoint 1: Name the Complexity
-
-Match each approach with its expected complexity.
-
-### Linear Search by Item Name
-
-**A. O(n)**
-
-**B. O(1) Average-Case**
-
-### Dictionary Lookup by Key
-
-**A. O(n)**
-
-**B. O(1) Average-Case**
-
-### First Attempt
-
-Choose both before opening the Hint.
+**1.** A list holds 50,000 product codes. A program checks whether a code is in that list 10,000 times a day. Should it keep searching the list, or build a dictionary first? Why?
 
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Which approach may need to inspect more Items as the collection grows?
-
-Which approach uses a Key to access the desired entry?
+Build a dictionary (or a set) first. That costs O(n) once. After that, each check takes about one step. With the list, each check can take up to 50,000 comparisons, 10,000 times a day.
 
 </details>
 
-### Second Attempt
+**2.** What does this code print?
 
-Try again.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-**Linear Search → O(n)**
-
-A Linear Search may need to inspect Items one by one. As the number of Items grows, the amount of work can grow with it.
-
-**Dictionary Lookup → O(1) Average-Case**
-
-A Dictionary can retrieve a Value using its Key without performing the same one-by-one scan through every entry.
-
-That's why its lookup is described as **O(1) Average-Case**.
-
-</details>
-
----
-
-# 🔎 Trace the Linear Search
-
-Consider:
-
-```python id="5xv9y8"
-items = ["laptop", "charger", "camera", "tablet"]
-
-target = "tablet"
-
-for item in items:
-    if item == target:
-        print("Found")
-        break
+```python
+prices = {"tea": 3, "coffee": 4}
+print(prices.get("juice"))
+print(prices["juice"])
 ```
 
-If `"tablet"` is last, how many Item Names are checked?
-
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Trace the Loop:
-
-```text id="wcn9fy"
-laptop
-charger
-camera
-tablet
-```
-
-When does the condition become True?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-All **4 Item Names** are checked before `"tablet"` is found.
-
-If the target remains near the end while the collection grows, the search may need to perform more checks.
-
-That's the connection to **O(n)**.
+It prints `None`. Then the program stops with `KeyError: 'juice'`. `.get()` returns `None` for a missing key, but square brackets raise an error.
 
 </details>
 
 ---
 
-# 🗝️ Compare the Dictionary
-
-Now consider:
-
-```python id="4mmkyp"
-inventory = {
-    "laptop": 4,
-    "charger": 12,
-    "camera": 7,
-    "tablet": 2
-}
-
-quantity = inventory["tablet"]
-```
-
-Does this code explicitly Loop through each Dictionary entry until it reaches `"tablet"`?
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Look at the operation:
-
-```python id="jy4w68"
-inventory["tablet"]
-```
-
-Is the code performing the same one-by-one scan you saw in the Linear Search?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-No.
-
-The code uses `"tablet"` as a Dictionary Key to retrieve its associated Value.
-
-This lookup is **O(1) Average-Case**.
-
-The important comparison is:
-
-**Linear Search → Work can grow with n**
-
-**Dictionary Lookup → Average lookup work does not grow linearly with n**
-
-</details>
-
----
-
-# 🐛 Misconception Check: Tiny Isn't the Point
-
-A teammate tests both approaches on **three Items**.
-
-The Linear Search happens to finish first.
-
-They conclude:
-
-> **“Linear Search has better Big-O.”**
-
-What's wrong with that conclusion?
-
-### First Attempt
-
-Use what you learned on Day 6.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Does Big-O describe which approach won **one timing test**?
-
-Or does it describe how the amount of work grows as Input Size grows?
-
-</details>
-
-### Second Attempt
-
-Try again.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-A single timing result on a tiny collection does **not** determine Big-O.
-
-Linear Search is **O(n)** because the amount of searching can grow with the number of Items.
-
-Dictionary Lookup by Key is **O(1) Average-Case** because its average lookup work doesn't grow in the same linear way with the number of stored Items.
-
-Remember:
-
-**Big-O describes growth—not the winner of one stopwatch test.**
-
-</details>
-
----
-
-# ⏱️ Stress-Test Your Code — Day 17
-
-**Lab Connection:** Stress-Test Your Code: Timing & Efficiency
-
-Now take the comparison beyond a tiny example.
-
-Use increasingly larger collections and compare the two lookup approaches.
-
-For example, you might test with:
-
-```text id="w2x5mx"
-10 Items
-100 Items
-1,000 Items
-10,000 Items
-```
-
-Your goal is **not** to prove Big-O using one timing result.
-
-Instead, use measurements as evidence while asking:
-
-* What happens as Input Size grows?
-* Does the observed pattern match my complexity prediction?
-* Am I comparing equivalent work?
-* Could other factors affect an individual timing measurement?
-
-Keep the distinction clear:
-
-**Timing Experiment → Observed Evidence**
-
-**Big-O → Growth Model**
-
----
-
-# 🧠 Decision Challenge
-
-Your Inventory Tracker needs to search for Items by unique Name frequently.
-
-You have two possible designs.
-
-### Design A
-
-Store Items in a List and perform a Linear Search by Name.
-
-### Design B
-
-Store Items in a Dictionary keyed by Item Name.
-
-Which would you choose?
-
-Don't answer only:
-
-> **“Dictionary because it's faster.”**
-
-Defend the choice using:
-
-**Requirement → Data Structure → Lookup Strategy → Complexity**
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-The requirement is frequent retrieval by a unique Item Name.
-
-Which structure naturally provides a Key for that operation?
-
-Then connect the operation to its expected complexity.
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-A Dictionary is a strong choice if the program frequently retrieves Items using their unique Names.
-
-The Item Name can serve as the Dictionary Key, supporting **O(1) Average-Case** lookup.
-
-With a List, searching by Name generally requires a **Linear Search**, which is **O(n)**.
-
-The important reasoning chain is:
-
-**Frequent Lookup by Unique Name → Dictionary Key → Dictionary Lookup → O(1) Average-Case**
-
-</details>
-
----
-
-# ⚖️ Don't Turn Big-O Into a Rulebook
-
-Does this mean:
-
-> **“Never use Linear Search.”**
-
-No.
-
-A simple List and Linear Search may be perfectly reasonable for a small program or a situation where lookup performance isn't important.
-
-Complexity is one factor in a technical decision.
-
-Your job is to understand the tradeoff and connect your choice to the actual requirements.
-
----
-
-# 💼 Interview Arena
-
-> **Why can Dictionary Lookup scale better than Linear Search?**
-
-<details>
-<summary>💡 Hint — Open If You're Stuck</summary>
-
-Use both technical terms:
-
-**O(n)**
-
-**O(1) Average-Case**
-
-Then translate them into plain language.
-
-</details>
-
-<details>
-<summary>✅ Example Answer — Open After You've Answered</summary>
-
-With Linear Search, I may need to inspect more Items as the collection grows, so searching is O(n).
-
-A Dictionary Lookup by Key is O(1) Average-Case, so its average lookup work doesn't grow linearly with the number of stored Items.
-
-That difference becomes more important as the collection gets larger, especially when the program performs frequent lookups.
-
-</details>
-
----
-
-# 🏁 Final Check
-
-You're ready to move on when you can:
-
-* Explain **Linear Search**.
-* Explain **Dictionary Lookup**.
-* Label Linear Search as **O(n)**.
-* Label Dictionary Lookup as **O(1) Average-Case**.
-* Translate both complexity labels into plain language.
-* Explain why one tiny timing result doesn't determine Big-O.
-* Connect Input Size to growth.
-* Use timing experiments as evidence without confusing them with Big-O.
-* Choose a lookup strategy based on an actual program requirement.
-* Explain the tradeoff without claiming Linear Search is always wrong.
-
----
-
-# 🔓 Next Unlock
-
-Efficient code that produces the wrong answer is still wrong.
-
-Your final quest asks a different question:
-
-> **The code runs. But is it actually correct?**
-
-[**Continue to Quest 1.10 — Looks Right. Is It? (Days 18–19) →**](quest-10-debugging.md)
+**Next:** [Quest 1.10 — Looks Right. Is It? Debugging (Days 18–19)](quest-10-debugging.md)

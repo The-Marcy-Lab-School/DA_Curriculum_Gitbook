@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560" width="1040" height="560" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Which names exist where?</title>
+  <desc id="d">A map of ticket_cap_global.py. A large grey box is the global scope: names created outside every function, which last for the whole program. It holds price_cap = 150 and ticket_total = 150. Inside it, a blue box is the local scope of ticket_price, which exists only while the function runs. It holds the parameters base_cost = 90 and minutes_over = 40, and ticket_cost = 170, created in the body. An arrow shows the function can read the global price_cap. Another arrow shows return hands back 150, which is stored in ticket_total. An orange note says that print(ticket_cost) outside the function gives a NameError, because the local name is gone.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="560" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Which names exist where?</text>
+  <rect x="20" y="60" width="1000" height="480" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="40" y="94" text-anchor="start" font-size="19" font-weight="bold" fill="#475569">Global scope: created outside every function. Lasts the whole program.</text>
+  <rect x="40" y="175" width="230" height="54" rx="8" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="155" y="209" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">price_cap = 150</text>
+  <text x="155" y="256" text-anchor="middle" font-size="18" fill="#475569">a function can read it</text>
+  <line x1="272" y1="202" x2="336" y2="202" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="340" y="120" width="660" height="250" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="360" y="152" text-anchor="start" font-size="19" font-weight="bold" fill="#1D4ED8">Local scope of ticket_price: exists only while it runs</text>
+  <rect x="360" y="175" width="250" height="50" rx="8" fill="#ffffff" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="485" y="207" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">base_cost = 90</text>
+  <text x="630" y="207" text-anchor="start" font-size="18" fill="#475569">parameter</text>
+  <rect x="360" y="237" width="250" height="50" rx="8" fill="#ffffff" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="485" y="269" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">minutes_over = 40</text>
+  <text x="630" y="269" text-anchor="start" font-size="18" fill="#475569">parameter</text>
+  <rect x="360" y="299" width="250" height="50" rx="8" fill="#ffffff" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="485" y="331" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">ticket_cost = 170</text>
+  <text x="630" y="331" text-anchor="start" font-size="18" fill="#475569">created in the body</text>
+  <line x1="470" y1="372" x2="300" y2="428" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="400" y="440" text-anchor="start" font-size="18" fill="#475569">return hands back 150</text>
+  <rect x="40" y="430" width="250" height="54" rx="8" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <text x="165" y="464" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">ticket_total = 150</text>
+  <rect x="620" y="400" width="380" height="110" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="810" y="436" text-anchor="middle" font-size="18" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#C2410C">print(ticket_cost) out here</text>
+  <text x="810" y="466" text-anchor="middle" font-size="18" fill="#111827">NameError: the local name</text>
+  <text x="810" y="492" text-anchor="middle" font-size="18" fill="#111827">is gone after the return</text>
+</svg>

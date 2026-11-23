@@ -1,294 +1,149 @@
-## Your Mission
+# Quest 0.1 — What Kind of Data Is This? Data Types and Data Structures
 
-A column can contain numbers without actually representing a quantity.
+**Total time:** about 30 minutes
 
-As a data analyst, one of your first jobs is to figure out **what the data represents before deciding what to do with it**.
+**Analyst toolkit:** **Understand data** · Use the terminal · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
-**Target:** Distinguish Variables, Values, Data Types, and Data Structures—and classify data based on what it represents, not simply what it looks like.
+## Introduction
 
----
+Some numbers are not really numbers. For example, your phone number is made of digits. But you would never add two phone numbers together, or find the average phone number. A phone number is a label, not an amount.
 
-## Vocabulary Mission
+A computer can't tell the difference on its own. You have to tell it what kind of value each piece of information is.
 
-By the end of this quest, you should be able to recognize, use, and explain:
+In this reading, you'll learn how to:
 
-* **Variable**
-* **Value**
-* **Data Type**
-* **String**
-* **Integer**
-* **Float**
-* **Boolean**
-* **Data Structure**
+* tell a variable apart from the value inside it
+* name the data type of a value: text, whole number, decimal, true/false, or date
+* explain how a data structure groups many values together
 
-You don't need perfect definitions yet.
+**Main takeaway:** Look at what a value means, not only at what it looks like. If you would never do math with it, treat it as text, even when it's made of digits.
 
-Your mission during the reading is to notice **what makes each term different**.
+**Why it matters at work:** The wrong data type quietly changes your data. For example, a customer ID like `00417` can lose its first zeros and turn into `417`. Then it may match the wrong customer.
 
----
+## Learning goals
 
-## 🎮 Prediction Challenge: Number or Not?
+Check off each goal once you can do it.
 
-Imagine you receive a dataset containing this column:
+- [ ] I can explain the difference between a variable and its value.
+- [ ] I can name the data type of a value, and explain why an ID made of digits should be stored as text.
+- [ ] I can explain the difference between a data type and a data structure.
 
-| ZIP Code |
-| -------- |
-| `07030`  |
-| `00501`  |
-| `10001`  |
+**Skills:** Data Literacy · General Programming & Coding
 
-Every value contains digits.
+## Quick recall
 
-### Lock In Your Prediction
+This is the first quest, so these come from everyday life, not from an earlier page.
 
-Which claim would you defend?
+* Recall that a ZIP code is made of digits, but it names a place. It is not an amount. Some ZIP codes even start with zeros, like `00501`. If you dropped those zeros, the mail would go to the wrong place.
+* Recall that you already sort things into groups every day. For example, a contact on your phone holds a name, a phone number, and an email together, as one group. A data structure works the same way.
 
-**A.** ZIP Code is quantitative because it contains numbers.
+## Words to know
 
-**B.** ZIP Code may contain digits without representing a measurable quantity.
+### What is it called?: Variables and values
 
-Choose **A or B** and write down one reason for your choice.
+| Word | What it means |
+| --- | --- |
+| **Variable** | A named container that holds a value. The value can change. Think of a box with a label on it. |
+| **Value** | The piece of information inside a variable right now, like `"Mango"` or `12.5`. |
+| **`=` (store)** | In code, `=` means "store this value in this variable." It does not mean "is equal to," like in math. |
+| **Quotes `" "`** | Quotes around a value mark it as text. `"00417"` is text. `00417` without quotes is a number. |
 
-**Don't look anything up yet.**
+### What kind of value is it?: Data types
 
-You'll return to this prediction after the Main Mission.
+A **data type** is what kind of value something is. The reading uses plain names. Python, the language you'll write code in later, has its own short name for most of them, so you'll see both.
 
----
+| Plain name | Python's name | Example from the reading | Can you do math with it? |
+| --- | --- | --- | --- |
+| **Text** | **String** (`str`) | a pet's name, `"Biscuit"` | No |
+| **Whole number** | **Integer** (`int`) | a pet's age, `3` | Yes |
+| **Decimal** | **Float** (`float`) | a weight in pounds, `12.5` | Yes |
+| **True/false** | **Boolean** (`bool`) | has this pet been adopted? `True` | No (it's a yes or no) |
+| **Date** | a date type (you'll meet it later) | the day a pet arrived, `2026-09-14` | Only date math, like "how many days ago?" |
 
-# 🎯 Main Mission — REQUIRED
+| Word | What it means |
+| --- | --- |
+| **Identifier (ID)** | A value that names or labels one thing, like a pet's tag number, a student ID, or a ZIP code. It can be made of digits, but you never do math with it. Store it as text. |
+| **Leading zero** | A zero at the start of a value, like the first two zeros in `00417`. A whole number drops them, so `00417` becomes `417`. |
+| **Quantitative** | Describes a value that measures an amount, so math makes sense: an age, a weight, a price. An ID is not quantitative, even when it's made of digits. |
 
-This interactive reading is the **required learning mission for this quest**.
+![Two panels side by side for the pet tag number 00417. Left, stored as text: you enter "00417" and the computer keeps 00417, so it still matches the right pet. Right, stored as a whole number: you enter 00417 and the computer keeps 417, so the first zeros are gone and it looks like tag 417. A rule underneath says: if you would never do math with it, store it as text.](images/m0-tag-number.svg)
 
-Your Prediction Challenge prepared you for it. Now your job is to work through the full reading and build the knowledge you'll need for the checkpoint.
+### How are values grouped?: Data structures
 
-## What to Hunt For
+| Word | What it means |
+| --- | --- |
+| **Data structure** | A way to group several values together as one unit. One pet's row is a small data structure. The whole file of pets is a bigger one. |
+| **Record** | One row of data about one thing, like one pet's name, age, weight, adopted, and arrived values. |
+| **Column** | One kind of information that every record has, like `age`. A column's values usually share one data type. |
+| **CSV file** | A plain text file that holds a table. CSV stands for "comma-separated values." The first line holds the column names. Each line after it is one record. Commas separate the values. |
+| **Structured data** | Data that sits in rows and columns, with the same columns for every row, like `pets.csv`. |
+| **Unstructured data** | Data with no rows or columns, like a paragraph of free text, an email, or a photo. |
 
-As you work, pay attention to the relationship between:
+You'll need *structured* and *unstructured* again in a later quest, so learn them now. The reading doesn't cover them.
 
-**Variable → Value → Data Type → Data Structure**
+![Three panels. Variable, a labeled box: the box pet_of_the_week holds "Biscuit" in week 1 and "Mango" in week 2, so it has the same name and a new value. Data type, what kind of value: "Biscuit" is text, 3 is a whole number, 12.5 is a decimal, True is true/false, and 2026-09-14 is a date. Data structure, values grouped together: one pet's record holds name Mango, age 1, weight 4.2, adopted False, and arrived 2026-10-02, and the whole pets.csv file holds one record for every pet.](images/m0-name-tag-group.svg)
 
-Watch especially for:
+## Before you read
 
-* Situations where something **looks numeric but isn't meant for arithmetic**.
-* Clues that help distinguish **Structured Data from Unstructured Data**.
+In the reading, you'll focus on an animal shelter. It keeps a record for every pet: its name, age, weight, whether it has been adopted, and the day it arrived.
 
-## 🚀 Launch the Required Reading
+Here's an answer from a new volunteer: "A pet's weight, like `12.5`, and its tag number, like `00417`, are both made of digits. So the computer should store both as numbers." Something is off about it. What? See if the reading agrees with you.
 
-[**Start: Name It, Tag It, Group It →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/dev-environment/reading-2-whatkindofdata/)
+## Read
 
-**Required:** Complete the interactive reading before continuing to the checkpoint.
+The reading starts with two questions about terminal commands, `cat` and `ls`. You'll learn these in the next quest. For now, make your best guess and keep going.
 
-When you finish, return here and test what you can retrieve **without reopening the reading**.
+As you read, look for:
 
----
+1. Why `=` in `pet_of_the_week = "Biscuit"` means "store," not "is equal to."
+2. What happens to the tag number `00417` if the computer stores it as a whole number.
+3. Why one line of `pets.csv` is a data structure, not a data type.
 
-# ⚡ Checkpoint: Vocabulary Lightning Round
+**[Start the reading: Name It, Tag It, Group It →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/dev-environment/reading-2-whatkindofdata/)** (about 21 minutes)
 
-**No reading. No notes. Retrieval only.**
+## Main takeaways
 
-For each term below, see whether you can explain what it means in **one clear sentence**:
+### Summary
 
-* **Variable**
-* **Value**
-* **Data Type**
-* **String**
-* **Integer**
-* **Float**
-* **Boolean**
-* **Data Structure**
+* **A variable is a labeled box.** The label stays the same, and the value inside can change. `pet_of_the_week` held `"Biscuit"`, then `"Mango"`.
+* **A data type says what kind of value something is:** text, whole number, decimal, true/false, or date. If you'd never do math with it, treat it as text, even when it's made of digits.
+* **A data structure groups values together.** One pet's row is a record. The whole `pets.csv` file, with one record per pet, is a bigger data structure.
 
-### Score Your Retrieval
+### Common mix-ups
 
-Give yourself:
+| If you think... | What's actually true |
+| --- | --- |
+| "It's made of digits, so it's a number." | A tag number, ZIP code, or phone number is a label. You'd never add or average it, so store it as text. |
+| "`=` means the two sides are equal." | In code, `=` stores a value in a variable. |
+| "A variable holds every value it ever had." | It holds only its newest value. After `"Mango"` is stored, `"Biscuit"` is gone. |
+| "Data type and data structure mean the same thing." | A data type describes one value. A data structure groups many values together. |
+| "Data in a spreadsheet is always structured." | Structured means the same, clear columns for every row. A spreadsheet full of messy notes is not well structured. |
 
-* **Ready** — I can explain it clearly without help.
-* **Almost** — I recognize it, but my explanation needs work.
-* **Reload** — I need to revisit this term.
+### How this connects
 
-Any **Almost** or **Reload** term becomes part of your next review round.
+* **Next reading:** You'll stop clicking through folders and start typing short commands to your computer. You'll find out which folder you're in, list what's inside it, move between folders, and print a file like `pets.csv` on the screen.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll look at a real dataset you've never seen. For each column you look at, you'll decide what kind of data it holds and what it really means.
 
-The goal isn't a perfect score.
+## Quick check
 
-The goal is knowing **what your brain can retrieve without help**.
-
----
-
-## 🎮 Classification Challenge
-
-For each value, decide which Data Type is the best match.
-
-| Value        | Your Classification |
-| ------------ | ------------------- |
-| `"Brooklyn"` | ?                   |
-| `27`         | ?                   |
-| `19.95`      | ?                   |
-| `True`       | ?                   |
-| `"00501"`    | ?                   |
-
-**Make your classifications before opening the Hint or Answer.**
+**1.** A file has a column called `student_id`, with values like `00182` and `01327`. What data type should it be, and why?
 
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Think about what each value **represents** and how it would be used.
-
-Ask yourself:
-
-* Is it text?
-* Is it a whole number used for arithmetic?
-* Does it contain a decimal?
-* Does it represent a true/false state?
-* Could treating digits as a number change the meaning of the value?
+Text. A student ID is a label, not an amount. Nobody adds or averages IDs. Stored as a whole number, `00182` would lose its first zeros and turn into `182`.
 
 </details>
 
-Try the classifications one more time before revealing the Answer.
+**2.** A classmate says, "The line `Mango,1,4.2,False,2026-10-02` is a data type." What's wrong?
 
 <details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+<summary>Answer</summary>
 
-One reasonable classification is:
-
-| Value        | Classification |
-| ------------ | -------------- |
-| `"Brooklyn"` | String         |
-| `27`         | Integer        |
-| `19.95`      | Float          |
-| `True`       | Boolean        |
-| `"00501"`    | String         |
-
-The important idea is that **appearance alone doesn't determine how data should be treated**.
-
-For example, `"00501"` contains digits, but treating it as an Integer could remove the leading zeros and change the identifier.
-
-</details>
-
-### Defend Your Choice
-
-Choose **one** classification and explain what evidence led you to that decision.
-
----
-
-## 🧩 Structure Check
-
-Without reopening the reading:
-
-**What's one clue you could use to decide whether data is Structured or Unstructured?**
-
-Try to explain your reasoning in one or two sentences.
-
-If you're unsure, add **Structured vs. Unstructured** to your Reload list before the Module 0 Checkpoint.
-
----
-
-## 🧠 Boss Question: The ZIP Code Trap
-
-Return to your original prediction.
-
-A teammate says:
-
-> “ZIP Codes are made of numbers, so we should store them as quantitative values.”
-
-### Your Challenge
-
-Identify what's wrong with that reasoning.
-
-Your explanation should address:
-
-* **What a ZIP Code represents.**
-* **Whether arithmetic on ZIP Codes would be meaningful.**
-* **What could happen to a value like `00501` if it were treated as an Integer.**
-
-Write your explanation before opening the Hint.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Don't focus only on what the characters **look like**.
-
-Ask yourself:
-
-**What does the value mean, and what operations would actually make sense for it?**
-
-Also consider what could happen to the leading zeros in `00501`.
-
-</details>
-
-Now improve your original response.
-
-Only open the Answer after making your second attempt.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-A ZIP Code functions as an **identifier**, not a measured quantity.
-
-Arithmetic such as adding or averaging ZIP Codes would not produce a meaningful result.
-
-Storing `00501` as an Integer can also remove its leading zeros, changing the identifier from `00501` to `501`.
-
-The key lesson:
-
-**Digits do not automatically make a variable quantitative.**
+That line is a data structure: one pet's record. It groups five values together. Each value inside it has its own data type: text, whole number, decimal, true/false, and date.
 
 </details>
 
 ---
 
-# 💼 Interview Arena
-
-**One Question. One Strong Answer.**
-
-An interviewer asks:
-
-> **“What's the difference between a Data Type and a Data Structure?”**
-
-Think through your answer before revealing help.
-
-<details>
-<summary>💡 Hint — Open If You're Stuck</summary>
-
-Think at two different levels:
-
-**Data Type:** What kind of value is this?
-
-**Data Structure:** How are values organized together?
-
-</details>
-
-<details>
-<summary>✅ Example Answer — Open After You've Answered</summary>
-
-A Data Type describes the kind of value you're working with and helps determine what operations make sense for that value.
-
-A Data Structure describes how values are organized so they can be stored and worked with together.
-
-So, **Data Type is about the kind of value, while Data Structure is about how values are organized.**
-
-</details>
-
----
-
-## 🏁 Final Check
-
-You're ready for the next quest when you can:
-
-* Distinguish a **Variable** from its **Value**.
-* Identify common **Data Types**.
-* Distinguish a **Data Type** from a **Data Structure**.
-* Identify a clue that distinguishes **Structured from Unstructured Data**.
-* Explain why digits do not automatically make something quantitative.
-* Defend an appropriate type choice for an identifier such as a ZIP Code.
-* Answer the Interview Arena question clearly using technical vocabulary.
-
-If one of these still feels shaky, that's useful information.
-
-**Reload that skill before unlocking the next quest.**
-
----
-
-## 🔓 Next Unlock
-
-Next, you'll move from identifying data to navigating the environment where you'll work with it.
-
-[**Continue to Quest 0.2 — Meet Your Terminal →**](quest-02-terminal.md)
+**Next:** [Quest 0.2 — Meet Your Terminal: The Command Line](quest-02-terminal.md)

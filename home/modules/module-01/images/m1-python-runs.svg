@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 300" width="1040" height="300" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">How Python runs your code</title>
+  <desc id="d">You write code in a .py file. In the terminal, you type python3 and the file name. Python reads your code one line at a time, from top to bottom. The computer does the work, and you see the result.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="300" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">How Python runs your code</text>
+  <rect x="15" y="70" width="236" height="140" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="133" y="108" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">1. You write code</text>
+  <text x="133" y="140" text-anchor="middle" font-size="18" fill="#111827">in a .py file</text>
+  <text x="133" y="168" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">prices.py</text>
+  <line x1="253" y1="140" x2="271" y2="140" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="273" y="70" width="236" height="140" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="391" y="108" text-anchor="middle" font-size="21" font-weight="bold" fill="#111827">2. You run it</text>
+  <text x="391" y="140" text-anchor="middle" font-size="18" fill="#111827">in the terminal</text>
+  <text x="391" y="168" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">python3 prices.py</text>
+  <line x1="511" y1="140" x2="529" y2="140" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="531" y="70" width="236" height="140" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="649" y="108" text-anchor="middle" font-size="21" font-weight="bold" fill="#1D4ED8">3. Python reads it</text>
+  <text x="649" y="140" text-anchor="middle" font-size="18" fill="#111827">one line at a time,</text>
+  <text x="649" y="168" text-anchor="middle" font-size="18" fill="#111827">top to bottom</text>
+  <line x1="769" y1="140" x2="787" y2="140" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="789" y="70" width="236" height="140" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="907" y="108" text-anchor="middle" font-size="21" font-weight="bold" fill="#C2410C">4. You see</text>
+  <text x="907" y="140" text-anchor="middle" font-size="18" fill="#111827">the result</text>
+  <text x="907" y="168" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">13.75</text>
+  <text x="520" y="262" text-anchor="middle" font-size="19" fill="#475569">If a line breaks Python's rules (its syntax), Python stops and shows an error instead.</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Opening a log with "w" versus "a"</title>
+  <desc id="d">The weather program adds one line to its log every hour, at 6:00, 7:00 and 8:00. Top row, opened with "w" (write): each run empties the file first, so after the 8:00 run the file holds only 8:00 rain 0.9 mm. Bottom row, opened with "a" (append): each run adds to the end, so after the 8:00 run the file holds all three lines: 6:00 rain 0.4 mm, 7:00 rain 1.2 mm and 8:00 rain 0.9 mm.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="470" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">Opening a log with "w" versus "a"</text>
+  <text x="365" y="84" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">After the 6:00 run</text>
+  <text x="630" y="84" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">After the 7:00 run</text>
+  <text x="895" y="84" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">After the 8:00 run</text>
+  <text x="20" y="150" text-anchor="start" font-size="21" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#C2410C">"w"  write</text>
+  <text x="20" y="184" text-anchor="start" font-size="18" fill="#111827">empties the file</text>
+  <text x="20" y="210" text-anchor="start" font-size="18" fill="#111827">first, every run</text>
+  <rect x="250" y="104" width="230" height="140" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="266" y="144" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">6:00 rain 0.4 mm</text>
+  <line x1="482" y1="174" x2="513" y2="174" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="515" y="104" width="230" height="140" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="531" y="144" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">7:00 rain 1.2 mm</text>
+  <line x1="747" y1="174" x2="778" y2="174" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="780" y="104" width="230" height="140" rx="10" fill="#FFF7ED" stroke="#C2410C" stroke-width="2"/>
+  <text x="796" y="144" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">8:00 rain 0.9 mm</text>
+  <text x="20" y="320" text-anchor="start" font-size="21" font-weight="bold" font-family="Menlo, Consolas, monospace" fill="#1D4ED8">"a"  append</text>
+  <text x="20" y="354" text-anchor="start" font-size="18" fill="#111827">adds to the end</text>
+  <text x="20" y="380" text-anchor="start" font-size="18" fill="#111827">of the file</text>
+  <rect x="250" y="274" width="230" height="140" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="266" y="314" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">6:00 rain 0.4 mm</text>
+  <line x1="482" y1="344" x2="513" y2="344" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="515" y="274" width="230" height="140" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="531" y="314" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">6:00 rain 0.4 mm</text>
+  <text x="531" y="350" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">7:00 rain 1.2 mm</text>
+  <line x1="747" y1="344" x2="778" y2="344" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="780" y="274" width="230" height="140" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="796" y="314" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">6:00 rain 0.4 mm</text>
+  <text x="796" y="350" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">7:00 rain 1.2 mm</text>
+  <text x="796" y="386" text-anchor="start" font-size="17" font-family="Menlo, Consolas, monospace" fill="#111827">8:00 rain 0.9 mm</text>
+  <text x="630" y="450" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">Use "a" for a log. With "w", only the last hour is left.</text>
+</svg>

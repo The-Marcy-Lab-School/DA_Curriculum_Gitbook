@@ -1,260 +1,200 @@
-## Your Mission
+# Quest 0.3 — Save the Story of Your Work: Git and Version Control
 
-Finishing the work isn't the whole story.
+**Total time:** about 60 minutes
 
-As you build a project, **Git** lets you preserve meaningful points in its history. That history can show how your work developed—not just what the final version looks like.
+**Analyst toolkit:** Understand data · Use the terminal · **Save with Git** · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
-**Target:** Explain the role of Git in Version Control and distinguish between saving a Commit and sending work to a remote repository.
+## Introduction
 
----
+Have you ever saved a file as `essay_final.docx`, then `essay_final_v2.docx`, then `essay_REAL_final.docx`? After a week, nobody knows which copy is right, or what changed between them.
 
-## Vocabulary Mission
+There's a better way. You keep one file, and you save a series of checkpoints. Each checkpoint has a short note that says what changed.
 
-By the end of this quest, you should be able to recognize, use, and explain:
+In these two readings, you'll learn how to:
 
-* **Git**
-* **Version Control**
-* **Repository**
-* **Commit**
-* **Commit Message**
-* **Remote Repository**
-* **Push**
+* turn a project folder into a repository that saves its history
+* save a snapshot of your work, with a message that says what changed
+* send your saved work to GitHub, a website where others can see it
+* save small changes often, instead of one big change at the end
 
-Keep this workflow in mind:
+**Main takeaway:** Saving a snapshot on your laptop (a commit) and sharing it online (a push) are two separate steps. Commit small, clear changes as you go.
 
-**Change → Commit → Push**
+**Why it matters at work:** Teams use Git to share and review work. A clear history shows what changed, when, and why. If something breaks, you can find the exact change that caused it.
 
----
+## Learning goals
 
-## 🎮 Warm-Up: Which History Tells You More?
+Check off each goal once you can do it.
 
-Two analysts finish the same project.
+- [ ] I can stage a change with `git add` and save it with `git commit`, with a message that says what changed.
+- [ ] I can explain the difference between a commit and a push, and between Git and GitHub.
+- [ ] I can explain why several small commits make a more useful history than one big commit.
 
-**Analyst A**
+**Skills:** Git & Version Control · Terminal & Command Line
 
-```text
-final project
+## Quick recall
+
+* Recall that `cd` moves you into a folder and `ls` lists what's inside it, from [Meet Your Terminal](quest-02-terminal.md). Every Git command is typed inside a project folder, so you'll start each time with `cd`.
+* Recall that you ran `git --version` in [Meet Your Terminal](quest-02-terminal.md) to check that Git is installed. Now you'll use it.
+
+## New tool: Git
+
+**What it's for:** Git is **software** on your own laptop. It saves the history of a project folder as a series of snapshots, each with a message about what changed. It doesn't need the internet. Git is the most common tool for **version control**: keeping track of every version of your work.
+
+**How you'll see it in this reading:**
+
+```bash
+git init                 # start a repository
+git status               # what's going on?
+git add notes.md         # stage one file
+git commit -m "Add first tree counts"
+git log --oneline        # list saved commits
+git diff                 # show changed lines
 ```
 
-**Analyst B**
+**Code walkthrough:**
 
-```text
-add initial project README
-inspect dataset columns
-document data quality question
+1. `git init` turns the folder you're in into a **repository**: a folder whose history Git tracks. Git keeps that history in a hidden folder called `.git`. No snapshots are saved yet.
+2. `git status` tells you what's going on: which files changed, and which are ready to save. It never changes anything, so you can run it any time.
+3. `git add notes.md` puts the changes in `notes.md` into the **staging area**: the list of changes you've picked for your next snapshot. Files you edited but didn't add stay out.
+4. `git commit -m "Add first tree counts"` saves everything in the staging area as one **commit**, a snapshot. `-m` stands for "message." The text in quotes after it is the commit message.
+5. `git log --oneline` lists every saved commit, newest first. Each line shows the commit's short ID, then its message.
+6. `git diff` shows the exact lines you changed that aren't committed yet. A line starting with `-` was removed. A line starting with `+` was added.
+
+**Learn more:** [Pro Git: About Version Control](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (official, from Git's own team) · [W3Schools: Git tutorial](https://www.w3schools.com/git/)
+
+## New tool: GitHub
+
+**What it's for:** GitHub is a **website**, not software you install. It holds a copy of your repository online, so other people can see it and work on it too. Git saves your history on your laptop. GitHub shares a copy of it. You'll need a free GitHub account.
+
+**How you'll see it in this reading:**
+
+```bash
+git remote add origin https://github.com/you/tree-notes.git
+git push -u origin main
+git push
 ```
 
-Both analysts reached a final version.
+**Code walkthrough:**
 
-### Lock In Your Prediction
+1. `git remote add origin <url>` tells Git where your online copy lives, and gives it the short name `origin`. The URL is the repository's address on GitHub.
+2. `git push -u origin main` sends your commits to `origin`. `main` is the name Git gives your project's history by default. `-u` tells Git to remember where to push.
+3. After that first time, plain `git push` is enough.
 
-If you were reviewing their work, **which history tells you more about how the analyst worked?**
+**Learn more:** [GitHub Docs: About GitHub and Git](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git) (official) · [W3Schools: Get started with GitHub](https://www.w3schools.com/git/git_remote_getstarted.asp)
 
-Why?
+## Words to know
 
-Hold onto your answer. You'll return to this idea after the Main Mission.
+### Saving your history: Version control
 
----
+| Word | What it means |
+| --- | --- |
+| **Version control** | Keeping track of every version of your work, so you can see what changed, when, and go back if you need to. |
+| **Repository (repo)** | A project folder whose history Git tracks. `git init` starts one. |
+| **Commit** | A saved snapshot of your project at one moment, with a message about what changed. Later edits become new commits. They don't change old ones. |
+| **Commit message** | The short note saved with a commit. A good one starts with an action word and names the change, like `Fix count on block 2`. |
+| **Staging area** | The list of changes you've picked for the next commit. `git add` puts a change there. |
+| **Untracked** | A file Git can see but isn't saving yet. `git add` it to start saving it. |
+| **Working tree clean** | What `git status` prints when every change is already committed. Nothing is waiting. |
 
-# 🎯 Main Mission — REQUIRED
+### Sharing your work: Remotes
 
-This quest has **two required interactive readings**.
+| Word | What it means |
+| --- | --- |
+| **Remote** | A copy of your repository kept somewhere else, like on GitHub. |
+| **`origin`** | The usual short name for your main remote. |
+| **Push** | Sending the commits on your laptop up to a remote, so they show up there too. Until you push, a commit is only on your laptop. |
+| **Clone** | Making your own copy of a repository that's already on a remote, with its whole history. |
 
-Complete **Part 1 and Part 2** before moving to the Checkpoint.
+![A flow from left to right. 1, Your folder: you edit notes.md. git add moves the change to 2, the staging area, which holds the changes picked for the next commit. git commit saves them as 3, commits: snapshots saved on your laptop. git push sends them to 4, GitHub, a copy online that other people can see. A bracket over steps 1 to 3 says Git: software on your laptop, no internet needed. A bracket over step 4 says GitHub: a website. A note underneath says a commit is not on GitHub until you push it.](images/m0-add-commit-push.svg)
 
-Your goal isn't just to memorize Git commands.
+### How often to save: Commit habits
 
-Your goal is to understand **what Git is tracking, why project history matters, and how the Git workflow fits together**.
+| Word | What it means |
+| --- | --- |
+| **Atomic commit** | A commit that holds exactly one focused change, like "fix the test date." *Atomic* here means "one small piece that stands alone." |
+| **Commit granularity** | How much one commit covers, from one small edit to a whole day of mixed work. Smaller is usually easier to read later. |
+| **Commit cadence** | How often you commit as you work. A good habit: commit each time you finish one change you can describe in a short sentence. |
 
-## What to Hunt For
+![Two outputs of git log --oneline for the same afternoon of work. Left, one big commit: 51fe55a updates, then e01019b Start the study guide. Three changes are mixed into one commit called updates. Right, three small commits, newest first: 2be44a6 Fix a typo in the README, d48a131 Add a section on fractions, b6c0073 Fix the test date, and 2121428 Start the study guide. Each change has its own commit and message.](images/m0-one-vs-three-commits.svg)
 
-Across both readings, watch for:
+## Before you read
 
-* What **Version Control** helps you preserve.
-* What a **Repository** represents.
-* What a **Commit** represents.
-* Why a useful **Commit Message** matters.
-* The difference between a **Commit** and a **Push**.
-* How Git history communicates how a project developed.
+In the first reading, you'll focus on three neighbors who count the trees on their street. They keep the counts in one shared notes file. Over three weeks, one fixes a wrong count, one adds a new column, and one rewrites a confusing sentence.
 
----
+Think about: a month later, how could one neighbor find out who changed the count on block 2, and when? Write down your first answer, then see if the reading agrees.
 
-## 🚀 Part 1 — Build the Git Habit — REQUIRED
+## Read
 
-As you complete this reading, focus on the habits that help you create a useful project history.
+This quest has two readings. Do them in this order.
 
-[**Start: Build the Git Habit →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/git-github/reading-2-buildthegithabit/)
+### Part 1: Git Saves the Story
 
-**Required:** Complete Part 1 before continuing to Part 2.
+As you read, look for:
 
----
+1. Why `git init` says the new repository is "empty."
+2. What `git status` says about `notes.md` after `git add`, but before `git commit`.
+3. Where a commit is saved before anyone runs `git push`.
 
-## 🚀 Part 2 — Git Saves the Story — REQUIRED
+**[Start the reading: Git Saves the Story →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/git-github/reading-1-gitsavesthestory/)** (about 22 minutes)
 
-Now focus on **why preserving the history of your work matters**, not just which commands you run.
+### Part 2: Build the Git Habit
 
-[**Start: Git Saves the Story →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/git-github/reading-1-gitsavesthestory/)
+As you read, look for:
 
-**Required:** Complete Part 2 before continuing to the Checkpoint.
+1. Why one commit called "updates" makes the fractions mistake hard to find a week later.
+2. What the `-` and `+` signs mean in the output of `git diff`.
+3. What `git status` prints once every change is committed.
 
-When you finish both readings, return here and test what you can retrieve **without reopening them**.
+**[Start the reading: Build the Git Habit →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/git-github/reading-2-buildthegithabit/)** (about 22 minutes)
 
----
+## Main takeaways
 
-# ⚡ Checkpoint: Commit or Push?
+### Summary
 
-You've changed your project and created a Commit.
+* **Git saves snapshots on your laptop.** `git add` stages a change, and `git commit -m "..."` saves the staged changes as one commit with a message. Run `git status` any time to see what's going on.
+* **A commit is not a push.** Commits stay on your laptop until `git push` sends them to a remote like GitHub. Git is the software that saves. GitHub is the website that shares.
+* **Commit small and often, with clear messages.** One focused change per commit. Check `git diff` first, then write a message that names the change, like `Fix the test date`.
 
-A teammate says:
+### Common mix-ups
 
-> “Great. Since you committed it, the new version must already be on GitHub.”
+| If you think... | What's actually true |
+| --- | --- |
+| "I committed, so it's on GitHub." | A commit is saved only on your laptop. You still need to `git push`. |
+| "Editing a file gets it ready to commit." | You must stage it with `git add` first. |
+| "`git init` saves my first snapshot." | It only starts the repository. You still add and commit. |
+| "Git and GitHub are the same thing." | Git is software on your laptop. GitHub is a website that holds a copy. |
+| "One big commit on Friday keeps the history clean." | It mixes every change together and leaves no earlier checkpoint if something breaks midweek. |
+| "`git status` might change my files." | It only reports. It never changes anything. |
 
-Are they correct?
+### How this connects
 
-**A.** Yes — A Commit automatically sends the work to GitHub.
+* **Next reading:** An AI chatbot will give you an answer that sounds very sure, with a number and a source. You'll check it against the real data file, step by step, before you decide whether to trust it.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll save your project as you go, in small commits with clear messages, and push them to GitHub. Your history will show how your work grew, step by step.
 
-**B.** No — Committing and pushing are different actions.
+## Quick check
 
-Lock in your answer before opening help.
+**1.** Which commit message tells a reader the most about what changed?
+
+* A. `stuff`
+* B. `update`
+* C. `Add notes on column data types`
 
 <details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
+<summary>Answer</summary>
 
-Think about **where** each action happens.
-
-Creating a saved point in your Git history is not necessarily the same thing as sending that history somewhere else.
+**C.** It starts with an action word and names the change. Someone reading the history a month from now can tell what happened without opening any file.
 
 </details>
 
-Try again before revealing the Answer.
+**2.** You edit `notes.md`, then run `git commit -m "Fix count on block 2"`. Git doesn't make a commit. Its message says `no changes added to commit`. What did you forget?
 
 <details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+<summary>Answer</summary>
 
-**B. Committing and pushing are different actions.**
-
-A **Commit** records a snapshot in your local Git repository.
-
-A **Push** sends committed changes to a remote repository, such as one hosted on GitHub.
-
-So:
-
-**Commit ≠ Push**
-
-</details>
-
----
-
-## 🎮 Commit Message Challenge
-
-You're working on your Module 0 project.
-
-Which Commit Message gives the clearest evidence of what changed?
-
-**A.** `stuff`
-
-**B.** `update`
-
-**C.** `document dataset column types`
-
-Choose your answer before revealing help.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Imagine someone reviewing the repository a month from now.
-
-Which message helps them understand **what changed without opening every file?**
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-**C. `document dataset column types`**
-
-A descriptive Commit Message communicates what changed at that point in the project's history.
-
-Messages such as `stuff` or `update` provide very little information about the work that was actually completed.
+You forgot to stage the change. Run `git add notes.md` first, then commit again.
 
 </details>
 
 ---
 
-## 💼 Why This Matters for Your Project
-
-Your Module 0 project won't just ask you to produce a final notebook.
-
-You'll also need to preserve your work through Git and GitHub with **multiple descriptive Commits**.
-
-Your Git history becomes part of the evidence of how you worked.
-
-Think:
-
-**Change → Commit → Push**
-
-Not:
-
-**Finish Everything → One Giant Commit**
-
----
-
-# 💼 Interview Arena
-
-**One Question. One Strong Answer.**
-
-An interviewer asks:
-
-> **“What's the difference between committing and pushing in Git?”**
-
-Think through your answer before revealing help.
-
-<details>
-<summary>💡 Hint — Open If You're Stuck</summary>
-
-Think about **Local versus Remote**.
-
-What does a Commit record?
-
-What does a Push send somewhere else?
-
-</details>
-
-<details>
-<summary>✅ Example Answer — Open After You've Answered</summary>
-
-A **Commit** records a snapshot of my changes in the local Git repository.
-
-A **Push** sends my committed changes to a remote repository, such as GitHub.
-
-So, committing preserves a point in my local project history, while pushing sends those committed changes to the remote repository.
-
-</details>
-
----
-
-## 🏁 Final Check
-
-You're ready for the next quest when you can:
-
-* Explain the purpose of **Version Control**.
-* Explain what a **Repository** represents.
-* Explain what a **Commit** represents.
-* Recognize a useful **Commit Message**.
-* Distinguish a **Commit** from a **Push**.
-* Explain why multiple descriptive Commits create a clearer project history.
-* Describe the workflow **Change → Commit → Push**.
-
-If one of these still feels shaky, **reload that skill before moving forward**.
-
----
-
-## 🔓 Next Unlock
-
-You've learned that trustworthy project work includes a history of what changed.
-
-Next, you'll build another professional habit:
-
-**Don't trust a claim just because it sounds confident.**
-
-[**Continue to Quest 0.4 — Confidence Is Not Evidence →**](quest-04-ai-verification.md)
+**Next:** [Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers](quest-04-ai-verification.md)

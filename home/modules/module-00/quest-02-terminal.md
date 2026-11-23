@@ -1,273 +1,164 @@
-## Your Mission
+# Quest 0.2 — Meet Your Terminal: The Command Line
 
-The Terminal gives you a direct way to communicate with your computer.
+**Total time:** about 30 minutes
 
-Instead of clicking through folders, you'll begin using commands to **inspect where you are and navigate where you need to go**.
+**Analyst toolkit:** Understand data · **Use the terminal** · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
-**Target:** Use basic Terminal commands to navigate your environment and explain what those commands accomplish.
+## Introduction
 
----
+You already know how to find a file with a mouse. You open a folder, look inside, and double-click the next folder. Every one of those clicks has a typed version. For example, instead of double-clicking a folder called `photos`, you can type `cd photos` and press Return.
 
-## Vocabulary Mission
+Typing feels slow at first. But it's exact, you can repeat it, and many data tools only work this way.
 
-By the end of this quest, you should be able to recognize, use, and explain:
+In this reading, you'll learn how to:
 
-* **Terminal**
-* **Command Line**
-* **Directory**
-* **Path**
-* **Command**
-* `cd`
-* `ls`
+* find out which folder you're in, and list what's inside it
+* move into a folder, and back out of it
+* print a file on the screen
+* read an error message when a command doesn't work
 
-Keep this workflow in mind:
+**Main takeaway:** In a new folder, check where you are and what's there before you do anything else. Then move, and check again.
 
-**Inspect → Navigate → Verify**
+**Why it matters at work:** Almost every data job starts in the terminal: you find the project folder, look at the files, and run your tools there. People notice when a new analyst checks where they are first, instead of guessing.
 
----
+## Learning goals
 
-## 🎮 Warm-Up: Where Do You Go?
+Check off each goal once you can do it.
 
-Imagine you're working with this project:
+- [ ] I can use `pwd` and `ls` to find out where I am and what's in a folder.
+- [ ] I can use `cd` with a relative path to move into a folder, and `cd ..` to move back up.
+- [ ] I can read a `command not found` error and fix my typo.
 
-```text
-data-project/
-├── data/
-├── notebooks/
-└── README.md
-```
+**Skills:** Terminal & Command Line
 
-You're inside `data-project`, but you aren't sure what's available there.
+## Quick recall
 
-What would be a useful first move?
+* Recall that a CSV file is a plain text file that holds a table, like the shelter's `pets.csv` in [What Kind of Data Is This?](quest-01-data-literacy.md). Because it's plain text, the terminal can print it right on the screen.
+* Recall that the reading in [What Kind of Data Is This?](quest-01-data-literacy.md) started with two questions about `cat` and `ls`, and you made your best guess. In this reading, you'll find out what they do.
 
-**A.** Inspect the current directory.
+## New tool: Terminal
 
-**B.** Start changing directories without checking.
+**What it's for:** Terminal is **software** that comes with every Mac. It opens a window where you type commands to your computer instead of clicking. Inside the window runs a **shell**, a program that reads each command and runs it. On a Mac, the shell is called **zsh**. For more about the terminal and the shell, see [the Module 0 Introduction](introduction.md#the-terminal-and-the-shell).
 
-Lock in your answer and one reason why.
+To open Terminal, press **Command + Space**, type `Terminal`, and press **Return**.
 
-Don't look anything up yet.
-
----
-
-# 🎯 Main Mission — REQUIRED
-
-This interactive reading is the **required learning mission for this quest**.
-
-Your goal isn't to memorize a giant list of commands.
-
-Your goal is to understand how you can **navigate and communicate with your computer through the Terminal**.
-
-## What to Hunt For
-
-As you work through the reading, pay attention to:
-
-* What `cd` accomplishes.
-* What `ls` accomplishes.
-* What a **Directory** represents.
-* How commands help you navigate your computer.
-
-Watch especially for the difference between:
-
-**Navigating somewhere → Inspecting what's there**
-
-## 🚀 Launch the Required Reading
-
-[**Start: Meet Your Terminal →**](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/dev-environment/reading-1-meetterminal/)
-
-**Required:** Complete the interactive reading before continuing.
-
-When you finish, return here and test what you can retrieve **without reopening the reading**.
-
----
-
-# ⚡ Checkpoint: Terminal Navigator
-
-You're working inside:
-
-```text
-data-project/
-```
-
-The project contains:
-
-```text
-data-project/
-├── data/
-├── notebooks/
-└── README.md
-```
-
-## Round 1 — Inspect
-
-You want to see what's available in your current directory.
-
-**What command would you run?**
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-You don't want to move anywhere yet.
-
-You want to **list what's here**.
-
-</details>
-
-Try again before revealing the Answer.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
+**How you'll see it in this reading:**
 
 ```bash
-ls
+pwd               # where am I?
+ls                # what's here?
+cd plants         # move into plants
+cd ..             # move up one level
+cat tomatoes.txt  # print a file
+git --version     # is git installed?
 ```
 
-`ls` lists the contents of a directory.
+**Code walkthrough:**
 
-In this example, you would expect to see entries such as `data`, `notebooks`, and `README.md`.
+1. `pwd` prints the folder you're in now, as a full path, like `/Users/sam/garden`. It changes nothing.
+2. `ls` lists the files and folders inside the folder you're in. It changes nothing.
+3. `cd plants` moves you into the `plants` folder. It prints nothing when it works. That silence is normal.
+4. `cd ..` moves you up one level, back to the folder that holds the one you're in. Two dots always mean "up one level."
+5. `cat tomatoes.txt` prints everything in the file `tomatoes.txt`, without opening any app.
+6. `git --version` asks whether Git, a tool you'll meet in the next quest, is installed. If it is, it prints a version number. If your Mac asks to install "command line developer tools," click **Install**.
+
+In the reading, each command line starts with `$`. On your Mac, the line may end in `%` instead. Both are the **prompt**: the terminal's sign that it's ready. You never type it yourself.
+
+**Learn more:** [Apple: Terminal User Guide](https://support.apple.com/guide/terminal/welcome/mac) (official) · [W3Schools: Bash tutorial](https://www.w3schools.com/bash/) (bash is another shell. The basic commands work the same way in zsh.)
+
+## Words to know
+
+### The window and what you type: Terminal basics
+
+| Word | What it means |
+| --- | --- |
+| **Terminal** | A window where you type text commands to your computer instead of clicking. On a Mac, the software is called Terminal. |
+| **Command line** | The line in the terminal where you type a command. People also use "the command line" to mean working in the terminal in general. |
+| **Shell** | The program inside the terminal that reads your command and runs it. A Mac uses the zsh shell. |
+| **Command** | One typed instruction, like `pwd` or `ls`. The terminal runs it when you press Return. |
+| **Prompt** | The sign at the start of the line, like `$` or `%`, that says the terminal is ready for a command. You never type it. |
+| **Output** | What the terminal prints back after a command runs. Some commands print nothing when they work. |
+| **Error message** | Output that says a command didn't work. It names the exact word it didn't understand, like `zsh: command not found: pdw`. |
+
+### Where am I?: Folders and paths
+
+A **directory** is another word for a folder. Programmers say "directory," so you'll see both words.
+
+| Word | What it means |
+| --- | --- |
+| **Directory** | A folder. It can hold files and other folders. `cd` stands for "change directory." |
+| **Home folder** | Your own folder on the computer. It's named after you, like `sam`. The terminal often starts here. |
+| **Working directory** | The folder the terminal treats as "here" right now. Most commands act on it. `pwd` prints it. |
+| **Path** | The written location of a file or folder, with a `/` between each folder name. |
+| **Absolute path** | The full route from the top of the computer, like `/Users/sam/garden/plants`. It starts with `/` and works from anywhere. |
+| **Relative path** | A route that starts from the working directory. From inside `garden`, the path `plants` means "the plants folder right here." |
+| **`..` (two dots)** | The folder that holds the one you are in: up one level. |
+
+![Left: the garden folder drawn as a tree. The home folder sam holds garden, which is marked You are here. garden holds README.md, notes, and plants. plants holds peppers.txt and tomatoes.txt. An arrow labeled cd plants goes down from garden into plants, and an arrow labeled cd .. goes back up. Under the tree: the absolute path to plants is /Users/sam/garden/plants, and the relative path from garden is plants. Right: five commands. pwd answers Where am I? and prints /Users/sam/garden. ls answers What is here? and prints README.md notes plants. cd plants moves into plants and prints nothing. cd .. moves up one level and prints nothing. cat tomatoes.txt prints the file.](images/m0-garden-folders.svg)
+
+## Before you read
+
+In the reading, you'll focus on a community garden. Its laptop has a folder called `garden`, with plant lists and notes inside.
+
+Think about: when you open a new folder with your mouse, what are the first two things you notice? What do you think the typed version of each one is? Write down your first answer, then see if the reading agrees.
+
+## Read
+
+As you read, look for:
+
+1. What `pwd` prints, and why running it can't hurt anything.
+2. The difference between the paths `plants` and `/Users/sam/garden/plants`.
+3. What the terminal prints when you mistype `pwd` as `pdw`, and which word the message names.
+
+**[Start the reading: Meet Your Terminal →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/dev-environment/reading-1-meetterminal/)** (about 22 minutes)
+
+## Main takeaways
+
+### Summary
+
+* **Look before you move.** In any new folder, run `pwd` (Where am I?) and `ls` (What's here?). Neither one changes anything.
+* **`cd` moves you, not your files.** `cd plants` uses a relative path to go into a folder right here. `cd ..` goes up one level. An absolute path, like `/Users/sam/garden`, works from anywhere.
+* **Read the error before you retry.** `command not found: pdw` names the exact word the shell didn't know. Fix the typo, not the computer.
+
+### Common mix-ups
+
+| If you think... | What's actually true |
+| --- | --- |
+| "`cd notebooks` moves my files into a new place." | It moves *you*. Your working directory changes. The files stay where they are. |
+| "`cd` printed nothing, so it didn't work." | Silence means it worked. Run `pwd` to check where you are now. |
+| "An error message means I broke something." | It usually means a typo. The message names the word it didn't understand. |
+| "I need to type the `$` too." | The `$` or `%` is the prompt. Type only the command after it. |
+| "`ls` only shows a folder's contents the first time." | It shows the current contents every time you run it. |
+
+### How this connects
+
+* **Next reading:** You'll use these same moves inside a project folder. Then you'll learn to save a snapshot of your work each time you finish a change, so you have a history of every step. You'll also send a copy of that history to a website, so other people can see it.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll use the terminal to find your project folder, look at the files inside it, and open a data file before you analyze it.
+
+## Quick check
+
+**1.** You're inside a folder called `data-project`. It holds `data`, `notebooks`, and `README.md`. You run `cd notebooks`. What changed?
+
+* A. Your working directory: the folder you're in.
+* B. Where your project files are saved.
+* C. The name of the project.
+
+<details>
+<summary>Answer</summary>
+
+**A.** `cd` changes your working directory. It doesn't move any files or rename anything.
+
+</details>
+
+**2.** You type `sl` and the terminal prints `zsh: command not found: sl`. What happened, and what do you do next?
+
+<details>
+<summary>Answer</summary>
+
+It's a typo. The shell doesn't know the word `sl`, and the message names it. Type `ls` instead.
 
 </details>
 
 ---
 
-## Round 2 — Navigate
-
-You see the `notebooks` directory and decide that's where you need to work.
-
-**What command would you run?**
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-This time you need to **change your current directory**.
-
-</details>
-
-Try again.
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-```bash
-cd notebooks
-```
-
-`cd` means **change directory**.
-
-This command changes your current working directory to `notebooks`.
-
-</details>
-
----
-
-## Round 3 — Predict
-
-You run:
-
-```bash
-cd notebooks
-```
-
-What actually changed?
-
-**A.** Your current location in the file system.
-
-**B.** The location of all your project files.
-
-**C.** The name of the project.
-
-<details>
-<summary>💡 Hint — Open After Your First Attempt</summary>
-
-Think about what **change directory** means.
-
-Are you changing the project—or changing **where you're currently working inside it**?
-
-</details>
-
-<details>
-<summary>✅ Answer — Open After Your Second Attempt</summary>
-
-**A. Your current location in the file system.**
-
-`cd notebooks` changes your current working directory.
-
-It does not move your project files or rename the project.
-
-</details>
-
----
-
-## 🧭 Workflow Unlocked
-
-When you're navigating an unfamiliar project, use:
-
-### Inspect → Navigate → Verify
-
-**Inspect:** What's available where I am?
-
-**Navigate:** Where do I need to go?
-
-**Verify:** Did my command do what I expected?
-
-You don't need to memorize every Terminal command.
-
-You need to understand **what you're asking the computer to do**.
-
----
-
-# 💼 Interview Arena
-
-**One Question. One Strong Answer.**
-
-An interviewer asks:
-
-> **“What's the difference between `cd` and `ls`?”**
-
-Think through your answer before revealing help.
-
-<details>
-<summary>💡 Hint — Open If You're Stuck</summary>
-
-Think about two jobs:
-
-**Navigate** versus **Inspect**.
-
-Which command does each?
-
-</details>
-
-<details>
-<summary>✅ Example Answer — Open After You've Answered</summary>
-
-`cd` changes the directory I'm currently working in, while `ls` lists the contents of a directory.
-
-So, I use `cd` to **navigate** through the file system and `ls` to **inspect** what's available at my current location.
-
-</details>
-
----
-
-## 🏁 Final Check
-
-You're ready for the next quest when you can:
-
-* Explain what the **Terminal** is used for.
-* Recognize a **Directory** as a location in a file system.
-* Explain what `cd` accomplishes.
-* Explain what `ls` accomplishes.
-* Choose between **Navigating** and **Inspecting** based on your goal.
-* Use the **Inspect → Navigate → Verify** workflow.
-
-If one of these still feels shaky, **reload that skill before moving forward**.
-
----
-
-## 🔓 Next Unlock
-
-You can now begin navigating your working environment from the Terminal.
-
-Next, you'll learn how to preserve the story of your work using Version Control.
-
-[**Continue to Quest 0.3 — Save the Story of Your Work →**](quest-03-git.md)
+**Next:** [Quest 0.3 — Save the Story of Your Work: Git and Version Control](quest-03-git.md)

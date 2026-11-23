@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 330" width="1040" height="330" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">How the terminal and the shell work</title>
+  <desc id="d">You type a command in the terminal, which is the window. The shell inside it, zsh on a Mac, reads the command. The shell asks the operating system, macOS, to do the work. The result comes back and shows in the terminal.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker></defs>
+  <rect width="1040" height="330" fill="#ffffff"/>
+  <text x="520" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">What happens when you type a command</text>
+  <rect x="20" y="70" width="230" height="130" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="135" y="108" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">You</text>
+  <text x="135" y="140" text-anchor="middle" font-size="18" fill="#111827">type a command</text>
+  <text x="135" y="166" text-anchor="middle" font-size="18" font-family="Menlo, Consolas, monospace" fill="#111827">pwd</text>
+  <line x1="252" y1="135" x2="276" y2="135" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="278" y="70" width="230" height="130" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="393" y="108" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Terminal</text>
+  <text x="393" y="140" text-anchor="middle" font-size="18" fill="#111827">the window</text>
+  <text x="393" y="166" text-anchor="middle" font-size="18" fill="#111827">you type in</text>
+  <line x1="510" y1="135" x2="534" y2="135" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="536" y="70" width="230" height="130" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="651" y="108" text-anchor="middle" font-size="22" font-weight="bold" fill="#1D4ED8">Shell</text>
+  <text x="651" y="140" text-anchor="middle" font-size="18" fill="#111827">reads the command</text>
+  <text x="651" y="166" text-anchor="middle" font-size="18" fill="#111827">(zsh on a Mac)</text>
+  <line x1="768" y1="135" x2="792" y2="135" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="794" y="70" width="230" height="130" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="909" y="108" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Operating system</text>
+  <text x="909" y="140" text-anchor="middle" font-size="18" fill="#111827">does the work</text>
+  <text x="909" y="166" text-anchor="middle" font-size="18" fill="#111827">(macOS)</text>
+  <line x1="908" y1="202" x2="908" y2="250" stroke="#1E3A8A" stroke-width="2.5"/>
+  <line x1="908" y1="250" x2="135" y2="250" stroke="#1E3A8A" stroke-width="2.5"/>
+  <line x1="135" y1="250" x2="135" y2="206" stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="520" y="280" text-anchor="middle" font-size="19" fill="#475569">The result comes back to your screen:  /Users/maria/Documents</text>
+  <text x="520" y="312" text-anchor="middle" font-size="19" font-weight="bold" fill="#111827">The terminal is the window. The shell is the program inside it that understands you.</text>
+</svg>
