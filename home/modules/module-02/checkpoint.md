@@ -1,12 +1,12 @@
-# Module 2 Checkpoint (Days 13–14)
+# Module 2 Checkpoint (Review and Solo Practice)
 
-{% hint style="info" %}
-**In one sentence:** Before the Boss Battle, prove to yourself that you can find a pattern on your own and use every Module 2 skill without step-by-step help.
-{% endhint %}
+**Days 13–14** · No new reading
 
-## Why this matters
+## Introduction
 
-So far, you've practiced each skill with a guide or a partner. The project asks you to do it all alone, on data you've never seen. These two days show you what you've got down and what to review.
+So far, you've practiced each skill with a reading, a guide, or a partner. These two days check whether you can do it on your own. You'll find a pattern in data you've never seen, then review every skill from the module. The main takeaway: the questions you miss here show you exactly which quest to revisit before the Boss Battle (Module Project).
+
+**Why it matters at work:** On the job, nobody hands you step-by-step instructions for a new dataset. Knowing what you can do alone, and what you still need to review, is how you get there.
 
 ## What happens in class
 
@@ -24,11 +24,11 @@ df["price"].apply(lambda p: p * 1.08)  # a lambda used inside .apply
 df["price"] * 1.08                     # but plain column math is simpler here!
 ```
 
-Lambda is optional in the project. Your required cleaning step stays a regular `def` function. You'll use lambda more in Module 4.
+Lambda is optional. Your cleaning steps stay in a regular `def` function. You'll use lambda more in Module 4.
 
-**Day 14: Final practice.** Two recall questions, a classmate-led cleaning code-along, and one more AI check. This time, you'll check AI-written *cleaning* code for hidden problems. Use the [checklist from Day 6](practice-day-06.md#before-you-trust-ai-analysis-code).
+**Day 14: Final practice.** Two recall questions, a classmate-led cleaning code-along, and one more AI check. This time, you'll check AI-written *cleaning* code for hidden problems. Use the [checklist from the Practice Day](practice-day-06.md#before-you-trust-ai-analysis-code).
 
-**Skills:** All 10 project skills, with Data Mining and AI Evaluation front and center
+**Skills:** Every skill from this module, with Data Mining and AI Evaluation front and center
 
 ## Self-check challenges
 
@@ -137,7 +137,7 @@ First, I'd read the source note and run four checks: shape, data types, blanks, 
 
 </details>
 
-## Ready for the Boss Battle?
+## Ready for the Boss Battle (Module Project)?
 
 You're ready when you can say "I can" to each of these:
 
@@ -153,4 +153,4 @@ You're ready when you can say "I can" to each of these:
 
 ---
 
-**Next:** [Module 2 Boss Battle (Project)](project.md)
+**Next:** [Module 2 Conclusion](conclusion.md)

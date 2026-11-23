@@ -1,49 +1,121 @@
-# Quest 2.2 — Look Before You Filter (Day 2)
+# Quest 2.2 — Look Before You Filter (Inspecting and Filtering Data)
 
-{% hint style="info" %}
-**In one sentence:** Before you answer any question with a new file, check it four ways, because one blank or one repeated row can make every total wrong.
-{% endhint %}
+**Day 2** · Reading time: about 20 minutes
 
-## Why this matters
+## Introduction
 
-Almost every data task starts the same way: load a file, check it, then pull out the rows you need. A manager asking "How much produce came in?" can get an answer from one line of code. If the file has a blank weight or a donation logged twice, that answer is wrong, and nobody will know unless you checked.
+Sometimes a total is wrong before you even start adding. For example, a shop's sales sheet lists the same $200 order twice because a cashier pressed Save twice. Add up the sheet, and the shop looks $200 richer than it is. This reading covers how to open a data file in a notebook, check it four ways, and then keep only the rows you need. The main takeaway: look at every new file before you filter or add anything up, because one blank or one repeated row can make every answer wrong.
 
-## What you'll be able to do
+**Why it matters at work:** Almost every data task starts the same way: load a file, check it, then pull out the rows you need. If you skip the checks, a wrong total can reach your manager, and nobody will know it's wrong.
 
-* I can load a CSV file into a notebook and explain what the kernel remembers.
-* I can run four checks on any new file: shape, data types, missing values, and duplicates.
-* I can filter rows on one or two conditions and sort the result.
+## Learning goals
+
+Check off each goal once you can do it.
+
+- [ ] I can load a CSV file into a notebook and explain why the order I run cells in matters.
+- [ ] I can run four checks on any new file: shape, data types, missing values, and duplicates.
+- [ ] I can filter rows on one or two conditions and sort the result.
 
 **Skills:** pandas DataFrames · Data Cleaning & Imputation
-**New tools today:** Jupyter notebooks and pandas. Read the [Notebooks guide](tool-jupyter-notebooks.md) and the [pandas guide](tool-pandas.md) first (10 minutes).
+
+## Quick recall
+
+* Recall that when you run a `.py` file, Python does every line from top to bottom and shows only what you `print()`. You traced scripts like this in [Trace the Path](../module-01/quest-01-control-flow.md). A notebook works a little differently.
+* Recall that when one value is far bigger than the rest, the median describes a typical value better than the mean. You saw this with the $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
+
+## New tool: Jupyter notebooks
+
+**What it's for:** A Jupyter notebook (a file ending in `.ipynb`) splits your code into small boxes called cells. You run one cell at a time and see its result right under it, which fits the way analysts explore: ask one small question, look, then ask the next.
+
+**How you'll see it in this reading:**
+
+```python
+# Cell [1]. Click into it and press Shift+Enter to run just this cell.
+import pandas as pd               # the kernel now remembers pd...
+df = pd.read_csv("intake.csv")    # ...and df
+df.shape                          # the last line's value shows under the cell, no print() needed
+
+# A later cell. It can use df because the kernel still remembers it.
+df.dtypes
+```
+
+Notebooks are for exploring. Finished programs are still `.py` files. If VS Code asks you to install `ipykernel`, click **Install**: it's the piece that connects VS Code to Python.
+
+**Learn more:** [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) (official guide for the editor you'll use) · [Jupyter: Get started](https://docs.jupyter.org/en/latest/start/index.html) (official: what notebooks and kernels are)
+
+## New tool: pandas
+
+**What it's for:** pandas is a free Python package for working with tables of data, like a spreadsheet you control with code. It loads a whole file in one line, and because every step is code, you can run the same checks again on next month's file.
+
+**How you'll see it in this reading:**
+
+```python
+import pandas as pd                 # load pandas and call it pd
+df = pd.read_csv("intake.csv")      # read the CSV file into a DataFrame named df
+df.shape                            # (rows, columns). No parentheses: it's a stored fact, not an action
+df["site"] == "Eastside"            # one True or False per row: is this row's site Eastside?
+df.sort_values("weight_lbs", ascending=False)   # sort the rows, biggest weight first
+```
+
+If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip install pandas` in the terminal once.
+
+**Learn more:** [pandas: Getting started tutorials](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html) (official, short, with pictures) · [W3Schools: pandas tutorial](https://www.w3schools.com/python/pandas/default.asp) · [W3Schools: pandas DataFrames](https://www.w3schools.com/python/pandas/pandas_dataframes.asp)
 
 ## Words to know
 
+### Notebooks
+
 | Word | What it means |
 | --- | --- |
-| **DataFrame** | pandas' table. It has rows and named columns. |
-| **dtype** | The data type pandas gave a column: `str` for text, `float64` for decimals, `int64` for whole numbers. |
-| **NaN** | How pandas shows a missing value. It's short for "Not a Number." |
-| **Cell** | A small box of code in a notebook. Run it with Shift+Enter. |
-| **Kernel** | The Python process behind a notebook. It keeps your variables between cells. |
-| **Restart & Run All** | Start the kernel fresh and run every cell from the top. It proves the notebook works. |
-| **Boolean filter** | A True/False condition inside `df[...]` that keeps only the rows where it's True. |
-| **Duplicate** | A row that matches an earlier row exactly. |
+| **Notebook** | A file ending in `.ipynb` that holds code in cells, with each cell's result shown under it. |
+| **Cell** | A small box of code in a notebook. Run one cell at a time with Shift+Enter. |
+| **Kernel** | The Python process behind a notebook. It keeps your variables in memory between cells. It knows what you ran, in the order you ran it, not the order on the page. |
+| **Restart & Run All** | Restart the kernel, then run every cell from top to bottom. It proves the notebook works from a clean start. |
+
+{% hint style="info" %}
+**Before you share a notebook, use Restart & Run All.** A notebook can seem to work only because of a cell you ran earlier and then deleted. A clean run from the top catches that.
+{% endhint %}
+
+### Tables in pandas
+
+| Word | What it means |
+| --- | --- |
+| **CSV file** | A plain text file of a table. Each line is a row, commas separate the columns, and the first line holds the column names. |
+| **DataFrame** | pandas' table. It has rows and named columns, and each column has its own data type. |
+| **dtype** | The data type pandas gave a column: `str` for text, `int64` for whole numbers, `float64` for decimal numbers. Older tutorials and AI answers say `object` for text. That's the old label. |
+| **NaN** | How pandas shows a missing value. It's short for "not a number," but pandas stores it as a decimal number. |
+
+### The four checks
+
+Run these on every new file, before you do anything else.
+
+| Check | What it means | Units |
+| --- | --- | --- |
+| **Shape** | How big the table is: did every row and column arrive? | Two counts: rows first, then columns |
+| **Data types** | The dtype of each column: is each one the type you expect? | A label per column, not a number |
+| **Missing values** | How many cells are blank in each column. | A count of blank cells, per column |
+| **Duplicate** | A row that matches an earlier row exactly, in every column. A donation logged twice adds its weight twice. | A count of rows |
+
+A count can show as `np.int64(1)`. That's just a whole number, stored the NumPy way.
+
+### Keeping and ranking rows
+
+| Word | What it means |
+| --- | --- |
+| **Boolean** | A value that is either `True` or `False`. |
+| **Boolean filter** | A True/False condition inside `df[...]` that keeps only the rows where it's True. The result is a new, smaller DataFrame. The original stays the same. |
+| **`&` (AND)** | How pandas joins two filter conditions so that both must be True. It narrows the result: you keep fewer rows. Each condition goes in its own parentheses. |
+| **Sort** | Put the rows in order by one column. Filtering picks rows. Sorting ranks them. |
+
+The partner of `&` is `|`, which means OR. It keeps a row if either condition is True, so it widens the result.
 
 ## Before you read
 
-A file of donations has 8 rows. One weight is blank, and one donation was typed in twice. You add up the weights without checking. What goes wrong?
+In the reading, you'll focus on a food bank's donation file. Each row is one donation: who gave it, what kind of food, how much it weighed, and which site got it. The manager asks, "How much produce came into Eastside?"
 
-<details>
-<summary>Answer</summary>
-
-The repeated donation gets counted twice, so the total is too high. The blank weight is skipped without warning, so you don't even know a donation is missing.
-
-</details>
+Think about: before you add up any weights, what could be wrong in the file that would make your total wrong? Write down your first answer, then see if the reading agrees.
 
 ## Read
-
-**[Start the reading: Look Before You Filter →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/pandas-inspect-filter/reading-1-lookbeforeyoufilter/)** (about 20 minutes)
 
 As you read, look for:
 
@@ -51,20 +123,15 @@ As you read, look for:
 2. Why one blank turns a whole-number column into `float64`.
 3. Why each condition in a two-part filter needs its own parentheses.
 
+**[Start the reading: Look Before You Filter →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/pandas-inspect-filter/reading-1-lookbeforeyoufilter/)** (about 20 minutes)
+
 ## Main takeaways
 
 ### Summary
 
 * **A notebook runs one cell at a time.** The kernel remembers what you ran, in the order you ran it. Use Restart & Run All before you share.
-* **Check every new file four ways, every time.** Zero problems is still a finding: now you know the file is sound instead of hoping it is.
-* **A boolean filter keeps rows where a condition is True.** Join two conditions with `&` (AND) or `|` (OR), each in its own parentheses. Filtering makes a new, smaller table and leaves the original alone.
-
-| Check | Code | Question it answers |
-| --- | --- | --- |
-| Shape | `df.shape` | Did every row and column arrive? |
-| Data types | `df.dtypes` | Is each column the type I expect? |
-| Missing values | `df.isna().sum()` | How many blanks are in each column? |
-| Duplicates | `df.duplicated().sum()` | Are any rows repeated? |
+* **Check every new file four ways, every time:** shape (`df.shape`), data types (`df.dtypes`), missing values (`df.isna().sum()`), and duplicates (`df.duplicated().sum()`). Write down what each one finds. Zero problems is still a finding: now you know the file is sound instead of hoping it is.
+* **A boolean filter keeps rows where a condition is True.** Join two conditions with `&` (AND) or `|` (OR), each in its own parentheses. Count duplicates before you rank or total anything, because a repeated row can take two top spots.
 
 ### Common mix-ups
 
@@ -72,12 +139,14 @@ As you read, look for:
 | --- | --- |
 | "Shift+Enter runs the whole notebook." | It runs only the cell you're in. Restart & Run All runs everything. |
 | "Checks are only for big files." | A blank or a repeat changes totals in a file of any size. |
+| "Filtering changes my table." | It makes a new, smaller table. After `eastside = df[df["site"] == "Eastside"]`, `df` still has all 8 rows. |
 | "Python's `and` joins two filter conditions." | pandas compares whole columns, so it uses `&`, with each condition in parentheses. |
+| "Text columns should say `object`." | That's the old label. pandas 3 shows text as `str`. If a number column shows `str`, something in it isn't a clean number, like `"12 lbs"`. |
 
 ### How this connects
 
-* **Next quest:** You'll turn filtered rows into one summary per group, like total pounds for each site.
-* **Boss Battle:** Part 1 of your project is exactly these four checks on your chosen dataset. Write down what each one finds.
+* **Next reading:** Instead of keeping one group of rows at a time, you'll split all the rows into groups and get one summary number for each group, such as total pounds for each site. You'll also add new columns and bring in columns from a second table.
+* **Boss Battle (Module Project):** When you get a real dataset, you'll start with these same four checks and write down what each one finds before you analyze anything.
 
 ## Quick check
 
@@ -105,4 +174,4 @@ At least one weight is blank. pandas stores a blank number as NaN, which is a de
 
 ---
 
-**Next:** [Quest 2.3 — One Row Per Group](quest-03-group-columns.md)
+**Next:** [Quest 2.3 — One Row Per Group (Grouping, New Columns, and Merging)](quest-03-group-columns.md)

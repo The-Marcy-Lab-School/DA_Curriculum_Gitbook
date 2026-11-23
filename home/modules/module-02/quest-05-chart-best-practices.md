@@ -1,58 +1,92 @@
-# Quest 2.5 — Real Numbers, Wrong Story (Day 5)
+# Quest 2.5 — Real Numbers, Wrong Story (Chart Best Practices)
 
-{% hint style="info" %}
-**In one sentence:** A chart can use only real numbers and still mislead, so check where the axis starts and what the chart leaves out before you share it.
-{% endhint %}
+**Day 5** · Reading time: about 19 minutes
 
-## Why this matters
+## Introduction
 
-People decide things from how a chart looks, often without seeing your code. A city council might send lifeguards to the wrong pool because one bar looked five times taller than it should. Catching that is part of your job.
+Sometimes a chart tells a story its own numbers don't. For example, an ad shows two bars for phone battery life: 20 hours for one phone and 19 hours for its rival. The y-axis starts at 18, so the first bar looks twice as tall, even though the real gap is about 5%. This reading covers two ways a chart of real numbers can still mislead, a cut-off y-axis and hidden outliers, and the labels every shared chart needs. The main takeaway: every number can be real and the chart can still tell the wrong story, so check where the axis starts and what the chart leaves out before you share it.
 
-## What you'll be able to do
+**Why it matters at work:** People decide things from how a chart looks, often without seeing your code. A misleading chart can send money, staff, or time to the wrong place.
 
-* I can spot a cut-off y-axis on a bar chart and fix it.
-* I can find outliers a boxplot is hiding and say so in a caption.
-* I can label a chart so it makes sense for any reader, including people who are colorblind.
+## Learning goals
+
+Check off each goal once you can do it.
+
+- [ ] I can spot a bar chart whose y-axis doesn't start at zero, and fix it.
+- [ ] I can tell when a boxplot is hiding outliers, and say so in a caption.
+- [ ] I can label a chart so any reader can follow it: a title that states the finding, axes with units, a legend, and colors that work for colorblind readers.
 
 **Skills:** Data Visualization · Data Distributions & Shape · Critical Thinking
 
+## Quick recall
+
+* Recall that to compare one number across groups, like an average for each group, you pick a bar chart. You also gave a polished chart a title that states the finding and axis labels with units, using `plt.title("...")` and `plt.ylabel("...")`, in [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
+* Recall that Q1 is the value a quarter of the sorted data falls below, and Q3 is the value three quarters falls below. You found them in the five-number summary in [The Loudest Number](quest-01-descriptive-statistics.md). Here you'll use them to find where outliers start.
+
 ## Words to know
+
+### Reading a chart's axes
 
 | Word | What it means |
 | --- | --- |
-| **Truncated axis** | A y-axis that doesn't start at zero. On a bar chart, it makes small differences look big. |
-| **Boxplot** | A chart of one column's spread: a box from Q1 to Q3, a line at the median, and whiskers. |
-| **Upper fence** | The outlier cutoff: Q3 + 1.5 × (Q3 − Q1). Points past it are outliers. |
-| **`showfliers`** | A boxplot setting. `showfliers=False` hides every outlier dot. |
+| **Axis** | One of the two lines along the edge of a chart. The **x-axis** runs across the bottom. The **y-axis** runs up the side. |
+| **Scale** | The numbers marked along an axis, from the lowest to the highest. |
+| **Baseline** | Where the bars start. On an honest bar chart, the baseline is zero. |
+| **Truncated axis** | A y-axis that doesn't start at zero. On a bar chart, it makes small real differences look big. |
+| **Slope** | How steeply a line goes up or down from one point to the next. A line chart's claim is its slope, not its height. |
+
+### Outliers and boxplots
+
+| Word | What it means | Units |
+| --- | --- | --- |
+| **Outlier** | A value far from the rest. It can still be real. | Same as the data (here, laps) |
+| **Boxplot** | A chart of one column's spread: a box from Q1 to Q3, a line at the median, and whiskers above and below. Outliers show as dots. | Same as the data |
+| **Whisker** | The line that sticks out of the box. The top whisker stops at the largest value inside the upper fence. | Same as the data |
+| **Box height** | Q3 − Q1: how tall the box is. (This is the IQR.) | Same as the data |
+| **Upper fence** | The outlier cutoff: Q3 + 1.5 × (Q3 − Q1). Points past it are outliers. | Same as the data |
+
+### Labels that travel with a chart
+
+| Word | What it means |
+| --- | --- |
+| **Series** | One set of values drawn on a chart, like one line or one set of bars. |
+| **Legend** | A small key that says which color or pattern is which series. Needed when a chart has more than one series. |
+| **Caption** | A short note under a chart, like "1 swim of 110 laps is not shown." |
 | **Chart junk** | Decoration that doesn't help a reader, like 3D effects or extra gridlines. |
-| **Colorblind-safe palette** | Colors that differ in lightness, so readers who can't tell red from green can still tell them apart. |
+| **Colorblind-safe palette** | Colors that differ in lightness, not just in hue, so readers who can't tell red from green can still tell them apart. |
+
+### Code in this reading
+
+| Code | What it does |
+| --- | --- |
+| **`.plot.bar(rot=0)`** | Draws one bar per group, with the labels kept flat. |
+| **`plt.ylim(180, 195)`** | Sets the y-axis to run from 180 to 195. On a bar chart, this cuts off the baseline. |
+| **`.quantile([0.25, 0.75])`** | Gives Q1 and Q3 of a column. |
+| **`.max()`** | Gives the largest value in a column. |
+| **`.plot.box()`** | Draws a boxplot. |
+| **`showfliers`** | A boxplot setting. `showfliers=False` leaves every outlier dot out of the drawing. The default is `True`. |
 
 ## Before you read
 
-Three pools average 182, 188, and 191 swimmers a day. A bar chart makes the busiest pool look five times busier than the quietest. Can every number be real and the chart still be wrong?
+In the reading, you'll focus on a city's three public pools. The pool manager is making a chart for the city council, which decides where to send more lifeguards. The pools average 182, 188, and 191 swimmers a day, but the draft chart makes the busiest pool look about five times busier than the quietest.
 
-<details>
-<summary>Answer</summary>
-
-Yes. If the y-axis starts at 180 instead of 0, the bars show only the part above 180, so a 5% gap looks huge.
-
-</details>
+Think about: how can a chart make a gap that big when every number in it is real? Write down your first answer, then see if the reading agrees.
 
 ## Read
 
-**[Start the reading: Real Numbers, Wrong Story →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/chart-best-practices/reading-1-onechartonepoint/)** (about 19 minutes)
-
 As you read, look for:
 
-1. The one line of code that made the pool chart mislead.
+1. The one line of code that made the pool chart mislead, and what happens when you delete it.
 2. How to tell that a boxplot looks "too tidy."
 3. The five labeling habits that travel with a chart into slides and emails.
+
+**[Start the reading: Real Numbers, Wrong Story →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/chart-best-practices/reading-1-onechartonepoint/)** (about 19 minutes)
 
 ## Main takeaways
 
 ### Summary
 
-* **A bar's height is the claim, so a bar chart's y-axis starts at zero.** Look for any `plt.ylim(...)` line. A line chart can zoom in, because its claim is the change from point to point, not the height.
+* **A bar's height is the claim, so a bar chart's y-axis starts at zero.** pandas starts bars at zero on its own, so look for any line that sets axis limits, like `plt.ylim(...)`. A line chart can zoom in, because its claim is the slope, the change from point to point.
 * **`showfliers=False` hides outliers.** Compare the top of the chart with the column's real `.max()`. If you hide anything, say so in a caption.
 * **Label everything:** a title that states the finding, both axes with units, a legend when there's more than one series, no chart junk, and colors that don't rely on red vs. green.
 
@@ -68,11 +102,12 @@ As you read, look for:
 | "Real numbers can't tell a wrong story." | The axis and the settings can. Check the picture, not just the data. |
 | "Every chart's y-axis has to start at zero." | Bar charts do. A labeled line chart can zoom in to show change. |
 | "New colors fix a misleading chart." | Colors don't change the axis. Delete the line that cuts it off. |
+| "Delete the outlier's row so the data matches the tidy chart." | A real value stays in the data. Show it, or hide it only with a caption that says what's missing. |
 
 ### How this connects
 
-* **Next:** Day 6 is a practice day. Then Quest 2.10 uses these same checks on charts an AI describes or suggests.
-* **Boss Battle:** Your charts are graded on fitting the question and being labeled honestly. The Above & Beyond item asks you to show a first draft and a fixed version side by side.
+* **Next:** A practice day with no new reading. You'll review what you've learned so far, and practice checking analysis code that an AI writes for you. Later, you'll run these same two chart checks when an AI writes or describes a chart for you.
+* **Boss Battle (Module Project):** Every chart you share will need to fit its question and be labeled honestly: a y-axis that starts where it should, nothing hidden without a note, and a title and axes a reader can follow without your code.
 
 ## Quick check
 
@@ -96,4 +131,4 @@ Yes, as long as the axis is labeled. A line chart's claim is the change from wee
 
 ---
 
-**Next:** [Practice Day — Stats, pandas, Charts](practice-day-06.md)
+**Next:** [Practice Day (Review)](practice-day-06.md)

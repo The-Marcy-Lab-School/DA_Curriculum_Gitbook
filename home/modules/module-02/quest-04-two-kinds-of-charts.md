@@ -1,48 +1,95 @@
-# Quest 2.4 — Who's This Chart For? (Day 4)
+# Quest 2.4 — Who's This Chart For? (Exploratory vs. Explanatory Charts)
 
-{% hint style="info" %}
-**In one sentence:** Some charts are rough and just for you, and some are polished for someone else. Pick the chart type by asking what you're comparing.
-{% endhint %}
+**Day 4** · Reading time: about 20 minutes
 
-## Why this matters
+## Introduction
 
-Every chart you share at work gets judged by someone who never saw your notebook. If the chart type doesn't fit the question, or the title doesn't say what you found, the reader can miss your point or believe the wrong thing.
+Sometimes the same numbers need two different charts. For example, a coffee shop owner sketches a rough chart of daily sales on a napkin, just to spot her slow days. Later, she asks a bank for a loan, and that chart needs a clear title, labeled axes, and nothing extra, because the banker never saw the napkin. This reading covers how to tell a chart made for you apart from a chart made for someone else, how to pick a chart type on purpose, and how to chart a count over time. The main takeaway: before you draw, ask who the chart is for and what you're comparing, and check a number before you trust a picture.
 
-## What you'll be able to do
+**Why it matters at work:** Every chart you share gets judged by someone who never saw your notebook. If the chart type doesn't fit the question, or the title doesn't say what you found, the reader can miss your point or believe the wrong thing.
 
-* I can tell an exploratory chart (for me) apart from an explanatory chart (for a stakeholder).
-* I can choose a chart type by asking what I'm comparing.
-* I can turn a text column into real dates and chart a count over time.
+## Learning goals
+
+Check off each goal once you can do it.
+
+- [ ] I can tell an exploratory chart (for me) apart from an explanatory chart (for a stakeholder), and make the three changes that turn one into the other.
+- [ ] I can choose a chart type by asking what I'm comparing.
+- [ ] I can turn a text column into real dates and chart a count over time.
 
 **Skills:** Data Visualization · Stakeholder Communication
-**New tool today:** Matplotlib. Read the [Matplotlib guide](tool-matplotlib.md) first (5 minutes).
+
+## Quick recall
+
+* Recall that a group summary gives you one row per group, from [One Row Per Group](quest-03-group-columns.md): `drives.groupby("site")["units"].mean()` gives one average per site.
+* Recall that double brackets pick a list of columns, from [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
+
+## New tool: Matplotlib
+
+**What it's for:** Matplotlib is a free Python package for drawing charts. In this reading, pandas draws the chart with `.plot`, and Matplotlib (`plt`) adds the title and axis labels and shows the chart under the cell.
+
+**How you'll see it in this reading:**
+
+```python
+import matplotlib.pyplot as plt     # load Matplotlib's chart tools and call them plt
+
+students.plot.scatter(x="hours", y="score_gain", alpha=0.6)   # pandas draws one dot per row; alpha=0.6 makes the dots a bit see-through
+plt.title("More tutoring hours went with slightly bigger gains")   # put a title over the chart
+plt.ylabel("Reading score gain (points)")   # label the y-axis, the one up the side
+plt.show()                                  # draw the chart under the cell
+
+daily.plot(rot=45)                  # a line chart; rot=45 tilts the dates so they don't overlap
+```
+
+The x-axis, across the bottom, has its own label function with a matching name. The reading asks you to find it. If `import matplotlib` gives a `ModuleNotFoundError` on your laptop, run `pip install matplotlib` in the terminal once.
+
+**Learn more:** [Matplotlib: Quick start guide](https://matplotlib.org/stable/users/explain/quick_start.html) (official) · [pandas: Chart visualization](https://pandas.pydata.org/docs/user_guide/visualization.html) (official, every `.plot` chart type with pictures) · [W3Schools: Matplotlib Pyplot](https://www.w3schools.com/python/matplotlib_pyplot.asp)
 
 ## Words to know
 
+### Two kinds of charts
+
 | Word | What it means |
 | --- | --- |
-| **Exploratory chart** | A quick, rough chart you make for yourself to find a pattern. |
-| **Explanatory chart** | A polished chart that tells a stakeholder one clear finding. |
-| **Stakeholder** | The person a finding is for, who wasn't there while you explored. |
-| **Correlation** | A number from -1 to 1 for how closely two number columns move together. Near 0 means a weak link. |
-| **Scatterplot** | One dot per row, with one number column across and another up the side. |
-| **Line chart** | Points joined in order, to show change over time. |
-| **Datetime** | A column type that stores real dates and times, so you can pull out the day or month. |
+| **Exploratory chart** | A quick, rough chart you make for yourself to find a pattern. No title, raw column names as labels. That's fine, because nobody else sees it. |
+| **Explanatory chart** | A polished chart, chosen on purpose, that tells a stakeholder one clear finding. Every explanatory chart starts as a rough one. |
+| **Stakeholder** | The person a finding is for, who wasn't there while you explored. In the reading, the grant committee. |
+| **Finding title** | A chart title that states what you found, in under 10 words, like "Sign-ins jumped the day before the test." A title that only names the columns makes the reader work out the point alone. |
+
+### Parts of a chart
+
+| Word | What it means |
+| --- | --- |
+| **x-axis** | The line across the bottom of a chart. |
+| **y-axis** | The line up the side of a chart. |
+| **Axis label** | The words on an axis that say what it measures, in plain words, with units: "Tutoring time (hours)," not `hours`. |
+
+### Chart types
+
+| Word | What it means | Use it when you're comparing... |
+| --- | --- | --- |
+| **Histogram** | Bars that count how many values fall in each range. | One column's shape |
+| **Boxplot** | A box that shows the middle half of the values, with a line at the median and lines out to the low and high values. It's the five-number summary as a picture. | One column's shape, or the spread inside each group |
+| **Line chart** | Points joined in order, to show change from one time to the next. | A change over time |
+| **Scatterplot** | One dot per row, with one number column across and another up the side. | Two number columns |
+| **Bar chart** | One bar per group, with the bar's height showing a number. | One number across groups |
+
+### The numbers behind the charts
+
+| Word | What it means | Units |
+| --- | --- | --- |
+| **Correlation** | A number for how closely two number columns move together. Near 1 means one goes up when the other does, almost every time. Near 0 means a weak link. `.corr()` works it out for every pair of columns you give it. | No units. Always between -1 and 1 |
+| **Datetime** | A pandas column type that stores real dates and times, so you can pull out the day, month, or weekday. `pd.to_datetime(...)` turns text like `"2026-03-02 15:30"` into a datetime. | — |
+| **`.dt.date`** | Keeps just the calendar day of each date and time, so you can group rows by day. | — |
+| **`.size()`** | After a groupby, counts the rows in each group. | A count of rows (in the reading, sign-ins per day) |
+| **Series** | A single column of values with labels, like the counts per day. A Series's `.plot()` draws a line chart unless you ask for another kind. | — |
 
 ## Before you read
 
-Which title tells a reader more: "Hours vs. Score Gain" or "More tutoring hours went with slightly bigger gains"?
+In the reading, you'll focus on a free after-school tutoring center that's asking a city grant committee for money. The director asks you for one chart that shows how tutoring helps.
 
-<details>
-<summary>Answer</summary>
-
-The second. It states the finding. The first only names the columns, so the reader has to work out the point alone.
-
-</details>
+Think about: what should be different between the charts you make while exploring the data and the one chart you hand the committee? Write down your first answer, then see if the reading agrees.
 
 ## Read
-
-**[Start the reading: Who's This Chart For? →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/exploratory-vs-explanatory-charts/reading-1-whoschartisfor/)** (about 20 minutes)
 
 As you read, look for:
 
@@ -50,28 +97,31 @@ As you read, look for:
 2. Why you check `.corr()` before you trust a chart, or an AI's words about it.
 3. The steps that turn sign-in times into a count of sign-ins per day.
 
+**[Start the reading: Who's This Chart For? →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/exploratory-vs-explanatory-charts/reading-1-whoschartisfor/)** (about 20 minutes)
+
 ## Main takeaways
 
 ### Summary
 
-* **Exploratory charts are for you:** fast and rough. **Explanatory charts are for a stakeholder:** one finding, a title that states it in under 10 words, axis labels with units, and nothing extra.
-* **Check a number before you trust a picture.** A correlation of 0.26 is weak, so say "tended to," not "strong."
-* **Pick the chart by what you're comparing.** To chart a count over time: `pd.to_datetime`, group by `.dt.date`, `.size()`, then `.plot()`.
+* **Exploratory charts are for you:** fast and rough. **Explanatory charts are for a stakeholder:** one finding, a title that states it in under 10 words, axis labels in plain words with units, and nothing extra.
+* **Check a number before you trust a picture.** A correlation of 0.26 is weak, so write "tended to," not "strong," even if an AI's description of the chart sounds sure.
+* **Pick the chart by what you're comparing.** To chart a count over time: `pd.to_datetime`, group by `.dt.date`, `.size()`, then `.plot()` for a line.
 
-![Four cards. One column's shape: histogram or boxplot. A change over time: line chart. Two number columns: scatterplot. One number across groups: bar chart, with the y-axis starting at zero.](images/chart-chooser.svg)
+![Four cards under the question "Pick a chart by asking: what am I comparing?" One column's shape: histogram or boxplot, for example how gifts are spread out. A change over time: line chart, for example sign-ins per day. Two number columns: scatterplot, for example hours vs. score gain. One number across groups: bar chart, for example average swimmers per pool, with the y-axis starting at zero.](images/chart-chooser.svg)
 
 ### Common mix-ups
 
 | If you think... | What's actually true |
 | --- | --- |
-| "A good title names the columns." | A good title states the finding. Column names belong on the axes. |
+| "A good title names the columns." | A good title states the finding. Column names belong on the axes, in plain words with units. |
 | "A weak correlation means the chart failed." | A weak link is still a finding. Describe it honestly. |
 | "Grades 6, 7, and 8 are in order, so use a line chart." | You're comparing groups, so use a bar chart. Lines are for change over time. |
+| "One busy week shows a trend." | One week can show a spike. A long-term trend needs months of data. |
 
 ### How this connects
 
-* **Next quest:** You'll check these same chart types for honesty: where the axis starts, and what the chart leaves out.
-* **Boss Battle:** In Parts 3–5, you'll choose a chart type for each question and say why. At least one finished chart goes in your README.
+* **Next reading:** You'll check these same chart types for honesty: where an axis starts, and what a chart leaves out.
+* **Boss Battle (Module Project):** When you share findings, you'll choose a chart type for each question, say why you chose it, and polish the charts you share so a reader who never saw your notebook gets the point.
 
 ## Quick check
 
@@ -95,4 +145,4 @@ That the two tended to rise together, but the link is weak. Your number settles 
 
 ---
 
-**Next:** [Quest 2.5 — Real Numbers, Wrong Story](quest-05-chart-best-practices.md)
+**Next:** [Quest 2.5 — Real Numbers, Wrong Story (Chart Best Practices)](quest-05-chart-best-practices.md)

@@ -1,12 +1,12 @@
-# Practice Day — Stats, pandas, Charts (Day 6)
+# Practice Day (Review)
 
-{% hint style="info" %}
-**In one sentence:** No new topics today. You'll practice Days 1–5 and learn to check analysis code that an AI writes for you.
-{% endhint %}
+**Day 6** · No new reading
 
-## Why this matters
+## Introduction
 
-Practicing what you learned a few days ago is what makes it stick. And at work, AI tools will write analysis code for you. The code often runs with no errors and still gives a wrong answer, so you need a routine for checking it.
+There's no new topic today. You'll practice what you learned in the first five quests, and you'll learn a routine for checking analysis code that an AI writes for you. The main takeaway: AI-written code can run with no errors and still give a wrong answer, so you check it before you trust it.
+
+**Why it matters at work:** Practicing something a few days after you learn it is what makes it stick. And at work, AI tools will write analysis code for you, so you need a quick way to check it.
 
 ## What you'll do in class
 
@@ -18,17 +18,17 @@ Practicing what you learned a few days ago is what makes it stick. And at work, 
 
 ## Before you trust AI analysis code
 
-Use this checklist every time an AI writes analysis code for you, in class and in your project:
+Use this checklist every time an AI writes analysis code for you, in class and in the Boss Battle (Module Project):
 
 | Check | Why |
 | --- | --- |
-| **1. Rows before and after** | A `dropna()` or a filter can remove rows without telling you. |
+| **1. Rows before and after** | A filter, or a step that removes rows with blanks, can drop rows without telling you. |
 | **2. One number by hand** | Work out one result yourself and compare it with the code's answer. |
 | **3. Data types** | A number column stored as text gives wrong math or errors. |
 | **4. What got dropped or filled** | Every removed row or filled-in value changes the answer. Count them. |
 | **5. Does the statistic fit the shape?** | An AI may use the mean on skewed data. Look at the chart first. |
 
-## Review: Days 1–5
+## Review: the first five quests
 
 Try each question before you open the answer.
 
@@ -80,8 +80,8 @@ Where does the y-axis start? Was anything (like an outlier) left out of view?
 ## How this connects
 
 * **Data Challenge:** Today finishes "Seattle Weather, Two Tools," where you compare the same work in Python and a spreadsheet.
-* **Boss Battle:** In Part 5b, if an AI gives you code, you'll audit it with this same checklist.
+* **Boss Battle (Module Project):** Whenever an AI gives you code, you'll check it with this same checklist before you use its answer.
 
 ---
 
-**Next:** [Quest 2.6 — Drop, Fill, or Flag](quest-06-missing-data.md)
+**Next:** [Quest 2.6 — Drop, Fill, or Flag (Missing Data)](quest-06-missing-data.md)

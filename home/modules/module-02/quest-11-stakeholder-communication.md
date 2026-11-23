@@ -1,47 +1,65 @@
-# Quest 2.11 — Nobody Was in the Room (Day 12)
+# Quest 2.11 — Nobody Was in the Room (Writing for Stakeholders)
 
-{% hint style="info" %}
-**In one sentence:** Turn your notebook finding into two short pages: a README that says what you found, and a memo that says how far to trust it.
-{% endhint %}
+**Day 12** · Reading time: about 20 minutes
 
-## Why this matters
+## Introduction
 
-The person who makes a decision from your work usually wasn't there when you did it, and they won't open your notebook. If your finding doesn't stand on its own, it doesn't get used. A clear README is also what an employer sees first when they open your GitHub.
+The person who acts on your work usually wasn't there when you did it. For example, a coach finds that the team gives up most of its goals in the last ten minutes of a game. The athletic director won't read the coach's spreadsheet. The director needs the answer, one number, and a picture, in words they can read in a minute. This reading covers how to save a chart as an image file, write a README page that shows what you found, and write a short data-quality memo that says how far to trust it. The main takeaway: write each page so it stands on its own: lead with the answer, give one number, and say what's still worth checking.
 
-## What you'll be able to do
+**Why it matters at work:** The person who makes a decision from your work won't open your notebook. If your finding doesn't stand on its own, it doesn't get used. A clear README is also what an employer sees first when they open your GitHub.
 
-* I can save a chart as an image and embed it in a README with alt text.
-* I can write a README whose sections each stand on their own.
-* I can write a data-quality memo with a plain answer, two checkable questions, and what they'd mean for the decision.
+## Learning goals
+
+Check off each goal once you can do it.
+
+- [ ] I can save a chart as an image and embed it in a README with alt text.
+- [ ] I can write a README whose sections each stand on their own.
+- [ ] I can write a data-quality memo with a plain answer, two checkable questions, and what they'd mean for the decision.
 
 **Skills:** Stakeholder Communication · Data Visualization · Critical Thinking
 
+## Quick recall
+
+* Recall that you saved a chart as an image with `plt.savefig("tradeins_hist.png", dpi=150)`, before `plt.show()`, so you could share just the picture, in [Two Sets of Eyes](quest-10-ai-on-charts.md).
+* Recall that you rewrote a vague question like "Why is data missing?" into a checkable one that names a group, a number, or a method, in [The Pattern Isn't the Proof](quest-09-clarifying-questions.md).
+* Recall that a chart made for someone else gets a title that states the finding and axes with units, in [Real Numbers, Wrong Story](quest-05-chart-best-practices.md).
+
 ## Words to know
+
+### Who you're writing for
 
 | Word | What it means |
 | --- | --- |
-| **Stakeholder** | The person who will use your finding to make a decision. |
-| **Stakeholder-facing** | Written for a reader who doesn't code: the answer and how sure you are, not the code. |
-| **README** | A project's landing page. It answers "What did you find?" |
-| **Data-quality memo** | A short page whose job is trust. It answers "Can I trust it?" |
-| **Takeaways** | The README section with findings in plain words. |
-| **Alt text** | Words that describe what a chart shows, for readers using a screen reader. |
-| **BLUF** | Bottom Line Up Front: lead with the answer. |
+| **Stakeholder** | The person who will use your finding to make a decision. In the reading, it's the transit manager. |
+| **Stakeholder-facing** | Written for a reader who doesn't code. It gives the answer and how sure you are, not the code that found it. |
+| **BLUF** | Bottom Line Up Front: lead with the answer, then give one number, then name one thing still worth checking. |
+
+### The two pages
+
+| Word | What it means |
+| --- | --- |
+| **README** | The landing page of a project: the first page anyone opening the repo sees. It answers "What did you find?" |
+| **Takeaways** | The README section with findings in plain words, not code. |
+| **Memo** | A short note written for someone who has to make a decision. |
+| **Data-quality memo** | A separate short page whose job is trust. It answers "Can I trust it?" It has four parts, every time. |
+| **Markdown** | A simple way to format plain text. Symbols like `##` and `-` turn into headings and bullets when GitHub shows the file. READMEs are written in Markdown. |
+| **Embed** | Put a picture right inside the page, so readers see the chart instead of a link to it. |
+| **Alt text** | Words that describe what a chart shows, for readers who use a screen reader. Never just a file name. |
+
+### New code in this reading
+
+| Word | What it means |
+| --- | --- |
+| **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. `exist_ok=True` tells Python not to stop with an error when the folder already exists. `os` is a module that comes with Python. |
+| **`.unstack()`** | Turns the inner group labels (morning, evening) into columns, so each route gets two bars side by side. |
 
 ## Before you read
 
-A teammate's README says only "See the notebook for results" under Takeaways. What's wrong with that?
+In the reading, you'll focus on Jordan, who found that Route 12 buses run late in the evening. The transit manager will decide whether to add buses. The manager wasn't there when Jordan ran the numbers and won't open a notebook.
 
-<details>
-<summary>Answer</summary>
-
-The manager won't open the notebook, so they're left with nothing. The finding itself needs to be written right there, in plain words.
-
-</details>
+Think about: what does the manager need to see on the page to make that decision? Write down your first answer, then see if the reading agrees.
 
 ## Read
-
-**[Start the reading: Nobody Was in the Room →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/stakeholder-communication/reading-1-nobodywasintheroom/)** (about 19 minutes)
 
 As you read, look for:
 
@@ -49,28 +67,36 @@ As you read, look for:
 2. What the `!` does in front of an image link, and why the `images` folder has to be committed.
 3. The four parts every data-quality memo has.
 
+**[Start the reading: Nobody Was in the Room →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/stakeholder-communication/reading-1-nobodywasintheroom/)** (about 20 minutes)
+
 ## Main takeaways
 
 ### Summary
 
-* **Recompute a number right before you cite it,** and copy what the cell prints, not what you remember.
-* **Save the chart into an `images` folder** with `plt.savefig` before `plt.show()`, then embed it with `![alt text](images/name.png)`. Commit the folder too.
-* **Two pages, two jobs.** The README says what you found, in the sections the project asks for. The memo says how far to trust it, in four parts.
+* **Recompute a number right before you cite it,** and copy what the cell prints, not what you remember. Jordan copies 10.3 minutes late, for Route 12's evening trips, straight from the output.
+* **Save the chart as a file, then embed it.** Make an `images` folder, save the chart with `plt.savefig` before `plt.show()`, and embed it with `![alt text](images/name.png)`. Commit the `images` folder along with the README, or the picture won't show up on GitHub.
+* **Two pages, two jobs.** The README says what you found, in the sections the project asks for. The data-quality memo says how far to trust it, in four parts.
 
 | | README | Data-quality memo |
 | --- | --- | --- |
 | Answers | "What did you find?" | "Can I trust it?" |
-| Includes | Your scenario, data, numbers, an embedded chart, and takeaways in plain words | Domain and stakeholder, a one-sentence answer, 2 checkable questions, and whether a bad answer would change your advice |
+| Includes | The sections the project asks for. In the reading: the scenario, a data overview, a statistical summary, the embedded chart, and takeaways in plain words. | Four parts: domain and stakeholder on one line, a one-sentence answer with no code words, two checkable questions, and whether a bad answer would change your advice. |
 
-Every README uses the same five Markdown pieces:
+Every README is built from the same five Markdown pieces:
 
 | To make... | Write |
 | --- | --- |
 | A section heading | `## Takeaways` |
-| A bullet | `- Route 12 runs late in the evening` |
+| A bullet | `- Route 12 evening trips run about 10 minutes late.` |
 | A bold key number | `**10.3 minutes**` |
-| A link | `[Bus data](data/trips.csv)` |
-| An embedded chart | `![Bar chart of minutes late by route](images/late_by_route.png)` |
+| A link to the data | `[Bus tracking data](data/trips.csv)` |
+| An embedded chart | `![Bar chart of average minutes late by route](images/late_by_route.png)` |
+
+Without the `!`, GitHub shows a plain link instead of the picture.
+
+{% hint style="info" %}
+**Don't skip the memo's last line.** "Does this affect trust?" says whether a bad answer to one of your questions would change your advice. It's the line people most often leave out, and it tells the stakeholder what your questions mean for the decision.
+{% endhint %}
 
 ### Common mix-ups
 
@@ -82,8 +108,8 @@ Every README uses the same five Markdown pieces:
 
 ### How this connects
 
-* **Next:** The Checkpoint (Days 13–14), where you find a pattern on your own and review the whole module.
-* **Boss Battle:** You'll replace the template's README with your own, embed at least one chart, and write `memo.md`. Your share-out deck starts with a BLUF slide taken straight from your memo's first line.
+* **Next:** In the Module 2 Checkpoint (Review and Solo Practice), you'll find a pattern on your own in a dataset you've never seen, then review every skill from this module with self-check questions.
+* **Boss Battle (Module Project):** You'll explain your finding in writing to someone who won't read your code. You'll lead with the answer, embed a chart with alt text that says what it shows, and name what's still worth checking before anyone acts on it.
 
 ## Quick check
 
@@ -111,4 +137,4 @@ Every README uses the same five Markdown pieces:
 
 ---
 
-**Next:** [Module 2 Checkpoint](checkpoint.md)
+**Next:** [Module 2 Checkpoint (Review and Solo Practice)](checkpoint.md)

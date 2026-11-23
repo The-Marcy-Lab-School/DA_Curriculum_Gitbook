@@ -1,47 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" width="960" height="260" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 300" width="1060" height="300" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">The EDA workflow in Module 2</title>
-  <desc id="d">Five steps from left to right: Inspect on Day 2, Clean on Days 7 and 8, Explore on Days 1, 3 to 5 and 9, Check on Days 10 and 11, and Explain on Day 12. The project runs all five steps on one dataset.</desc>
+  <desc id="d">Five steps from left to right: Inspect in Quest 2.2; Clean in Quests 2.6 and 2.7; Explore in Quests 2.1, 2.3 to 2.5 and 2.8; Check in Quests 2.9 and 2.10; Explain in Quest 2.11. The Boss Battle (Module Project) runs all five steps on one real dataset.</desc>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E3A8A"/></marker>
   </defs>
-  <rect width="960" height="260" fill="#ffffff"/>
-  <text x="480" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">The EDA workflow you'll practice in Module 2</text>
-  <g font-size="14" fill="#111827" text-anchor="middle">
-    <rect x="20" y="70" width="160" height="130" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-    <text x="100" y="104" font-size="20" font-weight="bold">1. Inspect</text>
-    <text x="100" y="132">Is every row here?</text>
-    <text x="100" y="152">Right types? Blanks?</text>
-    <text x="100" y="184" font-size="13" fill="#475569">Day 2</text>
-
-    <rect x="210" y="70" width="160" height="130" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-    <text x="290" y="104" font-size="20" font-weight="bold">2. Clean</text>
-    <text x="290" y="132">Fix problems</text>
-    <text x="290" y="152">on purpose</text>
-    <text x="290" y="184" font-size="13" fill="#475569">Days 7–8</text>
-
-    <rect x="400" y="70" width="160" height="130" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-    <text x="480" y="104" font-size="20" font-weight="bold">3. Explore</text>
-    <text x="480" y="132">Stats, groups</text>
-    <text x="480" y="152">and charts</text>
-    <text x="480" y="184" font-size="13" fill="#475569">Days 1, 3–5, 9</text>
-
-    <rect x="590" y="70" width="160" height="130" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-    <text x="670" y="104" font-size="20" font-weight="bold">4. Check</text>
-    <text x="670" y="132">Question the data</text>
-    <text x="670" y="152">and the AI</text>
-    <text x="670" y="184" font-size="13" fill="#475569">Days 10–11</text>
-
-    <rect x="780" y="70" width="160" height="130" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
-    <text x="860" y="104" font-size="20" font-weight="bold">5. Explain</text>
-    <text x="860" y="132">README and memo</text>
-    <text x="860" y="152">for a stakeholder</text>
-    <text x="860" y="184" font-size="13" fill="#475569">Day 12</text>
+  <rect width="1060" height="300" fill="#ffffff"/>
+  <text x="530" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#111827">The EDA workflow you'll practice in Module 2</text>
+  <g font-size="18" fill="#111827" text-anchor="middle">
+    <rect x="20" y="66" width="184" height="170" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+    <text x="112" y="100" font-size="21" font-weight="bold">1. Inspect</text>
+    <text x="112" y="130">Is every row here?</text>
+    <text x="112" y="152">Right types?</text>
+    <text x="112" y="174">Any blanks?</text>
+    <text x="112" y="204" fill="#475569">Quest 2.2</text>
+    <rect x="234" y="66" width="184" height="170" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+    <text x="326" y="100" font-size="21" font-weight="bold">2. Clean</text>
+    <text x="326" y="130">Fix problems</text>
+    <text x="326" y="152">on purpose</text>
+    <text x="326" y="204" fill="#475569">Quests 2.6–2.7</text>
+    <rect x="448" y="66" width="184" height="170" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+    <text x="540" y="100" font-size="21" font-weight="bold">3. Explore</text>
+    <text x="540" y="130">Stats, groups</text>
+    <text x="540" y="152">and charts</text>
+    <text x="540" y="193" fill="#475569">Quests 2.1,</text>
+    <text x="540" y="215" fill="#475569">2.3–2.5, 2.8</text>
+    <rect x="662" y="66" width="184" height="170" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+    <text x="754" y="100" font-size="21" font-weight="bold">4. Check</text>
+    <text x="754" y="130">Question the</text>
+    <text x="754" y="152">data and the AI</text>
+    <text x="754" y="204" fill="#475569">Quests 2.9–2.10</text>
+    <rect x="876" y="66" width="184" height="170" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="2"/>
+    <text x="968" y="100" font-size="21" font-weight="bold">5. Explain</text>
+    <text x="968" y="130">Write a README</text>
+    <text x="968" y="152">and a memo</text>
+    <text x="968" y="204" fill="#475569">Quest 2.11</text>
   </g>
   <g stroke="#1E3A8A" stroke-width="2.5" marker-end="url(#a)">
-    <line x1="182" y1="135" x2="207" y2="135"/>
-    <line x1="372" y1="135" x2="397" y2="135"/>
-    <line x1="562" y1="135" x2="587" y2="135"/>
-    <line x1="752" y1="135" x2="777" y2="135"/>
+    <line x1="206" y1="150" x2="231" y2="150"/>
+    <line x1="420" y1="150" x2="445" y2="150"/>
+    <line x1="634" y1="150" x2="659" y2="150"/>
+    <line x1="848" y1="150" x2="873" y2="150"/>
   </g>
-  <text x="480" y="240" text-anchor="middle" font-size="15" fill="#111827">Your project (Days 15–19) runs all five steps on one real dataset.</text>
+  <text x="530" y="278" text-anchor="middle" font-size="20" fill="#111827">The Boss Battle (Module Project) runs all five steps on one real dataset.</text>
 </svg>

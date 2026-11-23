@@ -1,47 +1,73 @@
-# Quest 2.3 — One Row Per Group (Day 3)
+# Quest 2.3 — One Row Per Group (Grouping, New Columns, and Merging)
 
-{% hint style="info" %}
-**In one sentence:** `groupby` turns hundreds of rows into one summary per group, which is how most findings start.
-{% endhint %}
+**Day 3** · Reading time: about 20 minutes
 
-## Why this matters
+## Introduction
 
-Managers rarely ask about one row. They ask, "Which location collects the most?" or "Which team is slowest?" To answer, you compare groups. You'll also add new columns that show what raw counts hide, and pull in information from a second table, which analysts do every day.
+Managers rarely ask about one row. For example, a pizza chain logs every order: which store, what time, and how much it cost. The owner asks, "Which store sells the most?" You can't read 5,000 orders by eye, and writing a separate filter for every store gets old fast. This reading covers how to turn many rows into one summary row per group, add new columns worked out from the ones you have, change rows safely, and bring in columns from a second table. The main takeaway: compare groups with one summary row per group, and check your work after every change, because pandas can quietly do nothing or leave blanks without an error.
 
-## What you'll be able to do
+**Why it matters at work:** Questions like "Which location collects the most?" or "Which team is slowest?" are answered by comparing groups. Most findings start this way.
 
-* I can summarize a column for each group with `groupby` and `.agg()`.
-* I can add a new column calculated from other columns, and change rows in the original table safely.
-* I can merge in columns from a lookup table and check that the merge worked.
+## Learning goals
+
+Check off each goal once you can do it.
+
+- [ ] I can summarize a column for each group, and keep the count next to the mean and median.
+- [ ] I can add a new column calculated from other columns, and change rows in the original table safely.
+- [ ] I can merge in columns from a lookup table and check that the merge worked.
 
 **Skills:** Data Mining · pandas DataFrames
 
+## Quick recall
+
+* Recall that you kept only the rows that matched two conditions, each in its own parentheses, joined with `&`, in [Look Before You Filter](quest-02-inspect-filter.md): `df[(df["site"] == "Eastside") & (df["category"] == "Produce")]`.
+* Recall that `df.isna().sum()` counted the blank cells in each column, in the same reading. You'll use that count again to check your work.
+* Recall that when the mean and median are close, no single far-off value is pulling the mean, from [The Loudest Number](quest-01-descriptive-statistics.md).
+
 ## Words to know
+
+### Grouping
+
+| Word | What it means | Units |
+| --- | --- | --- |
+| **groupby** | Splits rows into groups by a category, applies a summary to each group, and combines the answers into one row per group. People call this "split, apply, combine." On its own, `groupby("site")` only makes the groups. It shows no table until you add a summary. | — |
+| **Aggregation** | A summary worked out for each group, such as a count, mean, or median. `.agg()` does several at once. | Depends on the summary (see below) |
+| **count** (in `.agg()`) | How many values in the group are *not* blank. It shows how many rows each number rests on, so you can spot a group too small to trust. | A count of rows |
+| **mean and median** (in `.agg()`) | The average and the middle value for each group. Side by side, they're a quick skew check for each group. | Same as the column (here, units of blood) |
+
+### New columns
 
 | Word | What it means |
 | --- | --- |
-| **groupby** | Splits rows into groups by a category, then summarizes each group. |
-| **Aggregation** | A summary worked out for each group, such as a count, mean, or median. |
-| **Derived column** | A new column calculated from columns you already have, for every row at once. |
-| **Chained assignment** | Changing a value in two steps, like `df[mask]["col"] = value`. In pandas 3, it changes a copy, not your table. |
-| **`.loc`** | Picks rows and a column in one step, so a change sticks: `df.loc[rows, "col"] = value`. |
-| **Merge** | Combines two tables by matching rows on a shared column, called the key. |
-| **Lookup table** | A small table with one row per key, used to add columns to a bigger table. |
+| **Derived column** | A new column worked out from columns you already have. You write the formula once, and pandas applies it to every row at once, with no loop. A blank in, a blank (NaN) out. |
+| **Rate** | A derived column that divides one number by another, like units per volunteer hour. It can show what raw counts hide. Its units come from both columns: units of blood *per hour*. |
+| **Mask** | A True/False column saved under a name, like `big = drives["units"] >= 30`, so you can reuse it to pick rows. |
+
+### Changing rows safely
+
+| Word | What it means |
+| --- | --- |
+| **Copy** | A separate table. In pandas 3, a filter like `drives[big]` always gives you a copy. Changing a copy never touches the original. |
+| **Chained assignment** | Setting a value in two steps, like `df[mask]["col"] = value`. The first step makes a copy, and the second step changes the copy, so your table stays the same. |
+| **ChainedAssignmentError** | The message pandas shows when you try chained assignment. Despite its name, it's a warning, not a crash: the cell keeps running, so it's easy to miss. |
+| **`.loc`** | Names the rows and the column inside one pair of brackets, so the change happens to your table itself, in one step: `df.loc[rows, "col"] = value`. |
+
+### Combining tables
+
+| Word | What it means |
+| --- | --- |
+| **Merge** | Combines two tables by matching rows on a shared column, then copies the second table's columns onto the matching rows. |
+| **Key** | The shared column a merge matches on, like `site`. Keys must match exactly, letter for letter. |
+| **Lookup table** | A small second table with one row per key, used to add columns to a bigger table. |
+| **Left merge** (`how="left"`) | A merge that keeps every row of your main table. A row with no match stays, with NaN in the new columns. |
 
 ## Before you read
 
-A nonprofit has 800 rows, one per blood drive, at three locations. You want to know which location collects the most blood. Would you write one filter for each location?
+In the reading, you'll focus on a nonprofit that runs blood drives at a library, a community center, and a fire station. A volunteer writes one row per drive. A unit is one bag of donated blood. The team asks, "Which place collects the most blood?"
 
-<details>
-<summary>Answer</summary>
-
-You could, but `groupby` does it in one line, for every location at once, however many there are.
-
-</details>
+Think about: besides each place's average, what else would you want to know before you call one place the winner? Write down your first answer, then see if the reading agrees.
 
 ## Read
-
-**[Start the reading: One Row Per Group →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/pandas-group-columns/reading-1-one-row-per-group/)** (about 20 minutes)
 
 As you read, look for:
 
@@ -49,29 +75,31 @@ As you read, look for:
 2. Why changing filtered rows in two steps leaves the original table unchanged.
 3. What the two checks after a merge catch that an error message doesn't.
 
+**[Start the reading: One Row Per Group →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/pandas-group-columns/reading-1-one-row-per-group/)** (about 20 minutes)
+
 ## Main takeaways
 
 ### Summary
 
 * **`groupby` splits, applies, and combines.** Keep the count next to the mean and median, so you can spot a group too small to trust. `count` skips blanks.
-* **A filter gives you a copy.** To change rows in the original table, use `df.loc[rows, "column"] = value` in one step.
+* **A filter gives you a copy.** To change rows in the original table, use `df.loc[rows, "column"] = value` in one step. Then check the count, because a step that silently does nothing is worse than a crash.
 * **After every merge, check two things:** the row count before and after, and the number of blanks in the new column. Keys must match letter for letter.
 
-![Six blood-drive rows are split into one pile per site. The mean of each pile is worked out, then combined into a table with one row per site.](images/groupby-split-apply-combine.svg)
+![Eight blood-drive rows are split into one pile per site. The mean units of each pile is worked out, skipping the one blank value: Community Center 38.0, Fire Station 22.0, Library 27.3. Then the answers are combined into a table with one row per site. The line of code is drives.groupby("site")["units"].mean().](images/groupby-split-apply-combine.svg)
 
 ### Common mix-ups
 
 | If you think... | What's actually true |
 | --- | --- |
-| "Adding `.copy()` makes a two-step change stick." | It still changes a copy. Use `.loc` in one step. |
-| "The merge ran with no error, so it worked." | A misspelled key leaves blanks silently. Count the blanks to find out. |
 | "`groupby("site")` on its own shows a table." | It only makes the groups. You still need a summary like `.mean()` or `.agg()`. |
+| "Adding `.copy()` makes a two-step change stick." | It still changes a copy. Use `.loc` in one step. |
+| "ChainedAssignmentError stopped my cell, so nothing happened." | It's a warning. The cell keeps running, and every count after it is quietly wrong. |
+| "The merge ran with no error, so it worked." | A misspelled key leaves blanks silently. Count the blanks to find out. |
 
 ### How this connects
 
-* **Next quest:** You'll turn group summaries like these into charts.
-* **Boss Battle:** Part 2b asks you to add at least one new column, like `total_paid`. Part 4 asks for a `groupby` table that compares each group with the overall number.
-* **Module 3:** SQL's `GROUP BY` and `JOIN` do the same jobs as `groupby` and `merge`.
+* **Next reading:** You'll turn group summaries like these into charts: quick, rough ones to find a pattern for yourself, and one clear chart for someone who wasn't there while you explored.
+* **Boss Battle (Module Project):** When you look for a finding in a real dataset, you'll compare groups with one summary row per group, add new columns when raw numbers hide something, and check your row counts and blanks after every change.
 
 ## Quick check
 
@@ -95,4 +123,4 @@ The merge runs with no error. Every Fire Station row stays in the table, but wit
 
 ---
 
-**Next:** [Matplotlib guide](tool-matplotlib.md), then [Quest 2.4 — Who's This Chart For?](quest-04-two-kinds-of-charts.md)
+**Next:** [Quest 2.4 — Who's This Chart For? (Exploratory vs. Explanatory Charts)](quest-04-two-kinds-of-charts.md)

@@ -1,47 +1,68 @@
-# Quest 2.10 — Two Sets of Eyes (Day 11)
+# Quest 2.10 — Two Sets of Eyes (Checking AI on Charts)
 
-{% hint style="info" %}
-**In one sentence:** An AI can describe a chart fast and sound sure while getting part of it wrong, so you check each claim against numbers you computed yourself.
-{% endhint %}
+**Day 11** · Reading time: about 20 minutes
 
-## Why this matters
+## Introduction
 
-AI tools are now part of most analysts' work. But the person who shares a result is responsible for it, not the tool. Knowing how to check an AI's read of a chart, and its chart ideas, is a skill employers are starting to ask about.
+AI tools answer fast and sound sure, even when part of the answer is wrong. For example, you share a chart of a month's daily temperatures with an AI, and it says, "Temperatures rose steadily all month." It sounds confident, but your own numbers show a cold week right in the middle. This reading covers how to check an AI's description of a chart you made, and a chart an AI suggests, against numbers you worked out yourself. The main takeaway: compute your own numbers first, then check each AI claim on its own, because the person who shares a result is responsible for it, not the tool.
 
-## What you'll be able to do
+**Why it matters at work:** AI tools are now part of most analysts' work. Knowing how to check an AI's read of a chart, and its chart ideas, is a skill employers are starting to ask about.
 
-* I can compute my own numbers and save a chart as an image before I ask an AI about it.
-* I can split an AI's answer into separate claims and mark each one right, wrong, or unverifiable.
-* I can judge a chart an AI suggests on two counts: whether the chart type fits, and whether its claims match my numbers.
+## Learning goals
+
+Check off each goal once you can do it.
+
+- [ ] I can compute my own numbers and save a chart as an image before I ask an AI about it.
+- [ ] I can split an AI's answer into separate claims and mark each one right, wrong, or unverifiable.
+- [ ] I can judge a chart an AI suggests on two counts: whether the chart type fits, and whether its claims match my numbers.
 
 **Skills:** AI as Critic · AI Evaluation · Data Distributions & Shape
 
+## Quick recall
+
+* Recall that one very large value pulls the mean up more than the median, so a mean far above the median is a sign of skew. You saw this with one $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
+* Recall that to see the shape of one number column, you pick a histogram or a boxplot, in [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
+* Recall that a confident AI answer still needs evidence before you use it, in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md).
+
 ## Words to know
+
+### Checking an AI
 
 | Word | What it means |
 | --- | --- |
-| **AI critique** | Checking an AI's chart description or chart idea against the real numbers before you trust it. |
-| **Direction 1** | The AI describes a chart you made. You check whether its read matches. |
-| **Direction 2** | The AI suggests a chart. You check whether it fits the question and the data. |
-| **Claim** | One statement that can be checked. |
-| **Unverifiable** | A claim nothing you computed can settle. It isn't right or wrong yet. It's unchecked. |
+| **AI critique** | Checking an AI's chart description or chart suggestion against the real numbers before you trust it. |
+| **Direction 1** | The AI describes a chart you made. You check whether its read matches the real chart. |
+| **Direction 2** | The AI suggests a chart. You check whether the suggestion fits the question and the data. |
+| **Claim** | One statement that could be checked. An AI sentence is a claim until you check it against the data. |
+| **Verdict** | Your ruling on one claim: right, wrong, or unverifiable, with the number that settles it. |
+| **Unverifiable** | A claim that nothing you computed can settle. It isn't right or wrong yet. It's unchecked. |
+
+### Reading the shape
+
+| Word | What it means |
+| --- | --- |
 | **Right-skewed** | Most values are small, with a long tail to the right. The mean gets pulled above the median. |
-| **`plt.savefig`** | Saves a chart as an image file. Call it before `plt.show()`. |
+| **Peak** | A high spot on a histogram, where many values bunch together. Two peaks often mean two groups are mixed together in one column. |
+
+### Code in this reading
+
+| Word | What it means |
+| --- | --- |
+| **`.describe()[["mean", "50%"]]`** | Picks two rows of `describe()`: the mean and the "50%" row, which is the median. Both come out in the column's units, like books per trade-in or dollars. |
+| **`.plot.hist(bins=12)`** | Draws a histogram with 12 bars. |
+| **`plt.savefig("tradeins_hist.png", dpi=150)`** | Saves the chart as an image file. `dpi` sets how sharp the image is: a bigger number makes a sharper picture. |
+
+{% hint style="info" %}
+**Save before you show.** `plt.savefig` must come before `plt.show()`. Showing a chart clears it, so saving after that gives you a blank image.
+{% endhint %}
 
 ## Before you read
 
-An AI looks at your chart and says, "The data looks roughly symmetric. The mean is a good typical number." Your numbers show a mean of 9.9 and a median of 4.5. Do you trust it?
+In the reading, you'll focus on Devon, who runs a small used-book shop where customers trade in old books for store credit. Devon saves a chart of the trade-ins and asks an AI chat to describe it. The AI answers fast and sounds sure.
 
-<details>
-<summary>Answer</summary>
-
-No. A mean that far above the median means the data is right-skewed, not symmetric. The median, 4.5, is the better typical number.
-
-</details>
+Think about: what would you need in hand before you could tell whether the AI is right? Write down your first answer, then see if the reading agrees.
 
 ## Read
-
-**[Start the reading: Two Sets of Eyes →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/ai-on-charts/reading-1-twosetsofeyes/)** (about 19 minutes)
 
 As you read, look for:
 
@@ -49,11 +70,13 @@ As you read, look for:
 2. Why a mean and median that are close together don't always mean the data has one hump.
 3. The two counts you judge an AI's chart idea on.
 
+**[Start the reading: Two Sets of Eyes →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/ai-on-charts/reading-1-twosetsofeyes/)** (about 20 minutes)
+
 ## Main takeaways
 
 ### Summary
 
-* **Get your own numbers first.** Save the chart with `plt.savefig` before `plt.show()`, upload only the image, and ask a plain question that doesn't hint at the answer.
+* **Get your own numbers first.** Save the chart with `plt.savefig` before `plt.show()`, share only the image with a fresh AI chat, and ask a plain question that doesn't hint at the answer. For the trade-ins, the mean is 9.9 books and the median is 4.5, so the data is right-skewed and the median is the typical trade-in.
 * **Split the AI's reply into claims.** Mark each one right, wrong, or unverifiable, and name the number that settles it. An AI is often partly right, so check every claim on its own.
 * **Look at the chart, not just the summary numbers.** If the mean lands where almost no data sits, the rows may be two groups mixed together. Group by the column that might split them.
 
@@ -63,9 +86,11 @@ Here's how the reading's book-price example sorts out. The AI said:
 | --- | --- | --- |
 | "The mean price is about $9." | Right | The mean is $9.17. |
 | "The mean and median are close." | Right | The median is $9.00. |
-| "Fairly symmetric, with one hump." | Wrong | The histogram has two peaks: paperbacks near $4 and hardcovers near $14.50. |
-| "$9 is a typical price." | Wrong | Almost no book costs $9. |
+| "Fairly symmetric, with one hump." | Wrong | The histogram has two peaks: paperbacks average $3.83 and hardcovers average $14.50. |
+| "$9 is a typical price." | Wrong | $9 sits in the gap between the two groups, where no book is priced. |
 | "Most books are in good condition." | Unverifiable | The data has no condition column. |
+
+In Direction 2, the AI suggested a bar chart with one bar for every book's price and said hardcovers cost about twice as much as paperbacks. Both fail: a histogram fits a question about spread, and $14.50 is almost four times $3.83, not twice.
 
 ### Common mix-ups
 
@@ -77,8 +102,8 @@ Here's how the reading's book-price example sorts out. The AI said:
 
 ### How this connects
 
-* **Next quest:** You'll write up a finding for a stakeholder who will never open your notebook.
-* **Boss Battle:** In Part 5, you'll paste an AI's read of your own chart word for word and judge each claim. In Part 5b, you'll ask an AI to suggest a chart and judge its type and its claims.
+* **Next reading:** You'll take a finding from your notebook and write it up for a manager who will never open it: one short page that says what you found, with your chart in it, and one that says how far to trust it.
+* **Boss Battle (Module Project):** You'll ask an AI to describe one of your own charts and to suggest a chart. Then you'll judge each claim against numbers you computed yourself, and name the number that settles it.
 
 ## Quick check
 
@@ -102,4 +127,4 @@ Accept both claims. Your numbers and your chart back them up. Checking means agr
 
 ---
 
-**Next:** [Quest 2.11 — Nobody Was in the Room](quest-11-stakeholder-communication.md)
+**Next:** [Quest 2.11 — Nobody Was in the Room (Writing for Stakeholders)](quest-11-stakeholder-communication.md)

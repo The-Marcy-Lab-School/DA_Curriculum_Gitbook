@@ -1,85 +1,131 @@
-# Quest 2.7 — Write It Once (Day 8)
+# Quest 2.7 — Write It Once (Cleaning Functions)
 
-{% hint style="info" %}
-**In one sentence:** Fix the common problems in a file, then put those fixes in one function you can run on every new file.
-{% endhint %}
+**Day 8** · Reading time: about 20 minutes
 
-## Why this matters
+## Introduction
 
-Data arrives again and again: every week, every month. It often comes with the same problems: repeated rows, numbers stored as text, and one label spelled three ways. Fixing it by hand each time is slow, and it's easy to miss a step. A cleaning function does it the same way every time, and employers look for it.
+Some messes show up again and again. For example, every Monday a gym's sign-up sheet lists someone twice and spells "Yoga" three ways. Fixing it by hand each week is slow, and one busy Monday you'll miss a step. This reading covers three common problems in a file (repeated rows, numbers stored as text, and labels spelled more than one way) and how to put all the fixes into one function you can run on every new file. The main takeaway: write your cleaning steps once, in a function, and prove it's reusable by running it on more than one input.
 
-## What you'll be able to do
+**Why it matters at work:** Data arrives every week or every month, usually with the same problems. A cleaning function fixes them the same way every time, and when a fix needs to change, you change it in one place.
 
-* I can stack two files and remove repeated records using a key column.
-* I can turn text into numbers and tidy up labels, then count what changed.
-* I can write a cleaning function and prove it's reusable by calling it on two different inputs.
+## Learning goals
+
+Check off each goal once you can do it.
+
+- [ ] I can stack two tables and remove repeated records using a key column.
+- [ ] I can turn text into numbers and tidy up labels, then count what changed.
+- [ ] I can write a cleaning function and prove it's reusable by calling it on two different inputs.
 
 **Skills:** Data Cleaning & Imputation · Functions & Modular Programming (from Module 1)
 
+## Quick recall
+
+* Recall that `df.duplicated()` marks a row True only when it matches an earlier row in every column, and that a number column showing the dtype `str` has something in it that isn't a clean number, like `"12 lbs"`. You checked both in [Look Before You Filter](quest-02-inspect-filter.md).
+* Recall that for each gap in a table, you chose to drop the row, fill the gap, or flag it, and gave a reason with a number, in [Drop, Fill, or Flag](quest-06-missing-data.md).
+* Recall that you wrote small functions with one job each, which return their result instead of printing it, in [One Job at a Time](../module-01/quest-07-second-function.md).
+
 ## Words to know
+
+### Problems in a file
 
 | Word | What it means |
 | --- | --- |
-| **Duplicate row** | The same real-world record showing up more than once, often after stacking two files that overlap. |
-| **Key column** | A column whose value names one record, like `delivery_id`. |
-| **`pd.concat`** | Stacks tables top to bottom. |
-| **Coerce** | Force a change. With `errors="coerce"`, a value that can't become a number becomes NaN instead of causing an error. |
-| **`.value_counts()`** | Counts each different value in a column. Good for spotting labels spelled more than one way. |
-| **Reusable function** | A function you call on two or more different inputs. |
+| **Stack** | Put one table under another, so their rows end up in one table. |
+| **Duplicate row** | The same real-world record showing up more than once, often after stacking two lists that overlap. |
+| **Key column** | A column whose value names one record, like a delivery's `delivery_id`. |
+| **Number stored as text** | A column of numbers that pandas loaded as text (`str`), because at least one value, like `"TBD"`, isn't a number. Math on it gives errors or wrong answers. |
+| **Label** | A value in a category column, like a country name. `"Kenya"`, `"kenya "`, and `" Kenya"` are three different labels to pandas. |
+
+### Stacking and repeats
+
+| Code | What it does |
+| --- | --- |
+| **`pd.concat([may, june], ignore_index=True)`** | Stacks the two tables, top to bottom. `ignore_index=True` numbers the rows from 0 again, so no row label shows up twice. |
+| **`.duplicated(subset="delivery_id")`** | Marks a row True when its `delivery_id` matches an earlier row, even if other columns differ. |
+| **`.drop_duplicates(subset="delivery_id")`** | Removes the repeats, and keeps the first copy of each ID. |
+
+### Text into numbers
+
+| Code | What it does |
+| --- | --- |
+| **`pd.to_numeric(...)`** | Turns a column of text into numbers. On its own, it stops with a `ValueError` at the first value that isn't a number. |
+| **Coerce** | Force a change. With `errors="coerce"`, a value that can't become a number becomes NaN instead of stopping with an error. |
+
+### Tidying labels
+
+| Code | What it does |
+| --- | --- |
+| **`.str`** | Runs a string method on every value in a column, like `.str.lower()`. |
+| **`.strip()`** | Removes spaces from the start and end of text: `" Kenya"` becomes `"Kenya"`. |
+| **`.lower()`** | Makes every letter lowercase: `"PERU"` becomes `"peru"`. |
+| **`.value_counts()`** | Counts how many rows hold each different value in a column. Good for spotting one label spelled more than one way. |
+
+### Functions
+
+| Word | What it means |
+| --- | --- |
+| **Helper function** | A small one-job function that another function calls, like `tidy_text` inside `clean_deliveries`. |
+| **Reusable function** | A function called two or more times on different inputs. A one-time script wrapped in `def` and called once isn't reusable yet. |
 | **`assert`** | Stops the notebook with an error if its condition is False. A quick self-test. |
 
 ## Before you read
 
-A coffee shop's June delivery list says "Kenya," "kenya ," and " Kenya." How many countries will a count show?
+In the reading, you'll focus on Terra Bean, a small coffee shop that gets a list of bean deliveries every month. The May list and the June list have 5 rows each. June repeats two May deliveries, spells Kenya three ways, and says "TBD" where one bag count should be.
 
-<details>
-<summary>Answer</summary>
-
-Three, one for each spelling, even though they're all the same country. Extra spaces and capital letters make pandas treat them as different labels.
-
-</details>
+Think about: after you stack the two lists into one table, how many rows will it have, and how many real deliveries? Write down your first answer, then see if the reading agrees.
 
 ## Read
-
-**[Start the reading: Write It Once →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/cleaning-function/reading-1-write-it-once/)** (about 19 minutes)
 
 As you read, look for:
 
 1. Why `.duplicated()` with no settings finds 0 repeats when there are really 2.
-2. What `errors="coerce"` does to the value "TBD," and what you should count right after.
+2. What `errors="coerce"` does to the value `"TBD"`, and what you should count right after.
 3. Why the first line of the cleaning function keeps the original table safe.
+
+**[Start the reading: Write It Once →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/cleaning-function/reading-1-write-it-once/)** (about 20 minutes)
 
 ## Main takeaways
 
 ### Summary
 
-* **Remove repeats by the key column, not the whole row.** A record sent twice can come back with a changed field. Stack files with `pd.concat(..., ignore_index=True)`, then use `drop_duplicates(subset="id")`.
-* **Coerce, then count.** `pd.to_numeric(..., errors="coerce")` turns bad values into NaN. Count the new blanks right away, because `.mean()` skips them without telling you. Tidy labels with `.str.strip().str.lower()`, and check `.value_counts()` before and after.
-* **Put the fixes in one function.** Its first line should make a new table, so the table you pass in stays unchanged. Call it on at least two inputs to prove it's reusable.
+* **Remove repeats by the key column, not the whole row.** A record sent twice can come back with a changed field, like a new spelling or a corrected count. Stack the lists with `pd.concat(..., ignore_index=True)`, then use `.drop_duplicates(subset="delivery_id")`.
+* **Coerce, then count.** `pd.to_numeric(..., errors="coerce")` turns bad values into NaN. Count the new blanks right away, because `.mean()` skips NaN without warning you. Tidy labels with `.str.strip().str.lower()`, and check `.value_counts()` before and after.
+* **Put the fixes in one function.** Its first line should make a new table, so the table you pass in stays unchanged. Call it on at least two different inputs to prove it's reusable.
 
 ```python
+def to_number(series):
+    return pd.to_numeric(series, errors="coerce")
+
+def tidy_text(series):
+    return series.str.strip().str.lower()
+
 def clean_deliveries(df):
-    df = df.drop_duplicates(subset="delivery_id")  # new table: original stays safe
-    df["bags"] = pd.to_numeric(df["bags"], errors="coerce")
-    df["country"] = df["country"].str.strip().str.lower()
+    df = df.drop_duplicates(subset="delivery_id")  # makes a new table, so the one you pass in stays safe
+    df["bags"] = to_number(df["bags"])
+    df["country"] = tidy_text(df["country"])
     return df
 
 clean_both = clean_deliveries(both)  # call it once...
 clean_june = clean_deliveries(june)  # ...and again on a different input
 ```
 
+{% hint style="info" %}
+**Why the first line matters:** `df.drop_duplicates(...)` makes a new table, and `df =` points the name at it. If the function set a column on `df` right away instead, your original table would change too, and pandas 3 doesn't stop that.
+{% endhint %}
+
 ### Common mix-ups
 
 | If you think... | What's actually true |
 | --- | --- |
 | "`.duplicated()` finds every repeat." | With no `subset=`, it only finds rows that match in *every* column. Match on the key. |
-| "Coerce fixes a bad value like "TBD"." | It turns it into a new blank. Then you decide: drop, fill, or flag. |
+| "`errors="coerce"` fixes a bad value like 'TBD'." | It turns it into a new blank. Then you decide: drop, fill, or flag. |
+| "`.str.lower()` is enough to match labels." | Spaces still split them: "kenya " and " kenya" stay different. Strip first, then lowercase. |
 | "Wrapping code in `def` makes it reusable." | It's reusable once you've called it on two or more different inputs. |
 
 ### How this connects
 
-* **Next quest:** A clean table is where analysis starts. You'll group it and look for a pattern you can trust.
-* **Boss Battle:** Part 2 asks for at least one cleaning function, called at least twice. Copy-pasting the same fix instead is one of the most common ways to lose points.
+* **Next reading:** A clean table is where analysis starts. You'll take an average that looks like a clear answer, split it by two columns at once, and check what each group is made of, so you can tell a real pattern from a misleading total.
+* **Boss Battle (Module Project):** You'll clean a real dataset with your own reusable cleaning function, called on more than one input, instead of copying and pasting the same fixes.
 
 ## Quick check
 
@@ -103,4 +149,4 @@ At the second real repeat, or right away when the same cleaning needs to run on 
 
 ---
 
-**Next:** [Quest 2.8 — Beneath the Total](quest-08-mining-a-pattern.md)
+**Next:** [Quest 2.8 — Beneath the Total (Finding Patterns in Groups)](quest-08-mining-a-pattern.md)
