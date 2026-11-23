@@ -141,6 +141,12 @@ As you read, look for:
 
 **[Start the reading: Who Can See This Variable? →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/local-global-vars/reading-1-whocanseethisvar/)** (about 23 minutes)
 
+## Optional reading (Side Quest)
+
+Want to go further? This reading is optional. You don't need it for the checkpoint, but you can submit it for credit, the same way as a required reading.
+
+**[Start the optional reading: Call Yourself Back: Recursion →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/recursion/reading-1-callyourselfback/)** (about 23 minutes)
+
 ## Main takeaways
 
 ### Summary

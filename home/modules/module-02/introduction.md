@@ -8,12 +8,15 @@ You already have the skills this module builds on:
 
 * **Working habits:** You used the terminal and Git. You learned to tell what kind of data you have. You also checked what an AI told you before you trusted it.
 * **Python:** You wrote loops, conditionals, functions, and classes. You used lists and dictionaries. You saved data to files, handled errors, and fixed bugs.
+* **Checking and tidying data:** You wrote a validation function that checked each record against rules before you used it. You tidied text with string methods, like `.strip()` to remove extra spaces and `.lower()` to make letters lowercase, so `" Peru "` and `"peru"` match.
 
 Until now, your data was short lists that you typed yourself. In this module, you'll work with real tables that have hundreds or thousands of rows.
 
 ## Where you're going
 
 You'll learn **exploratory data analysis**, or **EDA**. EDA means getting to know a dataset before you say anything about it. You'll check a table for problems and clean it. Then you'll describe it with numbers and charts, find a pattern you can trust, and explain it to someone who will never read your code.
+
+Some of the cleaning will feel familiar. It uses the same ideas as your validation work: check each value against a rule, and tidy text with `.strip()` and `.lower()` before you compare it. The difference is that pandas runs each step on a whole column at once, with no loop.
 
 You'll also learn four new tools that analysts use every day: NumPy, Jupyter notebooks, pandas, and Matplotlib.
 

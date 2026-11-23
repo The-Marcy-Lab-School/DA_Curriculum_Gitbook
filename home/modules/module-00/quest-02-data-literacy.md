@@ -78,7 +78,7 @@ A **data type** is what kind of value something is. The reading uses plain names
 | **Structured data** | Data that sits in rows and columns, with the same columns for every row, like `pets.csv`. |
 | **Unstructured data** | Data with no rows or columns, like a paragraph of free text, an email, or a photo. |
 
-You'll need *structured* and *unstructured* again in a later quest, so learn them now. The reading doesn't cover them.
+You'll need *structured* and *unstructured* again in a later quest, so learn them now. The required reading doesn't cover them, but the optional reading near the end of this page does.
 
 ![Three panels. Variable, a labeled box: the box pet_of_the_week holds "Biscuit" in week 1 and "Mango" in week 2, so it has the same name and a new value. Data type, what kind of value: "Biscuit" is text, 3 is a whole number, 12.5 is a decimal, True is true/false, and 2026-09-14 is a date. Data structure, values grouped together: one pet's record holds name Mango, age 1, weight 4.2, adopted False, and arrived 2026-10-02, and the whole pets.csv file holds one record for every pet.](images/m0-name-tag-group.svg)
 
@@ -97,6 +97,12 @@ As you read, look for:
 3. Why one line of `pets.csv` is a data structure, not a data type.
 
 **[Start the reading: Name It, Tag It, Group It →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/dev-environment/reading-2-whatkindofdata/)** (about 21 minutes)
+
+## Optional reading (Side Quest)
+
+Want to go further? This reading is optional. You don't need it for the checkpoint, but you can submit it for credit, the same way as a required reading.
+
+**[Start the optional reading: What Shape Is This Data? Structured and Unstructured Data →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod0/structured_unstructured/)** (about 21 minutes)
 
 ## Main takeaways
 

@@ -155,6 +155,7 @@ GitBook needs a page for every item that expands in the sidebar, so keep this pa
    - **First answer:** "What's your first answer to <question>? Write it down, then check it against the reading."
    - **Spot the problem** (when the Introduction already covers the idea): "Here's an answer: '<plausible but wrong claim>'. Something is off about it. What? See if the reading agrees with you."
 9. **Read**: first "As you read, look for:" with 3 numbered prompts, **then** the reading link and its time.
+   - **Optional reading (Side Quest)** (only when the quest has one): a short section right after Read. Say it's optional, not needed for the checkpoint, and can be submitted for credit. Link it as `**[Start the optional reading: <Title> →](url)** (about N minutes)`. Don't add its time to the total.
 10. **Main takeaways**:
    - **Summary**: 3 bullets, bold lead-in on each.
    - **Common mix-ups**: table of *If you think… | What's actually true*.

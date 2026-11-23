@@ -77,6 +77,12 @@ As you read, look for:
 
 **[Start the reading: Lookups Matter →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/python-data-structures/reading-2-lookupsmatter/)** (about 23 minutes)
 
+## Optional reading (Side Quest)
+
+Want to go further? This reading is optional. You don't need it for the checkpoint, but you can submit it for credit, the same way as a required reading.
+
+**[Start the optional reading: Straight to the Slot: Hash Maps →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod1/hash-maps/reading-1-straight-to-the-slot/)** (about 22 minutes)
+
 ## Main takeaways
 
 ### Summary

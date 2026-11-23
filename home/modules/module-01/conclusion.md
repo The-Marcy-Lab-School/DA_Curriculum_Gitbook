@@ -61,6 +61,7 @@ Nothing you learned here goes away. In the next module, you'll start using **pan
 | Saved data to CSV and JSON files | Load a whole CSV file into a table in one line **(Module 2)** |
 | Wrote loops to repeat a step for every record | Run one step on a whole column at once, with no loop **(Module 2)** |
 | Handled bad values with validation and errors | Decide what to do with blank and bad values in real data **(Module 2)** |
+| Tidied text with `.strip()` and `.lower()` | Tidy a whole column of text at once with `.str.strip()` and `.str.lower()` **(Module 2)** |
 | Compared a list search with a dictionary lookup | Think about speed again when the data gets very large **(Modules 7 and 9)** |
 
 From Module 3 on, every module expects you to read and write Python on your own.

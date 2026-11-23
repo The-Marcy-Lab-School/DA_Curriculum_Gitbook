@@ -32,9 +32,9 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that `df.duplicated()` marks a row True only when it matches an earlier row in every column, and that a number column showing the dtype `str` has something in it that isn't a clean number, like `"12 lbs"`. You checked both in [Look Before You Filter](quest-02-inspect-filter.md).
-* Recall that for each gap in a table, you chose to drop the row, fill the gap, or flag it, and gave a reason with a number, in [Drop, Fill, or Flag](quest-06-missing-data.md).
-* Recall that you wrote small functions with one job each, which return their result instead of printing it, in [One Job at a Time](../module-01/quest-07-second-function.md).
+* Recall that you found repeated rows with `df.duplicated()` and number columns stored as text (`str`) in [Look Before You Filter](quest-02-inspect-filter.md). Then you chose to drop, fill, or flag each gap in [Drop, Fill, or Flag](quest-06-missing-data.md).
+* Recall that `.strip()` removes spaces from both ends of a string, and `.lower()` makes every letter lowercase. You used them in Python to tidy text before you compared it: `" Peru ".strip().lower()` gives `"peru"`. In this reading, they run on a whole column.
+* Recall that you wrote a validation function that checked each record against rules, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), and gave each function one job, in [One Job at a Time](../module-01/quest-07-second-function.md). A cleaning function uses both ideas.
 
 ## Words to know
 
@@ -67,7 +67,7 @@ Check off each goal once you can do it.
 
 | Code | What it does |
 | --- | --- |
-| **`.str`** | Lets a column use string methods. `.str.lower()` runs `.lower()` on every value in the column. |
+| **`.str`** | Lets a column use the string methods you already know. `.str.lower()` runs `.lower()` on every value in the column. |
 | **`.strip()`** | Removes spaces from the start and end of text: `" Kenya"` becomes `"Kenya"`. |
 | **`.lower()`** | Makes every letter lowercase: `"PERU"` becomes `"peru"`. |
 | **`.value_counts()`** | Counts how many rows hold each different value in a column. Good for spotting one label spelled more than one way. |
