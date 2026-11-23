@@ -31,8 +31,8 @@ Check off each goal once you can do it.
 
 ## Quick recall
 
-* Recall that a linear search checks items one at a time, and that Big-O describes how the work grows as the input grows, from [When the Crowd Grows](quest-03-big-o-intuition.md). When a list of 300 bookings (saved seats on flights) doubles to 600, the worst case doubles from 300 checks to 600.
-* Recall that a dictionary stores each value under a key, from [Pick the Right Container](quest-04-data-structures.md). `drivers["D-5521"]` gives the value stored under the key `"D-5521"`, and `drivers["D-5522"] = "Ari"` adds a new pair.
+* Recall that a linear search checks items one at a time, and that Big-O describes how the work grows as the input grows, from [When the Crowd Grows](quest-03-big-o-intuition.md). In its interactive reading, when a list of 300 bookings (saved seats on flights) doubles to 600, the worst case doubles from 300 checks to 600.
+* Recall that a dictionary stores each value under a key, from [Pick the Right Container](quest-04-data-structures.md). In its interactive reading, `drivers["D-5521"]` gives the value stored under the key `"D-5521"`, and `drivers["D-5522"] = "Ari"` adds a new pair.
 * Recall that a **method** is a function that belongs to an object, called with a dot and parentheses, from [Meet the Objects](quest-08-oop.md). In this reading, `.get()` is a method that every dictionary has.
 
 ## Words to know

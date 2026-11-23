@@ -38,8 +38,8 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that a **data structure** groups several values together as one unit. One pet's row in `pets.csv` was a small one, called a **record**. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). This reading shows Python's four main data structures.
-* Recall that a **list** keeps several values in order, inside square brackets, like `[98, 165, 122]`. A `for` loop visits each item once. You looped over a list of movie lengths in [Trace the Path](quest-01-control-flow.md). `bookings[3]` reads an item by its position, and Python starts counting at 0.
-* Recall that `"QX7RT2" in bookings` checks a list one item at a time, so its work grows with the list: O(n). A **lookup** goes straight to one item, like a coat-check ticket with a hook number: O(1). You saw both in [When the Crowd Grows](quest-03-big-o-intuition.md). This reading shows the container that lets you look up a value by a label.
+* Recall that a **list** keeps several values in order, inside square brackets, like `[98, 165, 122]`. A `for` loop visits each item once. You looped over a list of movie lengths in [Trace the Path](quest-01-control-flow.md).
+* Recall that `bookings[3]` reads a list item by its position, starting at 0, and that `"QX7RT2" in bookings` checks a list one item at a time, so its work grows with the list: O(n). A **lookup** goes straight to one item, like a coat-check ticket with a hook number: O(1). You saw both in [When the Crowd Grows](quest-03-big-o-intuition.md). This reading shows the container that lets you look up a value by a label.
 
 ## Words to know
 

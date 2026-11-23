@@ -34,8 +34,8 @@ Check off each goal once you can do it.
 ## Quick recall
 
 * Recall that a **record** is one row of data about one thing. A **column** is one kind of information that every record has. Every pet in `pets.csv` had the same columns, like name, age, and weight. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
-* Recall that a dictionary stores values under labels called keys, like `goal["saved_amount"]`, from [Pick the Right Container](quest-04-data-structures.md). A class also groups labeled values. It adds the actions that use them.
-* Recall that a **parameter** is a name in a function's `def` line, and an **argument** is the value you pass in when you call it. Recall too that `f"Hi, {name}!"` is an **f-string**: it fills in the value of `name`. Both come from [Build It Once, Use It Again](quest-02-functions-scope.md). A class has a function inside it with parameters, and the second reading builds f-strings.
+* Recall that a dictionary stores values under labels called keys, from [Pick the Right Container](quest-04-data-structures.md). In this reading, `goal["saved_amount"]` reads one of them. A class also groups labeled values. It adds the actions that use them.
+* Recall that a **parameter** is a name in a function's `def` line, and an **argument** is the value you pass in when you call it. Recall too that `f"Cost: ${saved}"` is an **f-string**: it fills in the value of `saved`. Both come from [Build It Once, Use It Again](quest-02-functions-scope.md). A class has a function inside it with parameters, and the second reading builds f-strings.
 
 ## Words to know
 
