@@ -4,6 +4,11 @@
 
 **Analyst toolkit:** Use the terminal · Understand data · **Save with Git** · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
+## Quick recall
+
+* In [Meet Your Terminal](quest-01-terminal.md), `cd` moved you into a folder and `ls` listed what's inside it. You type every Git command inside a project folder, so you'll start each time with `cd`.
+* `git --version` was your first Git command, in [Meet Your Terminal](quest-01-terminal.md). It checked that Git is installed, and now you'll use Git.
+
 ## Introduction
 
 Have you ever saved a file as `essay_final.docx`, then `essay_final_v2.docx`, then `essay_REAL_final.docx`? After a week, nobody knows which copy is right, or what changed between them.
@@ -29,11 +34,6 @@ After this reading, you should be able to say:
 * I can explain why several small commits make a more useful history than one big commit.
 
 **Skills:** Git & Version Control · Terminal & Command Line
-
-## Quick recall
-
-* In [Meet Your Terminal](quest-01-terminal.md), `cd` moved you into a folder and `ls` listed what's inside it. You type every Git command inside a project folder, so you'll start each time with `cd`.
-* `git --version` was your first Git command, in [Meet Your Terminal](quest-01-terminal.md). It checked that Git is installed, and now you'll use Git.
 
 ## New software: Git
 

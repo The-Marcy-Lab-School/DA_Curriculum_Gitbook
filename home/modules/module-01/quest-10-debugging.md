@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · Load, save, and protect · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* `range(3)` gives `0`, `1`, `2`: it starts at 0 and stops *before* 3, as you saw in [Trace the Path](quest-01-control-flow.md). This reading adds a start number: `range(2, 5)` gives `2`, `3`, `4`.
+* A variable created inside a function exists only inside it, so using it outside raises a `NameError`. You saw this in [Build It Once, Use It Again](quest-02-functions-scope.md). In [Validate, Catch, Keep Going](quest-06-validation-errors.md), you learned that a bare `except:` catches every error, even real bugs.
+* In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said 64 bags, but the log added up to 46. An AI answer can sound sure and still be wrong. In this reading, an AI tool wrote the code, so you check it the same way.
+
 ## Introduction
 
 A neat answer can still be wrong. For example, you buy 5 things at a store, and they cost $20 in all. But the receipt lists only 4 things and says $17. Nothing beeped. No error showed up. You only catch it because you know what you bought. In the picture below, look for the red item missing from the receipt on the left.
@@ -31,12 +37,6 @@ After this reading, you should be able to say:
 * I can confirm a fix or a refactor by running the same example again and comparing the output.
 
 **Skills:** Attention to Detail
-
-## Quick recall
-
-* `range(3)` gives `0`, `1`, `2`: it starts at 0 and stops *before* 3, as you saw in [Trace the Path](quest-01-control-flow.md). This reading adds a start number: `range(2, 5)` gives `2`, `3`, `4`.
-* A variable created inside a function exists only inside it, so using it outside raises a `NameError`. You saw this in [Build It Once, Use It Again](quest-02-functions-scope.md). In [Validate, Catch, Keep Going](quest-06-validation-errors.md), you learned that a bare `except:` catches every error, even real bugs.
-* In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said 64 bags, but the log added up to 46. An AI answer can sound sure and still be wrong. In this reading, an AI tool wrote the code, so you check it the same way.
 
 ## Words to know
 

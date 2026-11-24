@@ -4,6 +4,14 @@
 
 **EDA workflow:** Inspect → Clean → Explore → **Check** → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+You've checked an AI's answer against a data file before. This reading checks an AI's answer about a chart.
+
+* One very large value pulls the mean up more than the median, so a mean far above the median is a sign of skew. You saw this with one $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
+* A histogram or a boxplot shows the shape of one number column, from [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
+* In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said volunteers filled 64 bags, but the cleanup log added up to 46. You found the claim, found a real source, compared the two, and then decided.
+
 ## Introduction
 
 AI (artificial intelligence) tools answer quickly and sound confident, even when part of the answer is wrong. For example, you make a chart of one month's temperatures, with the average for each week. You share it with an AI. It says, "Temperatures rose steadily all month." "Steadily" means each week was warmer than the week before.
@@ -38,14 +46,6 @@ After this reading, you should be able to say:
 * I can judge a chart an AI suggests on two counts: whether the chart type fits, and whether its claims match my numbers.
 
 **Skills:** AI as Critic · AI Evaluation · Data Distributions & Shape
-
-## Quick recall
-
-You've checked an AI's answer against a data file before. This reading checks an AI's answer about a chart.
-
-* One very large value pulls the mean up more than the median, so a mean far above the median is a sign of skew. You saw this with one $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
-* A histogram or a boxplot shows the shape of one number column, from [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
-* In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said volunteers filled 64 bags, but the cleanup log added up to 46. You found the claim, found a real source, compared the two, and then decided.
 
 ## Words to know
 

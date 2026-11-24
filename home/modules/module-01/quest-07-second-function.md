@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · **Organize steps** · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* In [Build It Once, Use It Again](quest-02-functions-scope.md), you kept a running total with `total += loads`. `return` hands a value back to the caller, and a function with no `return` gives back `None`.
+* **Unpacking** takes each tuple apart into separate variables, like `for code, time in finished:` in [Pick the Right Container](quest-04-data-structures.md). This reading loops over `(day, steps)` tuples the same way.
+* Your validation function in [Validate, Catch, Keep Going](quest-06-validation-errors.md) checked each record (one entry, like one day's step count) against rules. This reading starts after that check is done.
+
 ## Introduction
 
 Work goes better when each person has one clear job. For example, at a busy café, one worker takes orders, makes coffee, and cleans tables. Orders get mixed up, and it's hard to tell what went wrong. With one job each, everyone knows who to ask when something breaks.
@@ -29,12 +35,6 @@ After this reading, you should be able to say:
 * I can tell when a function is doing too many jobs, and move the extra job into its own function.
 
 **Skills:** Functions & Modular Programming
-
-## Quick recall
-
-* In [Build It Once, Use It Again](quest-02-functions-scope.md), you kept a running total with `total += loads`. `return` hands a value back to the caller, and a function with no `return` gives back `None`.
-* **Unpacking** takes each tuple apart into separate variables, like `for code, time in finished:` in [Pick the Right Container](quest-04-data-structures.md). This reading loops over `(day, steps)` tuples the same way.
-* Your validation function in [Validate, Catch, Keep Going](quest-06-validation-errors.md) checked each record (one entry, like one day's step count) against rules. This reading starts after that check is done.
 
 ## Words to know
 

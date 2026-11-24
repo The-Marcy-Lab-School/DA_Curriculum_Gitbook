@@ -4,7 +4,13 @@
 
 **EDA workflow:** **Inspect** → Clean → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
-**Why Inspect now?** In [The Loudest Number](quest-01-descriptive-statistics.md), you found the mean, the median, and the spread of 11 gifts. You typed those 11 values yourself, so you could see every one. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), your function checked one record at a time and caught blank values. A real file can have thousands of rows, and you can't see them all. So now you go back to step 1, where real analysis starts. You check the whole file before you trust any mean or median. In the next quest, you'll build on this. You'll make one summary for each group of rows, like the total pounds of food at each site. ([Why the quests don't follow the step order](introduction.md#why-the-quests-dont-follow-the-step-order))
+## Quick recall
+
+**Why Inspect now?** In [The Loudest Number](quest-01-descriptive-statistics.md), you found the mean, the median, and the spread of a short list of gifts. You could see every value at once. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), your function checked one record at a time and caught blank values. A real file can have thousands of rows, and you can't see them all. So now you go back to step 1, where real analysis starts. You check the whole file before you trust any mean or median. In the next quest, you'll build on this. You'll make one summary for each group of rows, like the total pounds of food at each site. ([Why the quests don't follow the step order](introduction.md#why-the-quests-dont-follow-the-step-order))
+
+* In Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md), you looked before you moved in a new folder: `pwd` and `ls` first, then `cat` to print a file. A new data file gets the same habit: look first, then act.
+* Every column has a data type. In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), you named each one, and stored an ID like `00417` as text so it keeps its zeros.
+* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) checked each record before you used it. It checked the shape first (the right number of fields?), then the values (is the grade made of digits?).
 
 ## Introduction
 
@@ -44,14 +50,6 @@ After this reading, you should be able to say:
 * I can filter rows on one or two conditions and sort the result.
 
 **Skills:** Data Cleaning & Imputation
-
-## Quick recall
-
-You've inspected data before. This reading does the same checks on a whole table at once.
-
-* In Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md), you looked before you moved in a new folder: `pwd` and `ls` first, then `cat` to print a file. A new data file gets the same habit: look first, then act.
-* Every column has a data type. In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), you named each one, and stored an ID like `00417` as text so it keeps its zeros.
-* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) checked each record before you used it. It checked the shape first (the right number of fields?), then the values (is the grade made of digits?).
 
 ## New file type: Jupyter notebooks
 

@@ -4,6 +4,14 @@
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+You've added up values in a loop, and looked up values by key. This reading does both for a whole table at once.
+
+* In [Look Before You Filter](quest-02-inspect-filter.md), you kept only the rows that matched two conditions, each in its own parentheses, joined with `&`: `df[(df["site"] == "Eastside") & (df["category"] == "Produce")]`.
+* `df.isna().sum()` counted the blank cells in each column, also in [Look Before You Filter](quest-02-inspect-filter.md). You'll use that count again to check your work after a merge.
+* In Module 1's [Lookups Matter](../module-01/quest-09-big-o-practice.md), you built a dictionary once, then found values by key with `.get()`, which gave `None` for a missing key. A merge looks up keys the same way, but a missing key gives NaN.
+
 ## Introduction
 
 Managers rarely ask about just one row. For example, a pizza company has 20 stores. It records every order: the store, the time, and the price. The owner asks, "Which store sells the most?" There are 5,000 orders, too many to read one by one. You could write one filter per store, but that's 20 filters. One line of code can make one summary row for each store instead.
@@ -27,14 +35,6 @@ After this reading, you should be able to say:
 * I can merge in columns from a lookup table and check that the merge worked.
 
 **Skills:** Data Mining · Statistical Analysis
-
-## Quick recall
-
-You've added up values in a loop, and looked up values by key. This reading does both for a whole table at once.
-
-* In [Look Before You Filter](quest-02-inspect-filter.md), you kept only the rows that matched two conditions, each in its own parentheses, joined with `&`: `df[(df["site"] == "Eastside") & (df["category"] == "Produce")]`.
-* `df.isna().sum()` counted the blank cells in each column, also in [Look Before You Filter](quest-02-inspect-filter.md). You'll use that count again to check your work after a merge.
-* In Module 1's [Lookups Matter](../module-01/quest-09-big-o-practice.md), you built a dictionary once, then found values by key with `.get()`, which gave `None` for a missing key. A merge looks up keys the same way, but a missing key gives NaN.
 
 ## Words to know
 

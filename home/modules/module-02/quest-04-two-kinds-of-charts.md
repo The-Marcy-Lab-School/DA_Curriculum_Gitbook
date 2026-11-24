@@ -4,6 +4,14 @@
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+You've summarized groups and checked claims before. This reading turns your numbers into charts, and checks a chart against a number.
+
+* In [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].mean()` gave one average per site. Double brackets pick a list of columns, from the interactive reading for [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
+* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), a date was its own data type, with its own math, like "how many days ago?" This reading turns date text into real dates.
+* Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) showed that a sure-sounding AI answer is only a claim until you check it against a real source. Here, your own `.corr()` number is that source.
+
 ## Introduction
 
 Sometimes the same numbers need two different charts. For example, a coffee shop owner draws a quick chart of daily sales to find her slow days. Later, she asks a bank for a loan (money she borrows and must pay back). The chart for the bank needs a clear title, labeled axes, and nothing extra, because the banker never saw her first chart.
@@ -27,14 +35,6 @@ After this reading, you should be able to say:
 * I can turn a text column into real dates and chart a count over time.
 
 **Skills:** Data Visualization · Stakeholder Communication
-
-## Quick recall
-
-You've summarized groups and checked claims before. This reading turns your numbers into charts, and checks a chart against a number.
-
-* In [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].mean()` gave one average per site. Double brackets pick a list of columns, from the interactive reading for [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
-* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), a date was its own data type, with its own math, like "how many days ago?" This reading turns date text into real dates.
-* Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) showed that a sure-sounding AI answer is only a claim until you check it against a real source. Here, your own `.corr()` number is that source.
 
 ## New Python package: Matplotlib
 

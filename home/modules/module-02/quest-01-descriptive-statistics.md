@@ -4,7 +4,15 @@
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
 **Why start at Explore?** You've already done some inspecting. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), your function looked for invalid lines and caught blank values before you used them. But to judge a whole table, you need to know what "normal" looks like for each column. Is this value usual, or far from the rest? The mean, the median, and the spread answer that, so you'll learn these terms first. In the next quest, you'll build on your inspecting skills and check a whole file. Then you can bring both skills together. ([Why the quests don't follow the step order](introduction.md#why-the-quests-dont-follow-the-step-order))
+
+You've already added up numbers and read items by position. This reading uses both to describe a whole list with a few numbers.
+
+* In Module 1's [One Job at a Time](../module-01/quest-07-second-function.md), you added up a week of step counts with a running total: `total += steps`. An average goes one step further: `sum(steps) / len(steps)`.
+* Python counts list positions, called **indexes**, from 0. In Module 1's [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md), `bookings[3]` read the 4th booking. You'll use positions to find the middle of a sorted list.
+* A **quantitative** value measures an amount, like a weight or a price, from Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). An ID made of digits isn't quantitative, so never average it.
 
 ## Introduction
 
@@ -38,14 +46,6 @@ After this reading, you should be able to say:
 * I can tell whether data is skewed, and keep a real outlier while reporting it on its own.
 
 **Skills:** Statistical Analysis · Data Distributions & Shape
-
-## Quick recall
-
-You've already added up numbers and read items by position. This reading uses both to describe a whole list with a few numbers.
-
-* In Module 1's [One Job at a Time](../module-01/quest-07-second-function.md), you added up a week of step counts with a running total: `total += steps`. An average goes one step further: `sum(steps) / len(steps)`.
-* Python counts list positions, called **indexes**, from 0. In Module 1's [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md), `bookings[3]` read the 4th booking. You'll use positions to find the middle of a sorted list.
-* A **quantitative** value measures an amount, like a weight or a price, from Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). An ID made of digits isn't quantitative, so never average it.
 
 ## New Python package: NumPy
 

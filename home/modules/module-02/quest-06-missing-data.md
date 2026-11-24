@@ -4,6 +4,14 @@
 
 **EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+You've found blanks before, one value at a time and then a whole column at once. This reading decides what to do with them.
+
+* `df.isna().sum()` counted the blanks in every column of a new file, in [Look Before You Filter](quest-02-inspect-filter.md). `.isna()` marks each empty cell True, and `.sum()` adds them up, because True counts as 1.
+* One very long or very large value pulls the mean up. On skewed data, the median describes a typical value better, as you saw in [The Loudest Number](quest-01-descriptive-statistics.md).
+* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) caught a blank grade, because `"".isdigit()` is `False`. It reported the blank instead of making up a grade.
+
 ## Introduction
 
 Real data almost always has blank cells, and what you do with them changes the answer. For example, a store asks 10 customers to rate their visit from 1 to 5. Seven customers answer 5, 4, 4, 5, 3, 4, and 3. Three skip the question.
@@ -42,14 +50,6 @@ After this reading, you should be able to say:
 * I can pick a fair stand-in for a fill: the mean, median, mode, forward-fill, or backward-fill.
 
 **Skills:** Data Cleaning & Imputation · Statistical Analysis
-
-## Quick recall
-
-You've found blanks before, one value at a time and then a whole column at once. This reading decides what to do with them.
-
-* `df.isna().sum()` counted the blanks in every column of a new file, in [Look Before You Filter](quest-02-inspect-filter.md). `.isna()` marks each empty cell True, and `.sum()` adds them up, because True counts as 1.
-* One very long or very large value pulls the mean up. On skewed data, the median describes a typical value better, as you saw in [The Loudest Number](quest-01-descriptive-statistics.md).
-* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) caught a blank grade, because `"".isdigit()` is `False`. It reported the blank instead of making up a grade.
 
 ## Words to know
 

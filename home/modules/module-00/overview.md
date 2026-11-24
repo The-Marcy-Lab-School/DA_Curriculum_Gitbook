@@ -64,9 +64,9 @@ The [Module 0 Introduction](introduction.md#skills-youll-build) explains what ea
 
 Every quest page has the same sections, in the same order. At the top, you'll see the total time and the part of your analyst toolkit you're working on. The total time counts both the GitBook page and the interactive reading.
 
-1. **Introduction**: an example (often with a picture), the main takeaway, and why it matters at work
-2. **Learning goals**: a list of what you'll be able to do
-3. **Quick recall**: something you already know that this reading builds on
+1. **Quick recall**: something you already know that this reading builds on (Quest 0.1 starts with the Introduction, since it's the first quest)
+2. **Introduction**: an example (often with a picture), the main takeaway, and why it matters at work
+3. **Learning goals**: a list of what you'll be able to do
 4. **New tool section** (only when there is one), named for what the tool is, like "New Python package: NumPy" or "New software: Git": what it's for, how you'll see it, and where to learn more
 5. **Words to know**: the new terms, in plain words
 6. **Before you read**: a question to think about first

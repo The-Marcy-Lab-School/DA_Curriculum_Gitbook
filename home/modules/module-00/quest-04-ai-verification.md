@@ -4,6 +4,11 @@
 
 **Analyst toolkit:** Use the terminal · Understand data · Save with Git · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
+## Quick recall
+
+* In [Meet Your Terminal](quest-01-terminal.md), `cat tomatoes.txt` printed everything in a file. In this reading, you'll use `cat` to open the real data file and check a number.
+* [What Kind of Data Is This?](quest-02-data-literacy.md) split data into two groups: **structured** (rows and columns) and **unstructured** (free text). The reading opens by asking you to sort a chatbot's reply and a data file into these two groups.
+
 ## Introduction
 
 Sounding sure and being right are two different things. For example, a friend tells you the store closes at 9 p.m. They sound completely sure. You get there at 8:30, and the doors are locked. It closed at 8.
@@ -29,11 +34,6 @@ After this reading, you should be able to say:
 * I can explain what a hallucination is, and why asking the same chatbot "are you sure?" is not checking.
 
 **Skills:** AI Literacy · Critical Thinking
-
-## Quick recall
-
-* In [Meet Your Terminal](quest-01-terminal.md), `cat tomatoes.txt` printed everything in a file. In this reading, you'll use `cat` to open the real data file and check a number.
-* [What Kind of Data Is This?](quest-02-data-literacy.md) split data into two groups: **structured** (rows and columns) and **unstructured** (free text). The reading opens by asking you to sort a chatbot's reply and a data file into these two groups.
 
 ## Words to know
 

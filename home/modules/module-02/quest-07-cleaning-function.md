@@ -4,6 +4,12 @@
 
 **EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+* In [Look Before You Filter](quest-02-inspect-filter.md), you found repeated rows with `df.duplicated()` and number columns stored as text (`str`). Then, in [Drop, Fill, or Flag](quest-06-missing-data.md), you chose to drop, fill, or flag each gap.
+* `.strip()` removes spaces from both ends of a string, and `.lower()` makes every letter lowercase, so `" Peru ".strip().lower()` gives `"peru"`. In this reading, they run on a whole column.
+* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) checked each record against rules, and [One Job at a Time](../module-01/quest-07-second-function.md) gave each function one job. A cleaning function uses both ideas.
+
 ## Introduction
 
 Some data problems happen again and again. For example, every Monday a gym gets a sign-up sheet for its classes. This week's sheet has 6 rows, but only 5 people signed up:
@@ -34,12 +40,6 @@ After this reading, you should be able to say:
 * I can write a cleaning function and prove it's reusable by calling it on two different inputs.
 
 **Skills:** Data Cleaning & Imputation · Functions & Modular Programming (from Module 1)
-
-## Quick recall
-
-* In [Look Before You Filter](quest-02-inspect-filter.md), you found repeated rows with `df.duplicated()` and number columns stored as text (`str`). Then, in [Drop, Fill, or Flag](quest-06-missing-data.md), you chose to drop, fill, or flag each gap.
-* `.strip()` removes spaces from both ends of a string, and `.lower()` makes every letter lowercase, so `" Peru ".strip().lower()` gives `"peru"`. In this reading, they run on a whole column.
-* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) checked each record against rules, and [One Job at a Time](../module-01/quest-07-second-function.md) gave each function one job. A cleaning function uses both ideas.
 
 ## Words to know
 

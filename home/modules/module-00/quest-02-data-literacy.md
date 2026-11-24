@@ -4,6 +4,12 @@
 
 **Analyst toolkit:** Use the terminal · **Understand data** · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
+## Quick recall
+
+* In [Meet Your Terminal](quest-01-terminal.md), `ls` listed what's inside a folder, and `cat` printed a file on the screen. The reading starts with two warm-up questions about them.
+* A ZIP code is made of digits, but the [Module 0 Introduction](introduction.md#why-this-matters-for-data-work) showed it names a place, not an amount. Some start with zeros, like `00501`, and dropping them would send the mail to the wrong place.
+* Your phone already groups values: one contact holds a name, a phone number, and an email together. A data structure works the same way.
+
 ## Introduction
 
 Some numbers are not really numbers. For example, your phone number is made of digits. But you would never add two phone numbers together, or find the average phone number. A phone number is a label, not an amount.
@@ -29,12 +35,6 @@ After this reading, you should be able to say:
 * I can explain the difference between a data type and a data structure.
 
 **Skills:** Data Literacy · General Programming & Coding
-
-## Quick recall
-
-* In [Meet Your Terminal](quest-01-terminal.md), `ls` listed what's inside a folder, and `cat` printed a file on the screen. The reading starts with two warm-up questions about them.
-* A ZIP code is made of digits, but the [Module 0 Introduction](introduction.md#why-this-matters-for-data-work) showed it names a place, not an amount. Some start with zeros, like `00501`, and dropping them would send the mail to the wrong place.
-* Your phone already groups values: one contact holds a name, a phone number, and an email together. A data structure works the same way.
 
 ## Words to know
 

@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · **Load, save, and protect** · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* In [Build It Once, Use It Again](quest-02-functions-scope.md), `return` handed a value back to the line that called the function. This reading's function returns a whole list.
+* When you loaded a dictionary back from a JSON (JavaScript Object Notation) file in [Make It Survive](quest-05-serialization.md), `restored[7]` raised a `KeyError`. The key had become the string `"7"`, and the second reading shows how to catch an error like that.
+* Code can sound sure, or run without errors, and still be wrong. Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) taught you to check it against something real. Here, you'll test a function on a few made-up lines instead of trusting it.
+
 ## Introduction
 
 Sometimes a form comes back filled in wrong. For example, a sign-up sheet asks for each person's age. One person writes "twenty." Another writes 250. A third leaves it blank. A program that trusts every line will make a wrong list, or stop partway through. In the picture below, look at the three red lines on the left sheet.
@@ -34,12 +40,6 @@ After this reading, you should be able to say:
 * I can name the error I expect, like `ValueError` or `KeyError`, and explain why a bare `except:` is risky.
 
 **Skills:** Functions & Modular Programming · Attention to Detail
-
-## Quick recall
-
-* In [Build It Once, Use It Again](quest-02-functions-scope.md), `return` handed a value back to the line that called the function. This reading's function returns a whole list.
-* When you loaded a dictionary back from a JSON (JavaScript Object Notation) file in [Make It Survive](quest-05-serialization.md), `restored[7]` raised a `KeyError`. The key had become the string `"7"`, and the second reading shows how to catch an error like that.
-* Code can sound sure, or run without errors, and still be wrong. Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) taught you to check it against something real. Here, you'll test a function on a few made-up lines instead of trusting it.
 
 ## Words to know
 

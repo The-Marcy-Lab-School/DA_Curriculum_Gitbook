@@ -4,6 +4,14 @@
 
 **EDA workflow:** Inspect → Clean → Explore → **Check** → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+You've checked a claim against its source, and you've counted blanks and group sizes. This reading turns those checks on the data file itself.
+
+* In the interactive reading for [Drop, Fill, or Flag](quest-06-missing-data.md), `walks.isna().sum()` counted the blanks in a dog-walking log. Then you asked why each gap was missing, and whether the gaps were bunched in one group.
+* One unusual value moves a small group's average a lot. So in [Beneath the Total](quest-08-mining-a-pattern.md), you checked how many rows each group had before trusting it.
+* Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) had you check a chatbot's claim against a **source**: where information comes from. This time, you ask where the data file itself came from.
+
 ## Introduction
 
 Sometimes a pattern in a file tells you more about how the data was collected than about the real world. For example, a review app (an app where people rate places) shows two neighborhoods. Each one has 8 restaurants. The app shows 4 highly rated restaurants in Northside, but only 1 in Riverside.
@@ -36,14 +44,6 @@ After this reading, you should be able to say:
 * I can turn a vague question into a checkable one that a data steward (the person who looks after the data) could answer.
 
 **Skills:** Critical Thinking
-
-## Quick recall
-
-You've checked a claim against its source, and you've counted blanks and group sizes. This reading turns those checks on the data file itself.
-
-* In the interactive reading for [Drop, Fill, or Flag](quest-06-missing-data.md), `walks.isna().sum()` counted the blanks in a dog-walking log. Then you asked why each gap was missing, and whether the gaps were bunched in one group.
-* One unusual value moves a small group's average a lot. So in [Beneath the Total](quest-08-mining-a-pattern.md), you checked how many rows each group had before trusting it.
-* Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) had you check a chatbot's claim against a **source**: where information comes from. This time, you ask where the data file itself came from.
 
 ## Words to know
 
