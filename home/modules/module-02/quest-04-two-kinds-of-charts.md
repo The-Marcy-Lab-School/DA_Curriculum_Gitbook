@@ -156,7 +156,7 @@ As you read, look for:
 
 ### How this connects
 
-* **Next reading:** You'll check these same chart types for honesty: where an axis starts, and what a chart leaves out.
+* **Next reading:** You'll check whether these same chart types mislead: where an axis starts, and what a chart leaves out.
 * **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** When you share findings, you'll choose a chart type for each question, say why you chose it, and polish the charts you share so a reader who never saw your notebook gets the point.
 
 ## Quick check

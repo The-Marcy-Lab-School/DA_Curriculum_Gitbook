@@ -72,7 +72,7 @@ These are the skills employers look for. They're also the skills the Boss Battle
 | | **Data Distributions & Shape** | Describe how values are spread out, which way they lean, and any values far from the rest |
 | | **Data Mining** | Find a real pattern hiding inside groups |
 | **Preparing data** | **Data Cleaning & Imputation** | Fix problems on purpose, and handle blanks with a reason. **Imputation** means filling in blanks with a stand-in value. |
-| **Showing and telling** | **Data Visualization** | Choose a chart that fits the question, and label it honestly |
+| **Showing and telling** | **Data Visualization** | Choose a chart that fits the question, and label it so it doesn't mislead |
 | | **Stakeholder Communication** | Explain a finding to someone who won't read your code |
 | | **Presentations** | Share a finding out loud, answer first |
 | **Thinking critically** | **Critical Thinking** | Question the data before you trust a pattern |

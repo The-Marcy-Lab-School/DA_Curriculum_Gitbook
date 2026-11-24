@@ -179,7 +179,7 @@ You're ready when you can say "I can" to each of these:
 * I can write a cleaning function and call it on more than one input.
 * I can decide to drop, fill, or flag, and give a reason with a number.
 * I can pick the mean or the median by looking at a column's shape first.
-* I can choose a chart that fits the question, and label it honestly.
+* I can choose a chart that fits the question, and label it so it doesn't mislead.
 * I can find a pattern across groups and rule out a confound.
 * I can write two checkable questions about a dataset.
 * I can check an AI's chart reading claim by claim.

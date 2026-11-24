@@ -144,12 +144,12 @@ The IQR is only $17.50, but the range is $4,960. That gap tells you one value si
 
 ### What shape is the data?: Distribution and skew
 
-| Word | What it means |
-| --- | --- |
-| **Distribution** | How the values are spread across their range: where most of them sit, and where only a few do. |
-| **Histogram** | A bar chart where each bar counts how many values fall in a range. It shows a distribution's shape. |
-| **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which pulls the mean below it. |
-| **Outlier** | A value far from the rest, like the $3M home or the $5,000 gift. It can still be real. |
+| Word | What it means | Example with the gifts |
+| --- | --- | --- |
+| **Distribution** | How the values are spread across their range: where most of them sit, and where only a few do. | 10 gifts sit between $40 and $75. 1 gift sits at $5,000. |
+| **Histogram** | A bar chart where each bar counts how many values fall in a range. It shows a distribution's shape. | With bars $100 wide: one bar of **10** gifts on the left, empty space, then one bar of **1** gift at $5,000 |
+| **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which pulls the mean below it. | Right-skewed: the mean, **$505.45**, sits far above the median, **$55** |
+| **Outlier** | A value far from the rest. It can still be real. | The **$5,000** gift (and the $3M home in the Introduction) |
 
 An outlier is not the same as a bad value. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), a grade of 14 broke a rule. So your function flagged it as a problem. A $5,000 gift breaks no rule. It's far from the rest, but it's real, so it stays in the data.
 

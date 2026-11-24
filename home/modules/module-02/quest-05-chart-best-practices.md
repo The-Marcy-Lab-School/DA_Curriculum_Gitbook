@@ -102,7 +102,7 @@ Now look at the draft chart, where the y-axis starts at 180. Riverside's bar sho
 | **`plt.ylim(180, 195)`** | Sets the y-axis to run from 180 to 195. On a bar chart, this cuts off the baseline. |
 | **`.quantile([0.25, 0.75])`** | Gives Q1 and Q3 of a column. For the laps: **20.5** and **29.5**. |
 | **`.max()`** | Gives the largest value in a column. For the laps: **110**. |
-| **`.plot.box()`** | Draws a boxplot. |
+| **`.plot.box()`** | Draws a boxplot. For the laps, the box runs from **20.5** to **29.5**, and **110** shows as a dot. |
 | **`showfliers`** | A parameter of the boxplot method. Setting `showfliers` to `False` leaves every outlier dot out of the drawing. The default is `True`. |
 
 `showfliers=False` is risky for the same reason a bare `except:` is, from [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md). Both hide something without any warning, and the result still looks fine.
@@ -148,7 +148,7 @@ As you read, look for:
 ### How this connects
 
 * **Next:** A practice day with no new reading. You'll review what you've learned so far, and practice checking analysis code that an AI (artificial intelligence) tool writes for you. Later, you'll run these same two chart checks when an AI writes or describes a chart for you.
-* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** Every chart you share will need to fit its question and be labeled honestly: a y-axis that starts where it should, nothing hidden without a note, and a title and axes a reader can follow without your code.
+* **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** Every chart you share will need to fit its question and be labeled so it doesn't mislead: a y-axis that starts where it should, nothing hidden without a note, and a title and axes a reader can follow without your code.
 
 ## Quick check
 
@@ -161,12 +161,12 @@ The boxplot was drawn with `showfliers=False`, which hid the 110-lap outlier. Sh
 
 </details>
 
-**2.** A line chart of weekly swimmers zooms the y-axis to 900–1,000. Is that honest?
+**2.** A line chart of weekly swimmers zooms the y-axis to 900–1,000. Is that misleading?
 
 <details>
 <summary>Answer</summary>
 
-Yes, as long as the axis is labeled. A line chart's claim is the change from week to week, so zooming in is fine. A bar chart would need to start at zero.
+No, as long as the axis is labeled. A line chart's claim is the change from week to week, so zooming in is fine. A bar chart would need to start at zero.
 
 </details>
 
