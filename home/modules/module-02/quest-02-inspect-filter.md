@@ -88,9 +88,9 @@ pandas holds a table in a **DataFrame**, and one column of it in a **Series**. C
 
 | | What you know | pandas version |
 | --- | --- | --- |
-| **A whole table** | A CSV file, like `pets.csv`. In Python, a list of dictionaries, one per row: `[{"site": "Eastside", "weight_lbs": 12}, ...]` | A **DataFrame**: rows and named columns in one object, `df`. Each column has one data type. |
-| **One column** | A list of values, like `weights = [12, 40, 25]`. You find an item by its position: `weights[0]` is `12`. | A **Series**: the column's values, plus a label for each row. `df["weight_lbs"]` gives you one. |
-| **Example: `== 40`** | `[12, 40, 25] == 40` compares the whole list to one number, so it gives just `False`. | `df["weight_lbs"] == 40` checks every row, so it gives a `True` or `False` for each one. That's how filters work. |
+| **A whole table** | A CSV file, like `pets.csv`. In Python, a list of dictionaries, one per row: `[{"item": "Mug", "amount": 50}, ...]` | A **DataFrame**: rows and named columns in one object, `df`. Each column has one data type. |
+| **One column** | A list of values, like `amounts = [50, 120, 200]`. You find an item by its position: `amounts[0]` is `50`. | A **Series**: the column's values, plus a label for each row. `df["amount"]` gives you one. |
+| **Example: `== 200`** | `[50, 120, 200] == 200` compares the whole list to one number, so it gives just `False`. | `df["amount"] == 200` checks every row, so it gives a `True` or `False` for each one. That's how filters work. |
 
 **How you'll see it in this reading:**
 
@@ -119,14 +119,31 @@ If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip instal
 
 ## Words to know
 
+The examples on this page use the shop's sales sheet from the Introduction, saved as the file `sales.csv`. It has the same 5 rows, with the $200 sale saved twice. This page adds two columns:
+
+* `payment`: how the customer paid
+* `cashier`: who made the sale
+
+One payment was never written down.
+
+| item | amount | payment | cashier |
+| --- | --- | --- | --- |
+| Mug | 50 | Cash | Jo |
+| Lamp | 120 | Card | Sam |
+| Chair | 200 | Card | Jo |
+| Chair | 200 | Card | Jo |
+| Rug | 80 | *(blank)* | Sam |
+
+The 4th row repeats the 3rd row. That's the $200 sale saved twice.
+
 ### Notebooks
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the sales sheet |
 | --- | --- | --- |
-| **Notebook** | A file ending in `.ipynb` that holds code in cells, with each cell's result shown under it. | `new_notebook.ipynb` |
+| **Notebook** | A file ending in `.ipynb` that holds code in cells, with each cell's result shown under it. | `sales.ipynb` |
 | **Cell** | A small box of code in a notebook. Run one cell at a time with Shift+Enter. | A cell that holds only `df.shape` |
 | **Kernel** | The Python process behind a notebook. It keeps your variables in memory between cells. It knows what you ran, in the order you ran it, not the order on the page. | In a fresh kernel, `df.shape` gives a `NameError`, because `df` doesn't exist yet. |
-| **Restart & Run All** | Restart the kernel, then run every cell from top to bottom. It proves the notebook works from a clean start. | It catches a notebook whose `read_csv` cell was deleted after it ran. |
+| **Restart & Run All** | Restart the kernel, then run every cell from top to bottom. It proves the notebook works from a clean start. | It catches a notebook whose `pd.read_csv("sales.csv")` cell was deleted after it ran. |
 
 {% hint style="info" %}
 **Before you share a notebook, use Restart & Run All.** A notebook can seem to work only because of a cell you ran earlier and then deleted. A clean run from the top catches that.
@@ -134,26 +151,26 @@ If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip instal
 
 ### Tables in pandas
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the sales sheet |
 | --- | --- | --- |
-| **CSV file** | A plain text file of a table. Each line is a row, commas separate the columns, and the first line holds the column names. | `intake.csv`. One row: `Family,Produce,12,Eastside` |
-| **DataFrame** | pandas' table: a class with rows and named columns, where each column has its own data type. Each table you load is a DataFrame object. | `df`, with 8 rows and 4 columns |
-| **Series** | One column of a DataFrame: a list of values with row labels. Picking a column, like `df["site"]`, gives you a Series. | `df["site"]`: Eastside, Downtown, Eastside, ... |
-| **dtype** | The data type pandas gave a column: `str` for text, `int64` for whole numbers, `float64` for decimal numbers. Older tutorials and AI (artificial intelligence) answers say `object` for text. That's the old label. | `site` is `str`. `weight_lbs` is `float64`. |
-| **NaN** | How pandas shows a missing value. It's short for "not a number," but pandas stores it as a decimal number. | The Westside Dairy donation's weight |
+| **CSV file** | A plain text file of a table. Each line is a row, commas separate the columns, and the first line holds the column names. | `sales.csv`. One row: `Mug,50,Cash,Jo` |
+| **DataFrame** | pandas' table: a class with rows and named columns, where each column has its own data type. Each table you load is a DataFrame object. | `df`, with 5 rows and 4 columns |
+| **Series** | One column of a DataFrame: a list of values with row labels. Picking a column, like `df["payment"]`, gives you a Series. | `df["payment"]`: Cash, Card, Card, Card, NaN |
+| **dtype** | The data type pandas gave a column: `str` for text, `int64` for whole numbers, `float64` for decimal numbers. Older tutorials and AI (artificial intelligence) answers say `object` for text. That's the old label. | `payment` is `str`. `amount` is `int64`. |
+| **NaN** | How pandas shows a missing value. It's short for "not a number," but pandas stores it as a decimal number. | The payment for the Rug sale |
 
 ### The four checks
 
 To **inspect** a file means to run these four checks on it, before you do anything else.
 
-**Units** are what a number counts, like rows or blank cells. Each check gives a count, except data types, which gives a label for each column. The examples use the reading's food bank file, `intake.csv`.
+**Units** are what a number counts, like rows or blank cells. Each check gives a count, except data types, which gives a label for each column. The examples use the sales sheet, `sales.csv`.
 
-| Check | What it means | Example in the reading |
+| Check | What it means | Example with the sales sheet |
 | --- | --- | --- |
-| **Shape** | How big the table is: did every row and column arrive? | `df.shape` gives **(8, 4)**: 8 rows, then 4 columns |
-| **Data types** | The dtype of each column: is each one the type you expect? | `df.dtypes`: `weight_lbs` is **`float64`**. The other 3 columns are **`str`**. |
-| **Missing values** | How many cells are blank in each column. | `df.isna().sum()`: **1 blank cell** in `weight_lbs`, 0 in the rest |
-| **Duplicate** | A row that matches an earlier row exactly, in every column. A donation logged twice adds its weight twice. | `df.duplicated().sum()`: **1 row**, the second `Grocery,Canned,40,Downtown` |
+| **Shape** | How big the table is: did every row and column arrive? | `df.shape` gives **(5, 4)**: 5 rows, then 4 columns |
+| **Data types** | The dtype of each column: is each one the type you expect? | `df.dtypes`: `amount` is **`int64`**. The other 3 columns are **`str`**. |
+| **Missing values** | How many cells are blank in each column. | `df.isna().sum()`: **1 blank cell** in `payment`, 0 in the rest |
+| **Duplicate** | A row that matches an earlier row exactly, in every column. A sale saved twice adds its amount twice. | `df.duplicated().sum()`: **1 row**, the second `Chair,200,Card,Jo` |
 
 A count can show as `np.int64(1)`. That's just a whole number, stored the NumPy way.
 
@@ -170,14 +187,14 @@ pandas runs each check on the whole table in one line. The picture below shows t
 
 ### Keeping and ranking rows
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the sales sheet |
 | --- | --- | --- |
-| **Boolean** | A value that is either `True` or `False`. | `"Eastside" == "Eastside"` is `True` |
-| **Boolean filter** | A True/False condition inside `df[...]` that keeps only the rows where it's True. The result is a new, smaller DataFrame. The original stays the same. | `df[df["site"] == "Eastside"]` keeps **3** of the 8 rows |
-| **`&` (AND)** | How pandas joins two filter conditions so that both must be True. It narrows the result: you keep fewer rows. Each condition goes in its own parentheses. | Eastside **and** Produce keeps **2** rows |
-| **Sort** | Put the rows in order by one column. Filtering picks rows. Sorting ranks them. | Heaviest first: 40, 40, 30 pounds |
+| **Boolean** | A value that is either `True` or `False`. | `"Card" == "Card"` is `True` |
+| **Boolean filter** | A True/False condition inside `df[...]` that keeps only the rows where it's True. The result is a new, smaller DataFrame. The original stays the same. | `df[df["payment"] == "Card"]` keeps **3** of the 5 rows |
+| **`&` (AND)** | How pandas joins two filter conditions so that both must be True. It narrows the result: you keep fewer rows. Each condition goes in its own parentheses. | Card **and** Sam keeps **1** row: the Lamp sale |
+| **Sort** | Put the rows in order by one column. Filtering picks rows. Sorting ranks them. | Biggest first: **$200, $200, $120**. The repeated sale takes two top spots. |
 
-The partner of `&` is `|`, which means OR. It keeps a row if either condition is True, so it widens the result. Eastside **or** Produce keeps **5** rows.
+The partner of `&` is `|`, which means OR. It keeps a row if either condition is True, so it widens the result. Card **or** Sam keeps **4** rows.
 
 ## Before you read
 
@@ -212,10 +229,10 @@ As you read, look for:
 | If you think... | What's actually true |
 | --- | --- |
 | "Shift+Enter runs the whole notebook." | It runs only the cell you're in. Restart & Run All runs everything. |
-| "This file has only 8 rows. I can see it's fine, so I'll skip the checks." | The 8-row food bank file has 1 blank weight and 1 repeated row. The repeat adds 40 extra pounds: the total is 171 pounds instead of 131. |
-| "Filtering changes my table." | It makes a new, smaller table. After `eastside = df[df["site"] == "Eastside"]`, `df` still has all 8 rows. |
+| "This sheet has only 5 rows. I can see it's fine, so I'll skip the checks." | The 5-row sales sheet has 1 blank payment and 1 repeated row. The repeat adds an extra $200: the total is $650 instead of $450. |
+| "Filtering changes my table." | It makes a new, smaller table. After `card = df[df["payment"] == "Card"]`, `df` still has all 5 rows. |
 | "I can join two filter conditions with `and`, like in an `if` statement." | pandas compares whole columns, so it uses `&`, with each condition in parentheses. Without the parentheses, you get a `TypeError`. |
-| "My text columns show `str`. A tutorial said they should say `object`, so something's wrong." | That's the old label. pandas 3 shows text as `str`. If a number column shows `str`, something in it isn't a clean number, like `"12 lbs"`. |
+| "My text columns show `str`. A tutorial said they should say `object`, so something's wrong." | That's the old label. pandas 3 shows text as `str`. If a number column shows `str`, something in it isn't a clean number, like `"$50"`. |
 
 ### How this connects
 
@@ -224,20 +241,20 @@ As you read, look for:
 
 ## Quick check
 
-**1.** Every weight in a file is a whole number, but `df.dtypes` shows `weight_lbs` as `float64`. Why?
+**1.** Every amount on a sales sheet is a whole number, but `df.dtypes` shows `amount` as `float64`. Why?
 
 <details>
 <summary>Answer</summary>
 
-At least one weight is blank. pandas stores a blank number as NaN, which is a decimal, so the whole column becomes `float64`.
+At least one amount is blank. pandas stores a blank number as NaN, which is a decimal, so the whole column becomes `float64`.
 
 </details>
 
-**2.** Which line keeps only the rows where the site is Eastside **and** the category is Produce?
+**2.** Which line keeps only the rows where the payment is Card **and** the cashier is Sam?
 
-* A. `df[df["site"] == "Eastside" & df["category"] == "Produce"]`
-* B. `df[(df["site"] == "Eastside") & (df["category"] == "Produce")]`
-* C. `df[(df["site"] == "Eastside") and (df["category"] == "Produce")]`
+* A. `df[df["payment"] == "Card" & df["cashier"] == "Sam"]`
+* B. `df[(df["payment"] == "Card") & (df["cashier"] == "Sam")]`
+* C. `df[(df["payment"] == "Card") and (df["cashier"] == "Sam")]`
 
 <details>
 <summary>Answer</summary>

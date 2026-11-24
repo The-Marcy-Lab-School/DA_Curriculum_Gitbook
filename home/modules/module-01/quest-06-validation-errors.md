@@ -47,66 +47,76 @@ After this reading, you should be able to say:
 
 **Validation** means checking data against your rules before you use it. It answers one question: does this input meet our rules?
 
-For example, each line in the reading's file looks like this: a student ID, a grade, and a class, with a bar between them. Here, the **grade** is the student's year in school, from 9 to 12.
+The examples use the sign-up sheet from the Introduction. To show every term, this page adds two things:
+
+* two more fields on each line: the person's name and the class they want
+* a 6th line, from Omar, who skipped the age box
+
+Each line has a name, an age, and a class, with a bar between them. The sheet's rule: an age must be a whole number from 1 to 120. Here are the 6 lines:
 
 ```text
-S-2041|10|Biology
+Maya|34|Yoga
+Leo|twenty|Swim
+Ana|250|Yoga
+Sam||Dance
+Kim|27|Swim
+Omar|Dance
 ```
 
-The examples come from the reading's 5 sign-up lines, for students S-2041 to S-2045.
+Sam left the age blank, so that line has nothing between its two bars. Omar's line has no age at all, so it has only one bar.
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the sign-up sheet |
 | --- | --- | --- |
-| **Record** | One full entry, like one sign-up form or one hotel room request. | Student S-2041's line: ID, grade 10, and Biology |
-| **Field** | One part of a record. Each sign-up line in the reading has three fields: a student ID, a grade, and a class. A bar character separates them. | `"10"`, the grade in S-2041's line |
-| **Batch file** | A file with one record on each line. A program checks it one line at a time. | The office's file of 5 sign-up lines |
-| **Valid input** | Input that passes every rule, so the program can safely use it. | S-2041's line: 3 fields, and grade 10 |
-| **Invalid input** | Input that breaks at least one rule. It can have the right shape and still hold a wrong value. | S-2044's line: 3 fields, but grade 14 |
-| **Malformed input** | Input with the wrong shape. It's one kind of invalid input. | S-2042's line has 2 fields: an ID and `Chemistry`. |
-| **Structure check** | Checks that a record has the right shape, such as exactly 3 fields. It always runs first. | `len(fields) != 3` |
-| **Value check** | Checks what a field holds, such as "is the grade a whole number from 9 to 12?" | `"10th".isdigit()` gives `False`. |
-| **Contract** | What a function takes in and what it gives back. The rest of the program relies on it. | Takes a list of lines. Gives back a list of problem messages. |
+| **Record** | One full entry, like one sign-up form or one store order. | Maya's line: her name, age 34, and Yoga |
+| **Field** | One part of a record. Each line on the sheet has three fields: a name, an age, and a class. A bar character separates them. | `"34"`, the age in Maya's line |
+| **Batch file** | A file with one record on each line. A program checks it one line at a time. | The sign-up sheet, saved as a file of **6 lines** |
+| **Valid input** | Input that passes every rule, so the program can safely use it. | Maya's line: 3 fields, and age 34 is from 1 to 120 |
+| **Invalid input** | Input that breaks at least one rule. It can have the right shape and still hold a wrong value. | Ana's line: 3 fields, but age **250** |
+| **Malformed input** | Input with the wrong shape. It's one kind of invalid input. | Omar's line has **2 fields**: `Omar` and `Dance`. |
+| **Structure check** | Checks that a record has the right shape, such as exactly 3 fields. It always runs first. | `len(fields) != 3` catches Omar's line. |
+| **Value check** | Checks what a field holds, such as "is the age a whole number from 1 to 120?" | `"twenty".isdigit()` gives `False`. |
+| **Contract** | What a function takes in and what it gives back. The rest of the program relies on it. | Takes a list of lines. Gives back a list of problem messages: **4** for lines 2, 3, 4, and 6. |
 
-You've met records before. In [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), one line of `pets.csv` was one pet's record, with commas between its values. Here, one line is one student's record, and a bar separates its fields.
+You've met records before. In [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), one line of `pets.csv` was one pet's record, with commas between its values. Here, one line is one person's record, and a bar separates its fields.
 
 ### Tools for checking a line
 
 | Code | What it does |
 | --- | --- |
-| **`.split()`** | A string method. `form.split(sep)` cuts the string at every `sep` and gives back a list of the pieces. In the reading, `sep` is the bar character. Each piece is still a string. |
-| **`.isdigit()`** | A string method. It gives `True` when every character is a digit. `"10".isdigit()` is `True`. `"10th".isdigit()` and `"".isdigit()` are `False`. |
-| **`int(text)`** | Turns the text `"10"` into the number `10`. `int("10th")` stops the program with an error. |
-| **`not`** | Flips `True` to `False`, and `False` to `True`. `not "10th".isdigit()` is `True`. |
-| **`or`** | Gives `True` when either side is `True`. For grade 14, `14 < 9 or 14 > 12` is `True`. |
-| **`!=`** | Means "is not equal to." For S-2042's line, `2 != 3` is `True`. |
-| **`enumerate(forms, start=1)`** | Gives a loop two things on each pass: a position number and the item. The parameter `start` is set to `1`, so the count begins at 1, not 0. |
+| **`.split()`** | A string method. `form.split(sep)` cuts the string at every `sep` and gives back a list of the pieces. Here, `sep` is the bar character. For Maya's line, it gives `["Maya", "34", "Yoga"]`. Each piece is still a string. |
+| **`.isdigit()`** | A string method. It gives `True` when every character is a digit. `"34".isdigit()` is `True`. `"twenty".isdigit()` is `False`. Sam's blank age, `"".isdigit()`, is also `False`. |
+| **`int(text)`** | Turns the text `"34"` into the number `34`. `int("twenty")` stops the program with an error. |
+| **`not`** | Flips `True` to `False`, and `False` to `True`. `not "twenty".isdigit()` is `True`. |
+| **`or`** | Gives `True` when either side is `True`. For Ana's age, `250 < 1 or 250 > 120` is `True`. |
+| **`!=`** | Means "is not equal to." For Omar's line, `2 != 3` is `True`. |
+| **`enumerate(forms, start=1)`** | Gives a loop two things on each pass: a position number and the item. The parameter `start` is set to `1`, so the count begins at 1, not 0. On the first pass, it gives `1` and Maya's line. |
 | **f-string** | Text with an `f` in front, like `f"Line {num}"`. Python puts the value of `num` where the braces are. |
 
-Each piece from `.split()` is text, even `"10"`. Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) showed that digits in quotes are text. An ID stays text, because it's a label. So the code turns the grade into a number with `int()`, to compare it with 9 and 12. The student ID `S-2041` stays text.
+Each piece from `.split()` is text, even `"34"`. Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) showed that digits in quotes are text. So the code turns the age into a number with `int()`, to compare it with 1 and 120. The name and the class stay text, because they're labels.
 
 ### When a step fails: Exceptions and error handling
 
 **Error handling** means deciding, in code, what should happen when a step fails, so one failure doesn't stop the whole program.
 
-The examples come from the second reading's hotel booking program. One guest, Batista, asked for `"4 nights"` instead of a number.
+The examples use the sign-up sheet again. Say a program skips validation and runs `int()` on every age. Leo's age, `"twenty"`, makes that step fail.
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the sign-up sheet |
 | --- | --- | --- |
-| **Exception** | An error Python raises while a program runs. If no code catches it, the program stops at that line. | A `ValueError` |
-| **Raise** | What Python does when a step fails: it creates an exception. | `int("4 nights")` raises a `ValueError`. |
-| **Traceback** | The report Python prints when no code catches an exception. Read its last line first: it names the error. | Last line: `ValueError: invalid literal for int() with base 10: '4 nights'` |
-| **`try`** | The block that holds the risky step you want Python to attempt. | `nights = int(nights_text)`, inside `try:` |
-| **`except ValueError:`** | The block that runs only if a line in `try` raises a `ValueError`. It catches that error and no other. | It prints `Skipped Batista`. |
-| **Bare `except:`** | `except:` with no error name. It catches every error, even typos (typing mistakes) and real bugs (mistakes in code), so avoid it. | It would also hide `print(totl)`, a typo for `total`. |
+| **Exception** | An error Python raises while a program runs. If no code catches it, the program stops at that line. | A `ValueError` on Leo's line |
+| **Raise** | What Python does when a step fails: it creates an exception. | `int("twenty")` raises a `ValueError`. |
+| **Traceback** | The report Python prints when no code catches an exception. Read its last line first: it names the error. | Last line: `ValueError: invalid literal for int() with base 10: 'twenty'` |
+| **`try`** | The block that holds the risky step you want Python to attempt. | `age = int(age_text)`, inside `try:` |
+| **`except ValueError:`** | The block that runs only if a line in `try` raises a `ValueError`. It catches that error and no other. | It prints `Skipped Leo`. Then the loop moves on to Ana's line. |
+| **Bare `except:`** | `except:` with no error name. It catches every error, even typos (typing mistakes) and real bugs (mistakes in code), so avoid it. | It would also hide `print(nmae)`, a typo for `name`. |
 
 Four errors come up again and again. Each name tells you what went wrong:
 
-| Error | Example in the reading | What went wrong |
+| Error | Example with the sign-up sheet | What went wrong |
 | --- | --- | --- |
-| **`ValueError`** | `int("4 nights")` | The right operation, but this value can't be used. |
-| **`KeyError`** | `rates["penthouse"]` | The dictionary has no entry for that key. (`rates` holds room prices. A penthouse is a room on the top floor.) |
-| **`IndexError`** | `rooms[5]` when `rooms` has 3 items | The list has no item at that position. |
-| **`NameError`** | `print(totl)` when only `total` exists | Python can't find that name, often because of a typo. |
+| **`ValueError`** | `int("twenty")` | The right operation, but this value can't be used. |
+| **`KeyError`** | `fees["Pottery"]` | The dictionary has no entry for that key. (`fees` holds the price to join each class: Yoga, Swim, and Dance. It has no Pottery class.) |
+| **`IndexError`** | `fields[2]` for Omar's line, which has only 2 fields | The list has no item at that position. Omar's fields are at positions 0 and 1. |
+| **`NameError`** | `print(nmae)` when only `name` exists | Python can't find that name, often because of a typo. |
 
 ## Before you read
 
@@ -142,13 +152,13 @@ As you read, look for:
 
 ### Summary
 
-* **Validation checks the rules before you use the data.** Run the structure check first (right number of fields?), then the value checks (is the grade a whole number from 9 to 12?). The right shape doesn't mean the right values.
+* **Validation checks the rules before you use the data.** Run the structure check first (right number of fields?), then the value checks (is the age a whole number from 1 to 120?). The right shape doesn't mean the right values.
 * **Return the problems, don't just print them.** A list of problem messages can be counted, printed, or tested on a tiny batch. That's how you catch quiet bugs, like a `return` inside the loop.
 * **`try` and `except` catch one failure so the batch keeps going.** Put the risky step in `try`. Name the error you expect after `except`. A bare `except:` hides real bugs.
 
 ### Validation in code
 
-Here is the checking function from the first reading, with shorter messages:
+Here is the checking function from the first reading, with shorter messages. It checks the reading's student lines, where the grade must be from 9 to 12:
 
 ```python
 def find_form_problems(forms):
@@ -177,9 +187,9 @@ def find_form_problems(forms):
 
 </details>
 
-The picture below follows one line through the three checks, in order. Look at where each of the reading's bad lines stops.
+The picture below follows the reading's student lines through the three checks, in order. Look at where each of the reading's bad lines stops.
 
-![A flow for one sign-up form line. Check 1, the structure check: exactly 3 fields? If no, add the problem "Line 2: expected 3 fields" for S-2042|Chemistry. If yes, check 2, a value check: is the grade all digits? If no, add "Line 3: grade '10th' is not a number." If yes, check 3, a value check: is the grade 9 to 12? If no, add "Line 4: grade 14 is outside 9-12." If yes, the line is valid and adds no message, like lines 1 and 5. Each problem goes into the list with problems.append. After the last line, the function returns problems: 3 problems found.](images/m1b-form-checks.svg)
+![A flow for one of the reading's student sign-up lines. Check 1, the structure check: exactly 3 fields? If no, add the problem "Line 2: expected 3 fields" for S-2042|Chemistry. If yes, check 2, a value check: is the grade all digits? If no, add "Line 3: grade '10th' is not a number." If yes, check 3, a value check: is the grade 9 to 12? If no, add "Line 4: grade 14 is outside 9-12." If yes, the line is valid and adds no message, like lines 1 and 5. Each problem goes into the list with problems.append. After the last line, the function returns problems: 3 problems found.](images/m1b-form-checks.svg)
 
 ### Error handling in code
 
@@ -214,11 +224,11 @@ The picture below uses a shorter program from the reading, `read_nights.py`. Fol
 
 | If you think... | What's actually true |
 | --- | --- |
-| "The line has 3 fields, so it's valid." | Shape is only the first check. Student S-2044's line has 3 fields, but its grade, 14, is outside 9 to 12. |
-| "My function ran with no error, so it works." | With `return problems` inside the loop, it reports "0 problems found" for the 5 lines. The right answer is 3. Test it on a tiny batch. |
-| "A bare `except:` is the safest choice, because it catches everything." | It also catches typos. Type `totl` instead of `total`, and a bare `except:` hides the `NameError` that would point to it. |
-| "When `int()` fails, the `print` line under it in `try` still runs." | Python leaves `try` at the line that failed. For Batista, `Booked` never prints. `Skipped Batista` prints instead. |
-| "Validation and error handling are two names for the same thing." | Validation checks values against rules, like `if nights > 30`. Error handling responds when a step fails, like `int("4 nights")`. `int("45")` works, so only validation catches a 45-night stay. |
+| "The line has 3 fields, so it's valid." | Shape is only the first check. Ana's line has 3 fields, but her age, 250, is outside 1 to 120. |
+| "My function ran with no error, so it works." | With `return problems` inside the loop, the function stops after line 1. Maya's line is valid, so it reports "0 problems found" for the 6 lines. The right answer is 4. Test it on a tiny batch. |
+| "A bare `except:` is the safest choice, because it catches everything." | It also catches typos. Type `nmae` instead of `name`, and a bare `except:` hides the `NameError` that would point to it. |
+| "When `int()` fails, the `print` line under it in `try` still runs." | Python leaves `try` at the line that failed. For Leo's age, `"twenty"`, the `print` line under `int()` never runs. `Skipped Leo` prints instead. |
+| "Validation and error handling are two names for the same thing." | Validation checks values against rules, like `if age > 120`. Error handling responds when a step fails, like `int("twenty")`. `int("250")` works, so only validation catches an age of 250. |
 
 ### How this connects
 
@@ -229,7 +239,7 @@ The picture below uses a shorter program from the reading, `read_nights.py`. Fol
 
 **1.** Which one catches each problem: validation or error handling?
 
-* A. A form says the grade is 14, but only 9 to 12 is allowed.
+* A. Another line on the sign-up sheet says the age is 200, but only 1 to 120 is allowed.
 * B. `int("ten")` would stop the program.
 
 <details>

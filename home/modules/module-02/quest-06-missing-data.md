@@ -21,7 +21,7 @@ As in [The Loudest Number](quest-01-descriptive-statistics.md), an average is th
 * If you skip the blanks: (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = **4.0**
 * If you count the blanks as 0: (28 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = **2.8**
 
-The three 0s pull the average down from 4.0 to 2.8, but no customer gave a 0. If you delete those 3 customers instead, you lose all their other answers on the survey. In the picture below, compare the three red 0 cards on the left with the skipped cards on the right.
+The three 0s pull the average down from 4.0 to 2.8, but no customer gave a 0. If you delete those 3 customers instead, you also lose any other answers they gave on the survey. In the picture below, compare the three red 0 cards on the left with the skipped cards on the right.
 
 ![Ten rating cards for a store survey, scored 1 to 5. Left, blanks counted as 0: seven grey cards (5, 4, 4, 5, 3, 4, 3) and three red cards that say 0. Average = (5 + 4 + 4 + 5 + 3 + 4 + 3 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = 2.8, but no customer gave a 0. Right, blanks skipped: the same seven grey cards and three empty cards marked "skipped." Average = (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = 4.0, which matches what customers said.](images/blanks-as-zero-ratings.svg)
 
@@ -31,7 +31,7 @@ The three 0s pull the average down from 4.0 to 2.8, but no customer gave a 0. If
 * **Fill** the blank with a stand-in value.
 * **Flag** it, and leave it blank.
 
-A missing value is a cell with no value in it, like a skipped survey question. Give each choice a reason with a number, like "I dropped 2 rows where the app crashed."
+A missing value is a cell with no value in it, like a skipped survey question. Give each choice a reason with a number, like "I dropped 1 survey where every answer was blank."
 
 **Why it matters at work:** What you do with blanks decides the totals and averages in a report. For example, analysts handle blanks before they:
 
@@ -53,13 +53,40 @@ After this reading, you should be able to say:
 
 ## Words to know
 
+The examples on this page use the store's survey from the Introduction. It has the same 10 customers and the same 7 ratings. This page adds two more questions:
+
+* `wait_min`: how many minutes the customer waited in line
+* `heard_from`: how the customer heard about the store
+
+Here is the survey file. A blank cell means no answer was saved.
+
+| customer | rating | wait_min | heard_from |
+| --- | --- | --- | --- |
+| C01 | 5 | 4 | *(blank)* |
+| C02 | 4 | 30 | *(blank)* |
+| C03 | *(blank)* | 5 | *(blank)* |
+| C04 | 4 | *(blank)* | friend |
+| C05 | 5 | 7 | ad |
+| C06 | *(blank)* | 6 | friend |
+| C07 | 3 | *(blank)* | web |
+| C08 | *(blank)* | *(blank)* | *(blank)* |
+| C09 | 4 | 5 | friend |
+| C10 | 3 | 6 | ad |
+
+A few facts explain the blanks:
+
+* C01, C02, and C03 filled in an old paper card. It didn't ask how they heard about the store.
+* The tablet froze before C04's and C07's wait times were saved.
+* C08 tapped Submit without answering anything.
+* C02's 30-minute wait is real. The card reader broke while C02 was in line.
+
 ### Missing values
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the survey |
 | --- | --- | --- |
-| **Missing value** | A cell with no value in it. In a CSV (comma-separated values) file, it's just an empty field (one value's place in a row). | `Kai,,,`: Kai's minutes, miles, and size are all empty |
-| **NaN** | How pandas shows an empty cell. It's short for "Not a Number," but it shows up in text columns too. | Ana's first walk shows `NaN` for `dog_size`, a text column |
-| **Placeholder** | A stand-in typed where a real value should be, like `0` or `"unknown"`. It's missing too, but `.isna()` doesn't count it. | If a size were typed as `"unknown"`, `.isna()` would not count it |
+| **Missing value** | A cell with no value in it. In a CSV (comma-separated values) file, it's just an empty field (one value's place in a row). | `C08,,,`: C08's rating, wait, and `heard_from` are all empty |
+| **NaN** | How pandas shows an empty cell. It's short for "Not a Number," but it shows up in text columns too. | C01 shows `NaN` for `heard_from`, a text column |
+| **Placeholder** | A stand-in typed where a real value should be, like `0` or `"unknown"`. It's missing too, but `.isna()` doesn't count it. | If the 3 skipped ratings were typed as `0`, `.isna()` would count **0** blanks in `rating` |
 
 A placeholder `0` is a quiet problem, like the bare `except:` in [Looks Right. Is It?](../module-01/quest-10-debugging.md) that returned 0. Both hide a problem behind a 0 that looks real.
 
@@ -67,48 +94,48 @@ A placeholder `0` is a quiet problem, like the bare `except:` in [Looks Right. I
 
 Ask these two questions about every gap before you decide anything.
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the survey |
 | --- | --- | --- |
-| **Never collected** | Nobody asked for the value. | A dog's size when people book (schedule a walk) by phone |
-| **Lost** | The value existed but didn't get saved. | Kai's and Lee's walks, logged (recorded) while the app crashed |
-| **Spread out at random** | The gaps are scattered across the data, with no group in common. | One blank on Sam's walk, one on Ana's, one on Kai's, with nothing in common |
-| **Bunched in one group** | The gaps all come from one kind of row. | The 2 blank sizes left after the drop are both phone bookings |
+| **Never collected** | Nobody asked for the value. | `heard_from` for C01, C02, and C03: the old paper card didn't ask |
+| **Lost** | The value existed but didn't get saved. | C04's and C07's wait times, typed while the tablet froze |
+| **Spread out at random** | The gaps are scattered across the data, with no group in common. | The 3 skipped ratings, from C03, C06, and C08, with nothing in common |
+| **Bunched in one group** | The gaps all come from one kind of row. | The 3 blank `heard_from` cells left after the drop all come from old paper cards |
 
 ### The three choices
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the survey |
 | --- | --- | --- |
-| **Drop** | Remove a row entirely. It's the right choice when the row has nothing left to work with. | Drop Kai's and Lee's crashed rows: 8 walks become **6** |
-| **Fill** | Replace a missing value with a stand-in, like the median or the value before it. Filling in missing values is also called **imputation**. | Fill Lee's day 3 and day 7 with the median, **43.0 minutes** |
-| **Flag** | Leave the value missing, and add a True/False column that marks it, instead of guessing. | `size_unknown` is True for **2** walks |
+| **Drop** | Remove a row entirely. It's the right choice when the row has nothing left to work with. | Drop C08's row, where every answer is blank: 10 rows become **9** |
+| **Fill** | Replace a missing value with a stand-in, like the median or the value before it. Filling in missing values is also called **imputation**. | Fill C04's and C07's wait times with the median, **6.0 minutes** |
+| **Flag** | Leave the value missing, and add a True/False column that marks it, instead of guessing. | After the drop, `heard_unknown` is True for **3** customers |
 
 A flag works like the list of problems your validation function returned. It records which rows had a gap, so you can count them and report them, without guessing a value.
 
 ### Stand-ins for a fill
 
-**Units** are what a number counts or measures. A fill comes out in the same units as the column: here, minutes. The mode is the exception: it's a category, like `"large"`. Most examples use Lee's 8 days of walks from the reading, in minutes:
+**Units** are what a number counts or measures. A fill comes out in the same units as the column: here, minutes. The mode is the exception: it's a category, like `"friend"`. Most examples use the wait times after C08's row is dropped. The rows are in the order customers came in:
 
-`40, 45, blank, 42, 95, 44, blank, 41` (day 5 was a 95-minute hike)
+`4, 30, 5, blank, 7, 6, blank, 5, 6` (in minutes, from C01 to C10, without C08)
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the survey |
 | --- | --- | --- |
-| **Mean** | The average of the real values. One far-off value pulls it toward itself. | (40 + 45 + 42 + 95 + 44 + 41) ÷ 6 = 307 ÷ 6 = **51.2 minutes** |
-| **Median** | The middle of the real values once they're sorted. One far-off value barely moves it. | Sorted: 40, 41, 42, 44, 45, 95. (42 + 44) ÷ 2 = **43.0 minutes** |
-| **Mode** | The value that shows up most often. The usual fill for a category column, when one value clearly repeats the most. | Known sizes: small, large, medium, large. **"large"**, but with only 2 of 4 |
-| **Forward-fill** | Copy the most recent value before the gap, like yesterday's number. Only makes sense when the rows are in order. | Day 3 gets day 2's **45**. Day 7 gets day 6's **44**. |
-| **Backward-fill** | Copy the next value after the gap, like tomorrow's number. Helpful when the very first row is blank. | Day 3 gets day 4's **42**. Day 7 gets day 8's **41**. |
+| **Mean** | The average of the real values. One far-off value pulls it toward itself. | (4 + 30 + 5 + 7 + 6 + 5 + 6) ÷ 7 = 63 ÷ 7 = **9.0 minutes** |
+| **Median** | The middle of the real values once they're sorted. One far-off value barely moves it. | Sorted: 4, 5, 5, 6, 6, 7, 30. The 4th of 7 = **6.0 minutes** |
+| **Mode** | The value that shows up most often. The usual fill for a category column, when one value clearly repeats the most. | Known `heard_from` answers: friend, ad, friend, web, friend, ad. **"friend"**, but with only 3 of 6 |
+| **Forward-fill** | Copy the most recent value before the gap, like the customer just before in line. Only makes sense when the rows are in order. | C04 gets C03's **5**. C07 gets C06's **6**. |
+| **Backward-fill** | Copy the next value after the gap, like the customer just after in line. Helpful when the very first row is blank. | C04 gets C05's **7**. C07 gets C09's **5**. |
 
 ### Code in this reading
 
 | Code | What it does |
 | --- | --- |
-| **`.shape`** | Gives a pair of numbers: rows first, then columns. `(8, 4)` means 8 rows and 4 columns. |
-| **`.dropna()`** | Removes every row with any blank at all. On the walk log, 8 rows become **4**. |
-| **`.dropna(subset=["minutes"])`** | Removes only the rows where `minutes` is blank. The parameter `subset` is set to `["minutes"]`, the column that decides the drop. On the walk log, 8 rows become **6**. |
-| **`.mode()[0]`** | `.mode()` gives back a Series, because a column can have more than one most-common value. `[0]` takes the first one. For the known sizes, it gives `"large"`. |
-| **`.fillna(value)`** | Puts `value` into every blank in a column, and leaves the real values alone. With the median, Lee's day 3 and day 7 both become **43.0**. |
-| **`.ffill()`** | Forward-fill: copies the value above into each blank. Lee's day 3 gets **45**, and day 7 gets **44**. |
-| **`.bfill()`** | Backward-fill: copies the value below into each blank. Lee's day 3 gets **42**, and day 7 gets **41**. |
+| **`.shape`** | Gives a pair of numbers: rows first, then columns. On the survey, `(10, 4)` means 10 rows and 4 columns. |
+| **`.dropna()`** | Removes every row with any blank at all. On the survey, 10 rows become **3**. |
+| **`.dropna(subset=["rating"])`** | Removes only the rows where `rating` is blank. The parameter `subset` is set to `["rating"]`, the column that decides the drop. On the survey, 10 rows become **7**. |
+| **`.mode()[0]`** | `.mode()` gives back a Series, because a column can have more than one most-common value. `[0]` takes the first one. For the known `heard_from` answers, it gives `"friend"`. |
+| **`.fillna(value)`** | Puts `value` into every blank in a column, and leaves the real values alone. With the median, C04's and C07's wait times both become **6.0**. |
+| **`.ffill()`** | Forward-fill: copies the value above into each blank. C04 gets **5**, and C07 gets **6**. |
+| **`.bfill()`** | Backward-fill: copies the value below into each blank. C04 gets **7**, and C07 gets **5**. |
 
 ## Before you read
 
@@ -134,14 +161,14 @@ As you read, look for:
 * **Drop a row only when nothing useful is left,** and use `subset=` so rows with real values survive.
 * **Fill when a fair stand-in exists, and flag when a fill would be a guess.** You can do both: save a flag column first, then fill, so readers know which values were filled in. Always say which rows, why, and how many.
 
-The picture below shows the two questions that decide between drop, fill, and flag.
+The picture below shows the two questions that decide between drop, fill, and flag. Its drop example is C08's blank survey.
 
-![A decision flow titled "Drop, fill, or flag: two questions decide." A value is missing. First question: is anything useful left in the row? If no, drop the row, for example when the app crashed and every field is blank. If yes, ask: is there a fair stand-in, like the median, the mode, or the value before? If yes, fill it, say what you used, and add a column that marks the filled rows. If no, flag it: keep the blank and add a True/False column that marks it.](images/drop-fill-flag.svg)
+![A decision flow titled "Drop, fill, or flag: two questions decide." A value is missing. First question: is anything useful left in the row? If no, drop the row, for example when a customer skipped every question. If yes, ask: is there a fair stand-in, like the median, the mode, or the value before? If yes, fill it, say what you used, and add a column that marks the filled rows. If no, flag it: keep the blank and add a True/False column that marks it.](images/drop-fill-flag.svg)
 
 | Fill with | Fits best when |
 | --- | --- |
 | Mean | The values are roughly balanced, with no outliers |
-| Median | The data is skewed or has real outliers, like Lee's 95-minute hike |
+| Median | The data is skewed or has real outliers, like C02's 30-minute wait |
 | Mode | The column holds categories, and one value clearly repeats the most |
 | Forward-fill (`.ffill()`) | The rows are in order, and each value is close to the one before it |
 | Backward-fill (`.bfill()`) | The rows are in order, and the first row (or a stretch at the start) is blank |
@@ -150,10 +177,10 @@ The picture below shows the two questions that decide between drop, fill, and fl
 
 | If you think... | What's actually true |
 | --- | --- |
-| "I'll run `dropna()` to clean the data." | With no `subset=`, it keeps only 4 of the 8 walks. It throws away Ana's and Kai's real walks just because the size is blank. |
-| "The mean uses every walk, so it's the fairest fill." | Lee's 95-minute hike pulls the mean up to 51.2 minutes, longer than 5 of Lee's 6 real walks. The median, 43.0, sits among them. |
-| "Large is the most common size, so I'll fill the blanks with it." | "Large" won with just 2 of 4 known sizes, so filling with it would be a guess. |
-| "`.isna().sum()` shows 0 for this column, so nothing is missing." | It misses placeholders like `0` or `"unknown"` typed in place of a real value. Look at the rows too. |
+| "I'll run `dropna()` to clean the data." | With no `subset=`, it keeps only 3 of the 10 customers. It throws away C01's and C02's real ratings just because `heard_from` is blank. |
+| "The mean uses every wait time, so it's the fairest fill." | C02's 30-minute wait pulls the mean up to 9.0 minutes, longer than 6 of the 7 real waits. The median, 6.0, sits among them. |
+| "Friend is the most common answer, so I'll fill the blanks with it." | "Friend" won with just 3 of 6 known answers. All 3 blanks come from old paper cards, so filling with it would be a guess. |
+| "`.isna().sum()` shows 0 for this column, so nothing is missing." | It misses placeholders like `0` or `"unknown"` typed in place of a real value. If the 3 skipped ratings were typed as 0, it would show 0, and the average would drop to 2.8. Look at the rows too. |
 
 ### How this connects
 
@@ -162,12 +189,12 @@ The picture below shows the two questions that decide between drop, fill, and fl
 
 ## Quick check
 
-**1.** 3 of 40 walks are missing miles because a phone lost GPS (Global Positioning System, the signal that tracks location). Their minutes are fine. Most walks are 1 to 2 miles, but one hike was 9 miles. What's the best plan?
+**1.** A month later, 3 of 40 surveys are missing the wait time because the tablet froze. Their ratings are fine. Most waits are 3 to 8 minutes, but one was 30 minutes. What's the best plan?
 
 <details>
 <summary>Answer</summary>
 
-Fill the 3 gaps with the median miles, and add a flag column that marks them. The median isn't pulled up by the 9-mile hike, and the flag shows which values were filled in.
+Fill the 3 gaps with the median wait, and add a flag column that marks them. The median isn't pulled up by the 30-minute wait, and the flag shows which values were filled in.
 
 </details>
 
@@ -176,7 +203,7 @@ Fill the 3 gaps with the median miles, and add a flag column that marks them. Th
 <details>
 <summary>Answer</summary>
 
-Which rows, why they were empty, and how many. For example: "I dropped 2 rows where the app crashed. Both had no minutes, miles, or size, so nothing usable was lost."
+Which rows, why they were empty, and how many. For example: "I dropped 1 row, C08's survey. It had no rating, wait time, or `heard_from`, so nothing usable was lost."
 
 </details>
 

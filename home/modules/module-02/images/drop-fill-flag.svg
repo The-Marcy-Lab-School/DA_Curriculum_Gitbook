@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="960" height="460" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Drop, fill, or flag decision</title>
-  <desc id="d">Start with a missing value. If nothing useful is left in the row, drop the row. If something is left, ask whether there is a fair stand-in. If yes, fill it with the median, the mode or the value before, and flag that it was filled. If no, flag it: keep the blank and add a True or False column.</desc>
+  <desc id="d">Start with a missing value. If nothing useful is left in the row, drop the row, for example when a customer skipped every question. If something is left, ask whether there is a fair stand-in. If yes, fill it with the median, the mode or the value before, and flag that it was filled. If no, flag it: keep the blank and add a True or False column.</desc>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#111827"/></marker>
   </defs>
@@ -15,8 +15,8 @@
 
   <rect x="6" y="116" width="240" height="88" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
   <text x="126" y="148" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">Drop the row</text>
-  <text x="126" y="172" text-anchor="middle" font-size="17" fill="#475569">Example: the app crashed</text>
-  <text x="126" y="193" text-anchor="middle" font-size="17" fill="#475569">and every field is blank</text>
+  <text x="126" y="172" text-anchor="middle" font-size="17" fill="#475569">Example: a customer</text>
+  <text x="126" y="193" text-anchor="middle" font-size="17" fill="#475569">skipped every question</text>
 
   <rect x="260" y="240" width="400" height="66" rx="8" fill="#ffffff" stroke="#111827" stroke-width="2"/>
   <text x="460" y="268" text-anchor="middle" font-size="18" fill="#111827">Is there a fair stand-in?</text>
