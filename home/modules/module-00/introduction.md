@@ -17,9 +17,30 @@ In this module, you'll set up the tools that every analyst (a person who studies
 
 ## Why this matters for data work
 
-For example, a ZIP code like `10027` is made of digits. But adding two ZIP codes together makes no sense. An analyst who treats a ZIP code as a number can give an answer that looks right and is wrong. The habits in this module help you catch problems like this before anyone uses your work.
+Some values are made of digits, but they are not amounts. For example, a **ZIP code** is the number the mail service uses for one area, like `10027`. It names a place. You would never do math with it.
 
-Every data job uses these tools. Analysts run tools by typing commands. They save their work with Git so their team can see every change. And they check AI answers, because the person who shares a result is responsible for it.
+Say a store has two customers:
+
+* Customer A lives in ZIP code `10027` and spent $20.
+* Customer B lives in ZIP code `10001` and spent $40.
+
+An **average** is one number that describes a usual value. To find it, add up the values, then divide by how many there are:
+
+* Average spent = ($20 + $40) ÷ 2 = $60 ÷ 2 = **$30**. This is useful: a customer usually spends about $30.
+* Average ZIP code = (10027 + 10001) ÷ 2 = 20028 ÷ 2 = **10014**. The math is right, but the answer means nothing. Neither customer lives in 10014.
+
+![The same two customers, shown two ways. Left, ZIP codes, which are labels, not amounts: Customer A lives in 10027 and Customer B lives in 10001. Their average, shown in red, is (10027 + 10001) ÷ 2 = 20028 ÷ 2 = 10014, and neither customer lives in 10014. Right, dollars spent, which are real amounts: Customer A spent $20 and Customer B spent $40. Their average is ($20 + $40) ÷ 2 = $60 ÷ 2 = $30, which is how much a customer usually spends.](images/m0-zip-code-average.svg)
+
+An analyst who treats a ZIP code as a number can give an answer that looks right and is wrong. The habits in this module help you catch problems like this before anyone uses your work.
+
+Analysts use these habits every day, in every data job. For example, they:
+
+* type commands in the terminal to find files and run tools
+* look at each column of a file and decide what kind of data it holds
+* save their work with Git, so the team can see every change
+* check an AI answer against the real data before they share it
+
+If you skip these habits, mistakes like the average ZIP code reach the people who use your work. And the person who shares a result is responsible for it.
 
 ## The terminal and the shell
 

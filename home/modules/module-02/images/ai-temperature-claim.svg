@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 500" width="1080" height="500" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Checking an AI's claim against your numbers</title>
+<desc id="d">Two line charts of average temperature by week, with an x-axis for the week of the month (1 to 4) and a y-axis for average temperature in degrees Fahrenheit (40 to 80). Left, your numbers: 58, 63, 49, and 68 degrees. Week 3, drawn in red, is 14 degrees colder than week 2, so the AI's claim that temperatures rose steadily all month is wrong. Right, what rising steadily would look like: 52, 57, 62, and 67 degrees, each week warmer than the week before.</desc>
+<rect width="1080" height="500" fill="#ffffff"/>
+<text x="280" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Your numbers</text>
+<line x1="120" y1="330.0" x2="510" y2="330.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="110" y="336.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">40</text>
+<line x1="120" y1="265.0" x2="510" y2="265.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="110" y="271.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">50</text>
+<line x1="120" y1="200.0" x2="510" y2="200.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="110" y="206.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">60</text>
+<line x1="120" y1="135.0" x2="510" y2="135.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="110" y="141.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">70</text>
+<line x1="120" y1="70.0" x2="510" y2="70.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="110" y="76.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">80</text>
+<line x1="120" y1="70" x2="120" y2="330" stroke="#475569" stroke-width="2"/>
+<line x1="120" y1="330" x2="510" y2="330" stroke="#475569" stroke-width="2"/>
+<text x="180" y="358" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">1</text>
+<text x="280" y="358" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">2</text>
+<text x="380" y="358" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">3</text>
+<text x="480" y="358" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">4</text>
+<text x="315" y="392" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">Week of the month</text>
+<text x="50" y="200" transform="rotate(-90 50 200)" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">Average temp (°F)</text>
+<polyline points="180,213.0 280,180.5 380,271.5 480,148.0" fill="none" stroke="#475569" stroke-width="3"/>
+<circle cx="180" cy="213.0" r="7" fill="#F1F5F9" stroke="#475569" stroke-width="3"/>
+<text x="180" y="197.0" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">58°F</text>
+<circle cx="280" cy="180.5" r="7" fill="#F1F5F9" stroke="#475569" stroke-width="3"/>
+<text x="280" y="164.5" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">63°F</text>
+<circle cx="380" cy="271.5" r="9" fill="#FEE2E2" stroke="#B91C1C" stroke-width="3"/>
+<text x="380" y="303.5" text-anchor="middle" font-size="18" font-weight="bold" fill="#B91C1C">49°F</text>
+<circle cx="480" cy="148.0" r="7" fill="#F1F5F9" stroke="#475569" stroke-width="3"/>
+<text x="480" y="132.0" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">68°F</text>
+<rect x="10" y="410" width="520" height="80" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="30" y="442" text-anchor="start" font-size="19" font-weight="bold" fill="#111827">The AI said: “Temperatures rose steadily.”</text>
+<text x="30" y="474" text-anchor="start" font-size="19" font-weight="bold" fill="#B91C1C">Week 3 was 14°F colder than week 2.</text>
+<text x="820" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">What “rose steadily” looks like</text>
+<line x1="660" y1="330.0" x2="1050" y2="330.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="650" y="336.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">40</text>
+<line x1="660" y1="265.0" x2="1050" y2="265.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="650" y="271.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">50</text>
+<line x1="660" y1="200.0" x2="1050" y2="200.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="650" y="206.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">60</text>
+<line x1="660" y1="135.0" x2="1050" y2="135.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="650" y="141.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">70</text>
+<line x1="660" y1="70.0" x2="1050" y2="70.0" stroke="#E2E8F0" stroke-width="1.5"/>
+<text x="650" y="76.0" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">80</text>
+<line x1="660" y1="70" x2="660" y2="330" stroke="#475569" stroke-width="2"/>
+<line x1="660" y1="330" x2="1050" y2="330" stroke="#475569" stroke-width="2"/>
+<text x="720" y="358" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">1</text>
+<text x="820" y="358" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">2</text>
+<text x="920" y="358" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">3</text>
+<text x="1020" y="358" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">4</text>
+<text x="855" y="392" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">Week of the month</text>
+<text x="590" y="200" transform="rotate(-90 590 200)" text-anchor="middle" font-size="20" font-weight="bold" fill="#111827">Average temp (°F)</text>
+<polyline points="720,252.0 820,219.5 920,187.0 1020,154.5" fill="none" stroke="#475569" stroke-width="3"/>
+<circle cx="720" cy="252.0" r="7" fill="#F1F5F9" stroke="#475569" stroke-width="3"/>
+<text x="720" y="236.0" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">52°F</text>
+<circle cx="820" cy="219.5" r="7" fill="#F1F5F9" stroke="#475569" stroke-width="3"/>
+<text x="820" y="203.5" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">57°F</text>
+<circle cx="920" cy="187.0" r="7" fill="#F1F5F9" stroke="#475569" stroke-width="3"/>
+<text x="920" y="171.0" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">62°F</text>
+<circle cx="1020" cy="154.5" r="7" fill="#F1F5F9" stroke="#475569" stroke-width="3"/>
+<text x="1020" y="138.5" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">67°F</text>
+<rect x="550" y="410" width="520" height="80" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="570" y="442" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Each week is 5°F warmer than the last.</text>
+<text x="570" y="474" text-anchor="start" font-size="19" font-weight="bold" fill="#1D4ED8">This would match the AI's claim.</text>
+</svg>

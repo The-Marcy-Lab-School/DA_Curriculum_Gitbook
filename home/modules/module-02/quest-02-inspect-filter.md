@@ -1,14 +1,18 @@
 # Quest 2.2 — Look Before You Filter: Inspecting and Filtering Data (Day 2)
 
-**Total time:** about 35 minutes
+**Total time:** about 40 minutes
 
 **EDA workflow:** **Inspect** → Clean → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
-This is step 1. You learned some Explore tools first, in The Loudest Number. Now you'll start where real analysis starts: checking a new file.
+**Why Inspect now?** In [The Loudest Number](quest-01-descriptive-statistics.md), you found the mean, the median, and the spread of 11 gifts. You typed those 11 values yourself, so you could see every one. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), your function checked one record at a time and caught blank values. A real file can have thousands of rows, and you can't see them all. So now you go back to step 1, where real analysis starts. You check the whole file before you trust any mean or median. In the next quest, you'll build on this. You'll make one summary for each group of rows, like the total pounds of food at each site. ([Why the quests don't follow the step order](introduction.md#why-the-quests-dont-follow-the-step-order))
 
 ## Introduction
 
-Sometimes a total is wrong before you start adding. For example, a shop's sales sheet lists the same $200 order twice, because a cashier clicked Save two times. If you add up the sheet, the shop looks like it made $200 more than it really did.
+Sometimes a total is wrong before you start adding. For example, a shop makes sales of $50, $120, $200, and $80 in one morning. The real total is $50 + $120 + $200 + $80 = **$450**.
+
+But a cashier clicked Save two times on the $200 sale, so the sales sheet lists it twice. Now the sheet adds up to $450 + $200 = **$650**. The shop looks like it made $200 more than it really did.
+
+![Two sales sheets. Left, one sale saved twice: the rows are $50, $120, $200, $200, and $80, and the repeated $200 row is red. Total = $50 + $120 + $200 + $200 + $80 = $650, which is $200 more than the shop made. Right, each sale listed once: $50, $120, $200, and $80. Total = $50 + $120 + $200 + $80 = $450, which matches the real sales.](images/duplicate-sale-total.svg)
 
 In this reading, you'll learn how to:
 
@@ -20,9 +24,15 @@ In this reading, you'll learn how to:
   * **Duplicates:** do any rows repeat?
 * keep only the rows you need
 
-**Main takeaway:** Check every new file before you filter it or add anything up. One blank or one repeated row can make every answer wrong.
+**Main takeaway:** Inspect every new file before you filter it or add anything up. To **inspect** a file means to run the four checks above on it. One **duplicate**, a row that repeats an earlier row, adds its value twice, like the $200 sale.
 
-**Why it matters at work:** Almost every data task starts the same way: load a file, check it, and then choose the rows you need. If you skip the checks, a wrong total can reach your manager, and no one will notice it's wrong.
+**Why it matters at work:** Analysts check every new file so the totals, counts, and rankings they report are right. For example, analysts check a file before they:
+
+* add up a month of sales for a report
+* count how many new customers signed up
+* rank the top five best-selling products
+
+If you skip the checks, a wrong total can reach your manager, and no one will notice it's wrong.
 
 ## Learning goals
 
@@ -79,6 +89,14 @@ Notebooks are for exploring. Finished programs are still `.py` files. If VS Code
 
 **What it's for:** pandas is a free Python package for working with tables of data, like a spreadsheet you control with code. It loads a whole file in one line, and because every step is code, you can run the same checks again on next month's file.
 
+pandas holds a table in a **DataFrame**, and one column of it in a **Series**. Compare them to what you already know:
+
+| | What you know | pandas version |
+| --- | --- | --- |
+| **A whole table** | A CSV file, like `pets.csv`. In Python, a list of dictionaries, one per row: `[{"site": "Eastside", "weight_lbs": 12}, ...]` | A **DataFrame**: rows and named columns in one object, `df`. Each column has one data type. |
+| **One column** | A list of values, like `weights = [12, 40, 25]`. You find an item by its position: `weights[0]` is `12`. | A **Series**: the column's values, plus a label for each row. `df["weight_lbs"]` gives you one. |
+| **Example: `== 40`** | `[12, 40, 25] == 40` compares the whole list to one number, so it gives just `False`. | `df["weight_lbs"] == 40` checks every row, so it gives a `True` or `False` for each one. That's how filters work. |
+
 **How you'll see it in this reading:**
 
 ```python
@@ -108,12 +126,12 @@ If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip instal
 
 ### Notebooks
 
-| Word | What it means |
-| --- | --- |
-| **Notebook** | A file ending in `.ipynb` that holds code in cells, with each cell's result shown under it. |
-| **Cell** | A small box of code in a notebook. Run one cell at a time with Shift+Enter. |
-| **Kernel** | The Python process behind a notebook. It keeps your variables in memory between cells. It knows what you ran, in the order you ran it, not the order on the page. |
-| **Restart & Run All** | Restart the kernel, then run every cell from top to bottom. It proves the notebook works from a clean start. |
+| Word | What it means | Example in the reading |
+| --- | --- | --- |
+| **Notebook** | A file ending in `.ipynb` that holds code in cells, with each cell's result shown under it. | `new_notebook.ipynb` |
+| **Cell** | A small box of code in a notebook. Run one cell at a time with Shift+Enter. | A cell that holds only `df.shape` |
+| **Kernel** | The Python process behind a notebook. It keeps your variables in memory between cells. It knows what you ran, in the order you ran it, not the order on the page. | In a fresh kernel, `df.shape` gives a `NameError`, because `df` doesn't exist yet. |
+| **Restart & Run All** | Restart the kernel, then run every cell from top to bottom. It proves the notebook works from a clean start. | It catches a notebook whose `read_csv` cell was deleted after it ran. |
 
 {% hint style="info" %}
 **Before you share a notebook, use Restart & Run All.** A notebook can seem to work only because of a cell you ran earlier and then deleted. A clean run from the top catches that.
@@ -121,24 +139,26 @@ If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip instal
 
 ### Tables in pandas
 
-| Word | What it means |
-| --- | --- |
-| **CSV file** | A plain text file of a table. Each line is a row, commas separate the columns, and the first line holds the column names. |
-| **DataFrame** | pandas' table: a class with rows and named columns, where each column has its own data type. Each table you load is a DataFrame object. |
-| **Series** | One column of a DataFrame: a list of values with row labels. Picking a column, like `df["site"]`, gives you a Series. |
-| **dtype** | The data type pandas gave a column: `str` for text, `int64` for whole numbers, `float64` for decimal numbers. Older tutorials and AI (artificial intelligence) answers say `object` for text. That's the old label. |
-| **NaN** | How pandas shows a missing value. It's short for "not a number," but pandas stores it as a decimal number. |
+| Word | What it means | Example in the reading |
+| --- | --- | --- |
+| **CSV file** | A plain text file of a table. Each line is a row, commas separate the columns, and the first line holds the column names. | `intake.csv`. One row: `Family,Produce,12,Eastside` |
+| **DataFrame** | pandas' table: a class with rows and named columns, where each column has its own data type. Each table you load is a DataFrame object. | `df`, with 8 rows and 4 columns |
+| **Series** | One column of a DataFrame: a list of values with row labels. Picking a column, like `df["site"]`, gives you a Series. | `df["site"]`: Eastside, Downtown, Eastside, ... |
+| **dtype** | The data type pandas gave a column: `str` for text, `int64` for whole numbers, `float64` for decimal numbers. Older tutorials and AI (artificial intelligence) answers say `object` for text. That's the old label. | `site` is `str`. `weight_lbs` is `float64`. |
+| **NaN** | How pandas shows a missing value. It's short for "not a number," but pandas stores it as a decimal number. | The Westside Dairy donation's weight |
 
 ### The four checks
 
-Run these on every new file, before you do anything else.
+To **inspect** a file means to run these four checks on it, before you do anything else.
 
-| Check | What it means | Units |
+**Units** are what a number counts, like rows or blank cells. Each check gives a count, except data types, which gives a label for each column. The examples use the food bank's file, `intake.csv`.
+
+| Check | What it means | Example with `intake.csv` |
 | --- | --- | --- |
-| **Shape** | How big the table is: did every row and column arrive? | Two counts: rows first, then columns |
-| **Data types** | The dtype of each column: is each one the type you expect? | A label per column, not a number |
-| **Missing values** | How many cells are blank in each column. | A count of blank cells, per column |
-| **Duplicate** | A row that matches an earlier row exactly, in every column. A donation logged twice adds its weight twice. | A count of rows |
+| **Shape** | How big the table is: did every row and column arrive? | `df.shape` gives **(8, 4)**: 8 rows, then 4 columns |
+| **Data types** | The dtype of each column: is each one the type you expect? | `df.dtypes`: `weight_lbs` is **`float64`**. The other 3 columns are **`str`**. |
+| **Missing values** | How many cells are blank in each column. | `df.isna().sum()`: **1 blank cell** in `weight_lbs`, 0 in the rest |
+| **Duplicate** | A row that matches an earlier row exactly, in every column. A donation logged twice adds its weight twice. | `df.duplicated().sum()`: **1 row**, the second `Grocery,Canned,40,Downtown` |
 
 You've done each check before, by hand, on one record or one value at a time:
 
@@ -155,14 +175,14 @@ A count can show as `np.int64(1)`. That's just a whole number, stored the NumPy 
 
 ### Keeping and ranking rows
 
-| Word | What it means |
-| --- | --- |
-| **Boolean** | A value that is either `True` or `False`. |
-| **Boolean filter** | A True/False condition inside `df[...]` that keeps only the rows where it's True. The result is a new, smaller DataFrame. The original stays the same. |
-| **`&` (AND)** | How pandas joins two filter conditions so that both must be True. It narrows the result: you keep fewer rows. Each condition goes in its own parentheses. |
-| **Sort** | Put the rows in order by one column. Filtering picks rows. Sorting ranks them. |
+| Word | What it means | Example with `intake.csv` |
+| --- | --- | --- |
+| **Boolean** | A value that is either `True` or `False`. | `"Eastside" == "Eastside"` is `True` |
+| **Boolean filter** | A True/False condition inside `df[...]` that keeps only the rows where it's True. The result is a new, smaller DataFrame. The original stays the same. | `df[df["site"] == "Eastside"]` keeps **3** of the 8 rows |
+| **`&` (AND)** | How pandas joins two filter conditions so that both must be True. It narrows the result: you keep fewer rows. Each condition goes in its own parentheses. | Eastside **and** Produce keeps **2** rows |
+| **Sort** | Put the rows in order by one column. Filtering picks rows. Sorting ranks them. | Heaviest first: 40, 40, 30 pounds |
 
-The partner of `&` is `|`, which means OR. It keeps a row if either condition is True, so it widens the result.
+The partner of `&` is `|`, which means OR. It keeps a row if either condition is True, so it widens the result. Eastside **or** Produce keeps **5** rows.
 
 ## Before you read
 
@@ -197,10 +217,10 @@ As you read, look for:
 | If you think... | What's actually true |
 | --- | --- |
 | "Shift+Enter runs the whole notebook." | It runs only the cell you're in. Restart & Run All runs everything. |
-| "Checks are only for big files." | A blank or a repeat changes totals in a file of any size. |
+| "This file has only 8 rows. I can see it's fine, so I'll skip the checks." | The 8-row food bank file has 1 blank weight and 1 repeated row. The repeat adds 40 extra pounds: the total is 171 pounds instead of 131. |
 | "Filtering changes my table." | It makes a new, smaller table. After `eastside = df[df["site"] == "Eastside"]`, `df` still has all 8 rows. |
-| "Python's `and` joins two filter conditions." | pandas compares whole columns, so it uses `&`, with each condition in parentheses. |
-| "Text columns should say `object`." | That's the old label. pandas 3 shows text as `str`. If a number column shows `str`, something in it isn't a clean number, like `"12 lbs"`. |
+| "I can join two filter conditions with `and`, like in an `if` statement." | pandas compares whole columns, so it uses `&`, with each condition in parentheses. Without the parentheses, you get a `TypeError`. |
+| "My text columns show `str`. A tutorial said they should say `object`, so something's wrong." | That's the old label. pandas 3 shows text as `str`. If a number column shows `str`, something in it isn't a clean number, like `"12 lbs"`. |
 
 ### How this connects
 

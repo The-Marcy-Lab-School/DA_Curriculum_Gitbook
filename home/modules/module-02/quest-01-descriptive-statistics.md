@@ -1,6 +1,6 @@
 # Quest 2.1 — The Loudest Number: Descriptive Statistics (Day 1)
 
-**Total time:** about 30 minutes
+**Total time:** about 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -8,14 +8,14 @@
 
 ## Introduction
 
-Sometimes averages can be misleading. For example, a street has ten homes. Nine sell for $300,000 each, and one large home sells for $3 million.
+Sometimes averages can be misleading. For example, a street has ten homes. Nine sell for $300K each, and one large home sells for $3M. (K means thousand and M means million, so $300K is $300,000 and $3M is $3,000,000.)
 
 To find the **average** (also called the **mean**), add up every value, then divide by how many values there are:
 
 * Average = sum of all values ÷ number of values
-* Average price = (9 × $300,000 + $3,000,000) ÷ 10 = $5,700,000 ÷ 10 = **$570,000**
+* Average price = (9 × $300K + $3M) ÷ 10 = $5.7M ÷ 10 = **$570K**
 
-But no home on that street sold for a price close to $570,000. The one $3 million home pulled the average up. If all ten homes sold for $300,000, the average would be $300,000, and it would describe every home.
+But no home on that street sold for a price close to $570K. The one $3M home pulled the average up. If all ten homes sold for $300K, the average would be $300K, and it would describe every home.
 
 ![Two streets of ten houses. Left, one outlier: nine grey houses sold for $300K each, and one red house sold for $3M. Average = (9 × $300K + $3M) ÷ 10 = $5.7M ÷ 10 = $570K, and no house sold near $570K. Right, no outlier: ten grey houses sold for $300K each. Average = (10 × $300K) ÷ 10 = $300K, which matches every house.](images/average-outlier-houses.svg)
 
@@ -25,7 +25,7 @@ In this reading, you'll learn:
 * when the middle value (the median) works better
 * how to describe how spread out a set of numbers is
 
-**Main takeaway:** An average can be misleading when the data has an outlier. An **outlier** is a value far from the rest, like the $3 million home. Before you report an average, look at the shape of the data and check for outliers. When there is one, the middle value (the median) often describes the usual value better.
+**Main takeaway:** An average can be misleading when the data has an outlier. An **outlier** is a value far from the rest, like the $3M home. Before you report an average, look at the shape of the data and check for outliers. When there is one, the middle value (the median) often describes the usual value better.
 
 **Why it matters at work:** The number you report as "usual" (the mean, the median, or the mode) is the number people make decisions with. For example, teams use it to:
 
@@ -133,8 +133,8 @@ A **measure of spread** is one number that describes this.
 | **Quartiles (Q1 and Q3)** | Values that split sorted data into four equal groups. Q1 is a quarter of the way up, the median is halfway, and Q3 is three quarters of the way up. | Q1 = **$50**, Q3 = **$67.50** (NumPy's answer) |
 | **Interquartile range (IQR)** | Q3 minus Q1: how spread out the middle half of the data is. Far-off values don't change it. | $67.50 − $50 = **$17.50** |
 | **Five-number summary** | The minimum, Q1, median, Q3, and maximum. It shows the spread without a chart. | **$40, $50, $55, $67.50, $5,000** |
-| **Variance** | Roughly the average of the *squared* distances between each value and the mean. Squaring makes every distance positive and makes big gaps count more. | Add up (each gift − $505.45)², then divide by 11 − 1 = about **2,222,217 dollars squared** |
-| **Standard deviation** | The square root of the variance: the typical distance between a value and the mean. Small means the values sit close together. Large means they're spread out. | √2,222,217 = about **$1,490.71** |
+| **Variance** | Roughly the average of the *squared* distances between each value and the mean. Squaring makes every distance positive and makes big gaps count more. | Add up (each gift − $505.45)², then divide by 11 − 1 = about **2.2M dollars squared** |
+| **Standard deviation** | The square root of the variance: the typical distance between a value and the mean. Small means the values sit close together. Large means they're spread out. | √2.2M = about **$1,490.71** |
 
 The IQR is only $17.50, but the range is $4,960. That gap tells you one value sits far from the rest: the $5,000 gift.
 
@@ -149,7 +149,7 @@ The IQR is only $17.50, but the range is $4,960. That gap tells you one value si
 | **Distribution** | How the values are spread across their range: where most of them sit, and where only a few do. |
 | **Histogram** | A bar chart where each bar counts how many values fall in a range. It shows a distribution's shape. |
 | **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which pulls the mean below it. |
-| **Outlier** | A value far from the rest, like the $3 million home or the $5,000 gift. It can still be real. |
+| **Outlier** | A value far from the rest, like the $3M home or the $5,000 gift. It can still be real. |
 
 An outlier is not the same as a bad value. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), a grade of 14 broke a rule. So your function flagged it as a problem. A $5,000 gift breaks no rule. It's far from the rest, but it's real, so it stays in the data.
 
@@ -195,7 +195,7 @@ As you read, look for:
 
 ## Quick check
 
-**1.** Nine people at a small company earn between $45,000 and $60,000 a year. The owner earns $900,000. Which number should describe a typical salary?
+**1.** Nine people at a small company earn between $45K and $60K a year. The owner earns $900K. Which number should describe a typical salary?
 
 <details>
 <summary>Answer</summary>

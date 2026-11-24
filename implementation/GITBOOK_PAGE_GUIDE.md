@@ -58,10 +58,11 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
 1. **Explain the order by naming what readers already did.** When a page comes "out of order" (like Explore before Inspect), say what they already practiced, with specifics, then why this comes now, then how the next page builds on it.
    - Not this: "You'll learn the basic numbers that every later step uses."
    - This: "You've already done some inspecting. In Validate, Catch, Keep Going, your function looked for invalid lines and caught blank values. But to judge a whole table, you need to know what 'normal' looks like for each column… In the next quest, you'll build on your inspecting skills."
-2. **Picture the Introduction's example.** When the hook uses numbers, add a diagram that shows the problem case next to the normal case. Grey for ordinary values, red for the one that causes the problem.
+2. **Picture the Introduction's example.** When the hook uses numbers, add a diagram that shows the problem case next to the normal case. Use a quiet color (like grey) for ordinary values and one strong color (like red) for the value that sticks out: the main point you want readers to see. Any colors are fine if they pass WCAG contrast (see Pictures).
    - Example: nine grey houses at $300K and one red house at $3M, next to ten grey houses at $300K.
 3. **Show the formula, with the example's numbers worked out.** Never assume a reader knows a formula. You may skip it only if an earlier quest in the same module taught it. If it was taught in an earlier module, recall it.
-   - Example: "Average = sum of all values ÷ number of values. Average price = (9 × $300,000 + $3,000,000) ÷ 10 = $5,700,000 ÷ 10 = $570,000."
+   - Example: "Average = sum of all values ÷ number of values. Average price = (9 × $300K + $3M) ÷ 10 = $5.7M ÷ 10 = $570K."
+   - **Shorten long numbers with K (thousand), M (million), and B (billion)**, and say what the letter means the first time on each page. Money is in US dollars (USD). Write $570K, not $570,000, and $3M, not $3,000,000. Use the letters for numbers of six digits or more ($100K and up). Four- and five-digit amounts, like $5,000, can stay as they are, especially when the interactive reading writes them that way. Keep exact values when the exact digits matter, like a count of rows or an ID.
 4. **The Main takeaway names the main point directly, and uses the key term.** Define the term in the same sentence or the next, and make sure it's also in Words to know.
    - Not this: "Averages… don't always tell the whole story."
    - This: "An average can be misleading when the data has an outlier. An **outlier** is a value far from the rest, like the $3 million home."
@@ -110,7 +111,8 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
 - **Use the reading's own numbers and names** in the picture, and check them against the reading.
 - **Don't repeat a table in a picture.** If a picture shows the same thing as a table, keep one.
 - **Revisit the most important pictures.** The module's workflow diagram appears in the Introduction and again in the Conclusion. The Checkpoint has an "Explain the picture" section where readers explain two key diagrams from memory.
-- Save diagrams as SVG in the module's `images/` folder, with a white background and the blue (`#1D4ED8`) and orange (`#C2410C`) palette, so they work for colorblind readers.
+- Save diagrams as SVG in the module's `images/` folder, on a white background.
+- **Colors can change, but they must be accessible.** Every color pair must pass WCAG contrast: at least 4.5:1 for text and 3:1 for shapes and lines. Never use color alone to carry meaning: also label it (for example, the red house also says "$3M"). Colors used so far, all passing: grey `#475569` on `#F1F5F9` (6.9:1), red `#B91C1C` on `#FEE2E2` (5.3:1), blue `#1D4ED8` on white (6.7:1), orange `#C2410C` on `#FFF7ED` (4.9:1). Use the strong color (like red) for what sticks out or is the main point.
 - **Text size:** body labels at least 17px and axis labels at least 20px in the SVG's own units. GitBook shrinks wide images to fit the page, so anything smaller becomes hard to read.
 - **Every chart has a labeled x-axis and y-axis**, even a sketch.
 - **Show shapes, don't just name them.** When a page names shapes or patterns (left-skewed, symmetric, right-skewed), show them side by side in one picture.

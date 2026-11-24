@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Fewer reviews, fewer highly rated restaurants</title>
+<desc id="d">Two neighborhoods with 8 restaurants each. Left, Riverside, where few people use the review app: 6 restaurants are red because they have too few reviews to get a rating. Only 2 have a rating, and 1 of those 2 is rated high, so the app shows only 1 highly rated restaurant. Right, Northside, where many people use the app: all 8 restaurants have a rating, and 4 of those 8 are rated high. Half of the rated restaurants are rated high in both places.</desc>
+<rect width="1040" height="470" fill="#ffffff"/>
+<text x="265" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Riverside: few app users</text>
+<rect x="30" y="65" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="81" y="94" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="81" y="118" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">high</text>
+<rect x="147" y="65" width="102" height="70" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="198" y="94" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">No</text>
+<text x="198" y="118" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">rating</text>
+<rect x="264" y="65" width="102" height="70" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="315" y="94" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">No</text>
+<text x="315" y="118" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">rating</text>
+<rect x="381" y="65" width="102" height="70" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="432" y="94" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">No</text>
+<text x="432" y="118" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">rating</text>
+<rect x="30" y="155" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="81" y="184" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="81" y="208" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">lower</text>
+<rect x="147" y="155" width="102" height="70" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="198" y="184" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">No</text>
+<text x="198" y="208" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">rating</text>
+<rect x="264" y="155" width="102" height="70" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="315" y="184" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">No</text>
+<text x="315" y="208" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">rating</text>
+<rect x="381" y="155" width="102" height="70" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="432" y="184" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">No</text>
+<text x="432" y="208" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">rating</text>
+<rect x="20" y="255" width="490" height="195" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="40" y="292" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Have a rating: 2 of 8 restaurants</text>
+<text x="40" y="328" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Rated high: 1 of those 2</text>
+<text x="40" y="370" text-anchor="start" font-size="19" font-weight="bold" fill="#B91C1C">The app shows only 1 highly</text>
+<text x="40" y="400" text-anchor="start" font-size="19" font-weight="bold" fill="#B91C1C">rated restaurant.</text>
+<text x="40" y="436" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Half of the rated ones are high.</text>
+<text x="775" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Northside: many app users</text>
+<rect x="540" y="65" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="591" y="94" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="591" y="118" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">high</text>
+<rect x="657" y="65" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="708" y="94" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="708" y="118" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">lower</text>
+<rect x="774" y="65" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="825" y="94" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="825" y="118" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">high</text>
+<rect x="891" y="65" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="942" y="94" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="942" y="118" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">lower</text>
+<rect x="540" y="155" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="591" y="184" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="591" y="208" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">high</text>
+<rect x="657" y="155" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="708" y="184" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="708" y="208" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">lower</text>
+<rect x="774" y="155" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="825" y="184" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="825" y="208" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">high</text>
+<rect x="891" y="155" width="102" height="70" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="942" y="184" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Rated</text>
+<text x="942" y="208" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">lower</text>
+<rect x="530" y="255" width="490" height="195" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="550" y="292" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Have a rating: 8 of 8 restaurants</text>
+<text x="550" y="328" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Rated high: 4 of those 8</text>
+<text x="550" y="370" text-anchor="start" font-size="19" font-weight="bold" fill="#111827">The app shows 4 highly</text>
+<text x="550" y="400" text-anchor="start" font-size="19" font-weight="bold" fill="#111827">rated restaurants.</text>
+<text x="550" y="436" text-anchor="start" font-size="19" font-weight="bold" fill="#1D4ED8">Half of the rated ones are high.</text>
+</svg>

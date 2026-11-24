@@ -1,6 +1,6 @@
 # Quest 2.4 — Who's This Chart For? Exploratory vs. Explanatory Charts (Day 4)
 
-**Total time:** about 30 minutes
+**Total time:** about 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -14,9 +14,15 @@ In this reading, you'll learn how to:
 * choose a chart type on purpose
 * chart a count over time
 
-**Main takeaway:** Before you make a chart, ask two questions: Who is this chart for? What am I comparing? Also check a number before you trust a picture.
+**Main takeaway:** A chart for you and a chart for someone else are two different charts. An **exploratory chart** is a quick, rough chart you make for yourself to find a pattern. An **explanatory chart** shows one finding to someone else, with a title and labels they can follow without you. Before you make either one, ask what you're comparing. Then check a number before you trust the picture.
 
-**Why it matters at work:** People will judge every chart you share, and most of them never saw your notebook. If the chart type doesn't fit the question, or the title doesn't say what you found, the reader may miss your point.
+**Why it matters at work:** Analysts use charts to find patterns and to show findings to people who never saw the data. For example, analysts make charts to:
+
+* find their own slow days and busy days while they explore
+* show a manager how sales changed each month
+* compare costs at each store for a budget meeting (a budget is a plan for how much money to spend)
+
+If the chart type doesn't fit the question, or the title doesn't say what you found, the reader may miss your point.
 
 ## Learning goals
 
@@ -72,42 +78,44 @@ The x-axis, across the bottom, has its own label function with a matching name. 
 
 ### Two kinds of charts
 
-| Word | What it means |
-| --- | --- |
-| **Exploratory chart** | A quick, rough chart you make for yourself to find a pattern. No title, raw column names as labels. That's fine, because nobody else sees it. |
-| **Explanatory chart** | A polished chart, chosen on purpose, that tells a stakeholder one clear finding. Every explanatory chart starts as a rough one. |
-| **Stakeholder** | The person a finding is for, who wasn't there while you explored. In the reading, the grant committee: the group that decides who gets a **grant**, money for a project that doesn't have to be paid back. |
-| **Finding title** | A chart title that states what you found, in under 10 words, like "Sign-ins jumped the day before the test." A title that only names the columns makes the reader work out the point alone. |
+| Word | What it means | Example in the reading |
+| --- | --- | --- |
+| **Exploratory chart** | A quick, rough chart you make for yourself to find a pattern. No title, raw column names as labels. That's fine, because nobody else sees it. | The first scatterplot of `hours` and `score_gain`, with no title |
+| **Explanatory chart** | A polished chart, chosen on purpose, that tells a stakeholder one clear finding. Every explanatory chart starts as a rough one. | The same dots, with a finding title and axis labels with units |
+| **Stakeholder** | The person a finding is for, who wasn't there while you explored. | The city grant committee: the group that decides who gets a **grant**, money for a project that doesn't have to be paid back |
+| **Finding title** | A chart title that states what you found, in under 10 words. A title that only names the columns makes the reader work out the point alone. | "More tutoring hours went with slightly bigger gains," not "Hours vs. Score Gain" |
 
 You've written for a later reader before. In [Save the Story of Your Work](../module-00/quest-03-git.md), a good commit message named the change, like `Fix the test date`. Then a reader could tell what happened without opening any file. A finding title does the same job for a chart.
 
 ### Parts of a chart
 
-| Word | What it means |
-| --- | --- |
-| **x-axis** | The line across the bottom of a chart. |
-| **y-axis** | The line up the side of a chart. |
-| **Axis label** | The words on an axis that say what it measures, in plain words, with units: "Tutoring time (hours)," not `hours`. |
+| Word | What it means | Example in the reading |
+| --- | --- | --- |
+| **x-axis** | The line across the bottom of a chart. | Tutoring hours, from 2 to 16 |
+| **y-axis** | The line up the side of a chart. | Reading score gain, from 2 to 9 points |
+| **Axis label** | The words on an axis that say what it measures, in plain words, with units. | "Tutoring time (hours)," not `hours` |
 
 ### Chart types
 
-| Word | What it means | Use it when you're comparing... |
-| --- | --- | --- |
-| **Histogram** | Bars that count how many values fall in each range. | One column's shape |
-| **Boxplot** | A box that shows the middle half of the values, with a line at the median and lines out to the low and high values. It's the five-number summary from [The Loudest Number](quest-01-descriptive-statistics.md), as a picture. | One column's shape, or the spread inside each group |
-| **Line chart** | Points joined in order, to show change from one time to the next. | A change over time |
-| **Scatterplot** | One dot per row, with one number column across and another up the side. | Two number columns |
-| **Bar chart** | One bar per group, with the bar's height showing a number. | One number across groups |
+| Word | What it means | Use it when you're comparing... | Example question in the reading |
+| --- | --- | --- | --- |
+| **Histogram** | Bars that count how many values fall in each range. | One column's shape | Are most score gains small, with a few big ones? |
+| **Boxplot** | A box that shows the middle half of the values, with a line at the median and lines out to the low and high values. It's the five-number summary from [The Loudest Number](quest-01-descriptive-statistics.md), as a picture. | One column's shape, or the spread inside each group | How spread out are the gains at each of three schools? |
+| **Line chart** | Points joined in order, to show change from one time to the next. | A change over time | How many students signed in each day, March 2 to 7? |
+| **Scatterplot** | One dot per row, with one number column across and another up the side. | Two number columns | Did students with more hours gain more points? |
+| **Bar chart** | One bar per group, with the bar's height showing a number. | One number across groups | What's the average gain for 6th, 7th, and 8th graders? |
 
 ### The numbers behind the charts
 
-| Word | What it means | Units |
+**Units** are what a number counts or measures. A count from `.size()` comes out in rows: here, sign-ins. A correlation has no units. It's always between -1 and 1.
+
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
-| **Correlation** | A number for how closely two number columns move together. Near 1 means one goes up when the other does, almost every time. Near 0 means a weak link. `.corr()` works it out for every pair of columns you give it. | No units. Always between -1 and 1 |
-| **Datetime** | A pandas column type that stores real dates and times, so you can pull out the day, month, or weekday. `pd.to_datetime(...)` turns text like `"2026-03-02 15:30"` into a datetime. | — |
-| **`.dt.date`** | Keeps just the calendar day of each date and time, so you can group rows by day. | — |
-| **`.size()`** | After a groupby, counts the rows in each group. | A count of rows (in the reading, sign-ins per day) |
-| **Series** | A single pandas column of values with labels, like the counts per day. A Series's `.plot()` draws a line chart unless you ask for another kind. | — |
+| **Correlation** | A number for how closely two number columns move together. Near 1 means one goes up when the other does, almost every time. Near 0 means a weak link. `.corr()` works it out for every pair of columns you give it. | `hours` and `score_gain`: **0.26**, a weak link. Fay had 9 hours and gained 9 points. Ivy had 14 hours and gained only 2. |
+| **Datetime** | A pandas column type that stores real dates and times, so you can pull out the day, month, or weekday. `pd.to_datetime(...)` turns text into a datetime. | `"2026-03-02 15:30"` goes from `str` to **`datetime64[us]`** |
+| **`.dt.date`** | Keeps just the calendar day of each date and time, so you can group rows by day. | `2026-03-06 15:30` becomes **`2026-03-06`** |
+| **`.size()`** | After a groupby, counts the rows in each group. | March 6 had **5 sign-ins**. Most other days had 1. |
+| **Series** | A single pandas column of values with labels, like the counts per day. A Series's `.plot()` draws a line chart unless you ask for another kind. | `daily`: **6 days**, with one count for each |
 
 In [Make It Survive](../module-01/quest-05-serialization.md), `date(2026, 10, 3)` stored a real calendar date, and JSON couldn't save it. A CSV file holds only text, so dates load back as text, too. `pd.to_datetime` turns that text into real dates again.
 
@@ -141,10 +149,10 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "A good title names the columns." | A good title states the finding. Column names belong on the axes, in plain words with units. |
-| "A weak correlation means the chart failed." | A weak link is still a finding. Describe it honestly. |
+| "A title like "Hours vs. Score Gain" tells the reader what the chart is about." | It only names the columns, so the reader has to work out the point. "More tutoring hours went with slightly bigger gains" states the finding. |
+| "My correlation is only 0.26, so the chart is useless." | A weak link is still a finding. Write that the two "tended to" rise together, not that the link is "strong." |
 | "Grades 6, 7, and 8 are in order, so use a line chart." | You're comparing groups, so use a bar chart. Lines are for change over time. |
-| "One busy week shows a trend." | One week can show a spike. A long-term trend needs months of data. |
+| "Sign-ins jumped this week, so the center is getting busier." | One week can show a spike: 5 sign-ins on March 6, and 1 on most other days. A long-term trend needs months of data. |
 
 ### How this connects
 

@@ -1,12 +1,21 @@
 # Quest 2.6 — Drop, Fill, or Flag: Missing Data (Day 7)
 
-**Total time:** about 30 minutes
+**Total time:** about 35 minutes
 
 **EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
 ## Introduction
 
-Real data almost always has blank cells, and what you do with them changes the answer. For example, a store survey asks customers to rate their visit from 1 to 5, and 30 people skip the question. If you count those blanks as 0, the average rating drops. If you delete those customers, you lose all their other answers.
+Real data almost always has blank cells, and what you do with them changes the answer. For example, a store asks 10 customers to rate their visit from 1 to 5. Seven customers answer 5, 4, 4, 5, 3, 4, and 3. Three skip the question.
+
+Recall that an average is the sum of the values ÷ the number of values:
+
+* If you skip the blanks: (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = **4.0**
+* If you count the blanks as 0: (28 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = **2.8**
+
+The three 0s pull the average down from 4.0 to 2.8, but no customer gave a 0. If you delete those 3 customers instead, you lose all their other answers on the survey.
+
+![Ten rating cards for a store survey, scored 1 to 5. Left, blanks counted as 0: seven grey cards (5, 4, 4, 5, 3, 4, 3) and three red cards that say 0. Average = (5 + 4 + 4 + 5 + 3 + 4 + 3 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = 2.8, but no customer gave a 0. Right, blanks skipped: the same seven grey cards and three empty cards marked "skipped." Average = (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = 4.0, which matches what customers said.](images/blanks-as-zero-ratings.svg)
 
 In this reading, you'll learn how to:
 
@@ -14,9 +23,15 @@ In this reading, you'll learn how to:
 * ask why they're missing
 * choose one of three actions for each blank: drop the row, fill the blank, or flag it
 
-**Main takeaway:** Every blank needs a choice, and every choice needs a reason that you can support with a number.
+**Main takeaway:** Every **missing value** needs one of the three choices above: drop, fill, or flag. A missing value is a cell with no value in it, like a skipped survey question. Give each choice a reason with a number, like "I dropped 2 rows where the app crashed."
 
-**Why it matters at work:** What you do with blanks changes every total and average in a report. "I dropped the blanks" is not a reason. A teammate, a manager, or an interviewer will ask you why.
+**Why it matters at work:** What you do with blanks decides the totals and averages in a report. For example, analysts handle blanks before they:
+
+* report a store's average customer rating
+* add up how many hours each worker worked this week
+* compare sales by month when some days weren't recorded
+
+If you count 3 skipped ratings as 0, the average drops from 4.0 to 2.8. The store looks worse than it is. A teammate, a manager, or an interviewer will also ask why you chose drop, fill, or flag.
 
 ## Learning goals
 
@@ -40,11 +55,11 @@ You've found blanks before, one value at a time and then a whole column at once.
 
 ### Missing values
 
-| Word | What it means |
-| --- | --- |
-| **Missing value** | A cell with no value in it. In a CSV (comma-separated values) file, it's just an empty field (one value's place in a row), like `Kai,,,`. |
-| **NaN** | How pandas shows an empty cell. It's short for "Not a Number," but it shows up in text columns too. |
-| **Placeholder** | A stand-in typed where a real value should be, like `0` or `"unknown"`. It's missing too, but `.isna()` doesn't count it. |
+| Word | What it means | Example in the reading |
+| --- | --- | --- |
+| **Missing value** | A cell with no value in it. In a CSV (comma-separated values) file, it's just an empty field (one value's place in a row). | `Kai,,,`: Kai's minutes, miles, and size are all empty |
+| **NaN** | How pandas shows an empty cell. It's short for "Not a Number," but it shows up in text columns too. | Ana's first walk shows `NaN` for `dog_size`, a text column |
+| **Placeholder** | A stand-in typed where a real value should be, like `0` or `"unknown"`. It's missing too, but `.isna()` doesn't count it. | If a size were typed as `"unknown"`, `.isna()` would not count it |
 
 A placeholder `0` is a quiet problem, like the bare `except:` in [Looks Right. Is It?](../module-01/quest-10-debugging.md) that returned 0. Both hide a problem behind a 0 that looks real.
 
@@ -52,42 +67,46 @@ A placeholder `0` is a quiet problem, like the bare `except:` in [Looks Right. I
 
 Ask these two questions about every gap before you decide anything.
 
-| Word | What it means |
-| --- | --- |
-| **Never collected** | Nobody asked for the value, like a dog's size when people book (schedule a walk) by phone. |
-| **Lost** | The value existed but didn't get saved, like a walk logged (recorded) while the app crashed. |
-| **Spread out at random** | The gaps are scattered across the data, with no group in common. |
-| **Bunched in one group** | The gaps all come from one kind of row, like every phone booking. |
+| Word | What it means | Example in the reading |
+| --- | --- | --- |
+| **Never collected** | Nobody asked for the value. | A dog's size when people book (schedule a walk) by phone |
+| **Lost** | The value existed but didn't get saved. | Kai's and Lee's walks, logged (recorded) while the app crashed |
+| **Spread out at random** | The gaps are scattered across the data, with no group in common. | One blank on Sam's walk, one on Ana's, one on Kai's, with nothing in common |
+| **Bunched in one group** | The gaps all come from one kind of row. | The 2 blank sizes left after the drop are both phone bookings |
 
 Statistics books give these patterns formal names, such as *missing completely at random* for gaps spread out by chance. You don't need the formal names yet. The two questions are what matter.
 
 ### The three choices
 
-| Word | What it means |
-| --- | --- |
-| **Drop** | Remove a row entirely. It's the right choice when the row has nothing left to work with. |
-| **Fill** | Replace a missing value with a stand-in, like the median or the value before it. Filling in missing values is also called **imputation**. |
-| **Flag** | Leave the value missing, and add a True/False column that marks it, instead of guessing. |
+| Word | What it means | Example in the reading |
+| --- | --- | --- |
+| **Drop** | Remove a row entirely. It's the right choice when the row has nothing left to work with. | Drop Kai's and Lee's crashed rows: 8 walks become **6** |
+| **Fill** | Replace a missing value with a stand-in, like the median or the value before it. Filling in missing values is also called **imputation**. | Fill Lee's day 3 and day 7 with the median, **43.0 minutes** |
+| **Flag** | Leave the value missing, and add a True/False column that marks it, instead of guessing. | `size_unknown` is True for **2** walks |
 
 A flag works like the list of problems your validation function returned. It records which rows had a gap, so you can count them and report them, without guessing a value.
 
 ### Stand-ins for a fill
 
-| Word | What it means | Units |
+**Units** are what a number counts or measures. A fill comes out in the same units as the column: here, minutes. The mode is the exception: it's a category, like `"large"`. Most examples use Lee's 8 days of walks, in minutes:
+
+`40, 45, blank, 42, 95, 44, blank, 41` (day 5 was a 95-minute hike)
+
+| Word | What it means | Example with Lee's walks |
 | --- | --- | --- |
-| **Mean** | The average of the real values. One far-off value pulls it toward itself. | Same as the column (for walks, minutes) |
-| **Median** | The middle of the real values once they're sorted. One far-off value barely moves it. | Same as the column |
-| **Mode** | The value that shows up most often. The usual fill for a category column, when one value clearly repeats the most. | A category, like `"large"` |
-| **Forward-fill** | Copy the most recent value before the gap, like yesterday's number. Only makes sense when the rows are in order. | Same as the column |
-| **Backward-fill** | Copy the next value after the gap, like tomorrow's number. Helpful when the very first row is blank. | Same as the column |
+| **Mean** | The average of the real values. One far-off value pulls it toward itself. | (40 + 45 + 42 + 95 + 44 + 41) ÷ 6 = 307 ÷ 6 = **51.2 minutes** |
+| **Median** | The middle of the real values once they're sorted. One far-off value barely moves it. | Sorted: 40, 41, 42, 44, 45, 95. (42 + 44) ÷ 2 = **43.0 minutes** |
+| **Mode** | The value that shows up most often. The usual fill for a category column, when one value clearly repeats the most. | Known sizes: small, large, medium, large. **"large"**, but with only 2 of 4 |
+| **Forward-fill** | Copy the most recent value before the gap, like yesterday's number. Only makes sense when the rows are in order. | Day 3 gets day 2's **45**. Day 7 gets day 6's **44**. |
+| **Backward-fill** | Copy the next value after the gap, like tomorrow's number. Helpful when the very first row is blank. | Day 3 gets day 4's **42**. Day 7 gets day 8's **41**. |
 
 ### Code in this reading
 
 | Code | What it does |
 | --- | --- |
 | **`.shape`** | Gives a pair of numbers: rows first, then columns. `(8, 4)` means 8 rows and 4 columns. |
-| **`.dropna()`** | Removes every row with any blank at all. |
-| **`.dropna(subset=["minutes"])`** | Removes only the rows where `minutes` is blank. The parameter `subset` is set to `["minutes"]`, the column that decides the drop. |
+| **`.dropna()`** | Removes every row with any blank at all. On the walk log, 8 rows become **4**. |
+| **`.dropna(subset=["minutes"])`** | Removes only the rows where `minutes` is blank. The parameter `subset` is set to `["minutes"]`, the column that decides the drop. On the walk log, 8 rows become **6**. |
 | **`.mode()[0]`** | `.mode()` gives back a Series, because a column can have more than one most-common value. `[0]` takes the first one. |
 | **`.fillna(value)`** | Puts `value` into every blank in a column, and leaves the real values alone. |
 | **`.ffill()`** | Forward-fill: copies the value above into each blank. |
@@ -131,10 +150,10 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "`dropna()` cleans the data." | With no `subset=`, it throws away every row with any blank, including real records. |
-| "Fill with the mean, since it uses every value." | One outlier, like a 95-minute hike, pulls the mean too high. Use the median for skewed data. |
-| "The most common category is a safe fill." | Only when it clearly repeats the most. "Large" won with just 2 of 4 known sizes, so filling with it would be a guess. |
-| "`.isna()` finds every missing value." | It misses placeholders like `0` or `"unknown"` typed in place of a real value. Look at the rows too. |
+| "I'll run `dropna()` to clean the data." | With no `subset=`, it keeps only 4 of the 8 walks. It throws away Ana's and Kai's real walks just because the size is blank. |
+| "The mean uses every walk, so it's the fairest fill." | Lee's 95-minute hike pulls the mean up to 51.2 minutes, longer than 5 of Lee's 6 real walks. The median, 43.0, sits among them. |
+| "Large is the most common size, so I'll fill the blanks with it." | "Large" won with just 2 of 4 known sizes, so filling with it would be a guess. |
+| "`.isna().sum()` shows 0 for this column, so nothing is missing." | It misses placeholders like `0` or `"unknown"` typed in place of a real value. Look at the rows too. |
 
 ### How this connects
 

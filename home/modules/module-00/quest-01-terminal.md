@@ -1,6 +1,6 @@
 # Quest 0.1 — Meet Your Terminal: The Command Line (Day 1)
 
-**Total time:** about 30 minutes
+**Total time:** about 35 minutes
 
 **Analyst toolkit:** **Use the terminal** · Understand data · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -17,9 +17,16 @@ In this reading, you'll learn how to:
 * print a file on the screen
 * read an error message when a command doesn't work
 
-**Main takeaway:** In a new folder, check where you are and what's there before you do anything else. Then move, and check again.
+**Main takeaway:** Before you run a command in a new folder, check your **working directory**. The working directory is the folder the terminal treats as "here" right now. Run `pwd` to see it, and `ls` to see what's in it. Then move with `cd`, and check again.
 
-**Why it matters at work:** Almost every data job starts in the terminal: you find the project folder, look at the files, and run your tools there. People notice when a new analyst checks where they are first, instead of guessing.
+**Why it matters at work:** Analysts use the terminal to find their project files and run their tools. For example, they use it to:
+
+* move into the folder for a new project
+* list the data files in that folder before they open one
+* print a small file on the screen to see what's inside
+* run tools like Git, which saves the history of your work
+
+If you run a command in the wrong folder, it can't find your files, or it acts on the wrong ones.
 
 ## Learning goals
 
@@ -75,29 +82,29 @@ In the reading, each command line starts with `$`. On your Mac, the line may end
 
 ### The window and what you type: Terminal basics
 
-| Word | What it means |
-| --- | --- |
-| **Terminal** | A window where you type text commands to your computer instead of clicking. On a Mac, the software is called Terminal. |
-| **Command line** | The line in the terminal where you type a command. People also use "the command line" to mean working in the terminal in general. |
-| **Shell** | The program inside the terminal that reads your command and runs it. A Mac uses the zsh shell. |
-| **Command** | One typed instruction, like `pwd` or `ls`. The terminal runs it when you press Return. |
-| **Prompt** | The sign at the start of the line, like `$` or `%`, that says the terminal is ready for a command. You never type it. |
-| **Output** | What the terminal prints back after a command runs. Some commands print nothing when they work. |
-| **Error message** | Output that says a command didn't work. It names the exact word it didn't understand, like `zsh: command not found: pdw`. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Terminal** | A window where you type text commands to your computer instead of clicking. | The Terminal app on a Mac |
+| **Command line** | The line in the terminal where you type a command. People also use "the command line" to mean working in the terminal in general. | The line where you type `pwd` |
+| **Shell** | The program inside the terminal that reads your command and runs it. | zsh, the shell on a Mac |
+| **Command** | One typed instruction. The terminal runs it when you press Return. | `pwd` or `ls` |
+| **Prompt** | The sign at the start of the line that says the terminal is ready for a command. You never type it. | `$` in the reading, `%` on your Mac |
+| **Output** | What the terminal prints back after a command runs. Some commands print nothing when they work. | `pwd` prints `/Users/sam/garden` |
+| **Error message** | Output that says a command didn't work. It names the exact word it didn't understand. | `zsh: command not found: pdw` |
 
 ### Where am I?: Folders and paths
 
 A **directory** is another word for a folder. Programmers say "directory," so you'll see both words.
 
-| Word | What it means |
-| --- | --- |
-| **Directory** | A folder. It can hold files and other folders. `cd` stands for "change directory." |
-| **Home folder** | Your own folder on the computer. It's named after you, like `sam`. The terminal often starts here. |
-| **Working directory** | The folder the terminal treats as "here" right now. Most commands act on it. `pwd` prints it. |
-| **Path** | The written location of a file or folder, with a `/` between each folder name. |
-| **Absolute path** | The full route from the top of the computer, like `/Users/sam/garden/plants`. It starts with `/` and works from anywhere. |
-| **Relative path** | A route that starts from the working directory. From inside `garden`, the path `plants` means "the plants folder right here." |
-| **`..` (two dots)** | The folder that holds the one you are in: up one level. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Directory** | A folder. It can hold files and other folders. `cd` stands for "change directory." | `garden` and `plants` |
+| **Home folder** | Your own folder on the computer. It's named after you. The terminal often starts here. | `sam`, at `/Users/sam` |
+| **Working directory** | The folder the terminal treats as "here" right now. Most commands act on it. `pwd` prints it. | `/Users/sam/garden` at the start of the reading |
+| **Path** | The written location of a file or folder, with a `/` between each folder name. | `garden/plants/tomatoes.txt` |
+| **Absolute path** | The full route from the top of the computer. It starts with `/` and works from anywhere. | `/Users/sam/garden/plants` |
+| **Relative path** | A route that starts from the working directory. | From inside `garden`, `plants` means "the plants folder right here." |
+| **`..` (two dots)** | The folder that holds the one you are in: up one level. | From `plants`, `cd ..` goes back to `garden` |
 
 ![Left: the garden folder drawn as a tree. The home folder sam holds garden, which is marked You are here. garden holds README.md, notes, and plants. plants holds peppers.txt and tomatoes.txt. An arrow labeled cd plants goes down from garden into plants, and an arrow labeled cd .. goes back up. Under the tree: the absolute path to plants is /Users/sam/garden/plants, and the relative path from garden is plants. Right: five commands. pwd answers Where am I? and prints /Users/sam/garden. ls answers What is here? and prints README.md notes plants. cd plants moves into plants and prints nothing. cd .. moves up one level and prints nothing. cat tomatoes.txt prints the file.](images/m0-garden-folders.svg)
 
@@ -129,11 +136,11 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "`cd notebooks` moves my files into a new place." | It moves *you*. Your working directory changes. The files stay where they are. |
-| "`cd` printed nothing, so it didn't work." | Silence means it worked. Run `pwd` to check where you are now. |
-| "An error message means I broke something." | It usually means a typo. The message names the word it didn't understand. |
-| "I need to type the `$` too." | The `$` or `%` is the prompt. Type only the command after it. |
-| "`ls` only shows a folder's contents the first time." | It shows the current contents every time you run it. |
+| "`cd plants` moves my files into a new place." | It moves *you*. Your working directory changes from `/Users/sam/garden` to `/Users/sam/garden/plants`. `tomatoes.txt` stays in `plants`. |
+| "`cd` printed nothing, so it didn't work." | Silence means it worked. Run `pwd` to check. After `cd plants`, it prints `/Users/sam/garden/plants`. |
+| "I got an error, so I broke something." | It usually means a typo. `zsh: command not found: pdw` names `pdw`, so type `pwd` instead. |
+| "I need to type the `$` too." | The `$` or `%` is the prompt. Type only the command after it, like `pwd`. |
+| "`ls` only works the first time I go into a folder." | It works every time. In `garden`, it prints `README.md notes plants` each time you run it. |
 
 ### How this connects
 

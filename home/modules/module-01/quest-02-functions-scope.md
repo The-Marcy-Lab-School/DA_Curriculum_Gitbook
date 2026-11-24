@@ -16,9 +16,15 @@ In this reading, you'll learn how to:
 * pass values into a function, and get one result back out
 * tell a function's own variables apart from the ones the whole program can use
 
-**Main takeaway:** A function keeps one job in one place. Values go in through its inputs, and one result comes back out with `return`.
+**Main takeaway:** Write steps you repeat once, as a function, and call it each time you need them. A **function** is a named, reusable block of code. Values go in through its parameters, and one result comes back out with `return`.
 
-**Why it matters at work:** Analysts run the same steps on many files: clean, check, and sum. If those steps are copied into many places, one missed copy gives a wrong number. A function puts the fix in one place.
+**Why it matters at work:** Analysts use functions to run the same steps on many files or many rows. For example, they use them to:
+
+* clean every file the same way, like removing blank rows
+* work out a cost or a total the same way for every customer
+* check each new file with the same rules
+
+If the steps are copied instead, one missed copy can keep the old $3.50 price after it goes up to $4.00.
 
 ## Learning goals
 
@@ -42,16 +48,18 @@ After this reading, you should be able to say:
 
 **Modular** means built from small, separate pieces. **Modular programming** means splitting a program into small functions, each with one job. You can test and fix each piece on its own.
 
-| Word | What it means |
-| --- | --- |
-| **Function** | A named, reusable block of code. You define it once and call it as many times as you need. |
-| **Define** | Write the lines that create a function. Defining a function does *not* run it. |
-| **`def` line** | The first line of a function: `def`, the function's name, its inputs in parentheses, and a colon. |
-| **Function body** | The pushed-in lines under the `def` line. They are the function's steps. |
-| **Call** | Run a function by writing its name and parentheses, like `wash_cost(2, 3.5)`. Only a call runs the body. |
-| **`return`** | Hands a value back to the line that called the function. It also ends the function right away. |
-| **Return value** | The value a function hands back. The calling line can store it, add it to a total, or print it. |
-| **`None`** | Python's word for "no value." A function with no `return` line hands back `None`. |
+The examples come from the reading's laundromat, where one load of washing costs $3.50.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Function** | A named, reusable block of code. You define it once and call it as many times as you need. | `wash_cost`, which works out a bill |
+| **Define** | Write the lines that create a function. Defining a function does *not* run it. | A file with only `def show_closing_notice():` and its body prints nothing. |
+| **`def` line** | The first line of a function: `def`, the function's name, its inputs in parentheses, and a colon. | `def wash_cost(loads, price_per_load):` |
+| **Function body** | The pushed-in lines under the `def` line. They are the function's steps. | `return loads * price_per_load` |
+| **Call** | Run a function by writing its name and parentheses. Only a call runs the body. | `wash_cost(2, 3.5)` |
+| **`return`** | Hands a value back to the line that called the function. It also ends the function right away. | `return loads * price_per_load` |
+| **Return value** | The value a function hands back. The calling line can store it, add it to a total, or print it. | `wash_cost(2, 3.5)` gives back 2 × 3.5 = **7.0** dollars |
+| **`None`** | Python's word for "no value." A function with no `return` line hands back `None`. | `show_cost(2, 3.5)` only prints, so it gives back `None`. |
 
 Function names follow the same style as variable names: lowercase words joined by underscores, like `wash_cost`. This is called `snake_case`. The rule comes from PEP 8, Python's style guide. (PEP stands for "Python Enhancement Proposal.") See [the Module 1 Introduction](introduction.md#python-syntax-and-style).
 
@@ -59,10 +67,10 @@ Function names follow the same style as variable names: lowercase words joined b
 
 You'll use these two words in every module after this one, so learn them exactly.
 
-| Word | What it means |
-| --- | --- |
-| **Parameter** | A name in the function's `def` line. It holds a spot for an input value. |
-| **Argument** | The value passed in at a call. It fills the matching parameter. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Parameter** | A name in the function's `def` line. It holds a spot for an input value. | `loads` in `def wash_cost(loads, price_per_load):` |
+| **Argument** | The value passed in at a call. It fills the matching parameter. | `2` in `wash_cost(2, 3.5)` fills `loads`. |
 
 So a parameter is a labeled box, like any variable. Each call puts a new argument inside it.
 
@@ -103,21 +111,23 @@ print(total)  # 7.5
 
 **Scope** is the part of a program where a name can be seen and used. Ask: "At this line, which names exist?"
 
-| Word | What it means |
-| --- | --- |
-| **Local variable** | A variable created inside a function, including its parameters. Only that function can see it. It stops existing when the function returns. |
-| **Global variable** | A variable created outside every function. It exists for the whole program. Any function can read it. |
-| **`global`** | A word you can put in a function to change a global. The readings show it but suggest a parameter instead, because a parameter makes the call show everything the function needs. |
+The examples come from the second reading's parking tickets. A ticket costs a base amount plus $2 for each minute a car stays past its time.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Local variable** | A variable created inside a function, including its parameters. Only that function can see it. It stops existing when the function returns. | `ticket_cost`, created inside `ticket_price` |
+| **Global variable** | A variable created outside every function. It exists for the whole program. Any function can read it. | `price_cap = 150`, at the top of the file |
+| **`global`** | A word you can put in a function to change a global. The readings show it but suggest a parameter instead, because a parameter makes the call show everything the function needs. | `global tickets_issued` |
 
 ### What went wrong?: Error messages
 
 You've read an error message before. In [Meet Your Terminal](../module-00/quest-01-terminal.md), `zsh: command not found: pdw` named the exact word the shell didn't know. Python's error messages work the same way: they name the problem.
 
-| Word | What it means |
-| --- | --- |
-| **Traceback** | What Python prints when it stops with an error. Read the last line first: it names the error. Then find the line number and the `^^^` marks under the part that failed. |
-| **`NameError`** | Code used a name that doesn't exist at that line. For example, it used a local variable after its function returned. |
-| **`UnboundLocalError`** | A function read a local variable before giving it a value. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Traceback** | What Python prints when it stops with an error. Read the last line first: it names the error. Then find the line number and the `^^^` marks under the part that failed. | Last line: `NameError: name 'ticket_cost' is not defined` |
+| **`NameError`** | Code used a name that doesn't exist at that line. | `print(ticket_cost)` after `ticket_price` returned |
+| **`UnboundLocalError`** | A function read a local variable before giving it a value. | `tickets_issued = tickets_issued + 1` inside a function |
 
 ## Before you read
 
@@ -169,11 +179,11 @@ Want to go further? This reading is optional. You don't need it for the checkpoi
 
 | If you think... | What's actually true |
 | --- | --- |
-| "Python runs a function when it reaches the `def` line." | The `def` line only defines it. Only a call runs the body. |
-| "The parameter is the value I pass in." | The parameter is the name in the `def` line. The value you pass in is the argument. |
-| "`print` and `return` do the same job." | `print` shows a value to a person. `return` hands it back to the code. A function with no `return` gives back `None`. |
-| "After a function runs, I can use its local variables." | They're gone. Store the return value in a variable instead. |
-| "Reading a global inside a function is always fine." | It works only where that global exists. A parameter makes the call show everything the function needs. |
+| "My file has a `def` line, so the function ran." | The `def` line only defines it. `closing_notice.py` defines `show_closing_notice()` but never calls it, so it prints nothing. |
+| "In `machine_label("W-12")`, `"W-12"` is the parameter." | `"W-12"` is the argument: the value you pass in. The parameter is `machine_id`, the name in the `def` line. |
+| "`print` and `return` both give me the answer." | `print` only shows it. After `saved = show_cost(2, 3.5)`, the screen shows `This visit costs $7.0`, but `saved` holds `None`. |
+| "After the function runs, I can still use `ticket_cost`." | It's gone after the return, so `print(ticket_cost)` gives a `NameError`. Use the stored return value, `ticket_total`. |
+| "My function reads a global and it works, so it's fine." | It works only where that global exists. In a new file, `late_fee(3)` gives a `NameError`. `late_fee(3, 5)` passes the fee in and returns `15`. |
 
 ### How this connects
 

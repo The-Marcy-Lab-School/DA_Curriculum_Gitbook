@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 480" width="1040" height="480" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Sign-up ages with bad entries next to clean ones</title>
+<desc id="d">Left: a sign-up sheet with five ages. Lines 1 and 5 are grey: 34 and 27. Three lines are red: line 2 says twenty, which is not a number; line 3 says 250, which is too big to be an age; line 4 is blank. A program that trusts every line stops at twenty, or keeps 250 as an age. Right: five grey ages, 34, 19, 52, 41, and 27. Each age is a whole number a person could be, so the program can use all 5.</desc>
+<rect width="1040" height="480" fill="#ffffff"/>
+<text x="265" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Some ages break the rules</text>
+<text x="40" y="78" font-size="18" font-weight="bold" fill="#475569">Line</text>
+<text x="205" y="78" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">Age</text>
+<text x="40" y="121" font-size="19" fill="#111827">Line 1</text>
+<rect x="130" y="92" width="150" height="42" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="205" y="121" text-anchor="middle" font-size="20" font-weight="normal" fill="#111827">34</text>
+<text x="40" y="177" font-size="19" fill="#111827">Line 2</text>
+<rect x="130" y="148" width="150" height="42" rx="6" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="205" y="177" text-anchor="middle" font-size="20" font-weight="bold" fill="#B91C1C">“twenty”</text>
+<text x="298" y="177" font-size="18" font-weight="bold" fill="#B91C1C">not a number</text>
+<text x="40" y="233" font-size="19" fill="#111827">Line 3</text>
+<rect x="130" y="204" width="150" height="42" rx="6" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="205" y="233" text-anchor="middle" font-size="20" font-weight="bold" fill="#B91C1C">250</text>
+<text x="298" y="233" font-size="18" font-weight="bold" fill="#B91C1C">too big for an age</text>
+<text x="40" y="289" font-size="19" fill="#111827">Line 4</text>
+<rect x="130" y="260" width="150" height="42" rx="6" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="298" y="289" font-size="18" font-weight="bold" fill="#B91C1C">left blank</text>
+<text x="40" y="345" font-size="19" fill="#111827">Line 5</text>
+<rect x="130" y="316" width="150" height="42" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="205" y="345" text-anchor="middle" font-size="20" font-weight="normal" fill="#111827">27</text>
+<rect x="20" y="384" width="490" height="82" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="40" y="416" font-size="19" fill="#111827">A program that trusts every line:</text>
+<text x="40" y="448" font-size="19" font-weight="bold" fill="#B91C1C">stops at “twenty”, or keeps 250.</text>
+<text x="775" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Every age passes the checks</text>
+<text x="550" y="78" font-size="18" font-weight="bold" fill="#475569">Line</text>
+<text x="715" y="78" text-anchor="middle" font-size="18" font-weight="bold" fill="#475569">Age</text>
+<text x="550" y="121" font-size="19" fill="#111827">Line 1</text>
+<rect x="640" y="92" width="150" height="42" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="715" y="121" text-anchor="middle" font-size="20" font-weight="normal" fill="#111827">34</text>
+<text x="550" y="177" font-size="19" fill="#111827">Line 2</text>
+<rect x="640" y="148" width="150" height="42" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="715" y="177" text-anchor="middle" font-size="20" font-weight="normal" fill="#111827">19</text>
+<text x="550" y="233" font-size="19" fill="#111827">Line 3</text>
+<rect x="640" y="204" width="150" height="42" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="715" y="233" text-anchor="middle" font-size="20" font-weight="normal" fill="#111827">52</text>
+<text x="550" y="289" font-size="19" fill="#111827">Line 4</text>
+<rect x="640" y="260" width="150" height="42" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="715" y="289" text-anchor="middle" font-size="20" font-weight="normal" fill="#111827">41</text>
+<text x="550" y="345" font-size="19" fill="#111827">Line 5</text>
+<rect x="640" y="316" width="150" height="42" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="715" y="345" text-anchor="middle" font-size="20" font-weight="normal" fill="#111827">27</text>
+<rect x="530" y="384" width="490" height="82" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="550" y="416" font-size="19" fill="#111827">Each age is a whole number a person could be:</text>
+<text x="550" y="448" font-size="19" font-weight="bold" fill="#1D4ED8">the program can use all 5.</text>
+</svg>
