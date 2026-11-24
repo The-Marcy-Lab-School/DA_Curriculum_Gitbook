@@ -38,7 +38,7 @@ This is the first quest, so these come from everyday life and from the Module 0 
 * Recall that every file on your computer lives inside a folder, and folders can hold other folders. Your Documents folder is one example.
 * Recall that the **terminal** is the window you type in, and the **shell** (zsh on a Mac) is the program inside it that runs your commands. You read about both in [the Module 0 Introduction](introduction.md#the-terminal-and-the-shell).
 
-## New tool: Terminal
+## New software: Terminal
 
 **What it's for:** Terminal is **software** that comes with every Mac. It opens a window where you type commands to your computer instead of clicking. Inside the window runs a **shell**, a program that reads each command and runs it. On a Mac, the shell is called **zsh**. For more about the terminal and the shell, see [the Module 0 Introduction](introduction.md#the-terminal-and-the-shell).
 
@@ -55,7 +55,8 @@ cat tomatoes.txt  # print a file
 git --version     # is git installed?
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `pwd` prints the folder you're in now, as a full path, like `/Users/sam/garden`. It changes nothing.
 2. `ls` lists the files and folders inside the folder you're in. It changes nothing.
@@ -63,6 +64,8 @@ git --version     # is git installed?
 4. `cd ..` moves you up one level, back to the folder that holds the one you're in. Two dots always mean "up one level."
 5. `cat tomatoes.txt` prints everything in the file `tomatoes.txt`, without opening any app.
 6. `git --version` asks whether Git, a tool you'll meet later in this module, is installed. If it is, it prints a version number. If your Mac asks to install "command line developer tools," click **Install**.
+
+</details>
 
 In the reading, each command line starts with `$`. On your Mac, the line may end in `%` instead. Both are the **prompt**: the terminal's sign that it's ready. You never type it yourself.
 

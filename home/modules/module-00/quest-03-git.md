@@ -36,7 +36,7 @@ After this reading, you should be able to say:
 * Recall that `cd` moves you into a folder and `ls` lists what's inside it, from [Meet Your Terminal](quest-01-terminal.md). Every Git command is typed inside a project folder, so you'll start each time with `cd`.
 * Recall that you ran `git --version` in [Meet Your Terminal](quest-01-terminal.md) to check that Git is installed. Now you'll use it.
 
-## New tool: Git
+## New software: Git
 
 **What it's for:** Git is **software** on your own laptop. It saves the history of a project folder as a series of snapshots, each with a message about what changed. It doesn't need the internet. Git is the most common tool for **version control**: keeping track of every version of your work.
 
@@ -51,7 +51,8 @@ git log --oneline        # list saved commits
 git diff                 # show changed lines
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `git init` turns the folder you're in into a **repository**: a folder whose history Git tracks. Git keeps that history in a hidden folder called `.git`. No snapshots are saved yet.
 2. `git status` tells you what's going on: which files changed, and which are ready to save. It never changes anything, so you can run it any time.
@@ -60,9 +61,11 @@ git diff                 # show changed lines
 5. `git log --oneline` lists every saved commit, newest first. Each line shows the commit's short ID (short for identifier: a code that labels that one commit), then its message.
 6. `git diff` shows the exact lines you changed that aren't committed yet. A line starting with `-` was removed. A line starting with `+` was added.
 
+</details>
+
 **Learn more:** [Pro Git: About Version Control](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (official, from Git's own team) · [W3Schools: Git tutorial](https://www.w3schools.com/git/)
 
-## New tool: GitHub
+## New website: GitHub
 
 **What it's for:** GitHub is a **website**, not software you install. It holds a copy of your repository online, so other people can see it and work on it too. Git saves your history on your laptop. GitHub shares a copy of it. You'll need a free GitHub account.
 
@@ -74,11 +77,14 @@ git push -u origin main
 git push
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `git remote add origin <url>` tells Git where your online copy lives, and gives it the short name `origin`. The URL is the repository's address on GitHub.
 2. `git push -u origin main` sends your commits to `origin`. `main` is the name Git gives your project's history by default (when you don't choose a different name). `-u` tells Git to remember where to push.
 3. After that first time, plain `git push` is enough.
+
+</details>
 
 **Learn more:** [GitHub Docs: About GitHub and Git](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git) (official) · [W3Schools: Get started with GitHub](https://www.w3schools.com/git/git_remote_getstarted.asp)
 

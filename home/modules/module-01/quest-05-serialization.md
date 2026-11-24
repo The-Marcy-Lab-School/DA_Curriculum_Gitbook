@@ -35,7 +35,7 @@ After this reading, you should be able to say:
 * Recall that a **dictionary** stores key/value pairs, and a **tuple** is an ordered record (a group of values about one thing) that can't change. You used both in [Pick the Right Container](quest-04-data-structures.md). In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
 * Recall that `ls` lists the files in a folder, from [Meet Your Terminal](../module-00/quest-01-terminal.md). Recall too that `cat pets.csv` prints what's inside a file, from the interactive reading for [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). You'll use both to look inside the file your program saves.
 
-## New tool: the json module
+## New Python module: json
 
 **What it's for:** `json` saves a Python value as JSON text in a file, and builds a Python value again from that text. Each job takes one line.
 
@@ -57,7 +57,8 @@ with open("rain.json") as f:
 print(rain["7"])  # [1.2, 55]
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `import json` loads the `json` module. It goes at the top of each file that uses it. After it, you can use `json.dump` and `json.load`.
 2. `rain` is a dictionary. Each key is an hour of the day. Each value is a tuple: the rain in millimeters, then the temperature in degrees Fahrenheit.
@@ -66,6 +67,8 @@ print(rain["7"])  # [1.2, 55]
 5. In a later run, `open("rain.json")` opens the same file. There's no mode, so it opens the file for reading.
 6. `json.load(f)` reads the JSON text and builds a brand-new dictionary from it. This is **deserialization**, or loading.
 7. `rain["7"]` uses the string `"7"`, not the number `7`, because JSON keys are always strings. It gives back `[1.2, 55]`: a list, not the tuple you saved.
+
+</details>
 
 You may see `json.dumps` and `json.loads` in other examples. The extra *s* stands for *string*: they work with a string instead of a file.
 

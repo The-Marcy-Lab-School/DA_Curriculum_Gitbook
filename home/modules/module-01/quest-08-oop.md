@@ -78,13 +78,16 @@ class SavingsGoal:  # CapWords name
 goal_a = SavingsGoal("Bike Fund", 500, 420)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `class SavingsGoal:` starts the class. Everything indented under it belongs to the class.
 2. `def __init__(self, name, target_amount, saved_amount):` is the setup method. `self` is the new object. The other three parameters receive the values you pass in.
 3. `self.name = name` stores the value of the parameter `name` on this object, as an attribute called `name`. The next two lines do the same for the other values.
 4. `def is_funded(self):` is a method. It reads this object's own attributes and returns `True` or `False`. A goal is **funded** when the saved amount has reached the target amount.
 5. `SavingsGoal("Bike Fund", 500, 420)` makes a new object, and Python runs `__init__` once. The parameter `name` is set to `"Bike Fund"`, `target_amount` is set to `500`, and `saved_amount` is set to `420`. You never pass `self` yourself.
+
+</details>
 
 ### How does an object describe itself?: Magic methods
 

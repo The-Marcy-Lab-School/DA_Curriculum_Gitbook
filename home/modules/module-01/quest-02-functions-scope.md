@@ -76,13 +76,16 @@ total = drink_cost(3, 2.5)
 print(total)  # 7.5
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. The `def` line defines a function named `drink_cost`. It has two parameters: `cups` and `price_per_cup`.
 2. The body has one line. It multiplies the two parameters and returns the result.
 3. `drink_cost(3, 2.5)` calls the function. This call sets the parameter `cups` to the argument `3`, and the parameter `price_per_cup` to the argument `2.5`.
 4. The function returns `7.5`, and `total = ...` stores that return value in `total`.
 5. `print(total)` shows `7.5` on the screen. The function itself printed nothing.
+
+</details>
 
 ![On the left, the call saved = wash_cost(2, 3.5). An arrow goes into a function box labeled def wash_cost(loads, price_per_load). Step 1: each parameter gets its argument, so loads is 2 and price_per_load is 3.5. Step 2: the body runs, loads times price_per_load, 2 times 3.5 equals 7.0. Step 3: return hands back 7.0. An arrow goes back to the left, where saved now holds 7.0, the return value.](images/m1a-function-call.svg)
 

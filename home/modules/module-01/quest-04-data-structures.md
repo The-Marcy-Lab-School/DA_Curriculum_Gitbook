@@ -81,7 +81,8 @@ used = set()                      # empty set
 used.add("Noor")
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `stops` is a list of a driver's stops: the streets where the driver drops off food. The stops come in order, and the list can change.
 2. `stops.append("Oak Rd")` adds `"Oak Rd"` to the end of the list. `.append()` is a **method**: a function that belongs to a value, called with a dot.
@@ -89,6 +90,8 @@ used.add("Noor")
 4. `drivers` is a dictionary. The key `"D-5520"` is an order code, and the value `"Noor"` is the driver's name.
 5. `drivers["D-5521"] = "Sam"` adds a new pair. If the key already existed, this line would replace its value instead.
 6. `set()` makes an empty set, and `used.add("Noor")` puts a customer's name in it. Adding `"Noor"` a second time would change nothing.
+
+</details>
 
 {% hint style="info" %}
 **`{}` is an empty dictionary, not an empty set.** To make an empty set, write `set()`.

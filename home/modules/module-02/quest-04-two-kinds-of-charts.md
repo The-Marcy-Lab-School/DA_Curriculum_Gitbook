@@ -36,7 +36,7 @@ You've summarized groups and checked claims before. This reading turns your numb
 * Recall that a date is its own data type, in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). Only date math makes sense on it, like "how many days ago?" In this reading, you'll turn date text into real dates.
 * Recall that a sure-sounding AI answer is only a claim until you check it, from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md). You check it against a real source. Here, your own `.corr()` number is that source.
 
-## New tool: Matplotlib
+## New Python package: Matplotlib
 
 **What it's for:** Matplotlib is a free Python package for drawing charts. In this reading, pandas draws the chart with `.plot`, and Matplotlib (`plt`) adds the title and axis labels and shows the chart under the cell.
 
@@ -53,13 +53,16 @@ plt.show()
 daily.plot(rot=45)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `matplotlib.pyplot` is the **module** inside the Matplotlib package that draws charts. This line loads it and gives it the short name `plt`.
 2. `students.plot.scatter(...)` is a pandas **method** that draws a scatterplot, with one dot per row. This line sets three parameters. The parameter `x` is set to `"hours"`, the column for the x-axis (across the bottom). The parameter `y` is set to `"score_gain"`, the column for the y-axis (up the side). The parameter `alpha` is set to `0.6`, which makes the dots a bit see-through (0 is invisible and 1 is solid), so overlapping dots are easier to see.
 3. `plt.title(...)` and `plt.ylabel(...)` are **functions** from the `plt` module. They put a title over the chart and label the y-axis.
 4. `plt.show()` draws the finished chart under the cell.
 5. `daily.plot(rot=45)` draws a line chart. The parameter `rot` is set to `45`, which rotates (turns) the x-axis labels 45 degrees so long dates don't overlap.
+
+</details>
 
 The x-axis, across the bottom, has its own label function with a matching name. The reading asks you to find it. If `import matplotlib` gives a `ModuleNotFoundError` on your laptop, run `pip install matplotlib` in the terminal once.
 

@@ -46,7 +46,7 @@ You've inspected data before. This reading does the same checks on a whole table
 * Recall that you named the data type of each column, and stored an ID like `00417` as text so it keeps its zeros, in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
 * Recall that your validation function checked each record before you used it, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md). It checked the shape first (the right number of fields?), then the values (is the grade made of digits?).
 
-## New tool: Jupyter notebooks
+## New file type: Jupyter notebooks
 
 **What it's for:** A Jupyter notebook is a kind of **file** (its name ends in `.ipynb`), not a package you import. You open it in **software** such as VS Code, which runs it for you. A notebook splits your code into small boxes called cells. You run one cell at a time and see its result right under it, which fits the way analysts explore: ask one small question, look, then ask the next.
 
@@ -62,17 +62,20 @@ df.shape
 df.dtypes
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. Each cell runs on its own when you click into it and press **Shift+Enter**.
 2. After cell 1 runs, the **kernel** (the Python program behind the notebook) remembers `pd` and `df`, so a later cell can use them.
 3. A cell shows the value of its last line right under it, so `df.shape` shows up without `print()`.
 
+</details>
+
 Notebooks are for exploring. Finished programs are still `.py` files. If VS Code asks you to install `ipykernel`, click **Install**: it's the piece that connects VS Code to Python.
 
 **Learn more:** [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) (official guide for the editor you'll use) · [Jupyter: Get started](https://docs.jupyter.org/en/latest/start/index.html) (official: what notebooks and kernels are)
 
-## New tool: pandas
+## New Python package: pandas
 
 **What it's for:** pandas is a free Python package for working with tables of data, like a spreadsheet you control with code. It loads a whole file in one line, and because every step is code, you can run the same checks again on next month's file.
 
@@ -86,13 +89,16 @@ df["site"] == "Eastside"
 df.sort_values("weight_lbs", ascending=False)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `import pandas as pd` loads the pandas package and gives it the short name `pd`.
 2. `pd.read_csv("intake.csv")` is a pandas **function**. It reads the CSV file and gives back a **DataFrame**, pandas' table. In [Make It Survive](../module-01/quest-05-serialization.md), you loaded a saved file and then checked the type of each value, because loading can change types. `read_csv` loads a whole table in one line, and `df.dtypes` does that type check for every column. `DataFrame` is a **class**, and `df` is one **object** made from it, just like the objects you made from your own classes in [Meet the Objects](../module-01/quest-08-oop.md).
 3. `df.shape` is an **attribute**: a value stored on the object. It has no parentheses because you're reading a fact, not running an action. It gives two numbers: rows, then columns.
 4. `df["site"] == "Eastside"` gives back a **Series**: one column with a `True` or `False` for each row. Is this row's site Eastside?
 5. `df.sort_values(...)` is a **method**: a function that belongs to the object, so it has parentheses. It puts the rows in order by weight. Here, the parameter `ascending` is set to `False`, so the biggest weight comes first. (*Ascending* means smallest to biggest.)
+
+</details>
 
 If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip install pandas` in the terminal once.
 

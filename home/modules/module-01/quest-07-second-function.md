@@ -115,7 +115,8 @@ def summarize_steps(days, goal):
 summary = summarize_steps(days, 8000)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. The `def` line names two parameters: `days`, a list of good `(day, steps)` tuples, and `goal`, the daily step goal.
 2. `total = 0` and `goal_days = 0` set up the two accumulators before the loop.
@@ -124,6 +125,8 @@ summary = summarize_steps(days, 8000)
 5. `if steps >= goal:` decides what to count. It isn't validation: the data was already checked.
 6. `return` hands a summary dict back to the caller. It sits outside the loop, so it runs once, after every day.
 7. In the call, `days` is the reading's list of five good days. The parameter `goal` is set to the argument `8000`. To use a different goal, change only the argument. The function stays the same.
+
+</details>
 
 ![Three functions in a chain. validate_days(), with the job "check records," passes good days, like [("Mon", 6200), ...], to summarize_steps(), with the job "summarize the week." summarize_steps() passes a summary, {"total": 38070, "goal_days": 3}, to print_week(), with the job "print the summary." Two dashed boxes branch from the summary: "New job: email the summary" and "New job: save it to a file," each a new function. Note: summarize_steps() returns its result, so new jobs never change it.](images/m1b-three-functions.svg)
 

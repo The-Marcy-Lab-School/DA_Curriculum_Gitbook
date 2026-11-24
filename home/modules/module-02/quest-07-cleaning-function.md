@@ -123,12 +123,15 @@ clean_both = clean_deliveries(both)
 clean_june = clean_deliveries(june)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `to_number` turns a column into numbers. The parameter `errors` is set to `"coerce"`, which means: when a value can't become a number, like `"TBD"`, make it blank (NaN) instead of stopping with an error.
 2. `tidy_text` removes extra spaces with `.str.strip()` and makes every letter lowercase with `.str.lower()`, so `"Kenya "` and `"kenya"` match.
 3. `clean_deliveries` runs every fix in order. Its first line removes repeated deliveries. The parameter `subset` is set to `"delivery_id"`, which means: compare only the `delivery_id` column when looking for repeats.
 4. The last two lines call the same function on two different tables. That's what proves it's reusable.
+
+</details>
 
 {% hint style="info" %}
 **Why the first line matters:** `df.drop_duplicates(...)` makes a new table, and `df =` points the name at it. If the function set a column on `df` right away instead, your original table would change too, and pandas 3 doesn't stop that.

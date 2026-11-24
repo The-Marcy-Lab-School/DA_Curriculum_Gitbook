@@ -74,13 +74,16 @@ for temp in temps:
         print(temp, "mild")
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `temps = [68, 75, 81]` stores a list of three numbers in the variable `temps`.
 2. `for temp in temps:` starts a loop. On each pass, `temp` holds the next number in the list.
 3. `if temp > 80:` checks a comparison. It gives back True or False.
 4. The two `print(...)` lines are each pushed in under their own branch. Only one of them runs on each pass.
 5. The script prints `68 mild`, then `75 mild`, then `81 hot`.
+
+</details>
 
 ### How does code choose?: Conditionals
 

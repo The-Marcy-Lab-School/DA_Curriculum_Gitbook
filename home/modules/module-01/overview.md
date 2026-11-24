@@ -42,7 +42,7 @@ This GitBook uses a few game words. Here's what each one is:
 | Tool | Kind | What it does | Introduced in |
 | --- | --- | --- | --- |
 | **Python** | Programming language | Lets you write instructions for the computer | [Module 1 Introduction](introduction.md#what-is-python) |
-| **`json`** | A module that comes with Python | Saves data to a file and loads it back | [Quest 1.5](quest-05-serialization.md#new-tool-the-json-module) |
+| **`json`** | A module that comes with Python | Saves data to a file and loads it back | [Quest 1.5](quest-05-serialization.md#new-python-module-json) |
 
 A **module** is one file of Python code that you load with `import`. The `json` module comes with Python, so you don't install anything. **JSON** (JavaScript Object Notation) is a common text format for saving data.
 
@@ -66,7 +66,7 @@ Every quest page has the same sections, in the same order. At the top, you'll se
 1. **Introduction**: an example, what you'll learn, the main takeaway, and why it matters at work
 2. **Learning goals**: a list of what you'll be able to do
 3. **Quick recall**: something you already know that this reading builds on
-4. **New tool** (only when there is one): what it's for, how you'll see it, and where to learn more
+4. **New tool section** (only when there is one), named for what the tool is, like "New Python package: NumPy" or "New software: Git": what it's for, how you'll see it, and where to learn more
 5. **Words to know**: the new terms, in plain words
 6. **Before you read**: a question to think about first
 7. **Read**: what to look for, then the link to each interactive reading

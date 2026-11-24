@@ -49,14 +49,14 @@ A **tool** is anything analysts use to get work done. This module has two kinds:
 
 ![A concept map. VS Code is software, a program you open. It opens a Jupyter notebook, which is a file (.ipynb) that holds your code in cells. The code imports three Python packages: NumPy for math on many numbers, pandas for tables of data, and Matplotlib for charts. pandas is built on NumPy, and pandas draws charts with Matplotlib.](images/tools-map.svg)
 
-Each tool is introduced on the quest page where you first use it, in a section called "New tool."
+Each tool is introduced on the quest page where you first use it, in a section named for what the tool is, like "New Python package: pandas."
 
 | Tool | Kind | What it does | Introduced in |
 | --- | --- | --- | --- |
-| **NumPy** | Python package | Does math on many numbers at once | [Quest 2.1](quest-01-descriptive-statistics.md#new-tool-numpy) |
-| **Jupyter notebooks** | A kind of file, run in software like VS Code | Run code in small steps and see each result right below it | [Quest 2.2](quest-02-inspect-filter.md#new-tool-jupyter-notebooks) |
-| **pandas** | Python package | Load, check, clean, and summarize tables of data | [Quest 2.2](quest-02-inspect-filter.md#new-tool-pandas) |
-| **Matplotlib** | Python package | Draw charts and save them as images | [Quest 2.4](quest-04-two-kinds-of-charts.md#new-tool-matplotlib) |
+| **NumPy** | Python package | Does math on many numbers at once | [Quest 2.1](quest-01-descriptive-statistics.md#new-python-package-numpy) |
+| **Jupyter notebooks** | A kind of file, run in software like VS Code | Run code in small steps and see each result right below it | [Quest 2.2](quest-02-inspect-filter.md#new-file-type-jupyter-notebooks) |
+| **pandas** | Python package | Load, check, clean, and summarize tables of data | [Quest 2.2](quest-02-inspect-filter.md#new-python-package-pandas) |
+| **Matplotlib** | Python package | Draw charts and save them as images | [Quest 2.4](quest-04-two-kinds-of-charts.md#new-python-package-matplotlib) |
 
 ## Where you'll practice each skill
 
@@ -82,7 +82,7 @@ Every quest page has the same sections, in the same order. At the top, you'll se
 1. **Introduction**: an example, what you'll learn, the main takeaway, and why it matters at work
 2. **Learning goals**: a list of what you'll be able to do
 3. **Quick recall**: something you already know that this reading builds on
-4. **New tool** (only when there is one): what it's for, how you'll see it, and where to learn more
+4. **New tool section** (only when there is one), named for what the tool is, like "New Python package: NumPy" or "New software: Git": what it's for, how you'll see it, and where to learn more
 5. **Words to know**: the new terms, in plain words
 6. **Before you read**: a question to think about first
 7. **Read**: what to look for, then the link to the interactive reading (about 20 minutes)

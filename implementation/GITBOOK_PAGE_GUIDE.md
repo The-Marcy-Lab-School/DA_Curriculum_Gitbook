@@ -51,10 +51,47 @@ Use these words the same way on every page. Students learned *function*, *parame
 | **Parameter / argument** | A parameter is the name a function expects; the argument is the value you pass in. Write "the parameter `ddof` is set to `1`", never "the parameter `ddof=1`". | `ddof`, `ascending`, `subset` |
 | **Series** (pandas) vs. **data series** (charts) | A pandas Series is one column of a table. A data series is one set of values drawn on a chart. Never let the two share a name on a page. | `df["site"]` vs. one line on a line chart |
 
+## How to explain: rules from the Quest 2.1 review
+
+These rules come from the author's line-by-line review of Quest 2.1, The Loudest Number. Quest 2.1 is the model page for them. Apply them to every page.
+
+1. **Explain the order by naming what readers already did.** When a page comes "out of order" (like Explore before Inspect), say what they already practiced, with specifics, then why this comes now, then how the next page builds on it.
+   - Not this: "You'll learn the basic numbers that every later step uses."
+   - This: "You've already done some inspecting. In Validate, Catch, Keep Going, your function looked for invalid lines and caught blank values. But to judge a whole table, you need to know what 'normal' looks like for each column… In the next quest, you'll build on your inspecting skills."
+2. **Picture the Introduction's example.** When the hook uses numbers, add a diagram that shows the problem case next to the normal case. Grey for ordinary values, red for the one that causes the problem.
+   - Example: nine grey houses at $300K and one red house at $3M, next to ten grey houses at $300K.
+3. **Show the formula, with the example's numbers worked out.** Never assume a reader knows a formula. You may skip it only if an earlier quest in the same module taught it. If it was taught in an earlier module, recall it.
+   - Example: "Average = sum of all values ÷ number of values. Average price = (9 × $300,000 + $3,000,000) ÷ 10 = $5,700,000 ÷ 10 = $570,000."
+4. **The Main takeaway names the main point directly, and uses the key term.** Define the term in the same sentence or the next, and make sure it's also in Words to know.
+   - Not this: "Averages… don't always tell the whole story."
+   - This: "An average can be misleading when the data has an outlier. An **outlier** is a value far from the rest, like the $3 million home."
+5. **"Why it matters at work" says what the skill is used for, as a bulleted list of real tasks.** One direct sentence, then 2 to 4 bullets, then what goes wrong if you get it wrong.
+   - Example: "The number you report as 'usual' is the number people make decisions with. For example, teams use it to: set a budget; understand how much a customer usually spends; set sales goals."
+6. **Make every contrast concrete and countable.** Give actual values a reader can picture, not a vague range.
+   - Not this: "Gifts from $40 to $5,000 have a big spread."
+   - This: "9 gifts that are all about $50 have a small spread. 9 gifts where 2 are $50, 2 are $200, and 5 are $3,000 have a big spread."
+7. **Term tables work each term on the reading's own data.** Use an "Example" column that shows the calculation and the result, with units: "$5,000 − $40 = **$4,960**". Don't use a separate Units column. Instead, explain once, above the table, what units are and which terms are the exception.
+8. **Write mix-ups the way a student would actually say them, and answer with a number.** Avoid loaded or vague words (like "honest") in the "If you think…" column.
+   - Not this: "The mean uses every value, so it's always the most honest."
+   - This: "The mean uses every value, so it always represents the data well." → "One outlier can pull the mean far from most values. The gifts' mean is $505.45, but 10 of the 11 gifts are $75 or less."
+9. **Name the exact kind of every new thing.** The section heading says what it is: "New Python package: NumPy", not "New tool: NumPy". (See the Quest template, item 6.)
+10. **Define a new data structure before the code uses it, by comparing it to one readers know.** Use a small table or two lines that show the difference in action.
+    - Example: list vs. NumPy array. `[50, 40] * 2` gives `[50, 40, 50, 40]`, but `np.array([50, 40]) * 2` gives `[100, 80]`.
+11. **Collapse code walkthroughs** under "Expand to walk through the code" (see Code blocks).
+
 ## Code blocks
 
 - **Keep comments short.** A comment should never wrap to a second line: about 30 characters at most (`import numpy as np  # load the package`). Many lines need no comment at all.
-- **Explain the code in a "Code walkthrough" under the block**, as a numbered list with one item per line or idea. This keeps the code readable and the explanation complete.
+- **Explain the code in a walkthrough under the block**, as a numbered list with one item per line or idea, inside a collapsed section so readers can open it when they need it:
+
+  ```html
+  <details>
+  <summary>Expand to walk through the code</summary>
+
+  1. `import numpy as np` loads the NumPy package…
+
+  </details>
+  ```
 - **Introduce every parameter by name, then its argument.** "This line sets the parameter `ddof` to the argument `1`. That tells NumPy to use the sample formula…" Never open with a bare `ddof=1`, and never call `ddof=1` itself "the parameter." Recall *parameter* and *argument* the first time a module uses them.
 - Keep code lines under about 65 characters so they don't scroll sideways.
 
@@ -103,7 +140,7 @@ Only mark a video required after someone has watched it and confirmed it's the c
 
 **There is no Boss Battle page.** Project scenarios, deliverables, and lengths change from cohort to cohort, so the GitBook only describes the project at the skill level ("you'll describe key columns of a real dataset") and says the instructor shares the details. Never list project deliverables, file names, topics, or grading points in the GitBook.
 
-**There are no separate tool pages.** A new tool is introduced in a "New tool" section on the quest page where it first appears (see the Quest template).
+**There are no separate tool pages.** A new tool is introduced in a "New <kind>: <name>" section on the quest page where it first appears (see the Quest template).
 
 ## Templates
 
@@ -117,7 +154,7 @@ GitBook needs a page for every item that expands in the sidebar, so keep this pa
 2. **What this module is about**: 2 or 3 sentences.
 3. **What the words mean**: Quest, Practice Day, Checkpoint, Boss Battle, each with its plain name.
 4. **Your route**: a table of day, page (with its plain name), and a one-line goal. Include practice days, the Checkpoint, the Conclusion, and the Boss Battle (Module Project) days, without linking a project page.
-5. **New tools**: one line each, linking to the quest's "New tool" section.
+5. **New tools**: one line each, linking to the quest's "New <kind>: <name>" section.
 6. **Where you'll practice each skill**: a table of skill (rubric name) and the quests that practice it. The meanings live on the Introduction page.
 7. **How each quest page works**: the quest sections in order.
 8. **Next**: the Module Introduction.
@@ -147,7 +184,7 @@ GitBook needs a page for every item that expands in the sidebar, so keep this pa
    - `**Why it matters at work:**` in one or two short sentences.
 4. **Learning goals**: 3 plain bullets (`* I can …`) after the line "After this reading, you should be able to say:". Don't use checkboxes (`- [ ]`): readers can't tick them in GitBook. Then a **Skills:** line with the rubric skill names.
 5. **Quick recall**: 1 to 3 bullets reminding the reader of something they already did that this reading builds on. Start each with "Recall that…". Include a line of code when it helps. Link the earlier page by its title. No module or day numbers. If the detail you recall (a line of code, a number, an example) is only in the interactive reading, not on the GitBook page, say so: "in the interactive reading for [Trace the Path](…)". Check the GitBook page first; never point readers to a page that doesn't show what you recalled.
-6. **New tool: <name>** (only when the reading introduces a tool or package). Three parts, nothing more:
+6. **New <kind>: <name>** (only when the reading introduces a tool). Name the exact kind, using the Technical terms table: `New Python package: NumPy`, `New Python module: json`, `New software: Git`, `New website: GitHub`, `New file type: Jupyter notebooks`. Never the generic "New tool". Three parts, nothing more:
    - **What it's for:** 1 or 2 sentences.
    - **How you'll see it in this reading:** the actual lines from the reading in a code block, followed by a **Code walkthrough** (see "Code blocks").
    - **Learn more:** 2 or 3 links: the official docs, and W3Schools when it has a page.
@@ -201,7 +238,7 @@ Use the curriculum's skill names exactly as the rubric does (for example, **Data
 - [ ] `SUMMARY.md` lists every page in sidebar order, with plain names after a colon and the day in parentheses.
 - [ ] No emojis, and no game word without its plain name.
 - [ ] No link to a Boss Battle page, and no project deliverables or topics named.
-- [ ] No tool or function named before its "New tool" section or "Words to know" entry.
+- [ ] No tool or function named before its "New <kind>" section or "Words to know" entry.
 - [ ] Each quest's takeaways match what its reading actually teaches.
 - [ ] Each diagram rendered and checked for text size and overlap.
 - [ ] No code comment wraps; every code block that teaches something has a Code walkthrough; every parameter is introduced by name.

@@ -159,7 +159,8 @@ def find_form_problems(forms):
     return problems
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. The function has one parameter, `forms`: the list of form lines, exactly as the office typed them.
 2. `problems = []` starts an empty list. The function adds one message for each bad line.
@@ -168,6 +169,8 @@ def find_form_problems(forms):
 5. The structure check runs first: `len(fields) != 3`. A line with 2 fields has no grade to check, so reading `fields[2]` would stop the program with an error.
 6. Then come the value checks. `.isdigit()` runs before `int()`, so `int()` only ever sees digits.
 7. `return problems` sits at the same indent as `for`, so it runs once, after every line is checked. Indent it one more step and the function returns after line 1.
+
+</details>
 
 ![A flow for one sign-up form line. Check 1, the structure check: exactly 3 fields? If no, add the problem "Line 2: expected 3 fields" for S-2042|Chemistry. If yes, check 2, a value check: is the grade all digits? If no, add "Line 3: grade '10th' is not a number." If yes, check 3, a value check: is the grade 9 to 12? If no, add "Line 4: grade 14 is outside 9-12." If yes, the line is valid and adds no message, like lines 1 and 5. Each problem goes into the list with problems.append. After the last line, the function returns problems: 3 problems found.](images/m1b-form-checks.svg)
 
@@ -185,13 +188,16 @@ for request in requests:
         print("Skipped", guest)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `requests` is the list of room requests, like `"Okafor|2|double"`: a guest's name, the number of nights, and the room type.
 2. `request.split("|")` cuts each request into three fields. The three names on the left each get one field, in order.
 3. `int(nights_text)` is the risky step. For `"4 nights"`, it raises a `ValueError`.
 4. When that happens, Python leaves `try` at that line, so `"Booked"` doesn't print. It jumps to `except ValueError:` and prints `"Skipped Batista"`.
 5. Then the loop moves on to the next request. Lindqvist and Moreau still get rooms.
+
+</details>
 
 ![A flow using read_nights.py from the reading. Step 1, try: nights = int(nights_text). Step 2: did that line raise a ValueError? For "3", no: the rest of try runs, it prints Nights: 3, and except is skipped. For "4 nights", yes: Python jumps to except ValueError, skips the rest of try, and prints Could not read: 4 nights. Step 3: both paths continue after try and except, printing Done with, and the program keeps going.](images/m1b-try-except-flow.svg)
 
