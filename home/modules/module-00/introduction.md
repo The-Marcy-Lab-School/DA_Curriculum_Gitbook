@@ -1,6 +1,6 @@
 # Module 0 Introduction: Foundations
 
-**Time:** about 15 minutes
+**Time:** About 15 minutes
 
 ## Where you're starting
 

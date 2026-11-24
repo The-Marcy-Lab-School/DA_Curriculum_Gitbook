@@ -1,6 +1,6 @@
 # Quest 0.1 — Meet Your Terminal: The Command Line (Day 1)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **Analyst toolkit:** **Use the terminal** · Understand data · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -9,13 +9,6 @@
 You already know how to find a file with a mouse. You open a folder, look inside, and double-click the next folder. Every one of those clicks has a typed version. For example, instead of double-clicking a folder called `photos`, you can type `cd photos` and press Return.
 
 Typing feels slow at first. But it's exact, you can repeat it, and many data tools only work this way.
-
-In this reading, you'll learn how to:
-
-* find out which folder you're in, and list what's inside it
-* move into a folder, and back out of it
-* print a file on the screen
-* read an error message when a command doesn't work
 
 **Main takeaway:** Before you run a command in a new folder, check your **working directory**. The working directory is the folder the terminal treats as "here" right now. Run `pwd` to see it, and `ls` to see what's in it. Then move with `cd`, and check again.
 
@@ -114,7 +107,7 @@ In the reading, you'll focus on a community garden (a shared garden where neighb
 
 Think about: when you open a new folder with your mouse, what are the first two things you notice? What do you think the typed version of each one is? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

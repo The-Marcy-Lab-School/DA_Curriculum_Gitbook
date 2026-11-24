@@ -1,6 +1,6 @@
 # Module 1 Conclusion (Day 19)
 
-**Time:** about 6 minutes. Read this before the Boss Battle (Module Project).
+**Time:** About 6 minutes. Read this before the Boss Battle (Module Project).
 
 **Building blocks:** **Decide and repeat** · **Organize steps** · **Hold data** · **Load, save, and protect** · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 

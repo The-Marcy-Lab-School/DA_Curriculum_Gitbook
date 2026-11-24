@@ -1,6 +1,6 @@
 # Quest 2.11 — Nobody Was in the Room: Writing for Stakeholders (Day 12)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → Explore → Check → **Explain** ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -9,12 +9,6 @@
 The person who acts on your work usually wasn't there when you did it. For example, a coach looks at a spreadsheet of every game this season. The team allowed 20 goals (let the other team score 20 times). 12 of those 20 came in the last 10 minutes of games.
 
 The athletic director (the person in charge of a school's sports teams) won't read the coach's spreadsheet. The director needs the answer, one number, and a picture, in words they can read in one minute. For example: "Most goals against us come late in games: 12 of 20 came in the last 10 minutes."
-
-In this reading, you'll learn how to:
-
-* save a chart as an image file
-* write a README page (the first page people see in a project) that shows what you found
-* write a short data-quality memo (a note for a decision-maker) that says how much to trust it
 
 **Main takeaway:** A **stakeholder** is the person who uses your finding to make a decision. They need a page that makes sense without your code or your notebook. Start with the answer, give one number, and say what still needs checking. This order is called **BLUF**: Bottom Line Up Front.
 
@@ -105,7 +99,7 @@ In the reading, you'll focus on Jordan, who found that Route 12 buses run late i
 
 Think about: what does the manager need to see on the page to make that decision? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

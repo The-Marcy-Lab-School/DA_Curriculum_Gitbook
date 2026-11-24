@@ -1,6 +1,6 @@
 # Quest 1.4 — Pick the Right Container: Lists, Tuples, Sets, and Dictionaries (Day 7)
 
-**Total time:** about 40 minutes
+**Total time:** About 40 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · **Hold data** · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -14,12 +14,6 @@ Python works the same way. It has four main containers for holding many values. 
 * Can it change after you make it?
 * Can it hold the same value twice?
 * Can you find a value by a label?
-
-In this reading, you'll learn how to:
-
-* tell a list, a tuple, a dictionary, and a set apart
-* add to a list, and find a value in a dictionary by its label
-* pick the container whose rules fit the job
 
 **Main takeaway:** Pick the data structure whose rules fit the job. A **data structure** (or container) holds many values under one name, with rules about order, change, and repeats. For example, a set fits the coupon job, because it keeps each customer's name only once.
 
@@ -142,7 +136,7 @@ In the reading, you'll focus on a food delivery app. Every night it tracks four 
 
 Think about: which of these should be able to change during the night, and which should never change? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

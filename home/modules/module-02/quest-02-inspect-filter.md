@@ -1,6 +1,6 @@
 # Quest 2.2 — Look Before You Filter: Inspecting and Filtering Data (Day 2)
 
-**Total time:** about 40 minutes
+**Total time:** About 40 minutes
 
 **EDA workflow:** **Inspect** → Clean → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -14,17 +14,14 @@ But a cashier clicked Save two times on the $200 sale, so the sales sheet lists 
 
 ![Two sales sheets. Left, one sale saved twice: the rows are $50, $120, $200, $200, and $80, and the repeated $200 row is red. Total = $50 + $120 + $200 + $200 + $80 = $650, which is $200 more than the shop made. Right, each sale listed once: $50, $120, $200, and $80. Total = $50 + $120 + $200 + $80 = $450, which matches the real sales.](images/duplicate-sale-total.svg)
 
-In this reading, you'll learn how to:
+**Main takeaway:** Inspect every new file before you filter it or add anything up. To **inspect** a file means to run four checks on it:
 
-* open a data file in a notebook
-* check the file in four ways:
-  * **Shape:** did every row and column arrive?
-  * **Data types:** is each column the type you expect?
-  * **Missing values:** where are the blanks?
-  * **Duplicates:** do any rows repeat?
-* keep only the rows you need
+* **Shape:** did every row and column arrive?
+* **Data types:** is each column the type you expect?
+* **Missing values:** where are the blanks?
+* **Duplicates:** do any rows repeat?
 
-**Main takeaway:** Inspect every new file before you filter it or add anything up. To **inspect** a file means to run the four checks above on it. One **duplicate**, a row that repeats an earlier row, adds its value twice, like the $200 sale.
+One **duplicate**, a row that repeats an earlier row, adds its value twice, like the $200 sale.
 
 **Why it matters at work:** Analysts check every new file so the totals, counts, and rankings they report are right. For example, analysts check a file before they:
 
@@ -190,7 +187,7 @@ In the reading, you'll focus on a food bank's donation file. A **food bank** is 
 
 Think about: before you add up any weights, what could be wrong in the file that would make your total wrong? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

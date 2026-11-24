@@ -1,18 +1,12 @@
 # Quest 1.3 — When the Crowd Grows: How Code Speed Scales (Day 6)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · Load, save, and protect · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
 ## Introduction
 
 Some ways of searching get slower as the pile grows. For example, a teacher looks for one student's paper in a pile. She checks one paper at a time. With 10 papers, it takes a few seconds. With 1,000 papers, it could take a long time. But if the papers are filed in folders by name, she goes straight to the right folder. The pile size barely matters.
-
-In this reading, you'll learn how to:
-
-* count the steps a search takes in the worst case
-* describe how that count grows as the data grows
-* tell a search that checks every item apart from a lookup that jumps straight to one
 
 **Main takeaway:** Before you trust code on big data, ask how its work grows as the data grows. **Big-O** is the way to describe that growth. For example, a search that checks bookings one at a time does up to 4 checks for 4 bookings. For 8 bookings, it does up to 8. A lookup takes about 1 step at either size.
 
@@ -93,7 +87,7 @@ In the reading, you'll focus on an airport check-in screen: a screen where trave
 
 Think about: if the airline grows to 200K bookings, how many might the screen have to check to find yours? Does it matter where your booking sits in the list? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

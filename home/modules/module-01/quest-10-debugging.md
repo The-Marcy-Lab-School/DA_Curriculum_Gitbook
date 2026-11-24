@@ -1,6 +1,6 @@
 # Quest 1.10 — Looks Right. Is It? Debugging (Days 18–19)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · Load, save, and protect · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -10,12 +10,7 @@ A neat answer can still be wrong. For example, you buy 5 things at a store, and 
 
 ![Two receipts for the same 5 things: bread $3, milk $4, eggs $5, apples $6, and rice $2. Left, a receipt that skipped an item: bread is red and marked missing. Receipt total = $4 + $5 + $6 + $2 = $17, which is $3 short, and no error showed up. Right, a receipt with every item, all grey. Receipt total = $3 + $4 + $5 + $6 + $2 = $20, which matches the 5 things you bought.](images/receipt-missing-item.svg)
 
-Code works the same way. In this reading, you'll learn how to:
-
-* work out the right answer by hand before you run the code
-* find bugs (mistakes in code) that crash, or stop the program, by reading the error report from the bottom up
-* find bugs that don't crash, but quietly print a wrong answer
-* check a fix by running the same example again
+Code works the same way.
 
 **Main takeaway:** Code can run with no error and still give a wrong answer. This is called a **logic error**. To catch it, first work out the **expected behavior**: the answer the code should give, found by hand. Then compare it with what the code prints.
 
@@ -82,7 +77,7 @@ In the reading, you'll focus on a TV streaming app: an app for watching shows ov
 
 Think about: the code never crashed. How would you find out what's wrong? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

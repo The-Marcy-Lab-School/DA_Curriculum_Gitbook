@@ -1,6 +1,6 @@
 # Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers (Day 6)
 
-**Total time:** about 30 minutes
+**Total time:** About 30 minutes
 
 **Analyst toolkit:** Use the terminal · Understand data · Save with Git · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -9,16 +9,6 @@
 Sounding sure and being right are two different things. For example, a friend tells you the store closes at 9 p.m. They sound completely sure. You get there at 8:30, and the doors are locked. It closed at 8.
 
 AI (artificial intelligence) chatbots work the same way. A chatbot is a program that answers questions in everyday language. Chatbots give every answer in the same sure, polished tone, whether it's right or wrong.
-
-In this reading, you'll learn how to:
-
-* tell an unverified claim apart from a verified fact. A **claim** is a statement that says something is true, which may or may not be correct. *Unverified* means nobody has checked it yet.
-* check an AI answer against a real source, in four steps:
-  * find the exact claim
-  * find a real source
-  * compare the two
-  * decide whether to use the claim, fix it, or drop it
-* spot a hallucination: a sure-sounding answer that is wrong
 
 **Main takeaway:** An answer's **confidence** tells you nothing about its **accuracy**. Confidence is how sure an answer sounds. Accuracy is whether it is correct. Only checking the answer against a real source tells you if it's accurate.
 
@@ -78,7 +68,7 @@ In the reading, you'll focus on a park cleanup (a day when people pick up trash 
 
 Think about: before you print that sentence on a flyer (a printed page that shares news with many people), what would you check, and where? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

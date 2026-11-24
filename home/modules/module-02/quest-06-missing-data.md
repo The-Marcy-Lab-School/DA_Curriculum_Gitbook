@@ -1,6 +1,6 @@
 # Quest 2.6 — Drop, Fill, or Flag: Missing Data (Day 7)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -17,13 +17,13 @@ The three 0s pull the average down from 4.0 to 2.8, but no customer gave a 0. If
 
 ![Ten rating cards for a store survey, scored 1 to 5. Left, blanks counted as 0: seven grey cards (5, 4, 4, 5, 3, 4, 3) and three red cards that say 0. Average = (5 + 4 + 4 + 5 + 3 + 4 + 3 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = 2.8, but no customer gave a 0. Right, blanks skipped: the same seven grey cards and three empty cards marked "skipped." Average = (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = 4.0, which matches what customers said.](images/blanks-as-zero-ratings.svg)
 
-In this reading, you'll learn how to:
+**Main takeaway:** Every **missing value** needs one of three choices:
 
-* count the blanks
-* ask why they're missing
-* choose one of three actions for each blank: drop the row, fill the blank, or flag it
+* **Drop** the row.
+* **Fill** the blank with a stand-in value.
+* **Flag** it, and leave it blank.
 
-**Main takeaway:** Every **missing value** needs one of the three choices above: drop, fill, or flag. A missing value is a cell with no value in it, like a skipped survey question. Give each choice a reason with a number, like "I dropped 2 rows where the app crashed."
+A missing value is a cell with no value in it, like a skipped survey question. Give each choice a reason with a number, like "I dropped 2 rows where the app crashed."
 
 **Why it matters at work:** What you do with blanks decides the totals and averages in a report. For example, analysts handle blanks before they:
 
@@ -118,7 +118,7 @@ In the reading, you'll focus on Paws & Go, a dog-walking app. Its log has 8 walk
 
 Think about: if you remove every row that has any blank, how many of the 8 walks will you keep? Is that what you want? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

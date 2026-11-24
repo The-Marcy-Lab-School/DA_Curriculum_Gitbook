@@ -1,6 +1,6 @@
 # Quest 2.5 — Real Numbers, Wrong Story: Chart Best Practices (Day 5)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -16,13 +16,6 @@ So phone A's bar looks twice as tall. But phone A lasts only 1 hour longer. To t
 * Percent longer = (20 − 19) ÷ 19 × 100 = 1 ÷ 19 × 100 = about **5%**
 
 ![Two bar charts of the same data: phone A lasts 20 hours and phone B lasts 19 hours. Left chart: the y-axis starts at 18, so phone A's bar looks twice as tall as phone B's. Right chart: the y-axis starts at 0, so the bars look almost the same height, which matches the real difference of about 5%.](images/axis-baseline.svg)
-
-In this reading, you'll learn:
-
-* two ways a chart with real numbers can still mislead:
-  * a y-axis that doesn't start at zero
-  * hidden outliers
-* the labels every shared chart needs
 
 **Main takeaway:** A chart can mislead even when every number in it is right. One common cause is a **truncated axis**: a y-axis that doesn't start at zero. The battery chart's y-axis starts at 18. Before you share a chart, check where the y-axis starts and what the chart leaves out.
 
@@ -113,7 +106,7 @@ In the reading, you'll focus on a city's three public pools. The pool manager is
 
 Think about: how can a chart make a gap that big when every number in it is real? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

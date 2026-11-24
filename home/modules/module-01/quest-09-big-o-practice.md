@@ -1,19 +1,12 @@
 # Quest 1.9 — Lookups Matter: Search Speed in Practice (Days 16–17)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · Load, save, and protect · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
 ## Introduction
 
 How you look for something matters more as the pile grows. For example, you need one word in a book. You can turn the pages one by one from the start. Or you can use the index at the back, which sends you straight to the right page. In a 10-page booklet, turning pages is fine. In a 900-page book, the index saves a lot of time.
-
-In this reading, you'll learn how to:
-
-* explain why searching a list gets slower as the list grows
-* build a dictionary once, with a loop, so you can find any item by its key
-* look up a key safely, so a missing key doesn't crash your program (stop it with an error)
-* decide when a simple list search is still fine
 
 **Main takeaway:** To find items fast in big data, build a dictionary once, then look items up by key. A **dictionary lookup** finds a value straight from its key, in about one step at any size. A **linear search** checks items one at a time, so with 400K saved callers, one call can mean 400K checks. (K means thousand and M means million, so 400K is 400,000.)
 
@@ -80,7 +73,7 @@ In the reading, you'll focus on a help line: a phone number people call to get h
 
 Think about: the code didn't change, so why did it slow down? What would you change? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

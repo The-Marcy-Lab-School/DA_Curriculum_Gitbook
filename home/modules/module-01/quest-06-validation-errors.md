@@ -1,6 +1,6 @@
 # Quest 1.6 — Validate, Catch, Keep Going: Validation and Error Handling (Days 9–10)
 
-**Total time:** about 65 minutes
+**Total time:** About 65 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · **Load, save, and protect** · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -14,13 +14,6 @@ A careful program does two jobs:
 
 * **Validation:** it checks each line against rules before using it.
 * **Error handling:** it plans what to do when a step fails anyway.
-
-In this reading, you'll learn how to:
-
-* write one function that checks every line and returns a list of problems
-* check a line's shape before you check its values
-* use `try` and `except` to catch one bad line and keep going
-* name the error you expect, instead of catching every error
 
 **Main takeaway:** Use validation to catch data that breaks your rules, and error handling to keep going when a step fails. **Validation** means checking data against your rules before you use it. **Error handling** means deciding, in code, what happens when a step fails. Name the error you expect, so you never hide errors you didn't expect.
 
@@ -121,7 +114,7 @@ Here's an answer: "My program checks that every line has 3 fields, so every line
 
 Something is off about it. What? See if the reading agrees with you.
 
-## Read
+## ⭐ Read
 
 This quest has two readings. Do them in order.
 

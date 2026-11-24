@@ -1,6 +1,6 @@
 # Module 1 Checkpoint: Review and Practice (Day 19)
 
-**Time:** about 10 minutes to read (no new reading)
+**Time:** About 10 minutes to read (no new reading)
 
 **Building blocks:** **Decide and repeat** · **Organize steps** · **Hold data** · **Load, save, and protect** · **Check your work** (all five) ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 

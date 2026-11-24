@@ -1,6 +1,6 @@
 # Quest 1.7 — One Job at a Time: Writing a Second Function (Days 11–12)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **Building blocks:** Decide and repeat · **Organize steps** · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -9,12 +9,6 @@
 Work goes better when each person has one clear job. For example, at a busy café, one worker takes orders, makes coffee, and cleans tables. Orders get mixed up, and it's hard to tell what went wrong. With one job each, everyone knows who to ask when something breaks.
 
 Functions work the same way. A function with one job is easier to test, fix, and reuse. When someone asks for something new, you write a new function instead of making an old one longer.
-
-In this reading, you'll learn how to:
-
-* decide a function's input, its one job, and its output before you write code
-* add things up with an accumulator inside a loop
-* return a summary instead of printing it, so other functions can use it
 
 **Main takeaway:** Give each function one job. A **single-purpose function** does one job that you can say in one sentence, like "summarize the week." Return its result, and write a new function for each new job.
 
@@ -88,7 +82,7 @@ In the reading, you'll focus on a fitness tracker: an app that counts how many s
 
 Think about: should the checking function also make the summary, or should the summary get its own function? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

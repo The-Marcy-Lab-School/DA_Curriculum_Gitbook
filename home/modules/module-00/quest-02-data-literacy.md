@@ -1,6 +1,6 @@
 # Quest 0.2 — What Kind of Data Is This? Data Types and Data Structures (Day 1)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **Analyst toolkit:** Use the terminal · **Understand data** · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -9,12 +9,6 @@
 Some numbers are not really numbers. For example, your phone number is made of digits. But you would never add two phone numbers together, or find the average phone number. A phone number is a label, not an amount.
 
 A computer can't tell the difference on its own. You have to tell it what kind of value each piece of information is.
-
-In this reading, you'll learn how to:
-
-* tell a variable apart from the value inside it
-* name the data type of a value: text, whole number, decimal, true/false, or date
-* explain how a data structure groups many values together
 
 **Main takeaway:** Choose a value's **data type** by what the value means, not by what it looks like. A data type is what kind of value something is, like text or a whole number. If you would never do math with a value, store it as text, even when it's made of digits.
 
@@ -94,7 +88,7 @@ In the reading, you'll focus on an animal shelter. An **animal shelter** is a pl
 
 Here's an answer from a new volunteer: "A pet's weight, like `12.5`, and its tag number, like `00417`, are both made of digits. So the computer should store both as numbers." Something is off about it. What? See if the reading agrees with you.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

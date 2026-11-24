@@ -1,6 +1,6 @@
 # Module 1 Introduction: Programming Fundamentals
 
-**Time:** about 15 minutes
+**Time:** About 15 minutes
 
 ## Where you've been
 

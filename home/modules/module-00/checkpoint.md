@@ -1,6 +1,6 @@
 # Module 0 Checkpoint: Review and Practice (Day 7)
 
-**Time:** about 10 minutes (no new reading)
+**Time:** About 10 minutes (no new reading)
 
 **Analyst toolkit:** **Use the terminal** · **Understand data** · **Save with Git** · **Verify claims** (all four) ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 

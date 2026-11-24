@@ -1,6 +1,6 @@
 # Module 2 Introduction: Exploratory Data Analysis
 
-**Time:** about 6 minutes
+**Time:** About 6 minutes
 
 ## Where you've been
 
@@ -46,7 +46,7 @@ Real analysis often loops back. For example, while you explore, you might find a
 
 ### Why the quests don't follow the step order
 
-The quests start with **Explore**, not Inspect. You've already done some inspecting: in Python, your validation function looked for invalid lines and caught blank values. But to judge a whole table, you need to know what "normal" looks like for each column. The mean, the median, and the spread tell you that. So Quest 2.1 teaches those numbers first, on a short list you can see all at once. Then Quest 2.2 builds on your inspecting skills, and you check a whole file.
+The quests start with **Explore**, not Inspect. You've already done some inspecting: in Python, your validation function looked for invalid lines and caught blank values. But to judge a whole table, you need to know what "normal" looks like for each column. The mean, the median, and the spread tell you that. So Quest 2.1 teaches those terms first. Then Quest 2.2 builds on your inspecting skills, and you check a whole file.
 
 At the top of every quest page, you'll see which step you're on, like this:
 

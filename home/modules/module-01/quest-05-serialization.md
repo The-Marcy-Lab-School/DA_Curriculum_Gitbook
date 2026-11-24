@@ -1,6 +1,6 @@
 # Quest 1.5 — Make It Survive: Saving Data to Files (Day 8)
 
-**Total time:** about 40 minutes
+**Total time:** About 40 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · **Load, save, and protect** · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -9,12 +9,6 @@
 Sometimes your work disappears when a program stops. For example, you type a long shopping list into a phone app. The app crashes (stops suddenly) before it saves. When you open it again, the list is gone. It lived only in the app's memory, not in a file.
 
 Python programs work the same way. When a program stops, every variable is gone. To keep data, the program must write it to a file. Later, a program can read the file and build the data again.
-
-In this reading, you'll learn how to:
-
-* write text to a file and read it back
-* save a dictionary to a JSON (JavaScript Object Notation) file and load it again
-* check what changed about your data on the way
 
 **Main takeaway:** Saving data to a file and loading it back can change its types. **Serialization** means turning a Python value into text you can save in a file. When JSON loads that text back, the key `7` comes back as the string `"7"`. A tuple comes back as a list.
 
@@ -169,7 +163,7 @@ In the reading, you'll focus on a school's rooftop weather station: tools on the
 
 Think about: if you save this dictionary to a file and load it back tomorrow, will you get exactly the same dictionary? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

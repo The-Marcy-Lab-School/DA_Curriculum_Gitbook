@@ -1,6 +1,6 @@
 # Quest 0.3 — Save the Story of Your Work: Git and Version Control (Days 2–3)
 
-**Total time:** about 60 minutes
+**Total time:** About 60 minutes
 
 **Analyst toolkit:** Use the terminal · Understand data · **Save with Git** · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -135,7 +135,7 @@ In the first reading, you'll focus on three neighbors who count the trees on the
 
 Think about: a month later, how could one neighbor find out who changed the count on block 2, and when? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 This quest has two readings. Do them in this order.
 

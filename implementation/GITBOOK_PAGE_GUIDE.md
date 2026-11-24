@@ -26,12 +26,12 @@ Module 2 (`home/modules/module-02/`) is the reference: when this guide and a Mod
 - **Define every term the first time it appears**, in the page's "Words to know" section. Include the terms a reader needs even when the interactive reading skips them (for example, *measures of central tendency* or *variance*).
 - **Say what units a result comes in** whenever a page teaches a number: dollars, minutes, rows, a percent, or squared units.
 - **Never name a tool, function, or term before it's defined.** This matters most in "How this connects": describe what the reader will *do* next, not the name of a tool they haven't met.
-- **No emojis** in headings or body text.
+- **No emojis**, with one exception: every quest's Read heading is `## ⭐ Read`, so the link to the interactive reading stands out.
 - **Game words always come with a plain name.** Keep the quest titles, but every game word is paired with what it actually is. In titles, put the plain name after a colon, so each title has only one set of parentheses (the day): **Quest 2.1 — The Loudest Number: Descriptive Statistics (Day 1)**, **Module 2 Checkpoint: Review and Solo Practice (Days 13–14)**. When a quest title ends in a question mark, skip the colon: **Quest 2.4 — Who's This Chart For? Exploratory vs. Explanatory Charts (Day 4)**. In body text, write **Boss Battle (Module Project)**. Don't use other game words ("mission", "unlock", "arena", "reload", "conquer").
 - **Say it once.** Don't repeat the same point in three places on one page.
 - **GitBook hint blocks** (`{% hint style="info" %}`) are for the one or two lines a reader must not miss. At most two per page. Never use one for the page's opening; that's the Introduction's job.
 - **Answers stay hidden** in `<details>` blocks, so readers try first.
-- **No module numbers or day numbers in "Quick recall."** Describe what the reader did ("Recall that you built a function that…"), and link the earlier page by its title.
+- **"Quick recall" says where and what, briefly, with varied openers.** Don't start every bullet with "Recall that". Name the earlier reading by its linked title, and its module when it's from another module: "In Module 1's [One Job at a Time](…), you added up a week of step counts…", "`import json` was the first module you loaded…", "Your validation function in […] checked…". Keep each bullet to one or two short sentences. No day numbers.
 
 ## Technical terms
 
@@ -80,6 +80,9 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
     - Example: list vs. NumPy array. `[50, 40] * 2` gives `[50, 40, 50, 40]`, but `np.array([50, 40]) * 2` gives `[100, 80]`.
 11. **Collapse code walkthroughs** under "Expand to walk through the code" (see Code blocks).
 12. **Use more than one scenario.** The GitBook page's examples (the hook, diagrams, term tables, mix-ups) can and often should use a different scenario from the interactive reading. Seeing an idea in two or three settings (houses on a street, then gifts at a dinner) helps readers transfer it. Keep each example's numbers correct, and when a page does reuse the reading's data, match it exactly.
+13. **Keep the page's own scenario going.** Once a page picks its example data (like 9 gifts), its term tables and mix-ups keep using that data. Don't switch to the interactive reading's numbers partway through. The one exception is "How you'll see it in this reading", which shows the reading's own code.
+14. **Point to every picture in the sentence above it.** For example: "Now look at the street on the right in the picture below." Readers should know what to look for before they see it.
+15. **Cut filler that adds a new idea without explaining it.** End on the point. Not this: "so you learn them first, on a short list you can see all at once." This: "so you'll learn these terms first."
 
 ## Code blocks
 
@@ -113,6 +116,7 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
 - **Don't repeat a table in a picture.** If a picture shows the same thing as a table, keep one.
 - **Revisit the most important pictures.** The module's workflow diagram appears in the Introduction and again in the Conclusion. The Checkpoint has an "Explain the picture" section where readers explain two key diagrams from memory.
 - Save diagrams as SVG in the module's `images/` folder, on a white background.
+- **Keep text inside its shape**, with at least 16px of space between the text and every edge of its box. Check the render for text that touches or crosses a border.
 - **Colors can change, but they must be accessible.** Every color pair must pass WCAG contrast: at least 4.5:1 for text and 3:1 for shapes and lines. Never use color alone to carry meaning: also label it (for example, the red house also says "$3M"). Colors used so far, all passing: grey `#475569` on `#F1F5F9` (6.9:1), red `#B91C1C` on `#FEE2E2` (5.3:1), blue `#1D4ED8` on white (6.7:1), orange `#C2410C` on `#FFF7ED` (4.9:1). Use the strong color (like red) for what sticks out or is the main point.
 - **Text size:** body labels at least 17px and axis labels at least 20px in the SVG's own units. GitBook shrinks wide images to fit the page, so anything smaller becomes hard to read.
 - **Every chart has a labeled x-axis and y-axis**, even a sketch.
@@ -178,15 +182,16 @@ GitBook needs a page for every item that expands in the sidebar, so keep this pa
 
 ### Quest (`quest-NN-<slug>.md`)
 
-1. **Title**: `Quest M.N — <Quest title>: <Plain topic name> (Day X)`, the same in `SUMMARY.md` and in every "Next" link, so readers always know which day they're on (Module 1 uses the same `(Day X)` ending). Practice days, the Checkpoint, and the Conclusion end with their day too. Then one line under the title: `**Total time:** about 30 minutes`. The total counts both the GitBook page and the interactive reading. Estimate the page at 150 words a minute (a careful pace for beginners and English learners), rounded to 5 minutes. Don't show the breakdown, and don't repeat the day, since it's in the title. Every other page type gets a `**Time:**` line too.
+1. **Title**: `Quest M.N — <Quest title>: <Plain topic name> (Day X)`, the same in `SUMMARY.md` and in every "Next" link, so readers always know which day they're on (Module 1 uses the same `(Day X)` ending). Practice days, the Checkpoint, and the Conclusion end with their day too. Then one line under the title: `**Total time:** About 30 minutes`. The total counts both the GitBook page and the interactive reading. Estimate the page at 150 words a minute (a careful pace for beginners and English learners), rounded to 5 minutes. Don't show the breakdown, and don't repeat the day, since it's in the title. Every other page type gets a `**Time:**` line too.
 2. **Workflow tracker**, right under the time line. When the quest order jumps around the workflow (for example, the first quest teaches a later step), add one short line under the tracker that says why, and explain in the Introduction that the workflow can loop back. Tracker: `**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#…))`, with the quest's step in bold. Practice days and checkpoints bold every step they review. The Conclusion shows the workflow diagram again.
 3. **Introduction** (heading: `## Introduction`), in this order:
    - A short, everyday hook and a concrete example, in short sentences ("Sometimes averages can be misleading. For example, …"). Use a different example from the reading's own scenario, so readers see the idea in more than one setting.
-   - "In this reading, you'll learn how to:" followed by 2 to 4 short bullets.
+   - A diagram of the example when it uses numbers (see How to explain, rule 2), pointed out in the sentence above it.
+   - No "In this reading, you'll learn" list: the Learning goals section already says that. The Main takeaway comes right after the example or its diagram.
    - `**Main takeaway:**` in one or two short sentences.
    - `**Why it matters at work:**` in one or two short sentences.
 4. **Learning goals**: 3 plain bullets (`* I can …`) after the line "After this reading, you should be able to say:". Don't use checkboxes (`- [ ]`): readers can't tick them in GitBook. Then a **Skills:** line with the rubric skill names.
-5. **Quick recall**: 1 to 3 bullets reminding the reader of something they already did that this reading builds on. Start each with "Recall that…". Include a line of code when it helps. Link the earlier page by its title. No module or day numbers. If the detail you recall (a line of code, a number, an example) is only in the interactive reading, not on the GitBook page, say so: "in the interactive reading for [Trace the Path](…)". Check the GitBook page first; never point readers to a page that doesn't show what you recalled.
+5. **Quick recall**: 1 to 3 short bullets about something readers already did that this reading builds on. Vary the first words; don't start each bullet with "Recall that". Name the earlier reading by its linked title, and its module when it's from another module ("In Module 1's [One Job at a Time](…), you…"). Include a line of code when it helps. If the detail you recall is only in the interactive reading, say so: "in the interactive reading for [Trace the Path](…)". No day numbers.
 6. **New <kind>: <name>** (only when the reading introduces a tool). Name the exact kind, using the Technical terms table: `New Python package: NumPy`, `New Python module: json`, `New software: Git`, `New website: GitHub`, `New file type: Jupyter notebooks`. Never the generic "New tool". Three parts, nothing more:
    - **What it's for:** 1 or 2 sentences.
    - **How you'll see it in this reading:** the actual lines from the reading in a code block, followed by a **Code walkthrough** (see "Code blocks").
@@ -196,7 +201,7 @@ GitBook needs a page for every item that expands in the sidebar, so keep this pa
    - **Scenario:** "In the reading, you'll focus on <scenario>. Think about: <question>. Write down your first answer, then see if the reading agrees."
    - **First answer:** "What's your first answer to <question>? Write it down, then check it against the reading."
    - **Spot the problem** (when the Introduction already covers the idea): "Here's an answer: '<plausible but wrong claim>'. Something is off about it. What? See if the reading agrees with you."
-9. **Read**: first "As you read, look for:" with 3 numbered prompts, **then** the reading link and its time.
+9. **⭐ Read** (heading: `## ⭐ Read`, the only emoji in the GitBook): first "As you read, look for:" with 3 numbered prompts, **then** the reading link and its time.
    - **Optional reading (Side Quest)** (only when the quest has one): a short section right after Read. Say it's optional, not needed for the checkpoint, and can be submitted for credit. Link it as `**[Start the optional reading: <Title> →](url)** (about N minutes)`. Don't add its time to the total.
 10. **Main takeaways**:
    - **Summary**: 3 bullets, bold lead-in on each.

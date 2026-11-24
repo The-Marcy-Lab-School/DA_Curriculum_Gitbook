@@ -1,6 +1,6 @@
 # Quest 2.7 — Write It Once: Cleaning Functions (Day 8)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -14,12 +14,6 @@ Some data problems happen again and again. For example, every Monday a gym gets 
 If you count the rows for each class, Yoga looks like three different classes. And it shows 4 Yoga sign-ups for only 3 people. Fixing this by hand every week is slow, and one day you'll forget a step.
 
 ![Two sign-up sheets side by side. Left, the messy sheet has 6 rows. Ana signs up for Yoga twice, and the repeated row is red. Yoga is spelled three ways, Yoga, yoga, and YOGA, and the two odd spellings are red. Counting each class gives Yoga 2, yoga 1, YOGA 1, and Spin 2, so Yoga looks like 3 classes, with 4 sign-ups for 3 people. Right, the clean sheet has 5 rows, one per person, and every label is lowercase. Counting gives yoga 3 and spin 2: one yoga class with 3 people.](images/gym-signups-repeats-spellings.svg)
-
-In this reading, you'll learn how to fix three common problems:
-
-* repeated rows
-* numbers saved as text
-* labels spelled more than one way
 
 You'll also learn how to put all the fixes into one function that you can run on every new file.
 
@@ -106,7 +100,7 @@ In the reading, you'll focus on Terra Bean, a small coffee shop that gets a list
 
 Think about: after you stack the two lists into one table, how many rows will it have, and how many real deliveries? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

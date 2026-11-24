@@ -1,6 +1,6 @@
 # Quest 1.2 — Build It Once, Use It Again: Functions and Scope (Days 3–5)
 
-**Total time:** about 60 minutes
+**Total time:** About 60 minutes
 
 **Building blocks:** Decide and repeat · **Organize steps** · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -9,12 +9,6 @@
 Some steps are worth writing down once. For example, a cook writes a pancake recipe on a card. Each time she cooks, she follows the same card. Only the number of people changes. If she improves the recipe, she fixes one card, not ten copies.
 
 In code, that card is a **function**: a set of steps with a name that you can reuse.
-
-In this reading, you'll learn how to:
-
-* write a function once and use it many times
-* pass values into a function, and get one result back out
-* tell a function's own variables apart from the ones the whole program can use
 
 **Main takeaway:** Write steps you repeat once, as a function, and call it each time you need them. A **function** is a named, reusable block of code. Values go in through its parameters, and one result comes back out with `return`.
 
@@ -135,7 +129,7 @@ In the first reading, you'll focus on a laundromat. A **laundromat** is a shop w
 
 Think about: what could go wrong when someone updates the price? How could you write the math so there's only one place to change? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 There are two readings, one on Day 3 and one on Day 4. Do them in order. Day 5 has no new reading. In class, you'll practice loops, conditionals, and functions together.
 

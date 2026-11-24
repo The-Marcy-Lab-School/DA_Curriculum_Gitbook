@@ -1,6 +1,6 @@
 # Quest 2.10 — Two Sets of Eyes: Checking AI on Charts (Day 11)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → Explore → **Check** → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -18,11 +18,6 @@ But your own numbers, in °F (degrees Fahrenheit), say something else:
 Week 3 was 63 − 49 = 14°F colder than week 2. So the AI's claim is wrong.
 
 ![Two line charts of average temperature by week. Each has an x-axis for the week of the month, 1 to 4, and a y-axis for average temperature in °F, 40 to 80. Left, your numbers: 58, 63, 49, and 68°F. Week 3, in red, was 14°F colder than week 2, but the AI said, "Temperatures rose steadily." Right, what rising steadily would look like: 52, 57, 62, and 67°F, with each week 5°F warmer than the last. That would match the AI's claim.](images/ai-temperature-claim.svg)
-
-In this reading, you'll learn how to check two things against numbers you calculated yourself:
-
-* an AI's description of a chart you made
-* a chart that an AI suggests
 
 **Main takeaway:** An AI can describe a chart wrongly and still sound sure. So check each **claim** against numbers you calculated yourself. A claim is one statement that could be checked, like "Temperatures rose steadily all month." When you share a result, you are responsible for it, not the AI.
 
@@ -98,7 +93,7 @@ In the reading, you'll focus on Devon, who runs a small used-book shop where cus
 
 Think about: what would you need in hand before you could tell whether the AI is right? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

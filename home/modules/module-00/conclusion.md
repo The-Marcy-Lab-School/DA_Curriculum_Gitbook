@@ -1,6 +1,6 @@
 # Module 0 Conclusion (Day 8)
 
-**Time:** about 5 minutes. Read this before the Boss Battle (Module Project).
+**Time:** About 5 minutes. Read this before the Boss Battle (Module Project).
 
 **Analyst toolkit:** **Use the terminal** · **Understand data** · **Save with Git** · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 

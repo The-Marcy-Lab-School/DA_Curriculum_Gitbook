@@ -1,6 +1,6 @@
 # Quest 1.1 — Trace the Path: Conditionals and Loops (Days 1–2)
 
-**Total time:** about 60 minutes
+**Total time:** About 60 minutes
 
 **Building blocks:** **Decide and repeat** · Organize steps · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -9,13 +9,6 @@
 Programs make choices, and they repeat work. For example, a teacher grades a stack of 30 tests. For each test, she asks one question: is the score 70 or higher? If yes, the test goes in the "pass" pile. If not, it goes in the "review" pile. She asks the same question 30 times, once per test.
 
 A program does the same thing. Choosing a pile is a **conditional**. Doing it again for every test is a **loop**.
-
-In this reading, you'll learn how to:
-
-* make a program choose one path with `if`, `elif`, and `else`
-* repeat steps with a `for` loop or a `while` loop
-* put a loop inside a loop, or a choice inside a choice
-* trace code by hand, so you can say what it prints before you run it
 
 **Main takeaway:** You can predict exactly what code will print by tracing it. To **trace** code means to follow it by hand, one line and one pass at a time. As you go, write down each value as it changes. This works because Python runs the same steps in the same order every time.
 
@@ -142,7 +135,7 @@ In the first reading, you'll focus on a movie theater. A script gives a long tim
 
 Think about: does a movie that is exactly 150 minutes get a long slot? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 There are two readings. Do them in order.
 

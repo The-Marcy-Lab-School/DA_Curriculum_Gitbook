@@ -1,19 +1,12 @@
 # Quest 2.3 — One Row Per Group: Grouping, New Columns, and Merging (Day 3)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
 ## Introduction
 
 Managers rarely ask about just one row. For example, a pizza company has 20 stores. It records every order: the store, the time, and the price. The owner asks, "Which store sells the most?" There are 5,000 orders, too many to read one by one. You could write one filter per store, but that's 20 filters. One line of code can make one summary row for each store instead.
-
-In this reading, you'll learn how to:
-
-* turn many rows into one summary row for each group
-* add new columns that you calculate from other columns
-* change rows safely
-* bring in columns from a second table
 
 **Main takeaway:** To compare groups, **group** the rows. Split them into one pile per group. Then work out one summary number for each pile. In pandas, `groupby` does this in one line. Check your work after every change, because pandas can sometimes do nothing, or add blanks, without showing an error.
 
@@ -96,7 +89,7 @@ In the reading, you'll focus on a nonprofit that runs blood drives at a library,
 
 Think about: besides each place's average, what else would you want to know before you call one place the winner? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

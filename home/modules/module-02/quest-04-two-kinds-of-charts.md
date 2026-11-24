@@ -1,18 +1,12 @@
 # Quest 2.4 — Who's This Chart For? Exploratory vs. Explanatory Charts (Day 4)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
 ## Introduction
 
 Sometimes the same numbers need two different charts. For example, a coffee shop owner draws a quick chart of daily sales to find her slow days. Later, she asks a bank for a loan (money she borrows and must pay back). The chart for the bank needs a clear title, labeled axes, and nothing extra, because the banker never saw her first chart.
-
-In this reading, you'll learn how to:
-
-* tell a chart made for you apart from a chart made for someone else
-* choose a chart type on purpose
-* chart a count over time
 
 **Main takeaway:** A chart for you and a chart for someone else are two different charts. An **exploratory chart** is a quick, rough chart you make for yourself to find a pattern. An **explanatory chart** shows one finding to someone else, with a title and labels they can follow without you. Before you make either one, ask what you're comparing. Then check a number before you trust the picture.
 
@@ -125,7 +119,7 @@ In the reading, you'll focus on a free after-school tutoring center (a place whe
 
 Think about: what should be different between the charts you make while exploring the data and the one chart you hand the committee? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

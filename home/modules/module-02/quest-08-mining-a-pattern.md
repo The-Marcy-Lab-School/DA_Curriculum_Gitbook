@@ -1,6 +1,6 @@
 # Quest 2.8 — Beneath the Total: Finding Patterns in Groups (Day 9)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -21,12 +21,6 @@ Recall that an average is the sum of the values ÷ the number of values:
 On the same route, they are equally fast: both take 45 minutes on a long route and 20 minutes downtown. Sam's average is higher only because Sam drove more long routes.
 
 ![Two drivers' deliveries. Left, all deliveries: Sam made 4 long-route deliveries, in red, at 45 minutes each, and 1 downtown delivery, in grey, at 20 minutes. Alex made 1 long-route delivery at 45 minutes and 4 downtown deliveries at 20 minutes. Sam's average = (4 × 45 + 20) ÷ 5 = 200 ÷ 5 = 40 minutes. Alex's average = (45 + 4 × 20) ÷ 5 = 125 ÷ 5 = 25 minutes. Sam looks 15 minutes slower because Sam drove 4 long routes. Right, the same route: on the long route both take 45 minutes, and downtown both take 20 minutes, so on the same route they are equally fast.](images/driver-route-mix.svg)
-
-In this reading, you'll learn how to:
-
-* split a number by two columns at the same time
-* check what each group is made of before you compare groups
-* tell a real finding apart from one that has another cause, or one that everyone already knows
 
 **Main takeaway:** A gap between two averages can come from a **confound** instead of a real difference. A confound is a pattern that something else explains, like Sam's 4 long routes making Sam look slow. Count what each group is made of, then compare the same kind of row across groups.
 
@@ -107,7 +101,7 @@ In the reading, you'll focus on FixIt, a phone repair shop with two locations. D
 
 Think about: what would you want to know before you answer? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

@@ -1,6 +1,6 @@
 # Quest 2.9 — The Pattern Isn't the Proof: Asking Questions About Your Data (Day 10)
 
-**Total time:** about 30 minutes
+**Total time:** About 30 minutes
 
 **EDA workflow:** Inspect → Clean → Explore → **Check** → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -16,12 +16,6 @@ Maybe the food in Riverside is worse. Or maybe fewer people there use the app. S
 In both places, half of the rated restaurants are rated high. Riverside shows fewer only because fewer of its restaurants got counted.
 
 ![Two neighborhoods with 8 restaurants each. Left, Riverside, where few people use the review app: 6 restaurants are red because they have no rating, and only 2 have a rating. 1 of those 2 is rated high, so the app shows only 1 highly rated restaurant. Right, Northside, where many people use the app: all 8 restaurants have a rating, and 4 of those 8 are rated high. In both places, half of the rated restaurants are rated high.](images/restaurant-reviews-undercounted.svg)
-
-In this reading, you'll learn how to:
-
-* read the note that comes with a dataset
-* check where the data came from, what's missing, and which groups were counted less
-* turn an unclear question into one that someone can actually answer
 
 **Main takeaway:** A pattern in a file can come from **bias** in how the data was collected, not from the real world. Bias here means some groups got counted less than others. For example, most of Riverside's restaurants had too few reviews to get a rating. Before you trust a pattern, ask **checkable questions** about where the data came from: questions specific enough that someone can answer them with a fact.
 
@@ -103,7 +97,7 @@ In the reading, you'll focus on a street tree count. Volunteers counted trees in
 
 Think about: does West really have the fewest trees, or could something else explain that number? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

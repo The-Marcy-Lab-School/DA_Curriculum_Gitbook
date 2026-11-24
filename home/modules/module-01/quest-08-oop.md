@@ -1,6 +1,6 @@
 # Quest 1.8 — Meet the Objects: Classes and Objects (Days 13–15)
 
-**Total time:** about 60 minutes
+**Total time:** About 60 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · **Hold data** · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -9,13 +9,6 @@
 Many things in a program come in sets of the same kind. For example, a gym uses one sign-up form for every member. The form has the same blanks each time: name, plan (the type of membership the person pays for), and visits this month. Each member fills in their own copy. Ana's visits never change Jay's.
 
 In Python, the blank form is a **class**. Each filled-in copy is an **object**.
-
-In this reading, you'll learn how to:
-
-* write a class that stores each object's starting values
-* make several objects from one class, and keep their values apart
-* write a method that works on one object's own values
-* choose what an object shows when you print it
 
 **Main takeaway:** A **class** describes one kind of thing, once. Each **object** made from it keeps its own values. For example, `goal_a` and `goal_b` both come from the `SavingsGoal` class. Changing `goal_a`'s saved amount from 420 to 480 doesn't change `goal_b`.
 
@@ -123,7 +116,7 @@ In the first reading, you'll focus on a budgeting app: an app that helps you pla
 
 Think about: you add money to the Bike Fund. Should the Trip Fund's saved amount change too? Why or why not? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 There are two readings. Do them in order.
 
