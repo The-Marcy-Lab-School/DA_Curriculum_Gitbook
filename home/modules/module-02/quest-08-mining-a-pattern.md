@@ -9,14 +9,12 @@
 You've grouped by one column and checked every pair in a nested loop. This reading puts the two ideas together.
 
 * In the interactive reading for [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].agg(["count", "mean", "median"])` gave one row per group. The count next to the mean showed how many rows each number rested on.
-* When a group's mean sits well above its median, a few big values are pulling the mean up. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then the better typical value.
+* When a group's mean sits well above its median, a few big values are pulling the mean up. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then a better typical value than the mean.
 * A nested loop runs its inner body once for every outer pass. In Module 1's [Trace the Path](../module-01/quest-01-control-flow.md), 3 worlds × 4 checkpoints printed 12 lines, and grouping by two columns gives every combination the same way.
 
 ## Introduction
 
-Sometimes one average hides important differences. For example, two drivers each make 5 deliveries. Sam's take 40 minutes on average, and Alex's take 25 minutes. Sam looks slow.
-
-But the two drivers did different kinds of trips. A **route** is the path a driver follows. A long-route trip outside the city takes 45 minutes. A trip downtown (in the center of the city) takes 20 minutes.
+Sometimes one average hides important differences. For example, two drivers each make 5 deliveries. Sam's deliveries take 40 minutes on average, and Alex's take 25 minutes. Sam's average looks slower than Alex's, but is this true? They each drove different **routes**, the paths a driver follows. A long route outside the city takes 45 minutes, and a trip downtown (in the center of the city) takes 20 minutes.
 
 * Sam drove 4 long routes and 1 downtown trip.
 * Alex drove 1 long route and 4 downtown trips.
@@ -30,7 +28,7 @@ On the same route, they are equally fast: both take 45 minutes on a long route a
 
 ![Two drivers' deliveries. Left, all deliveries: Sam made 4 long-route deliveries, in red, at 45 minutes each, and 1 downtown delivery, in grey, at 20 minutes. Alex made 1 long-route delivery at 45 minutes and 4 downtown deliveries at 20 minutes. Sam's average = (4 × 45 + 20) ÷ 5 = 200 ÷ 5 = 40 minutes. Alex's average = (45 + 4 × 20) ÷ 5 = 125 ÷ 5 = 25 minutes. Sam looks 15 minutes slower because Sam drove 4 long routes. Right, the same route: on the long route both take 45 minutes, and downtown both take 20 minutes, so on the same route they are equally fast.](images/driver-route-mix.svg)
 
-**Main takeaway:** A gap between two averages can come from a **confound** instead of a real difference. A confound is a pattern that something else explains, like Sam's 4 long routes making Sam look slow. Count what each group is made of, then compare the same kind of row across groups.
+**Main takeaway:** A gap between two averages can come from a **confound** instead of a real difference. A confound is another variable that affects the result, but that you didn't consider at first. Here, the confound is the type of route: Sam looks slow only because Sam drove more long routes. Count what each group is made of, then compare the same kind of row across groups.
 
 **Why it matters at work:** Splitting a number into groups shows what really drives it, before anyone acts on it. For example, teams use it to:
 
@@ -91,8 +89,7 @@ You've seen a small test mislead before. In [When the Crowd Grows](../module-01/
 
 | Word | What it means | Example with the deliveries |
 | --- | --- | --- |
-| **Confound** | A pattern that is really explained by something else. | Sam seems slow, but the driver is standing in for the route. |
-| **Confounding variable** | The "something else" behind a confound. | The route: long or downtown |
+| **Confound** (also called a **confounding variable**) | Another variable that affects the result, but that you didn't consider at first. It can make a gap between groups look real when it isn't. | The type of route, long or downtown. It makes Sam's average 15 minutes higher, even though Sam drives as fast as Alex. |
 | **Non-obvious pattern** | A real, checkable finding that the reader wouldn't have guessed from the obvious groups alone, and that they would act on. | The manager gave Sam **4 of the 5 long routes**. That route plan explains the whole gap. |
 | **Simpson's paradox** | When a group looks better or worse overall, but the gap shrinks or flips once you compare the same kind of row. The mix causes it. The reading's optional video shows another example. | Overall, Sam takes 40 − 25 = **15 minutes** longer. On the same route, the gap shrinks to **0 minutes**: 45 vs. 45 on long routes, and 20 vs. 20 downtown. |
 
@@ -134,7 +131,7 @@ In the reading, the gap came from the mix, just like Sam's: Downtown did more sc
 
 | If you think... | What's actually true |
 | --- | --- |
-| "Sam's average is 15 minutes higher, so Sam is slow." | Sam drove 4 long routes and 1 downtown trip. Alex drove 1 and 4. Both take 45 minutes on a long route and 20 minutes downtown. That's a confound. |
+| "Sam's average is 15 minutes higher, so Sam is slow." | Sam drove 4 long routes and 1 downtown trip. Alex drove 1 and 4. Both take 45 minutes on a long route and 20 minutes downtown. The type of route is a confound. |
 | "I'll always report the median, just to be safe." | Pick the one that fits. For Sam's long routes next week, the mean and the median are both 45 minutes. The std is 1.8 minutes. So the mean is fine. |
 | "It's true, so it's a finding." | "Long routes take longer than downtown trips" is true, but the manager already knows it. "Sam got 4 of the 5 long routes, and that explains the gap" is new to the manager, so it's a finding. |
 
