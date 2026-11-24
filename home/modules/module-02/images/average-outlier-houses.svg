@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 450" width="1040" height="450" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">One outlier pulls the average</title>
+<desc id="d">Left: ten houses on one street. Nine grey houses sold for $300K each, and one red house sold for $3M. Average = (9 × $300K + $3M) ÷ 10 = $5.7M ÷ 10 = $570K, and no house sold near $570K. Right: ten grey houses that each sold for $300K. Average = (10 × $300K) ÷ 10 = $300K, which matches every house.</desc>
+<rect width="1040" height="450" fill="#ffffff"/>
+<text x="265" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">One outlier</text>
+<polygon points="35,90 70,60 105,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="43" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="63" y="110" width="14" height="22" fill="#475569"/>
+<text x="70" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="127,90 162,60 197,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="135" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="155" y="110" width="14" height="22" fill="#475569"/>
+<text x="162" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="219,90 254,60 289,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="227" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="247" y="110" width="14" height="22" fill="#475569"/>
+<text x="254" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="311,90 346,60 381,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="319" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="339" y="110" width="14" height="22" fill="#475569"/>
+<text x="346" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="403,90 438,60 473,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="411" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="431" y="110" width="14" height="22" fill="#475569"/>
+<text x="438" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="35,205 70,175 105,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="43" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="63" y="225" width="14" height="22" fill="#475569"/>
+<text x="70" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="127,205 162,175 197,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="135" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="155" y="225" width="14" height="22" fill="#475569"/>
+<text x="162" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="219,205 254,175 289,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="227" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="247" y="225" width="14" height="22" fill="#475569"/>
+<text x="254" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="311,205 346,175 381,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="319" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="339" y="225" width="14" height="22" fill="#475569"/>
+<text x="346" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="403,205 438,175 473,205" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<rect x="411" y="205" width="54" height="42" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<rect x="431" y="225" width="14" height="22" fill="#B91C1C"/>
+<text x="438" y="271" text-anchor="middle" font-size="18" font-weight="bold" fill="#B91C1C">$3M</text>
+<rect x="20" y="300" width="490" height="135" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="40" y="334" font-size="19" font-weight="bold" fill="#111827">Average = sum of prices ÷ number of houses</text>
+<text x="40" y="370" font-size="19" fill="#111827">= (9 × $300K + $3M) ÷ 10</text>
+<text x="40" y="402" font-size="19" fill="#111827">= $5.7M ÷ 10 = $570K</text>
+<text x="40" y="438" font-size="19" font-weight="bold" fill="#B91C1C">No house sold near $570K.</text>
+<text x="775" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">No outlier</text>
+<polygon points="545,90 580,60 615,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="553" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="573" y="110" width="14" height="22" fill="#475569"/>
+<text x="580" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="637,90 672,60 707,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="645" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="665" y="110" width="14" height="22" fill="#475569"/>
+<text x="672" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="729,90 764,60 799,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="737" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="757" y="110" width="14" height="22" fill="#475569"/>
+<text x="764" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="821,90 856,60 891,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="829" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="849" y="110" width="14" height="22" fill="#475569"/>
+<text x="856" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="913,90 948,60 983,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="921" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="941" y="110" width="14" height="22" fill="#475569"/>
+<text x="948" y="156" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="545,205 580,175 615,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="553" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="573" y="225" width="14" height="22" fill="#475569"/>
+<text x="580" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="637,205 672,175 707,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="645" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="665" y="225" width="14" height="22" fill="#475569"/>
+<text x="672" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="729,205 764,175 799,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="737" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="757" y="225" width="14" height="22" fill="#475569"/>
+<text x="764" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="821,205 856,175 891,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="829" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="849" y="225" width="14" height="22" fill="#475569"/>
+<text x="856" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<polygon points="913,205 948,175 983,205" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="921" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<rect x="941" y="225" width="14" height="22" fill="#475569"/>
+<text x="948" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
+<rect x="530" y="300" width="490" height="135" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="550" y="334" font-size="19" font-weight="bold" fill="#111827">Average = sum of prices ÷ number of houses</text>
+<text x="550" y="370" font-size="19" fill="#111827">= (10 × $300K) ÷ 10</text>
+<text x="550" y="402" font-size="19" fill="#111827">= $3M ÷ 10 = $300K</text>
+<text x="550" y="438" font-size="19" font-weight="bold" fill="#1D4ED8">The average matches every house.</text>
+</svg>

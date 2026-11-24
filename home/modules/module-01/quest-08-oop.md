@@ -1,6 +1,6 @@
 # Quest 1.8 — Meet the Objects: Classes and Objects (Days 13–15)
 
-**Total time:** about 55 minutes
+**Total time:** about 60 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · **Hold data** · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -17,9 +17,15 @@ In this reading, you'll learn how to:
 * write a method that works on one object's own values
 * choose what an object shows when you print it
 
-**Main takeaway:** A class describes one kind of thing, once. Each object made from it keeps its own values.
+**Main takeaway:** A **class** describes one kind of thing, once. Each **object** made from it keeps its own values. For example, `goal_a` and `goal_b` both come from the `SavingsGoal` class. Changing `goal_a`'s saved amount from 420 to 480 doesn't change `goal_b`.
 
-**Why it matters at work:** Data programs handle many records of the same kind. A **record** is the data about one thing, like one gym member. A class keeps each record's values together, and apart from every other record. Many Python packages for data are built from classes, so these words will come up again and again.
+**Why it matters at work:** Analysts use classes to keep each record's values together, and apart from every other record. A **record** is the data about one thing, like one gym member. For example, classes help them:
+
+* store each gym member's name, plan, and visits in one object
+* give every record the same actions, like checking whether a savings goal is funded
+* read code from Python packages for data, which are built from classes
+
+Without a class, ten savings goals need 30 separate variables, like `name_2` and `saved_2`, and they're easy to mix up.
 
 ## Learning goals
 
@@ -41,27 +47,37 @@ After this reading, you should be able to say:
 
 ### What is a class?: Classes and objects
 
-| Word | What it means |
-| --- | --- |
-| **Class** | A description of one kind of thing: what each one stores (attributes) and what it can do (methods). You write it once and make many objects from it. |
-| **Object** | One specific thing made from a class, with its own values. |
-| **Instance** | Another word for object. "`goal_a` is an instance of `SavingsGoal`" means `goal_a` was made from that class. |
-| **Object-Oriented Programming (OOP)** | A way of writing programs around objects. Each object holds its data and the actions that use that data. |
-| **CapWords** | The naming style for classes. Each word starts with a capital letter, with no spaces or underscores: `SavingsGoal`. Variables, functions, and methods use lowercase words joined by underscores: `saved_amount`. Both rules come from PEP 8 (PEP stands for "Python Enhancement Proposal"), Python's style guide. See [the Module 1 Introduction](introduction.md#python-syntax-and-style). |
+The examples come from the first reading's budgeting app.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Class** | A description of one kind of thing: what each one stores (attributes) and what it can do (methods). You write it once and make many objects from it. | `SavingsGoal` |
+| **Object** | One specific thing made from a class, with its own values. | `goal_a`, which holds Bike Fund, 500, and 420 |
+| **Instance** | Another word for object. | "`goal_a` is an instance of `SavingsGoal`" means `goal_a` was made from that class. |
+| **Object-Oriented Programming (OOP)** | A way of writing programs around objects. Each object holds its data and the actions that use that data. | Each goal holds its own amounts and its own `is_funded()` check. |
+| **CapWords** | The naming style for classes. Each word starts with a capital letter, with no spaces or underscores. Variables, functions, and methods use lowercase words joined by underscores instead. Both rules come from PEP 8 (PEP stands for "Python Enhancement Proposal"), Python's style guide. See [the Module 1 Introduction](introduction.md#python-syntax-and-style). | `SavingsGoal` (a class), but `saved_amount` (a variable) |
 
 A class works like the column names at the top of `pets.csv`. It lists the same blanks once. Each object is one record that fills in those blanks with its own values.
 
 ### What is inside an object?: Attributes, methods, and self
 
-| Word | What it means |
-| --- | --- |
-| **Attribute** | A value stored on an object. You read it with a dot and no parentheses: `goal_a.name`. |
-| **Method** | A function written inside a class. You call it with a dot and parentheses: `goal_a.is_funded()`. The parentheses mean "run this method." |
-| **`__init__`** | The setup method. Python runs it by itself, once, each time a new object is made. It stores the incoming values as that object's attributes. |
-| **`self`** | Inside a method, the object the method is working on: the object before the dot. Python passes it in for you. |
-| **Dunder** | Short for "double underscore." `__init__` is said "dunder init." |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Attribute** | A value stored on an object. You read it with a dot and no parentheses. | `goal_a.name` gives `"Bike Fund"`. |
+| **Method** | A function written inside a class. You call it with a dot and parentheses. The parentheses mean "run this method." | `goal_a.is_funded()` gives `False`. |
+| **`__init__`** | The setup method. Python runs it by itself, once, each time a new object is made. It stores the incoming values as that object's attributes. | It runs once when `SavingsGoal("Bike Fund", 500, 420)` runs. |
+| **`self`** | Inside a method, the object the method is working on: the object before the dot. Python passes it in for you. | In `goal_b.is_funded()`, `self` is `goal_b`. |
+| **Dunder** | Short for "double underscore." | `__init__` is said "dunder init." |
 
 You've already called methods, like `stops.append("Oak Rd")` in [Pick the Right Container](quest-04-data-structures.md). Now you'll write your own.
+
+An object is a lot like a dictionary that also has its own actions. Compare a goal stored each way, from the reading:
+
+| | Dictionary | Object |
+| --- | --- | --- |
+| **Read one value** | `goal["saved_amount"]` gives `300` | `goal_a.saved_amount` gives `420` |
+| **Run an action** | No `is_funded()`. You'd write a separate function. | `goal_a.is_funded()` gives `False` |
+| **Same labels every time** | Each dictionary can have different keys. | Every `SavingsGoal` object gets the same three attributes. |
 
 For example, this is the class from the first reading. It describes a **savings goal**: an amount of money you want to save for one thing, like a bike.
 
@@ -78,7 +94,8 @@ class SavingsGoal:  # CapWords name
 goal_a = SavingsGoal("Bike Fund", 500, 420)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `class SavingsGoal:` starts the class. Everything indented under it belongs to the class.
 2. `def __init__(self, name, target_amount, saved_amount):` is the setup method. `self` is the new object. The other three parameters receive the values you pass in.
@@ -86,15 +103,19 @@ goal_a = SavingsGoal("Bike Fund", 500, 420)
 4. `def is_funded(self):` is a method. It reads this object's own attributes and returns `True` or `False`. A goal is **funded** when the saved amount has reached the target amount.
 5. `SavingsGoal("Bike Fund", 500, 420)` makes a new object, and Python runs `__init__` once. The parameter `name` is set to `"Bike Fund"`, `target_amount` is set to `500`, and `saved_amount` is set to `420`. You never pass `self` yourself.
 
+</details>
+
 ### How does an object describe itself?: Magic methods
 
-| Word | What it means |
-| --- | --- |
-| **Magic method** | A method whose name starts and ends with two underscores, like `__init__`, `__str__`, or `__repr__`. Python calls it for you at the right moment. Also called a dunder method. |
-| **`__str__`** | Returns a friendly string for a person to read. `print(obj)`, `str(obj)`, and `f"{obj}"` use it. |
-| **`__repr__`** | Returns an exact string for programmers, usually shaped like the code that made the object, such as `Pet('Biscuit', 'dog')`. `repr(obj)` and lists use it. |
-| **Default representation** | What Python shows when a class has neither method: the class name plus a memory address, like `<__main__.Pet object at 0x7f2b1c0a4d90>`. |
-| **Memory address** | Where an object is stored in the computer's memory. It changes each time you run the file, so it doesn't tell you which object you have. |
+The examples come from the second reading's pet-sitting app, where `biscuit = Pet("Biscuit", "dog")`.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Magic method** | A method whose name starts and ends with two underscores. Python calls it for you at the right moment. Also called a dunder method. | `__init__`, `__str__`, or `__repr__` |
+| **`__str__`** | Returns a friendly string for a person to read. `print(obj)`, `str(obj)`, and `f"{obj}"` use it. | `print(biscuit)` shows `Biscuit the dog`. |
+| **`__repr__`** | Returns an exact string for programmers, usually shaped like the code that made the object. `repr(obj)` and lists use it. | `repr(biscuit)` gives `Pet('Biscuit', 'dog')`. |
+| **Default representation** | What Python shows when a class has neither method: the class name plus a memory address. | `<__main__.Pet object at 0x7f2b1c0a4d90>` |
+| **Memory address** | Where an object is stored in the computer's memory. It changes each time you run the file, so it doesn't tell you which object you have. | `0x7f2b1c0a4d90` |
 
 ## Before you read
 
@@ -142,11 +163,11 @@ To predict the output, ask what is asking Python to describe the object.
 
 | If you think... | What's actually true |
 | --- | --- |
-| "`__init__` runs every time I use an object." | It runs once, when the object is made. Reading an attribute or calling a method doesn't run it again. |
-| "Two objects from the same class share their values." | Each object stores its own attributes. Changing one object leaves the others alone. |
-| "I pass `self` when I make an object." | Python passes `self` for you. Write `SavingsGoal("Bike Fund", 500, 420)`, not `SavingsGoal(self, "Bike Fund", 500, 420)`. |
-| "`__str__` should print the string." | It must **return** the string. `print()` then shows what it returns. |
-| "A list of objects uses `__str__`." | A list shows each item with `__repr__`, even when the class has a `__str__`. |
+| "`__init__` runs every time I use an object." | It runs once, when the object is made. `goal_a.name` and `goal_a.is_funded()` don't run it again. |
+| "`goal_a` and `goal_b` come from the same class, so they share their values." | Each object stores its own attributes. Change `goal_a.saved_amount` to 480, and `goal_b.saved_amount` stays 1200. |
+| "I have to pass `self` when I make an object." | Python passes `self` for you. Write `SavingsGoal("Bike Fund", 500, 420)`, not `SavingsGoal(self, "Bike Fund", 500, 420)`. |
+| "`__str__` should print the string." | It must **return** the string, like `return f"{self.name} the {self.species}"`. `print()` then shows `Biscuit the dog`. |
+| "My class has a `__str__`, so a list of pets will use it." | A list shows each item with `__repr__`: `[Pet('Biscuit', 'dog'), Pet('Mochi', 'cat')]`. |
 
 ### How this connects
 

@@ -16,9 +16,15 @@ In this reading, you'll learn how to:
 * save a dictionary to a JSON (JavaScript Object Notation) file and load it again
 * check what changed about your data on the way
 
-**Main takeaway:** A file holds a text version of your data, not the data itself. Loading builds new values, and some come back as a different type.
+**Main takeaway:** Saving data to a file and loading it back can change its types. **Serialization** means turning a Python value into text you can save in a file. When JSON loads that text back, the key `7` comes back as the string `"7"`. A tuple comes back as a list.
 
-**Why it matters at work:** Analysts save and load data files every day. If a key or a number comes back as a different type, the program gives wrong answers with no error message.
+**Why it matters at work:** Analysts save and load data files every day, so later runs and teammates can use the data. For example, they use files to:
+
+* save a program's results, like each hour's rain, so the next run can use them
+* load data that another program sent, often as JSON
+* keep a **log**: a file that gets one new line each time something happens
+
+If a key or a number comes back as a different type, the program gives wrong answers with no error message.
 
 ## Learning goals
 
@@ -35,11 +41,16 @@ After this reading, you should be able to say:
 * Recall that a **dictionary** stores key/value pairs, and a **tuple** is an ordered record (a group of values about one thing) that can't change. You used both in [Pick the Right Container](quest-04-data-structures.md). In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
 * Recall that `ls` lists the files in a folder, from [Meet Your Terminal](../module-00/quest-01-terminal.md). Recall too that `cat pets.csv` prints what's inside a file, from the interactive reading for [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). You'll use both to look inside the file your program saves.
 
-## New tool: the json module
+## New Python module: json
 
 **What it's for:** `json` saves a Python value as JSON text in a file, and builds a Python value again from that text. Each job takes one line.
 
 `json` is a **module**: one file of Python code that you load with `import`. It comes with Python, so there's nothing to install.
+
+**JSON** (JavaScript Object Notation) is a text format for saving data. JSON text looks a lot like a Python dictionary, but it isn't one:
+
+* A Python dictionary lives in memory while the program runs: `{6: (0.4, 58)}`.
+* JSON text lives in a file after the program stops: `{"6": [0.4, 58]}`. Its keys are always in double quotes, and it has square brackets where Python had a tuple.
 
 **How you'll see it in this reading:**
 
@@ -57,7 +68,8 @@ with open("rain.json") as f:
 print(rain["7"])  # [1.2, 55]
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `import json` loads the `json` module. It goes at the top of each file that uses it. After it, you can use `json.dump` and `json.load`.
 2. `rain` is a dictionary. Each key is an hour of the day. Each value is a tuple: the rain in millimeters, then the temperature in degrees Fahrenheit.
@@ -67,6 +79,8 @@ print(rain["7"])  # [1.2, 55]
 6. `json.load(f)` reads the JSON text and builds a brand-new dictionary from it. This is **deserialization**, or loading.
 7. `rain["7"]` uses the string `"7"`, not the number `7`, because JSON keys are always strings. It gives back `[1.2, 55]`: a list, not the tuple you saved.
 
+</details>
+
 You may see `json.dumps` and `json.loads` in other examples. The extra *s* stands for *string*: they work with a string instead of a file.
 
 **Learn more:** [Python docs: json](https://docs.python.org/3/library/json.html) (official) · [Python docs: Reading and Writing Files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files) (official) · [W3Schools: Python JSON](https://www.w3schools.com/python/python_json.asp) · [W3Schools: Python File Handling](https://www.w3schools.com/python/python_file_handling.asp)
@@ -75,13 +89,15 @@ You may see `json.dumps` and `json.loads` in other examples. The extra *s* stand
 
 ### Keeping data after the program stops: Serialization
 
-| Word | What it means |
-| --- | --- |
-| **Memory** | Where a running program keeps its variables. Everything in memory is gone when the program stops. |
-| **Serialization** | Turning a Python value into text that can be saved to a file. Its everyday name is *saving*. |
-| **Deserialization** | Building a Python value again from saved text. Its everyday name is *loading*. |
-| **Round trip** | Saving a value and then loading it back. Compare what comes back with what you saved. |
-| **Format** | The rules for how data is laid out as text in a file. The format decides how the data reads back. |
+The examples come from the reading's weather program.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Memory** | Where a running program keeps its variables. Everything in memory is gone when the program stops. | `rain` is gone when `save_rain.py` stops. |
+| **Serialization** | Turning a Python value into text that can be saved to a file. Its everyday name is *saving*. | `json.dump(rain, f)` writes `rain` into `rain.json`. |
+| **Deserialization** | Building a Python value again from saved text. Its everyday name is *loading*. | `json.load(f)` builds `rain` again in `load_rain.py`. |
+| **Round trip** | Saving a value and then loading it back. Compare what comes back with what you saved. | Save `{6: (0.4, 58)}`. Load back `{"6": [0.4, 58]}`. |
+| **Format** | The rules for how data is laid out as text in a file. The format decides how the data reads back. | JSON, CSV, or TXT |
 
 ### Which kind of file?: JSON, CSV, and TXT
 
@@ -112,18 +128,18 @@ JSON text has three rules that Python dictionaries don't follow. Check them when
 
 ### Opening a file: open() and modes
 
-| Word | What it means |
-| --- | --- |
-| **`open(name, mode)`** | A built-in function that finds a file, or makes it, so your code can write to it or read it. |
-| **Mode** | The second argument you give `open()`. It says what you plan to do with the file. |
-| **`"w"` (write)** | Empties the file first, then writes. If the file doesn't exist, Python makes it. |
-| **`"a"` (append)** | Keeps what's already in the file and adds to the end. *Append* means "add to the end." |
-| **No mode, or `"r"` (read)** | Opens the file for reading. |
-| **`with open(...) as f:`** | Opens a file and names it `f` for the indented lines below. When those lines end, Python closes the file for you. |
-| **`f.write(text)`** | A method that adds the text to the open file. |
-| **`f.read()`** | A method that gives back everything in the file as one string. |
-| **`"\n"`** | Inside a string, it means "start a new line here." Without it, the next write lands on the same line. |
-| **`FileNotFoundError`** | The error Python raises when you try to read a file that doesn't exist yet. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **`open(name, mode)`** | A built-in function that finds a file, or makes it, so your code can write to it or read it. | `open("rain_note.txt", "w")` |
+| **Mode** | The second argument you give `open()`. It says what you plan to do with the file. | `"w"`, `"a"`, or no mode |
+| **`"w"` (write)** | Empties the file first, then writes. If the file doesn't exist, Python makes it. | 3 hourly runs with `"w"` leave 1 line: `8:00 rain 0.9 mm`. |
+| **`"a"` (append)** | Keeps what's already in the file and adds to the end. *Append* means "add to the end." | 3 hourly runs with `"a"` leave all 3 lines. |
+| **No mode, or `"r"` (read)** | Opens the file for reading. | `open("rain.json")` |
+| **`with open(...) as f:`** | Opens a file and names it `f` for the indented lines below. When those lines end, Python closes the file for you. | `with open("rain_note.txt", "w") as f:` |
+| **`f.write(text)`** | A method that adds the text to the open file. | `f.write("6:00 rain 0.4 mm\n")` |
+| **`f.read()`** | A method that gives back everything in the file as one string. | After two writes, it gives both lines as one string. |
+| **`"\n"`** | Inside a string, it means "start a new line here." Without it, the next write lands on the same line. | Without it, you get `6:00 rain 0.4 mm7:00 rain 1.2 mm`. |
+| **`FileNotFoundError`** | The error Python raises when you try to read a file that doesn't exist yet. | Running `load_rain.py` before `save_rain.py` has made `rain.json` |
 
 The mode matters most when a program adds one line at a time. For example, the reading's weather program adds a line to its log every hour:
 
@@ -131,15 +147,15 @@ The mode matters most when a program adds one line at a time. For example, the r
 
 ### What comes back different: Types after loading
 
-| Word | What it means |
-| --- | --- |
-| **Data type** | What kind of value something is: a string (`str`), a whole number (`int`), a decimal number (`float`), a tuple, a list, or a dictionary. |
-| **Keys become strings** | JSON keys are always strings. The integer key `6` comes back as the string `"6"`. |
-| **Tuples become lists** | JSON has no tuple type. The tuple `(0.4, 58)` comes back as the list `[0.4, 58]`. |
-| **Text files give back strings** | Every value read from a text file is a string, even text that looks like a number, such as `1.5`. Turn it into a number before you do math with it. |
-| **`KeyError`** | The error Python raises when a dictionary has no entry for the key you asked for. |
-| **"not JSON serializable"** | A `TypeError` that means JSON has no way to store that type of value, such as a calendar date. |
-| **`datetime`** | A module that comes with Python for calendar dates. In the reading, `from datetime import date` loads it, and `date(2026, 10, 3)` stores October 3, 2026. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Data type** | What kind of value something is: a string (`str`), a whole number (`int`), a decimal number (`float`), a tuple, a list, or a dictionary. | `58` is an `int`. `0.4` is a `float`. |
+| **Keys become strings** | JSON keys are always strings. | The integer key `6` comes back as the string `"6"`. |
+| **Tuples become lists** | JSON has no tuple type. | The tuple `(0.4, 58)` comes back as the list `[0.4, 58]`. |
+| **Text files give back strings** | Every value read from a text file is a string, even text that looks like a number. Turn it into a number before you do math with it. | You get `"1.5"`, not `1.5`. |
+| **`KeyError`** | The error Python raises when a dictionary has no entry for the key you asked for. | `restored[7]` after the round trip, when the key is now `"7"` |
+| **"not JSON serializable"** | A `TypeError` that means JSON has no way to store that type of value. | `json.dump` on a record that holds a calendar date |
+| **`datetime`** | A module that comes with Python for calendar dates. In the reading, `from datetime import date` loads it. | `date(2026, 10, 3)` stores October 3, 2026. |
 
 ![Three panels. In Python while the program runs: rain = {6: (0.4, 58), 7: (1.2, 55)}, with integer keys and tuple values. An arrow labeled json.dump(), save, leads to rain.json on disk: {"6": [0.4, 58], "7": [1.2, 55]}, with string keys and lists. An arrow labeled json.load(), load, leads back to Python later, where the keys are still strings and the values are still lists. Two notes: the integer 6 came back as the string "6", so rain[6] now raises a KeyError. The tuple (0.4, 58) came back as the list [0.4, 58], because JSON has no tuples.](images/m1b-json-round-trip.svg)
 
@@ -175,12 +191,12 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "The file holds my dictionary." | It holds a text version. Loading builds a new dictionary, and it can differ from the one you saved. |
-| "If it loads without an error, it's the same data." | The key `7` can come back as `"7"`, and a tuple as a list, with no error. |
-| "`"w"` adds a line to my file." | `"w"` empties the file first. Use `"a"` to add to the end. |
-| "A number in a text file comes back as a number." | Everything read from a text file is a string. Turn it into a number with `int()` or `float()` first. |
-| "JSON and CSV are the same, because both are text files." | They lay data out differently. A list of alerts fits inside a JSON record, but not in one flat CSV cell. |
-| "Python's `True` is fine in a JSON file." | JSON writes it as lowercase `true`, and it uses double quotes for strings. |
+| "The file holds my dictionary." | It holds text: `{"6": [0.4, 58], "7": [1.2, 55]}`. Loading builds a new dictionary from that text, and it can differ from the one you saved. |
+| "It loaded with no error, so it's the same data." | The key `7` came back as `"7"`, and `(1.2, 55)` came back as `[1.2, 55]`. Neither change shows an error. |
+| "`"w"` adds a line to my file." | `"w"` empties the file first. After 3 hourly runs with `"w"`, the log holds only `8:00 rain 0.9 mm`. Use `"a"`. |
+| "The file says 1.5, so I get the number 1.5 back." | You get the string `"1.5"`. Turn it into a number with `float("1.5")` first. |
+| "JSON and CSV are both text files, so they work the same." | They lay data out differently. A day's alerts, like `["wind", "storm"]`, fit inside a JSON record, but not in one flat CSV cell. |
+| "Python's `True` is fine in a JSON file." | JSON writes it as lowercase `true`. A file with `True` in it isn't valid JSON. |
 
 ### How this connects
 

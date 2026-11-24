@@ -1,12 +1,12 @@
 # Quest 2.3 — One Row Per Group: Grouping, New Columns, and Merging (Day 3)
 
-**Total time:** about 30 minutes
+**Total time:** about 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
 ## Introduction
 
-Managers rarely ask about just one row. For example, a pizza company records every order: the store, the time, and the price. The owner asks, "Which store sells the most?" You can't read 5,000 orders one by one. Writing a separate filter for every store is slow.
+Managers rarely ask about just one row. For example, a pizza company has 20 stores. It records every order: the store, the time, and the price. The owner asks, "Which store sells the most?" There are 5,000 orders, too many to read one by one. You could write one filter per store, but that's 20 filters. One line of code can make one summary row for each store instead.
 
 In this reading, you'll learn how to:
 
@@ -15,9 +15,15 @@ In this reading, you'll learn how to:
 * change rows safely
 * bring in columns from a second table
 
-**Main takeaway:** Compare groups by making one summary row for each group. Check your work after every change, because pandas can sometimes do nothing, or add blanks, without showing an error.
+**Main takeaway:** To compare groups, **group** the rows. Split them into one pile per group. Then work out one summary number for each pile. In pandas, `groupby` does this in one line. Check your work after every change, because pandas can sometimes do nothing, or add blanks, without showing an error.
 
-**Why it matters at work:** Many work questions compare groups, like "Which location collects the most?" or "Which team is slowest?" Most findings start this way.
+**Why it matters at work:** Comparing groups is how analysts answer most "which one?" questions. For example, teams use one summary row per group to:
+
+* find which store sells the most
+* see which support team takes the longest to answer customer calls
+* compare average sales for each month
+
+Without the count for each group, you might call a store the winner when it had only 2 orders.
 
 ## Learning goals
 
@@ -41,42 +47,48 @@ You've added up values in a loop, and looked up values by key. This reading does
 
 ### Grouping
 
-| Word | What it means | Units |
+**Units** are what a number counts or measures. In this reading, the `units` column counts bags of blood: one unit is one bag. So each site's mean and median come out in units of blood. A count comes out in drives. The examples use the `units` column of `drives.csv`:
+
+* Library: 26, 31, 25
+* Community Center: 40, blank, 36
+* Fire Station: 20, 24
+
+| Word | What it means | Example with the drives |
 | --- | --- | --- |
-| **groupby** | Splits rows into groups by a category, applies a summary to each group, and combines the answers into one row per group. People call this "split, apply, combine." On its own, `groupby("site")` only makes the groups. It shows no table until you add a summary. | — |
-| **Aggregation** | A summary worked out for each group, such as a count, mean, or median. `.agg()` does several at once. | Depends on the summary (see below) |
-| **count** (in `.agg()`) | How many values in the group are *not* blank. It shows how many rows each number rests on, so you can spot a group too small to trust. | A count of rows |
-| **mean and median** (in `.agg()`) | The average and the middle value for each group. Side by side, they're a quick skew check for each group. | Same as the column (here, units of blood) |
+| **groupby** | Splits rows into groups by a category, applies a summary to each group, and combines the answers into one row per group. People call this "split, apply, combine." On its own, `groupby("site")` only makes the groups. It shows no table until you add a summary. | `drives.groupby("site")` makes **3 groups**, one per site |
+| **Aggregation** | A summary worked out for each group, such as a count, mean, or median. `.agg()` does several at once. | `.agg(["count", "mean", "median"])` gives **3 numbers** for each site |
+| **count** (in `.agg()`) | How many values in the group are *not* blank. It shows how many rows each number rests on, so you can spot a group too small to trust. | Community Center held 3 drives, but 1 is blank, so its count is **2 drives** |
+| **mean and median** (in `.agg()`) | The average and the middle value for each group. Side by side, they're a quick skew check for each group. | Library mean: (26 + 31 + 25) ÷ 3 = 82 ÷ 3 = **27.3 units**. Median: **26 units**. |
 
 You've built a summary like this by hand. In [One Job at a Time](../module-01/quest-07-second-function.md), `summarize_steps` looped over each day and kept a running total with `total += steps`. To total each site that way, you'd need a separate total for every site. `groupby` keeps one for every group, with no loop.
 
 ### New columns
 
-| Word | What it means |
-| --- | --- |
-| **Derived column** | A new column worked out from columns you already have. You write the formula once, and pandas applies it to every row at once, with no loop. A blank in, a blank (NaN) out. |
-| **Rate** | A derived column that divides one number by another, like units per volunteer hour. It can show what raw counts hide. Its units come from both columns: units of blood *per hour*. |
-| **Mask** | A True/False column saved under a name, like `big = drives["units"] >= 30`, so you can reuse it to pick rows. |
+| Word | What it means | Example with the drives |
+| --- | --- | --- |
+| **Derived column** | A new column worked out from columns you already have. You write the formula once, and pandas applies it to every row at once, with no loop. A blank in, a blank (NaN) out. | `units_per_hour`: the first Library drive is 26 units ÷ 10 hours = **2.6**. The blank drive gives **NaN**. |
+| **Rate** | A derived column that divides one number by another, like units per volunteer hour. It can show what raw counts hide. Its units come from both columns: units of blood *per hour*. | Fire Station collects the fewest units. But per hour, its drives (20 ÷ 8 = **2.5**, 24 ÷ 8 = **3.0**) are close to the Library's (**2.6** to **3.1**). |
+| **Mask** | A True/False column saved under a name, like `big = drives["units"] >= 30`, so you can reuse it to pick rows. | `big` is True for **3 drives**: 40, 31, and 36 units |
 
 In [Trace the Path](../module-01/quest-01-control-flow.md), `for temp in temps:` checked `temp > 80` on one number per pass. A derived column or a mask does the same kind of math or check on every row at once.
 
 ### Changing rows safely
 
-| Word | What it means |
-| --- | --- |
-| **Copy** | A separate table. In pandas 3, a filter like `drives[big]` always gives you a copy. Changing a copy never touches the original. |
-| **Chained assignment** | Setting a value in two steps, like `df[mask]["col"] = value`. The first step makes a copy, and the second step changes the copy, so your table stays the same. |
-| **ChainedAssignmentError** | The message pandas shows when you try chained assignment. Despite its name, it's a warning, not a crash: the cell keeps running, so it's easy to miss. |
-| **`.loc`** | Names the rows and the column inside one pair of brackets, so the change happens to your table itself, in one step: `df.loc[rows, "col"] = value`. |
+| Word | What it means | Example with the drives |
+| --- | --- | --- |
+| **Copy** | A separate table. In pandas 3, a filter like `drives[big]` always gives you a copy. Changing a copy never touches the original. | `drives[big]` is a 3-row copy |
+| **Chained assignment** | Setting a value in two steps, like `df[mask]["col"] = value`. The first step makes a copy, and the second step changes the copy, so your table stays the same. | After `drives[big]["goal_met"] = "yes"`, `drives` has **0** "yes" values |
+| **ChainedAssignmentError** | The message pandas shows when you try chained assignment. Despite its name, it's a warning, not a crash: the cell keeps running, so it's easy to miss. | It shows under that same line, and the next line still runs |
+| **`.loc`** | Names the rows and the column inside one pair of brackets, so the change happens to your table itself, in one step: `df.loc[rows, "col"] = value`. | After `drives.loc[big, "goal_met"] = "yes"`, `drives` has **3** "yes" values |
 
 ### Combining tables
 
-| Word | What it means |
-| --- | --- |
-| **Merge** | Combines two tables by matching rows on a shared column, then copies the second table's columns onto the matching rows. |
-| **Key** | The shared column a merge matches on, like `site`. Keys must match exactly, letter for letter. |
-| **Lookup table** | A small second table with one row per key, used to add columns to a bigger table. |
-| **Left merge** (`how="left"`) | Setting the parameter `how` to `"left"` makes a merge keep every row of your main table. A row with no match stays, with NaN in the new columns. |
+| Word | What it means | Example with the drives |
+| --- | --- | --- |
+| **Merge** | Combines two tables by matching rows on a shared column, then copies the second table's columns onto the matching rows. | Each drive gets its site's `neighborhood`, like Library → Northside |
+| **Key** | The shared column a merge matches on, like `site`. Keys must match exactly, letter for letter. | `"Firehouse"` does not match `"Fire Station"` |
+| **Lookup table** | A small second table with one row per key, used to add columns to a bigger table. | 3 rows: one per site, with its neighborhood |
+| **Left merge** (`how="left"`) | Setting the parameter `how` to `"left"` makes a merge keep every row of your main table. A row with no match stays, with NaN in the new columns. | 8 rows before, **8** after. With `"Firehouse"`, **2** neighborhoods are blank. |
 
 ## Before you read
 
@@ -108,10 +120,10 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "`groupby("site")` on its own shows a table." | It only makes the groups. You still need a summary like `.mean()` or `.agg()`. |
-| "Adding `.copy()` makes a two-step change stick." | It still changes a copy. Use `.loc` in one step. |
+| "I ran `drives.groupby("site")`, so I should see one row per site." | It only makes the groups. You still need a summary like `.mean()` or `.agg()`. |
+| "If I add `.copy()`, my two-step change will work." | It still changes a copy, so `drives` still has 0 "yes" values. Use `.loc` in one step to get all 3. |
 | "ChainedAssignmentError stopped my cell, so nothing happened." | It's a warning. The cell keeps running, and every count after it is quietly wrong. |
-| "The merge ran with no error, so it worked." | A misspelled key leaves blanks silently. Count the blanks to find out. |
+| "The merge ran with no error, so it worked." | With `"Firehouse"` in the lookup, the merge runs with no error, but 2 rows get a blank neighborhood. Count the blanks to find out. |
 
 ### How this connects
 

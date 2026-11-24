@@ -17,9 +17,15 @@ In this reading, you'll learn how to:
 * put a loop inside a loop, or a choice inside a choice
 * trace code by hand, so you can say what it prints before you run it
 
-**Main takeaway:** Python runs the same steps in the same order every time. So if you trace code one step at a time, you can predict exactly what it will do.
+**Main takeaway:** You can predict exactly what code will print by tracing it. To **trace** code means to follow it by hand, one line and one pass at a time. As you go, write down each value as it changes. This works because Python runs the same steps in the same order every time.
 
-**Why it matters at work:** Analysts go through rows of data and decide what to do with each one: keep it, fix it, or flag it (mark it so someone checks it). If a loop stops one row early, no error shows up. The numbers are just wrong.
+**Why it matters at work:** Analysts use loops and conditionals to go through rows of data and decide what to do with each row. For example, they use them to:
+
+* keep only the rows they need, like the orders from this month
+* **flag** a strange row, like a test score of 250 out of 100 (to flag means to mark it for someone to check)
+* count rows, like how many movies run over 150 minutes
+
+If a loop stops one row early, no error shows up. The count is just wrong by one.
 
 ## Learning goals
 
@@ -44,18 +50,20 @@ This is your first Python reading. The [Module 1 Introduction](introduction.md#p
 
 ### How do you read Python code?: Basic syntax
 
-| Word | What it means |
-| --- | --- |
-| **Script** | A small Python program saved in a file that ends in `.py`. |
-| **Run a file** | Tell Python to do every line in the file, from top to bottom. |
-| **Output** | What a program shows on the screen when it runs. |
-| **`print()`** | A function that shows a value on the screen. A **function** is named code you run by writing its name and parentheses. |
-| **String** | Text. It goes inside quotes. `98` is a number, but `"98"` is a string. |
-| **List** | Several values kept in order, inside square brackets: `[98, 165, 122]`. |
-| **Comparison** | A check that gives back True or False. `>` and `<` mean greater and less than. `>=` and `<=` add "or equal to." `==` asks "are these equal?" and `!=` asks "are these different?" |
-| **Boolean** | A value that is either `True` or `False`. Every comparison gives back a Boolean. |
-| **Comment** | A line that starts with `#`. It's a note for people. Python skips it. |
-| **Block** | The lines under a line that ends with a colon (`:`). Each line in the block is pushed in by 4 spaces. That push is called **indentation**. It tells Python which lines belong together. |
+The examples come from the first reading's movie theater.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Script** | A small Python program saved in a file that ends in `.py`. | `theater_notes.py` |
+| **Run a file** | Tell Python to do every line in the file, from top to bottom. | Type `python3 theater_notes.py` in the terminal. |
+| **Output** | What a program shows on the screen when it runs. | `98 regular slot` |
+| **`print()`** | A function that shows a value on the screen. A **function** is named code you run by writing its name and parentheses. | `print("Runtime:", 98)` shows `Runtime: 98` |
+| **String** | Text. It goes inside quotes. | `"Moonlight Run"`. `"98"` is a string, but `98` is a number. |
+| **List** | Several values kept in order, inside square brackets. | `[98, 165, 122]` |
+| **Comparison** | A check that gives back True or False. `>` and `<` mean greater and less than. `>=` and `<=` add "or equal to." `==` asks "are these equal?" and `!=` asks "are these different?" | `98 > 150` gives `False` |
+| **Boolean** | A value that is either `True` or `False`. Every comparison gives back a Boolean. | `True` |
+| **Comment** | A line that starts with `#`. It's a note for people. Python skips it. | `# a list of numbers` |
+| **Block** | The lines under a line that ends with a colon (`:`). Each line in the block is pushed in by 4 spaces. That push is called **indentation**. It tells Python which lines belong together. | The `print(...)` line pushed in under `for show in showtimes:` |
 
 Two of these words are Python's names for data types you met in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md):
 
@@ -74,7 +82,8 @@ for temp in temps:
         print(temp, "mild")
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `temps = [68, 75, 81]` stores a list of three numbers in the variable `temps`.
 2. `for temp in temps:` starts a loop. On each pass, `temp` holds the next number in the list.
@@ -82,40 +91,46 @@ for temp in temps:
 4. The two `print(...)` lines are each pushed in under their own branch. Only one of them runs on each pass.
 5. The script prints `68 mild`, then `75 mild`, then `81 hot`.
 
+</details>
+
 ### How does code choose?: Conditionals
 
 A **condition** is a question with a True or False answer, like `temp > 80`.
 
-| Word | What it means |
-| --- | --- |
-| **Conditional** | Code that checks a condition and picks which code runs next. |
-| **Branch** | One possible path in a conditional: the block under an `if`, an `elif`, or an `else`. |
-| **`if` / `elif` / `else`** | `if` checks the first condition. `elif` is short for "else if" and checks another condition. `else` runs only when every condition before it was False. |
-| **Exactly one branch runs** | Python checks the chain from top to bottom. It runs the first branch whose condition is True, then skips the rest of the chain. |
-| **Nested conditional** | An `if` written inside one branch of another `if`. Python checks the inner question only when it goes into the outer branch. |
+The examples come from the first reading's lobby screen, which shows how soon a movie starts, and the second reading's game doors.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Conditional** | Code that checks a condition and picks which code runs next. | `if minutes_left >= 60:` |
+| **Branch** | One possible path in a conditional: the block under an `if`, an `elif`, or an `else`. | `print("head over soon")`, under `elif minutes_left >= 15:` |
+| **`if` / `elif` / `else`** | `if` checks the first condition. `elif` is short for "else if" and checks another condition. `else` runs only when every condition before it was False. | `if` 60 or more, `elif` 15 or more, `else` "starting now" |
+| **Exactly one branch runs** | Python checks the chain from top to bottom. It runs the first branch whose condition is True, then skips the rest of the chain. | With `minutes_left = 25`, only `head over soon` prints. |
+| **Nested conditional** | An `if` written inside one branch of another `if`. Python checks the inner question only when it goes into the outer branch. | `if key == "red":` inside `if key != "nothing":` |
 
 ### How does code repeat?: Loops
 
-| Word | What it means |
-| --- | --- |
-| **Loop** | Code that repeats a block. |
-| **`for` loop** | Repeats once for each item in a list, or for each number from `range()`. |
-| **`while` loop** | Repeats as long as its condition stays True. Python checks the condition before every pass. |
-| **Iteration** | One single pass through a loop. Four iterations means the loop body ran four times. |
-| **Loop body** | The pushed-in code inside a loop. It runs once per iteration. |
-| **Loop variable** | The name that holds the current item on each pass, like `temp` above. |
-| **`range(n)`** | Makes the numbers to loop over. It starts at 0 and stops *before* `n`. So `range(3)` gives 0, 1, and 2: three numbers. |
-| **Infinite loop** | A `while` loop whose condition never becomes False, so it never stops. The loop body must change something the condition checks. |
-| **Nested loop** | A loop written inside another loop's body. The **outer loop** is on the outside. The **inner loop** sits in its body and runs all the way through on every outer pass. |
+The examples come from the first reading's theater and the second reading's video game, which has 3 worlds with 4 checkpoints each.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Loop** | Code that repeats a block. | `for show in showtimes:` |
+| **`for` loop** | Repeats once for each item in a list, or for each number from `range()`. | 3 showtimes, so the loop runs 3 times. |
+| **`while` loop** | Repeats as long as its condition stays True. Python checks the condition before every pass. | `while minutes > 0:` prints 30, then 20, then 10. |
+| **Iteration** | One single pass through a loop. | 3 showtimes means 3 iterations. |
+| **Loop body** | The pushed-in code inside a loop. It runs once per iteration. | `print("Showing at", show)` |
+| **Loop variable** | The name that holds the current item on each pass, like `temp` above. | `show` is `"4:15"`, then `"7:00"`, then `"9:45"`. |
+| **`range(n)`** | Makes the numbers to loop over. It starts at 0 and stops *before* `n`. | `range(3)` gives 0, 1, and 2: three numbers. |
+| **Infinite loop** | A `while` loop whose condition never becomes False, so it never stops. The loop body must change something the condition checks. | `while minutes > 0:` with no `minutes = minutes - 10` line |
+| **Nested loop** | A loop written inside another loop's body. The **outer loop** is on the outside. The **inner loop** sits in its body and runs all the way through on every outer pass. | `for checkpoint in range(4):` inside `for world in worlds:` |
 
 ### How do you check your thinking?: Tracing
 
-| Word | What it means |
-| --- | --- |
-| **Trace** | Follow the code by hand, one line and one pass at a time. Write down each variable's value as it changes. |
-| **Predict** | Say what the code will print *before* you run it. Then run it and compare. |
-| **Off-by-one error** | A loop that runs one time too many or one time too few. A start or stop number is one step off. Python shows no error. The result is just wrong by one. |
-| **Edge case** | A value right at the edge of a rule. For example, a movie is exactly 150 minutes, and the rule says "over 150." Bugs (mistakes in code) often hide there. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Trace** | Follow the code by hand, one line and one pass at a time. Write down each variable's value as it changes. | Pass 1: `runtime` is 98. `98 > 150` is False, so it prints `98 regular slot`. |
+| **Predict** | Say what the code will print *before* you run it. Then run it and compare. | "`showtimes.py` will print 3 lines." |
+| **Off-by-one error** | A loop that runs one time too many or one time too few. A start or stop number is one step off. Python shows no error. The result is just wrong by one. | The theater has 7 screens. `range(6)` checks only 6 of them. |
+| **Edge case** | A value right at the edge of a rule. Bugs (mistakes in code) often hide there. | A movie is exactly 150 minutes, and the rule says "over 150." |
 
 {% hint style="info" %}
 **Count the first and last pass.** Off-by-one errors don't cause an error message. To catch them, trace the first pass and the last pass by hand, and count the lines that print.
@@ -156,8 +171,8 @@ As you read, look for:
 ### Summary
 
 * **Exactly one branch runs.** Python reads an `if`/`elif`/`else` chain from top to bottom. It runs the first branch whose condition is True and skips the rest.
-* **Count passes one at a time.** `range(n)` gives `n` numbers, from 0 up to `n - 1`. Check the first and last pass against what you meant, because that's where an off-by-one error shows up.
-* **Read nested code from the outside in.** The inner loop finishes all its passes before the outer loop moves on. So the inner body runs (outer passes × inner passes) times. An inner `if` runs only when Python goes into the outer branch that holds it.
+* **Count passes one at a time.** `range(n)` gives `n` numbers, from 0 up to `n - 1`. For example, `range(7)` gives 0 to 6: 7 numbers. Check the first and last pass against what you meant, because that's where an off-by-one error shows up.
+* **Read nested code from the outside in.** The inner loop finishes all its passes before the outer loop moves on. So the inner body runs (outer passes × inner passes) times. In `checkpoints.py`, that's 3 worlds × 4 checkpoints = 12 lines. An inner `if` runs only when Python goes into the outer branch that holds it.
 
 ![On the left, the code runtimes.py: runtimes holds 98, 165, and 150, and a for loop with an if inside prints long slot for a runtime over 150 and regular slot otherwise. On the right, a trace with one row per pass. Pass 1: 98, False, prints 98 regular slot. Pass 2: 165, True, prints 165 long slot. Pass 3: 150, False, prints 150 regular slot. Pass 3 is the edge case, because 150 is not over 150.](images/m1a-trace-runtimes.svg)
 
@@ -167,11 +182,11 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "`range(6)` gives 1 through 6." | It gives 0 through 5. It starts at 0 and stops *before* 6. |
-| "If two conditions are True, both branches run." | Only the first True branch runs. Python skips the rest of the chain. |
-| "A `while` loop checks its condition once, at the start." | It checks before *every* pass. The loop body must change the value the condition uses. |
-| "The outer and inner loops take turns, one pass each." | The inner loop runs all the way through on every outer pass. |
-| "When the outer `if` is False, Python checks the inner `if` and finds it False too." | Python skips the inner `if`. It never checks it at all. |
+| "`range(6)` counts 1, 2, 3, 4, 5, 6." | It gives 0, 1, 2, 3, 4, 5. It starts at 0 and stops *before* 6. That's why the theater's screen check printed 6 lines for 7 screens. |
+| "Two of my conditions are True, so both of their lines print." | Only the first True branch runs. With `minutes_left = 90`, both `>= 60` and `>= 15` are True, but only `plenty of time` prints. |
+| "A `while` loop checks its condition once, at the start, and then keeps going." | It checks before *every* pass. In `countdown.py`, `minutes` goes 30, 20, 10, then 0. `0 > 0` is False, so the loop stops after 3 lines. |
+| "The loops take turns: Forest 1, Desert 1, Ice 1, then Forest 2." | The inner loop runs all the way through first: Forest 1, 2, 3, 4, then Desert 1. That makes 3 × 4 = 12 lines. |
+| "The outer `if` is False, so Python checks the inner `if` and gets False too." | Python never checks the inner `if`. When `key` is `"nothing"`, it skips `key == "red"` and prints `no key`. |
 
 ### How this connects
 

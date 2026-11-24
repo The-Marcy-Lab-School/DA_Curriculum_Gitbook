@@ -6,17 +6,23 @@
 
 ## Introduction
 
-There's no new topic today. You'll practice what you learned in the first five quests, and you'll learn a routine for checking analysis code that an AI (artificial intelligence) tool writes for you.
+There's no new topic today. You'll practice what you learned in the first five quests. Practicing something a few days after you learn it is what makes it stick. You'll also learn a routine for checking analysis code that an AI (artificial intelligence) tool writes for you.
 
-**Main takeaway:** AI-written code can run with no errors and still give a wrong answer. Check it before you trust it.
+**Main takeaway:** AI-written code can run with no errors and still give a wrong answer. For example, a step that removes rows with blanks can turn 100 rows into 70, with no message. Every number after that uses only 70 rows. So check AI-written code with the five checks below before you trust its answer.
 
-**Why it matters at work:** Practicing something a few days after you learn it is what makes it stick. And at work, AI tools will write analysis code for you, so you need a quick way to check it.
+**Why it matters at work:** At work, AI tools often write analysis code. Analysts check that code before they use its answer. For example, analysts check AI code that:
+
+* sums up what's in a new table
+* removes or fills in rows with blanks
+* picks a statistic, like the mean, for a report
+
+If you skip the check, a wrong number can reach a report. The code still ran with no errors.
 
 ## What you'll do in class
 
 * Answer three recall questions from memory. One of them is from Module 1.
 * Follow a classmate-led code-along that uses stats (statistics), pandas, and a chart. In a **code-along**, everyone writes the same code together, step by step.
-* Check a piece of AI-written profiling code (code that sums up what's in a table). It quietly drops rows, and your job is to catch it.
+* Check a piece of AI-written profiling code (code that sums up what's in a table). It drops rows without any message, and your job is to catch it.
 
 **Skills:** AI Evaluation · Statistical Analysis · Data Distributions & Shape
 
@@ -28,11 +34,11 @@ Use this checklist every time an AI writes analysis code for you, in class and i
 
 | Check | Why |
 | --- | --- |
-| **1. Rows before and after** | A filter, or a step that removes rows with blanks, can drop rows without telling you. |
+| **1. Rows before and after** | A filter, or a step that removes rows with blanks, can drop rows without telling you. For example, 100 rows can become 70. |
 | **2. One number by hand** | Work out one result yourself and compare it with the code's answer. |
-| **3. Data types** | A number column stored as text gives wrong math or errors. |
+| **3. Data types** | A number column stored as text gives wrong math or errors. For example, `"12" + "8"` gives `"128"`, not `20`. |
 | **4. What got dropped or filled** | Every removed row or filled-in value changes the answer. Count them. |
-| **5. Does the statistic fit the shape?** | An AI may use the mean on skewed data. Look at the chart first. |
+| **5. Does the statistic fit the shape?** | An AI may use the mean on skewed data. For example, the 11 gifts have a mean of $505.45, but a median of $55. Look at the chart first. |
 
 You've already done most of these checks on your own work:
 

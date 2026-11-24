@@ -17,9 +17,15 @@ In these two readings, you'll learn how to:
 * send your saved work to GitHub, a website where others can see it
 * save small changes often, instead of one big change at the end
 
-**Main takeaway:** Saving a snapshot on your laptop (a commit) and sharing it online (a push) are two separate steps. Commit small, clear changes as you go.
+**Main takeaway:** A **commit** and a **push** are two separate steps. A commit saves a snapshot of your work on your laptop. A push sends your commits to GitHub, so other people can see them. Commit small, clear changes as you go.
 
-**Why it matters at work:** Teams use Git to share and review work. A clear history shows what changed, when, and why. If something breaks, you can find the exact change that caused it.
+**Why it matters at work:** Analysts use Git to keep a record of every change to their work, and to share it. For example, they use it to:
+
+* see who changed a file, when, and why
+* go back to the last version that worked, after a change breaks something
+* share their work on GitHub, so a teammate can review it. To **review** means to read someone's changes and check them before the team uses them.
+
+Without small, clear commits, finding the one change that caused a problem means reading every edit by hand.
 
 ## Learning goals
 
@@ -36,7 +42,7 @@ After this reading, you should be able to say:
 * Recall that `cd` moves you into a folder and `ls` lists what's inside it, from [Meet Your Terminal](quest-01-terminal.md). Every Git command is typed inside a project folder, so you'll start each time with `cd`.
 * Recall that you ran `git --version` in [Meet Your Terminal](quest-01-terminal.md) to check that Git is installed. Now you'll use it.
 
-## New tool: Git
+## New software: Git
 
 **What it's for:** Git is **software** on your own laptop. It saves the history of a project folder as a series of snapshots, each with a message about what changed. It doesn't need the internet. Git is the most common tool for **version control**: keeping track of every version of your work.
 
@@ -51,7 +57,8 @@ git log --oneline        # list saved commits
 git diff                 # show changed lines
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `git init` turns the folder you're in into a **repository**: a folder whose history Git tracks. Git keeps that history in a hidden folder called `.git`. No snapshots are saved yet.
 2. `git status` tells you what's going on: which files changed, and which are ready to save. It never changes anything, so you can run it any time.
@@ -60,9 +67,11 @@ git diff                 # show changed lines
 5. `git log --oneline` lists every saved commit, newest first. Each line shows the commit's short ID (short for identifier: a code that labels that one commit), then its message.
 6. `git diff` shows the exact lines you changed that aren't committed yet. A line starting with `-` was removed. A line starting with `+` was added.
 
+</details>
+
 **Learn more:** [Pro Git: About Version Control](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (official, from Git's own team) · [W3Schools: Git tutorial](https://www.w3schools.com/git/)
 
-## New tool: GitHub
+## New website: GitHub
 
 **What it's for:** GitHub is a **website**, not software you install. It holds a copy of your repository online, so other people can see it and work on it too. Git saves your history on your laptop. GitHub shares a copy of it. You'll need a free GitHub account.
 
@@ -74,11 +83,14 @@ git push -u origin main
 git push
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `git remote add origin <url>` tells Git where your online copy lives, and gives it the short name `origin`. The URL is the repository's address on GitHub.
 2. `git push -u origin main` sends your commits to `origin`. `main` is the name Git gives your project's history by default (when you don't choose a different name). `-u` tells Git to remember where to push.
 3. After that first time, plain `git push` is enough.
+
+</details>
 
 **Learn more:** [GitHub Docs: About GitHub and Git](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git) (official) · [W3Schools: Get started with GitHub](https://www.w3schools.com/git/git_remote_getstarted.asp)
 
@@ -86,34 +98,34 @@ git push
 
 ### Saving your history: Version control
 
-| Word | What it means |
-| --- | --- |
-| **Version control** | Keeping track of every version of your work, so you can see what changed, when, and go back if you need to. |
-| **Repository (repo)** | A project folder whose history Git tracks. `git init` starts one. |
-| **Commit** | A saved snapshot of your project at one moment, with a message about what changed. Later edits become new commits. They don't change old ones. |
-| **Commit message** | The short note saved with a commit. A good one starts with an action word and names the change, like `Fix count on block 2`. |
-| **Staging area** | The list of changes you've picked for the next commit. `git add` puts a change there. |
-| **Untracked** | A file Git can see but isn't saving yet. `git add` it to start saving it. |
-| **Working tree clean** | What `git status` prints when every change is already committed. Nothing is waiting. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Version control** | Keeping track of every version of your work, so you can see what changed, when, and go back if you need to. | 4 saved versions of the tree notes, from `Start tree notes` to `Add tree type column` |
+| **Repository (repo)** | A project folder whose history Git tracks. `git init` starts one. | The `tree-notes` folder |
+| **Commit** | A saved snapshot of your project at one moment, with a message about what changed. Later edits become new commits. They don't change old ones. | `d3d1ebd Add first tree counts` |
+| **Commit message** | The short note saved with a commit. A good one starts with an action word and names the change. | `Fix count on block 2` |
+| **Staging area** | The list of changes you've picked for the next commit. `git add` puts a change there. | After `git add notes.md`, `notes.md` is under "Changes to be committed" |
+| **Untracked** | A file Git can see but isn't saving yet. `git add` it to start saving it. | `notes.md`, right after `git init` |
+| **Working tree clean** | What `git status` prints when every change is already committed. Nothing is waiting. | `nothing to commit, working tree clean` |
 
 ### Sharing your work: Remotes
 
-| Word | What it means |
-| --- | --- |
-| **Remote** | A copy of your repository kept somewhere else, like on GitHub. |
-| **`origin`** | The usual short name for your main remote. |
-| **Push** | Sending the commits on your laptop up to a remote, so they show up there too. Until you push, a commit is only on your laptop. |
-| **Clone** | Making your own copy of a repository that's already on a remote, with its whole history. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Remote** | A copy of your repository kept somewhere else, like on GitHub. | The copy at `https://github.com/you/tree-notes.git` |
+| **`origin`** | The usual short name for your main remote. | `git push -u origin main` |
+| **Push** | Sending the commits on your laptop up to a remote, so they show up there too. Until you push, a commit is only on your laptop. | `git push` |
+| **Clone** | Making your own copy of a repository that's already on a remote, with its whole history. | A new neighbor copies `tree-notes` from GitHub to their laptop |
 
 ![A flow from left to right. 1, Your folder: you edit notes.md. git add moves the change to 2, the staging area, which holds the changes picked for the next commit. git commit saves them as 3, commits: snapshots saved on your laptop. git push sends them to 4, GitHub, a copy online that other people can see. A bracket over steps 1 to 3 says Git: software on your laptop, no internet needed. A bracket over step 4 says GitHub: a website. A note underneath says a commit is not on GitHub until you push it.](images/m0-add-commit-push.svg)
 
 ### How often to save: Commit habits
 
-| Word | What it means |
-| --- | --- |
-| **Atomic commit** | A commit that holds exactly one focused change, like "fix the test date." *Atomic* here means "one small piece that stands alone." |
-| **Commit granularity** | How much one commit covers, from one small edit to a whole day of mixed work. Smaller is usually easier to read later. |
-| **Commit cadence** | How often you commit as you work. A good habit: commit each time you finish one change you can describe in a short sentence. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Atomic commit** | A commit that holds exactly one focused change. *Atomic* here means "one small piece that stands alone." | `b6c0073 Fix the test date` |
+| **Commit granularity** | How much one commit covers. Smaller is usually easier to read later. | 3 changes in 3 commits, or the same 3 changes in 1 commit called `updates` |
+| **Commit cadence** | How often you commit as you work. A good habit: commit each time you finish one change you can describe in a short sentence. | 3 commits in one afternoon: at 1:15, 2:40, and 4:30 p.m. |
 
 ![Two outputs of git log --oneline for the same afternoon of work. Left, one big commit: 51fe55a updates, then e01019b Start the study guide. Three changes are mixed into one commit called updates. Right, three small commits, newest first: 2be44a6 Fix a typo in the README, d48a131 Add a section on fractions, b6c0073 Fix the test date, and 2121428 Start the study guide. Each change has its own commit and message.](images/m0-one-vs-three-commits.svg)
 
@@ -159,12 +171,12 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "I committed, so it's on GitHub." | A commit is saved only on your laptop. You still need to `git push`. |
-| "Editing a file gets it ready to commit." | You must stage it with `git add` first. |
-| "`git init` saves my first snapshot." | It only starts the repository. You still add and commit. |
+| "I committed, so it's on GitHub." | A commit is saved only on your laptop. In the reading, the commit `Add tree type column` wasn't on GitHub yet. You still need to `git push`. |
+| "I edited the file, so `git commit` will save it." | You must stage it first, with `git add notes.md`. |
+| "`git init` saves my first snapshot." | It only starts the repository. Git even says `Initialized empty Git repository`. You still add and commit. |
 | "Git and GitHub are the same thing." | Git is software on your laptop. GitHub is a website that holds a copy. |
-| "One big commit on Friday keeps the history clean." | It mixes every change together and leaves no earlier checkpoint if something breaks midweek. |
-| "`git status` might change my files." | It only reports. It never changes anything. |
+| "One big commit on Friday is easier, and the history looks neater." | One commit called `updates` mixed 3 changes, so the mistake in the fractions section was hard to find. And if something breaks midweek, there's no earlier checkpoint. |
+| "`git status` might change my files." | It only reports, like `nothing to commit, working tree clean`. It never changes anything. |
 
 ### How this connects
 

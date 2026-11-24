@@ -15,9 +15,15 @@ In this reading, you'll learn how to:
 * look up a key safely, so a missing key doesn't crash your program (stop it with an error)
 * decide when a simple list search is still fine
 
-**Main takeaway:** A list search checks items one at a time, so its work grows with the list. A dictionary lookup jumps straight to the key, so its work stays about the same.
+**Main takeaway:** To find items fast in big data, build a dictionary once, then look items up by key. A **dictionary lookup** finds a value straight from its key, in about one step at any size. A **linear search** checks items one at a time, so with 400K saved callers, one call can mean 400K checks. (K means thousand and M means million, so 400K is 400,000.)
 
-**Why it matters at work:** Data keeps growing. Code that feels instant on 20 rows can make people wait on 400,000. "Why did you use a dict instead of a list?" is also a common interview question.
+**Why it matters at work:** Analysts choose how to store records so that finding one stays fast as the data grows. For example, they use dictionary lookups to:
+
+* find a caller's name from their phone number
+* match each order to its customer by customer ID
+* check whether a product code is already saved
+
+If they search a list instead, code that felt instant on 20 rows can make people wait several seconds on 400K.
 
 ## Learning goals
 
@@ -39,14 +45,16 @@ After this reading, you should be able to say:
 
 ### How do you find one item?: Linear search and dictionary lookup
 
-| Word | What it means |
-| --- | --- |
-| **Record** | One saved entry with a few values that belong together, like a phone number and a name. In the reading, each record is a small dictionary. |
-| **Linear search** | Checking items one at a time, in order, until one matches or none are left. |
-| **Dictionary lookup** | Finding a value straight from its key, like `callers_by_phone.get("555-0113")`. |
-| **`.get(key)`** | A dictionary method that looks up a key. It returns the value, or `None` when the key is missing. |
-| **`None`** | Python's value for "nothing here." Python code checks for it with `is`: `if name is None:`. |
-| **`KeyError`** | The error Python raises when you use square brackets with a key that isn't in the dictionary. |
+The examples come from the reading's short list of 3 saved callers: Ana Ruiz, Sam Lee, and Kim Park.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Record** | One saved entry with a few values that belong together, like a phone number and a name. In the reading, each record is a small dictionary. | `{"phone": "555-0113", "name": "Kim Park"}` |
+| **Linear search** | Checking items one at a time, in order, until one matches or none are left. | To find `"555-0113"`, check Ana, then Sam, then Kim: 3 checks. |
+| **Dictionary lookup** | Finding a value straight from its key. | `callers_by_phone.get("555-0113")` gives `"Kim Park"`. |
+| **`.get(key)`** | A dictionary method that looks up a key. It returns the value, or `None` when the key is missing. | `callers_by_phone.get("555-0199")` gives `None`. |
+| **`None`** | Python's value for "nothing here." Python code checks for it with `is`. | `if name is None:` then print `New caller` |
+| **`KeyError`** | The error Python raises when you use square brackets with a key that isn't in the dictionary. | `callers_by_phone["555-0199"]` |
 
 Two ideas here build on earlier pages:
 
@@ -55,20 +63,20 @@ Two ideas here build on earlier pages:
 
 ### How does the work grow?: Big-O and complexity
 
-Big-O counts **steps** (checks), not seconds on a clock.
+Big-O counts **steps** (checks), not seconds on a clock. In this table, the input size is counted in callers, and the work is counted in checks or steps.
 
-| Word | What it means |
-| --- | --- |
-| **Input size (n)** | How many items the code has to work through. For the help line, n is the number of saved callers. |
-| **Worst case** | The input that makes code do the most work. For a linear search, the item is last or not there at all, so every item gets checked. |
-| **O(n)** | The work grows in step with the input size. Double n, and the worst case doubles. A linear search is O(n). |
-| **O(1) average-case** | A typical lookup takes about one step, no matter how big n gets. A rare one can take a little longer. A dictionary lookup is O(1) on average. |
-| **Complexity** | How much work code does as its input grows, written in Big-O, such as O(n) or O(1). |
-| **Scale** | How a cost changes as the data grows. Two searches can tie on 10 items and be far apart on 10 million. |
+| Word | What it means | Example with the help line |
+| --- | --- | --- |
+| **Input size (n)** | How many items the code has to work through. For the help line, n is the number of saved callers. | The short list: n = **3 callers**. The full help line: n = **400K callers**. |
+| **Worst case** | The input that makes code do the most work. For a linear search, the item is last or not there at all, so every item gets checked. | `"555-0199"` isn't saved, so all 3 callers get checked = **3 checks** |
+| **O(n)** | The work grows in step with the input size. Double n, and the worst case doubles. A linear search is O(n). | 20 callers: up to **20 checks**. 400K callers: up to **400K checks**. |
+| **O(1) average-case** | A typical lookup takes about one step, no matter how big n gets. A rare one can take a little longer. A dictionary lookup is O(1) on average. | `.get("555-0113")` takes about **1 step** for 3 callers or 400K. |
+| **Complexity** | How much work code does as its input grows, written in Big-O, such as O(n) or O(1). | Linear search: O(n). Dictionary lookup: O(1). |
+| **Scale** | How a cost changes as the data grows. Two searches can tie on 10 items and be far apart on 10 million. | At 400K callers: up to 400K checks, or about 1 step. |
 
 ## Before you read
 
-In the reading, you'll focus on a help line: a phone number people call to get help. When someone calls, the screen shows the caller's name. The program finds it by searching a list of saved callers for the phone number. With 20 saved callers, the name appeared at once. With 400,000, people wait several seconds.
+In the reading, you'll focus on a help line: a phone number people call to get help. When someone calls, the screen shows the caller's name. The program finds it by searching a list of saved callers for the phone number. With 20 saved callers, the name appeared at once. With 400K, people wait several seconds.
 
 Think about: the code didn't change, so why did it slow down? What would you change? Write down your first answer, then see if the reading agrees.
 
@@ -92,23 +100,23 @@ Want to go further? This reading is optional. You don't need it for the checkpoi
 
 ### Summary
 
-* **A linear search is O(n).** In the worst case, it checks every record. With 400,000 saved callers, one call can mean 400,000 checks.
+* **A linear search is O(n).** In the worst case, it checks every record. With 400K saved callers, one call can mean 400K checks.
 * **Build the dictionary once, then look up many times.** Building `callers_by_phone` with a loop visits every record once: O(n), paid one time. Each lookup after that is O(1) on average, about one step at any size.
 * **Use `.get()` when a key might be missing.** Square brackets raise a `KeyError` and stop the program. `.get()` returns `None`, so your code can treat the number as a new caller.
 
-![Side by side. Left, a linear search looks for 555-0199 in three saved callers, Ana Ruiz, Sam Lee, and Kim Park. Each check says no, and it returns None after 3 checks. In the worst case it checks all n records: O(n). Right, a dictionary lookup. Step 1 builds callers_by_phone once with a loop, O(n), one time. Step 2, .get("555-0113"), goes straight to Kim Park in about 1 step at any size: O(1) average-case. At the bottom: with 400,000 saved callers, one call can mean up to 400,000 checks with a linear search, or about 1 step with a dictionary lookup.](images/m1c-linear-vs-dict.svg)
+![Side by side. Left, a linear search looks for 555-0199 in three saved callers, Ana Ruiz, Sam Lee, and Kim Park. Each check says no, and it returns None after 3 checks. In the worst case it checks all n records: O(n). Right, a dictionary lookup. Step 1 builds callers_by_phone once with a loop, O(n), one time. Step 2, .get("555-0113"), goes straight to Kim Park in about 1 step at any size: O(1) average-case. At the bottom: with 400K saved callers, one call can mean up to 400K checks with a linear search, or about 1 step with a dictionary lookup.](images/m1c-linear-vs-dict.svg)
 
-A list search is still fine when the list is tiny or you search only once. Then building a dictionary costs about as much as the search it replaces. A dictionary pays off when you search many times, or when the data keeps growing.
+A list search is still fine when the list is tiny or you search only once. Then building a dictionary costs about as much as the search it replaces. For example, one search of 12 test callers takes up to 12 checks. Building the dictionary takes 12 steps, plus 1 step for the lookup. A dictionary pays off when you search many times, or when the data keeps growing.
 
 ### Common mix-ups
 
 | If you think... | What's actually true |
 | --- | --- |
-| "A dictionary is faster at every size, so always build one." | For one search on 12 items, building the dictionary costs about as much as the search. It pays off when you search many times. |
-| "My list search finished first on 3 items, so it has better Big-O." | Big-O describes how the work grows as the data grows. It doesn't describe who wins one small timing test. |
-| "O(1) means exactly one step, every time." | It means about the same work at any size, on average. A rare lookup can take a little longer. |
-| "`callers_by_phone["555-0199"]` gives `None` when the number isn't saved." | Square brackets raise a `KeyError`. Only `.get()` returns `None`. |
-| "A linear search always checks every item." | It stops as soon as it finds a match. Only the worst case checks every item. |
+| "A dictionary is faster at every size, so I should always build one." | For one search of 12 callers, the list takes up to 12 checks. The dictionary takes 12 steps to build, plus 1 to look up. It pays off when you search many times. |
+| "My list search beat the dictionary on 3 items, so it has better Big-O." | Big-O describes growth, not one small race. At 400K callers, the list can take 400K checks, and the lookup about 1 step. |
+| "O(1) means exactly one step, every time." | It means about the same work at any size, on average: about 1 step for 3 callers or 400K. A rare lookup can take a little longer. |
+| "`callers_by_phone["555-0199"]` gives `None` when the number isn't saved." | Square brackets raise `KeyError: '555-0199'`. Only `.get()` returns `None`. |
+| "A linear search always checks every item." | It stops at the first match. Finding `"555-0142"`, the first record, takes 1 check. Only the worst case checks every item. |
 
 ### How this connects
 
@@ -122,7 +130,7 @@ A list search is still fine when the list is tiny or you search only once. Then 
 <details>
 <summary>Answer</summary>
 
-Build a dictionary (or a set) first. That costs O(n) once. After that, each check takes about one step. With the list, each check can take up to 50,000 comparisons, 10,000 times a day.
+Build a dictionary (or a set) first. With the list, each check can take up to 50,000 comparisons. Done 10,000 times a day, that's up to 50,000 × 10,000 = 500M comparisons. Building the dictionary costs O(n) once: 50,000 steps. After that, the 10,000 checks take about 10,000 steps.
 
 </details>
 

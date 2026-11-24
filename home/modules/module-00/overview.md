@@ -41,10 +41,10 @@ A **tool** is anything analysts use to get work done. This module has two kinds:
 
 | Tool | Kind | What it does | Introduced in |
 | --- | --- | --- | --- |
-| **Terminal** | Software (the window) | Lets you type commands to your computer | [Module 0 Introduction](introduction.md#the-terminal-and-the-shell) and [Quest 0.1](quest-01-terminal.md#new-tool-terminal) |
+| **Terminal** | Software (the window) | Lets you type commands to your computer | [Module 0 Introduction](introduction.md#the-terminal-and-the-shell) and [Quest 0.1](quest-01-terminal.md#new-software-terminal) |
 | **zsh** | Software (the shell inside Terminal) | Reads your commands and runs them | [Module 0 Introduction](introduction.md#bash-and-zsh-two-shells) |
-| **Git** | Software | Saves every step of your work on your computer | [Quest 0.3](quest-03-git.md#new-tool-git) |
-| **GitHub** | Website | Stores your Git history online, so others can see it | [Quest 0.3](quest-03-git.md#new-tool-github) |
+| **Git** | Software | Saves every step of your work on your computer | [Quest 0.3](quest-03-git.md#new-software-git) |
+| **GitHub** | Website | Stores your Git history online, so others can see it | [Quest 0.3](quest-03-git.md#new-website-github) |
 
 ## Where you'll practice each skill
 
@@ -67,7 +67,7 @@ Every quest page has the same sections, in the same order. At the top, you'll se
 1. **Introduction**: an example, what you'll learn, the main takeaway, and why it matters at work
 2. **Learning goals**: a list of what you'll be able to do
 3. **Quick recall**: something you already know that this reading builds on
-4. **New tool** (only when there is one): what it's for, how you'll see it, and where to learn more
+4. **New tool section** (only when there is one), named for what the tool is, like "New Python package: NumPy" or "New software: Git": what it's for, how you'll see it, and where to learn more
 5. **Words to know**: the new terms, in plain words
 6. **Before you read**: a question to think about first
 7. **Read**: what to look for, then the link to the interactive reading

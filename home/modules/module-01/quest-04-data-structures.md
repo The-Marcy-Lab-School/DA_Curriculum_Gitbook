@@ -21,9 +21,15 @@ In this reading, you'll learn how to:
 * add to a list, and find a value in a dictionary by its label
 * pick the container whose rules fit the job
 
-**Main takeaway:** No container is best for every job. Name the rule the job needs, then pick the container that follows it.
+**Main takeaway:** Pick the data structure whose rules fit the job. A **data structure** (or container) holds many values under one name, with rules about order, change, and repeats. For example, a set fits the coupon job, because it keeps each customer's name only once.
 
-**Why it matters at work:** Most data you'll handle is a list of records, and each record is a dictionary. A **record** is the data about one thing, like one order. The wrong container causes quiet bugs (mistakes in code that show no error), like one customer using a one-time coupon twice.
+**Why it matters at work:** Analysts choose a container every time they hold data in code. For example, they use containers to:
+
+* keep a list of **records**, one dictionary per order (a record is the data about one thing)
+* look up a customer's details by their customer ID
+* keep track of which customers already used a one-time coupon
+
+The wrong container causes quiet bugs (mistakes in code that show no error), like one customer using a one-time coupon twice.
 
 ## Learning goals
 
@@ -47,16 +53,18 @@ After this reading, you should be able to say:
 
 A **container** holds many values under one name. Its formal name is a **data structure**. Each kind has its own rules about order, change, and repeats.
 
-| Word | What it means |
-| --- | --- |
-| **Data structure** | A container that holds many values under one name, with rules about order, repeats, and change. |
-| **Item** | One value inside a container. |
-| **Ordered** | The items stay in the order you put them in, so each one has a position. |
-| **Position (index)** | An item's place in an ordered container. Python counts positions from 0. |
-| **Repeat (duplicate)** | The same value showing up more than once. |
-| **Mutable** | Can be changed after it's made. Lists, dictionaries, and sets are mutable. |
-| **Immutable** | Can't be changed after it's made. Tuples, strings, and numbers are immutable. |
-| **Nested** | One container inside another. Most real data is a list of dictionaries, one dictionary per record. |
+The examples come from the reading's food delivery app.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Data structure** | A container that holds many values under one name, with rules about order, repeats, and change. | `stops`, a driver's list of streets |
+| **Item** | One value inside a container. | `"Elm St"` in `stops` |
+| **Ordered** | The items stay in the order you put them in, so each one has a position. | `stops` keeps `"Elm St"` before `"Pine Ave"`. |
+| **Position (index)** | An item's place in an ordered container. Python counts positions from 0. | `stops[0]` is `"Elm St"`. |
+| **Repeat (duplicate)** | The same value showing up more than once. | `"Noor"` added to the coupon list twice |
+| **Mutable** | Can be changed after it's made. Lists, dictionaries, and sets are mutable. | `stops.append("Oak Rd")` changes `stops`. |
+| **Immutable** | Can't be changed after it's made. Tuples, strings, and numbers are immutable. | `order[1] = "7:50 PM"` stops with an error. |
+| **Nested** | One container inside another. Most real data is a list of dictionaries, one dictionary per record. | `[("D-5520", "7:42 PM"), ("D-5521", "7:58 PM")]`: a list of tuples |
 
 ### The four containers
 
@@ -68,6 +76,14 @@ A **container** holds many values under one name. Its formal name is a **data st
 | **Set** | Curly braces `{ }`, or `set()` when empty | Yes, by adding values | No | Ask if it's there: `"Sam" in used` |
 
 Lists and tuples keep their order. A set has no fixed order. A dictionary keeps its pairs in the order you added them, but you find a value by its key, not its position.
+
+You already know lists. Here is how each new container acts differently from a list:
+
+| New container | With a list | With the new container |
+| --- | --- | --- |
+| **Tuple: can't change** | `stops[0] = "Main St"` replaces the first stop. | `order[1] = "7:50 PM"` stops with a `TypeError`. |
+| **Dictionary: find by key** | `stops[1]` finds `"Pine Ave"` by its position. | `drivers["D-5521"]` finds `"Sam"` by its key. |
+| **Set: no repeats** | Add `"Noor"` twice, and the list holds 2 items. | Add `"Noor"` twice, and the set holds 1 item. |
 
 For example, here are all four containers from the reading's food delivery app:
 
@@ -81,7 +97,8 @@ used = set()                      # empty set
 used.add("Noor")
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `stops` is a list of a driver's stops: the streets where the driver drops off food. The stops come in order, and the list can change.
 2. `stops.append("Oak Rd")` adds `"Oak Rd"` to the end of the list. `.append()` is a **method**: a function that belongs to a value, called with a dot.
@@ -90,22 +107,24 @@ used.add("Noor")
 5. `drivers["D-5521"] = "Sam"` adds a new pair. If the key already existed, this line would replace its value instead.
 6. `set()` makes an empty set, and `used.add("Noor")` puts a customer's name in it. Adding `"Noor"` a second time would change nothing.
 
+</details>
+
 {% hint style="info" %}
 **`{}` is an empty dictionary, not an empty set.** To make an empty set, write `set()`.
 {% endhint %}
 
 ### Working inside a container: Keys, values, and errors
 
-| Word | What it means |
-| --- | --- |
-| **Key** | The label you look a value up by, in a dictionary. Each key appears only once. Keys must be immutable, like strings, numbers, or tuples. A list can't be a key. |
-| **Value** | The data stored under a key. |
-| **Key/value pair** | One key and its value, stored together. |
-| **Lookup** | Going straight to a value by its key, instead of checking items one by one. A dictionary lookup is O(1): about the same work with 2 orders or 20,000. |
-| **Method** | A function that belongs to a value. You call it with a dot and parentheses, like `stops.append("Oak Rd")` or `used.add("Noor")`. |
-| **Unpacking** | Taking a tuple apart into separate variables. In `for code, time in finished:`, the first item goes into `code` and the second into `time`. |
-| **Built-in function** | A function that comes with Python, like `len()`, `set()`, and `type()`. `type()` tells you what kind of value something is. |
-| **`TypeError`** | The error Python raises when a value can't do what you asked. For example, trying to change an item in a tuple raises a `TypeError`. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Key** | The label you look a value up by, in a dictionary. Each key appears only once. Keys must be immutable, like strings, numbers, or tuples. A list can't be a key. | `"D-5520"` in `drivers` |
+| **Value** | The data stored under a key. | `"Noor"`, stored under `"D-5520"` |
+| **Key/value pair** | One key and its value, stored together. | `"D-5520": "Noor"` |
+| **Lookup** | Going straight to a value by its key, instead of checking items one by one. A dictionary lookup is O(1): about the same work with 2 orders or 20,000. | `drivers["D-5521"]` gives `"Sam"`. |
+| **Method** | A function that belongs to a value. You call it with a dot and parentheses. | `stops.append("Oak Rd")` or `used.add("Noor")` |
+| **Unpacking** | Taking a tuple apart into separate variables. | In `for code, time in finished:`, `code` gets `"D-5520"` and `time` gets `"7:42 PM"`. |
+| **Built-in function** | A function that comes with Python, like `len()`, `set()`, and `type()`. `type()` tells you what kind of value something is. | `type({})` gives `<class 'dict'>`. |
+| **`TypeError`** | The error Python raises when a value can't do what you asked. | Changing an item in a tuple: `order[1] = "7:50 PM"` |
 
 A dictionary builds on two ideas from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md):
 
@@ -157,11 +176,11 @@ In an interview, name the rule that decides your choice: order, change, lookup b
 
 | If you think... | What's actually true |
 | --- | --- |
-| "A list works for everything." | A list allows repeats and searches item by item. A set blocks repeats, and a dictionary finds a value in one step. |
-| "`{}` makes an empty set." | It makes an empty dictionary. Use `set()`. |
-| "Two lists matched by position work like a dictionary." | Delete an item from one list and forget the other, and every pair after it is mismatched, with no error. |
-| "A tuple is just a list with round brackets." | A tuple can't change after it's made. That's the point: it protects records that must stay fixed. |
-| "Any value can be a dictionary key." | Keys must be immutable. Strings, numbers, and tuples work. A list doesn't. |
+| "I can just use a list for everything." | A list allows repeats. Add `"Noor"` to a coupon list twice, and the list holds her 2 times. A set holds her once. |
+| "`{}` makes an empty set." | `type({})` gives `<class 'dict'>`: it's an empty dictionary. Use `set()`. |
+| "Two lists matched by position work just like a dictionary." | Codes `["D-5520", "D-5521"]` match names `["Noor", "Sam"]`. Delete `"D-5520"` but not `"Noor"`, and `"D-5521"` now lines up with Noor, not Sam. No error shows up. |
+| "A tuple is just a list with round brackets." | A tuple can't change. `order[1] = "7:50 PM"` raises a `TypeError`, so the finished order keeps its `"7:42 PM"` time. |
+| "Any value can be a dictionary key." | Keys must be immutable. The string `"D-5520"` works as a key. The list `["D-5520"]` doesn't. |
 
 ### How this connects
 

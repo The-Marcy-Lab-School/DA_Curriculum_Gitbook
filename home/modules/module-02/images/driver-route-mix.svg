@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 470" width="1080" height="470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">The route mix makes one driver look slow</title>
+<desc id="d">Left, all deliveries. Sam made 4 long-route deliveries, drawn in red, that take 45 minutes each, and 1 downtown delivery, drawn in grey, that takes 20 minutes. Alex made 1 long-route delivery of 45 minutes and 4 downtown deliveries of 20 minutes. Sam's average = (4 × 45 + 20) ÷ 5 = 200 ÷ 5 = 40 minutes. Alex's average = (45 + 4 × 20) ÷ 5 = 125 ÷ 5 = 25 minutes. Sam looks 15 minutes slower. Right, the same route: on the long route both take 45 minutes, and downtown both take 20 minutes. On the same route, they are equally fast.</desc>
+<rect width="1080" height="470" fill="#ffffff"/>
+<text x="320" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">All deliveries</text>
+<text x="30" y="102" text-anchor="start" font-size="20" font-weight="bold" fill="#111827">Sam</text>
+<rect x="100" y="65" width="92" height="60" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="146" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">Long</text>
+<text x="146" y="114" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">45 min</text>
+<rect x="202" y="65" width="92" height="60" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="248" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">Long</text>
+<text x="248" y="114" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">45 min</text>
+<rect x="304" y="65" width="92" height="60" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="350" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">Long</text>
+<text x="350" y="114" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">45 min</text>
+<rect x="406" y="65" width="92" height="60" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="452" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">Long</text>
+<text x="452" y="114" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">45 min</text>
+<rect x="508" y="65" width="92" height="60" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="554" y="90" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Downtown</text>
+<text x="554" y="114" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">20 min</text>
+<text x="30" y="182" text-anchor="start" font-size="20" font-weight="bold" fill="#111827">Alex</text>
+<rect x="100" y="145" width="92" height="60" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="146" y="170" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">Long</text>
+<text x="146" y="194" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">45 min</text>
+<rect x="202" y="145" width="92" height="60" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="248" y="170" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Downtown</text>
+<text x="248" y="194" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">20 min</text>
+<rect x="304" y="145" width="92" height="60" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="350" y="170" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Downtown</text>
+<text x="350" y="194" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">20 min</text>
+<rect x="406" y="145" width="92" height="60" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="452" y="170" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Downtown</text>
+<text x="452" y="194" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">20 min</text>
+<rect x="508" y="145" width="92" height="60" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="554" y="170" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">Downtown</text>
+<text x="554" y="194" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">20 min</text>
+<rect x="20" y="240" width="600" height="210" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="40" y="276" text-anchor="start" font-size="19" font-weight="bold" fill="#111827">Average = sum of minutes ÷ number of deliveries</text>
+<text x="40" y="314" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Sam: (4 × 45 + 20) ÷ 5 = 200 ÷ 5 = 40 min</text>
+<text x="40" y="350" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Alex: (45 + 4 × 20) ÷ 5 = 125 ÷ 5 = 25 min</text>
+<text x="40" y="392" text-anchor="start" font-size="19" font-weight="bold" fill="#B91C1C">Sam looks 15 minutes slower,</text>
+<text x="40" y="422" text-anchor="start" font-size="19" font-weight="bold" fill="#B91C1C">because Sam drove 4 long routes.</text>
+<text x="855" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Same route, same time</text>
+<text x="660" y="102" text-anchor="start" font-size="19" font-weight="bold" fill="#111827">Long route</text>
+<rect x="800" y="65" width="100" height="60" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="850" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">Sam</text>
+<text x="850" y="114" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">45 min</text>
+<rect x="915" y="65" width="100" height="60" rx="0" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
+<text x="965" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">Alex</text>
+<text x="965" y="114" text-anchor="middle" font-size="17" font-weight="bold" fill="#B91C1C">45 min</text>
+<text x="660" y="182" text-anchor="start" font-size="19" font-weight="bold" fill="#111827">Downtown</text>
+<rect x="800" y="145" width="100" height="60" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="850" y="170" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">Sam</text>
+<text x="850" y="194" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">20 min</text>
+<rect x="915" y="145" width="100" height="60" rx="0" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="965" y="170" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">Alex</text>
+<text x="965" y="194" text-anchor="middle" font-size="17" font-weight="normal" fill="#111827">20 min</text>
+<rect x="650" y="240" width="410" height="210" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="670" y="276" text-anchor="start" font-size="19" font-weight="bold" fill="#111827">Compare the same route:</text>
+<text x="670" y="314" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Long route: 45 min = 45 min</text>
+<text x="670" y="350" text-anchor="start" font-size="19" font-weight="normal" fill="#111827">Downtown: 20 min = 20 min</text>
+<text x="670" y="392" text-anchor="start" font-size="19" font-weight="bold" fill="#1D4ED8">On the same route, they</text>
+<text x="670" y="422" text-anchor="start" font-size="19" font-weight="bold" fill="#1D4ED8">are equally fast.</text>
+</svg>

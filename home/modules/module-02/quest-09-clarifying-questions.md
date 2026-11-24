@@ -6,7 +6,16 @@
 
 ## Introduction
 
-Sometimes a pattern in a file tells you more about how the data was collected than about the real world. For example, a review app (an app where people rate places) shows that one neighborhood has very few highly rated restaurants. Maybe the food there is worse. Or maybe fewer people there use the app, so fewer reviews were written.
+Sometimes a pattern in a file tells you more about how the data was collected than about the real world. For example, a review app (an app where people rate places) shows two neighborhoods. Each one has 8 restaurants. The app shows 4 highly rated restaurants in Northside, but only 1 in Riverside.
+
+Maybe the food in Riverside is worse. Or maybe fewer people there use the app. Say the app gives a restaurant a rating only after it gets enough reviews:
+
+* In Northside, many people use the app. All 8 restaurants have a rating, and 4 of those 8 are rated high.
+* In Riverside, few people use the app. Only 2 restaurants have a rating, and 1 of those 2 is rated high.
+
+In both places, half of the rated restaurants are rated high. Riverside shows fewer only because fewer of its restaurants got counted.
+
+![Two neighborhoods with 8 restaurants each. Left, Riverside, where few people use the review app: 6 restaurants are red because they have no rating, and only 2 have a rating. 1 of those 2 is rated high, so the app shows only 1 highly rated restaurant. Right, Northside, where many people use the app: all 8 restaurants have a rating, and 4 of those 8 are rated high. In both places, half of the rated restaurants are rated high.](images/restaurant-reviews-undercounted.svg)
 
 In this reading, you'll learn how to:
 
@@ -14,9 +23,15 @@ In this reading, you'll learn how to:
 * check where the data came from, what's missing, and which groups were counted less
 * turn an unclear question into one that someone can actually answer
 
-**Main takeaway:** A pattern can be real in the file but wrong about the world. Before you trust it, ask specific questions about where the data came from.
+**Main takeaway:** A pattern in a file can come from **bias** in how the data was collected, not from the real world. Bias here means some groups got counted less than others. For example, most of Riverside's restaurants had too few reviews to get a rating. Before you trust a pattern, ask **checkable questions** about where the data came from: questions specific enough that someone can answer them with a fact.
 
-**Why it matters at work:** People collect data, and they make choices and leave gaps. If you act on a pattern that the collection process created, money and effort go to the wrong place. Clear, answerable questions help you catch this before anyone makes a decision.
+**Why it matters at work:** Analysts ask where data came from to make sure a pattern is real before anyone acts on it. For example, analysts ask these questions before:
+
+* a city uses a survey to decide where to build a park
+* a company uses sales data to decide which store to close
+* a gym uses online sign-ups to cancel a class, when many people signed up on paper
+
+If you skip this, money and effort go to the wrong place. For example, a park gets built where few people will use it.
 
 ## Learning goals
 
@@ -40,11 +55,13 @@ You've checked a claim against its source, and you've counted blanks and group s
 
 ### Where the data came from
 
-| Word | What it means |
-| --- | --- |
-| **Source note** | The short document that comes with a dataset. It says who collected the data, when, and how. Read it first. |
-| **Data steward** | The person or team who looks after the data and can answer questions about it. In the reading, it's the volunteer who organized the count. |
-| **Sample** | The part of the whole that actually got counted. Volunteers counted trees on the blocks (city areas between streets) they picked, not every tree in town. |
+The examples come from the reading's street tree count, where volunteers counted trees in four areas of town.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Source note** | The short document that comes with a dataset. It says who collected the data, when, and how. Read it first. | It says adult volunteers counted North, East, and West over two Saturdays. |
+| **Data steward** | The person or team who looks after the data and can answer questions about it. | The volunteer who organized the count |
+| **Sample** | The part of the whole that actually got counted. | The blocks (city areas between streets) volunteers picked, not every tree in town |
 
 ### The three-part checklist
 
@@ -58,19 +75,21 @@ You've checked a claim against its source, and you've counted blanks and group s
 
 ### Asking good questions
 
-| Word | What it means |
-| --- | --- |
-| **Checkable question** | A question specific enough that a data steward could answer it with a real fact. It names a group, a number, or a method, and ties to something you found. |
-| **Generic question** | A question that could fit any dataset, like "Is this data accurate?" It sounds careful, but nobody can answer it. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Checkable question** | A question specific enough that a data steward could answer it with a real fact. It names a group, a number, or a method, and ties to something you found. | "Which blocks did West's volunteers pick, and how many?" |
+| **Generic question** | A question that could fit any dataset. It sounds careful, but nobody can answer it. | "Is this data accurate?" |
 
 A generic question is like asking a chatbot "Are you sure?" In [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), that got you a new claim, not a fact. A checkable question gets you a fact.
 
 ### Counting by group in code
 
-| Word | What it means | Units |
+Both lines below give back counts. **Units** are what a number counts. `.value_counts()` counts rows, and here each row is one tree. The second line counts blank cells.
+
+| Word | What it means | Example with the tree count |
 | --- | --- | --- |
-| **`.value_counts()`** | Lists each different value in a column with how many rows have it, biggest first. | Rows |
-| **`trees["species"].isna().groupby(trees["area"]).sum()`** | Counts the blanks in one column for each group of another column. `.isna()` marks each blank True, `.groupby(trees["area"])` splits those by area, and `.sum()` adds them up. True counts as 1. | Blank cells |
+| **`.value_counts()`** | Lists each different value in a column with how many rows have it, biggest first. | `trees["area"].value_counts()` gives South **4 trees**, North 3, East 3, and West **2 trees**. |
+| **`trees["species"].isna().groupby(trees["area"]).sum()`** | Counts the blanks in one column for each group of another column. `.isna()` marks each blank True, `.groupby(trees["area"])` splits those by area, and `.sum()` adds them up. True counts as 1. | South: True + False + True + True = **3 blank cells**. East has 1, and North and West have 0. |
 
 You've used both tools before. `.value_counts()` showed "Kenya" spelled more than one way in [Write It Once](quest-07-cleaning-function.md). The `groupby` is the same split, apply, combine from [One Row Per Group](quest-03-group-columns.md), now on True/False values.
 
@@ -111,9 +130,9 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "If the file shows it, it's true." | A file shows what was collected. How it was collected can create the pattern. |
-| "'Is this data accurate?' is a careful question." | It sounds careful, but there's no fact that answers it. |
-| "The total number of blanks tells me enough." | Blanks bunched in one group can throw off every comparison between groups. |
+| "The file shows West has the fewest trees, so West has the fewest trees." | A file shows what was collected. West has 2 rows, but the source note never says how many blocks volunteers walked there. Fewer blocks walked would also give fewer rows. |
+| "I'll ask, 'Is this data accurate?' That covers everything." | No single fact answers it, so the data steward can't answer it. "Which blocks did West's volunteers pick?" gets a real answer. |
+| "Only 4 of the 12 trees are missing a species, so the blanks don't matter much." | 3 of the 4 blanks are in South. That's 3 of South's 4 trees, so South's tree types can't be compared with the other areas. |
 
 ### How this connects
 

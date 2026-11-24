@@ -1,12 +1,14 @@
 # Quest 2.11 — Nobody Was in the Room: Writing for Stakeholders (Day 12)
 
-**Total time:** about 30 minutes
+**Total time:** about 35 minutes
 
 **EDA workflow:** Inspect → Clean → Explore → Check → **Explain** ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
 ## Introduction
 
-The person who acts on your work usually wasn't there when you did it. For example, a coach finds that the team allows most of its goals (lets the other team score) in the last ten minutes of games. The athletic director (the person in charge of a school's sports teams) won't read the coach's spreadsheet. The director needs the answer, one number, and a picture, in words they can read in one minute.
+The person who acts on your work usually wasn't there when you did it. For example, a coach looks at a spreadsheet of every game this season. The team allowed 20 goals (let the other team score 20 times). 12 of those 20 came in the last 10 minutes of games.
+
+The athletic director (the person in charge of a school's sports teams) won't read the coach's spreadsheet. The director needs the answer, one number, and a picture, in words they can read in one minute. For example: "Most goals against us come late in games: 12 of 20 came in the last 10 minutes."
 
 In this reading, you'll learn how to:
 
@@ -14,16 +16,22 @@ In this reading, you'll learn how to:
 * write a README page (the first page people see in a project) that shows what you found
 * write a short data-quality memo (a note for a decision-maker) that says how much to trust it
 
-**Main takeaway:** Write each page so a reader understands it without your code or your notebook. Start with the answer, give one number, and say what still needs checking.
+**Main takeaway:** A **stakeholder** is the person who uses your finding to make a decision. They need a page that makes sense without your code or your notebook. Start with the answer, give one number, and say what still needs checking. This order is called **BLUF**: Bottom Line Up Front.
 
-**Why it matters at work:** The person who makes a decision from your work won't open your notebook. If your finding can't be understood on its own, no one will use it. A clear README is also the first thing an employer sees on your GitHub.
+**Why it matters at work:** Writing for stakeholders is how your analysis turns into a decision. For example, analysts write short pages to:
+
+* tell a manager which bus route needs more buses
+* show a director (the person who runs a department) why sales dropped last month
+* explain a project on GitHub to an employer who might hire you
+
+If the page only makes sense with your notebook open, no one will use your finding.
 
 ## Learning goals
 
 After this reading, you should be able to say:
 
 * I can save a chart as an image and embed it in a README with alt text.
-* I can write a README whose sections each stand on their own.
+* I can write a README whose sections each make sense without my notebook.
 * I can write a data-quality memo with a plain answer, two checkable questions, and what they'd mean for the decision.
 
 **Skills:** Stakeholder Communication · Data Visualization · Critical Thinking
@@ -38,34 +46,56 @@ You've saved charts, written checkable questions, and pushed work to GitHub. Thi
 
 ## Words to know
 
+The examples come from the reading. Jordan found that Route 12 buses run late in the evening, and writes it up for the transit manager.
+
 ### Who you're writing for
 
-| Word | What it means |
-| --- | --- |
-| **Stakeholder** | The person who will use your finding to make a decision. In the reading, it's the transit manager: the person who runs the city's buses. |
-| **Stakeholder-facing** | Written for a reader who doesn't code. It gives the answer and how sure you are, not the code that found it. |
-| **BLUF** | Bottom Line Up Front. The "bottom line" is your main answer. Lead with the answer, then give one number, then name one thing still worth checking. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Stakeholder** | The person who will use your finding to make a decision. | The transit manager: the person who runs the city's buses |
+| **Stakeholder-facing** | Written for a reader who doesn't code. It gives the answer and how sure you are, not the code that found it. | "Route 12 evening trips run about 10 minutes late," not `trips.groupby(...)` |
+| **BLUF** | Bottom Line Up Front. The "bottom line" is your main answer. Lead with the answer, then give one number, then name one thing still worth checking. | Route 12 is late in the evening. → 10.3 minutes late. → Were canceled trips left out? |
 
 ### The two pages
 
-| Word | What it means |
-| --- | --- |
-| **README** | The landing page of a project: the first page anyone opening the repo (repository, the project's folder on GitHub) sees. It answers "What did you find?" |
-| **Takeaways** | The README section with findings in plain words, not code. |
-| **Memo** | A short note written for someone who has to make a decision. |
-| **Data-quality memo** | A separate short page whose job is trust. It answers "Can I trust it?" It has four parts, every time. |
-| **Markdown** | A simple way to format plain text. Symbols like `##` and `-` turn into headings and bullets when GitHub shows the file. READMEs are written in Markdown. |
-| **Embed** | Put a picture right inside the page, so readers see the chart instead of a link to it. |
-| **Alt text** | Words that describe what a chart shows, for readers who use a screen reader (a program that reads the screen out loud). Never just a file name. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **README** | The landing page of a project: the first page anyone opening the repo (repository, the project's folder on GitHub) sees. It answers "What did you find?" | Jordan's `README.md`, titled "Route 12 Evening Delays" |
+| **Takeaways** | The README section with findings in plain words, not code. | "Morning trips on both routes run close to on time." |
+| **Memo** | A short note written for someone who has to make a decision. | A note to the transit manager |
+| **Data-quality memo** | A separate short page whose job is trust. It answers "Can I trust it?" It has four parts, every time. | Jordan's memo asks, "Were canceled Route 12 evening trips left out of the file?" |
+| **Markdown** | A simple way to format plain text. Symbols like `##` and `-` turn into headings and bullets when GitHub shows the file. READMEs are written in Markdown. | `## Takeaways` shows as a heading. |
+| **Embed** | Put a picture right inside the page, so readers see the chart instead of a link to it. | `![alt text](images/late_by_route.png)` |
+| **Alt text** | Words that describe what a chart shows, for readers who use a screen reader (a program that reads the screen out loud). Never just a file name. | "Route 12's evening bar is more than three times taller than any other bar." |
 
 You've seen a README before. In [Meet Your Terminal](../module-00/quest-01-terminal.md), `ls` listed a `README.md` file in the `garden` folder. The `.md` at the end means it's written in Markdown.
 
 ### New code in this reading
 
-| Word | What it means |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. `os` is a module that comes with Python. The parameter `exist_ok` is set to `True`, which means it's OK if the folder already exists, so Python won't stop with an error. | Makes `images/` next to `README.md`, where the chart is saved |
+| **`.unstack()`** | Turns the inner group labels (morning, evening) into columns, so each route (the path one bus line follows) gets two bars side by side. | See the before and after below. |
+
+In the reading, `means` holds the average minutes late for each route and time of day. It's a Series, one column of values with labels. Each label has two parts, like `Route 12, evening`. `.unstack()` turns it into a small table, with the times of day as columns.
+
+Before, `means` is a Series with 4 rows:
+
+| Label | Minutes late |
 | --- | --- |
-| **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. `os` is a module that comes with Python. The parameter `exist_ok` is set to `True`, which means it's OK if the folder already exists, so Python won't stop with an error. |
-| **`.unstack()`** | Turns the inner group labels (morning, evening) into columns, so each route (the path one bus line follows) gets two bars side by side. |
+| Route 12, evening | 10.3 |
+| Route 12, morning | 2.0 |
+| Route 7, evening | 3.0 |
+| Route 7, morning | 1.0 |
+
+After, `means.unstack()` is a table with 2 rows and 2 columns:
+
+| Route | evening | morning |
+| --- | --- | --- |
+| Route 12 | 10.3 | 2.0 |
+| Route 7 | 3.0 | 1.0 |
+
+A bar chart of the table draws one group of bars per row. So each route gets an evening bar and a morning bar.
 
 The README finds its chart by a **relative path**, like `images/late_by_route.png`. You used relative paths with `cd` in [Meet Your Terminal](../module-00/quest-01-terminal.md). This one starts from the folder that holds the README.
 
@@ -89,7 +119,7 @@ As you read, look for:
 
 ### Summary
 
-* **Recompute a number right before you cite it (use it in your writing),** and copy what the cell prints, not what you remember. Jordan copies 10.3 minutes late, for Route 12's evening trips, straight from the output.
+* **Recompute a number right before you cite it (use it in your writing),** and copy what the cell prints, not what you remember. Jordan copies 10.3 minutes late, for Route 12's evening trips, straight from the output. Route 12's three evening trips were 9, 12, and 10 minutes late: (9 + 12 + 10) ÷ 3 = 31 ÷ 3 = 10.3 minutes.
 * **Save the chart as a file, then embed it.** Make an `images` folder, save the chart with `plt.savefig` before `plt.show()`, and embed it with `![alt text](images/name.png)`. Commit the `images` folder along with the README, or the picture won't show up on GitHub.
 * **Two pages, two jobs.** The README says what you found, in the sections the project asks for. The data-quality memo says how far to trust it, in four parts.
 
@@ -115,9 +145,9 @@ Without the `!`, GitHub shows a plain link instead of the picture.
 
 | If you think... | What's actually true |
 | --- | --- |
-| "Linking to the notebook is enough." | The reader won't open it. Each README section has to stand on its own. |
-| "Alt text can be the file name." | It should say what the chart shows, like "Route 12's evening bar is far taller than the rest." |
-| "A memo is a shorter README." | The memo's job is trust: it asks what could make the finding wrong. |
+| "I'll just link to my notebook, so the manager can see the results." | The manager won't open it. Write the finding right in the README: "Route 12 evening trips run about 10 minutes late." |
+| "The file name, `late_by_route.png`, is fine for alt text." | Alt text says what the chart shows: "Route 12's evening bar is more than three times taller than any other bar." Its 10.3 minutes is 3.4 times the next tallest bar, 3.0 minutes. |
+| "The memo is just a shorter README." | The memo's job is trust: it asks what could make the finding wrong. For example: "Were canceled Route 12 evening trips left out of the file, or counted as late?" |
 
 ### How this connects
 

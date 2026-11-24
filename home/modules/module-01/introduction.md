@@ -29,11 +29,14 @@ total = sum(prices)
 print(total)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `prices = [4.50, 3.25, 6.00]` stores three prices in a list named `prices`.
 2. `total = sum(prices)` adds them up and stores the answer in `total`.
 3. `print(total)` shows the answer on the screen: `13.75`.
+
+</details>
 
 You save code like this in a file that ends in `.py`. Then you run it from the terminal. Python reads your code one line at a time, from top to bottom, and does what each line says.
 

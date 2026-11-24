@@ -21,7 +21,7 @@ Then read these sections:
 * **Introduction:** what you're about to learn, and why it matters.
 * **Learning goals:** a list of what you'll be able to do.
 * **Quick recall:** something you already know that this reading builds on.
-* **New tool** (only when there is one): what the tool is for, and how you'll see it.
+* **New tool section** (only when there is one): it's named for what the tool is, like "New Python package: NumPy" or "New software: Git." It says what the tool is for, and how you'll see it.
 * **Words to know:** the new terms, in plain words.
 * **Before you read:** a question to think about. Write down your first answer.
 

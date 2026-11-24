@@ -20,9 +20,15 @@ In this reading, you'll learn how to:
   * decide whether to use the claim, fix it, or drop it
 * spot a hallucination: a sure-sounding answer that is wrong
 
-**Main takeaway:** How sure an answer sounds tells you nothing about whether it's true. Only checking it against a real source does.
+**Main takeaway:** An answer's **confidence** tells you nothing about its **accuracy**. Confidence is how sure an answer sounds. Accuracy is whether it is correct. Only checking the answer against a real source tells you if it's accurate.
 
-**Why it matters at work:** If you pass on a wrong number from an AI tool, your name is on it, not the tool's. Analysts are trusted because they can say how they know a number is right.
+**Why it matters at work:** Analysts check AI answers before they share them with anyone. For example, they check:
+
+* a row count or a total that an AI tool gives for a dataset (a set of data, often one table or file)
+* a report or a website that an AI tool names as its source
+* the result of code an AI tool wrote, against the real data
+
+If you pass on a wrong number from an AI tool, your name is on it, not the tool's.
 
 ## Learning goals
 
@@ -43,24 +49,24 @@ After this reading, you should be able to say:
 
 ### Is it true yet?: Claims and facts
 
-| Word | What it means |
-| --- | --- |
-| **Claim** | A statement that something is true, like "Your volunteers collected 64 bags." |
-| **Unverified claim** | A claim that nobody has checked yet. It might be right or wrong. Every AI answer starts here. |
-| **Verified fact** | A claim that someone has confirmed against a real, checkable source. |
-| **Source** | Where information comes from, like the original data file, an official website, or a report you can open. |
-| **Evidence** | What you find in a source that shows whether a claim is right or wrong. |
-| **Verify** | To check whether something is true, using a source. *Verification* is the act of checking. |
-| **Independent check** | A check that uses a different source from the one that made the claim. Asking the same chatbot again is not independent. Opening the original file is. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Claim** | A statement that something is true. | "Your volunteers collected 64 bags." |
+| **Unverified claim** | A claim that nobody has checked yet. It might be right or wrong. Every AI answer starts here. | "64 bags," before anyone opens the cleanup log |
+| **Verified fact** | A claim that someone has confirmed against a real, checkable source. | A bag total you added up yourself from the log |
+| **Source** | Where information comes from, like the original data file, an official website, or a report you can open. | `cleanup_log.csv` |
+| **Evidence** | What you find in a source that shows whether a claim is right or wrong. | The numbers in the log's `bags` column |
+| **Verify** | To check whether something is true, using a source. *Verification* is the act of checking. | Add up the `bags` column, then compare the total with 64 |
+| **Independent check** | A check that uses a different source from the one that made the claim. Asking the same chatbot again is not independent. | Opening `cleanup_log.csv` yourself |
 
 ### Why sure isn't the same as right: Confidence and accuracy
 
-| Word | What it means |
-| --- | --- |
-| **AI chatbot** | A program that answers questions in everyday language, like ChatGPT or Claude. It writes by predicting which words usually come next. |
-| **Confidence** | How sure an answer *sounds*. |
-| **Accuracy** | Whether an answer is actually *correct*. |
-| **Hallucination** | A sure-sounding AI answer that is wrong. It may include a made-up number or a source that doesn't exist. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **AI chatbot** | A program that answers questions in everyday language. It writes by predicting which words usually come next. | ChatGPT or Claude |
+| **Confidence** | How sure an answer *sounds*. | "64 bags, the most of any park cleanup this year," with no doubt in it |
+| **Accuracy** | Whether an answer is actually *correct*. | Whether the log really adds up to 64 bags |
+| **Hallucination** | A sure-sounding AI answer that is wrong. It may include a made-up number or a source that doesn't exist. | A news report, named with a year, that no one can find |
 
 {% hint style="info" %}
 **Asking "Are you sure?" is not checking.** The chatbot just makes a new claim, from the same place as the first one. To check, open a real source yourself.
@@ -100,11 +106,11 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "It gave an exact number, so it's probably right." | A hallucination can be very exact. 64 sounded sure, and the log said 46. |
-| "It named a source, so it's backed up." | The source may not exist. Search for it yourself. |
+| "It gave an exact number, so it's probably right." | A hallucination can be very exact. The chatbot said 64 bags. The log adds up to 9 + 12 + 7 + 10 + 8 = 46 bags. |
+| "It named a source, so it's backed up." | The source may not exist. The volunteer searched the city's news site, and the 2025 report wasn't there. Search for it yourself. |
 | "I asked the chatbot to double-check, and it agreed." | That's the same source making the same claim again. It's not an independent check. |
-| "If AI-written code runs, the answer is right." | Running only means there was no error. The result can still be wrong. Check it against the real data. |
-| "So I should never use AI." | Use it, but know which parts you've checked and which you haven't. |
+| "If AI-written code runs, the answer is right." | Running only means there was no error. Code that adds up the wrong column still runs and prints a total. Check the result against the real data. |
+| "So I should never use AI." | Use it, but know which parts you've checked. In the reading, "46 bags" was safe to share only after someone added up the log. |
 
 ### How this connects
 

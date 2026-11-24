@@ -1,12 +1,14 @@
 # Quest 1.6 — Validate, Catch, Keep Going: Validation and Error Handling (Days 9–10)
 
-**Total time:** about 60 minutes
+**Total time:** about 65 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · **Load, save, and protect** · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
 ## Introduction
 
 Sometimes a form comes back filled in wrong. For example, a sign-up sheet asks for each person's age. One person writes "twenty." Another writes 250. A third leaves it blank. A program that trusts every line will make a wrong list, or stop partway through.
+
+![Two sign-up sheets with five ages each. Left, some ages break the rules: lines 1 and 5 are grey, 34 and 27. Three lines are red: line 2 says "twenty", which is not a number; line 3 says 250, which is too big for an age; line 4 is left blank. A program that trusts every line stops at "twenty", or keeps 250. Right, every age passes the checks: five grey ages, 34, 19, 52, 41, and 27. Each age is a whole number a person could be, so the program can use all 5.](images/signup-ages-bad-entries.svg)
 
 A careful program does two jobs:
 
@@ -20,9 +22,15 @@ In this reading, you'll learn how to:
 * use `try` and `except` to catch one bad line and keep going
 * name the error you expect, instead of catching every error
 
-**Main takeaway:** Validation asks, "Does this input meet our rules?" Error handling asks, "What happens if this step fails?" Use both, and never hide errors you didn't expect.
+**Main takeaway:** Use validation to catch data that breaks your rules, and error handling to keep going when a step fails. **Validation** means checking data against your rules before you use it. **Error handling** means deciding, in code, what happens when a step fails. Name the error you expect, so you never hide errors you didn't expect.
 
-**Why it matters at work:** Real data files always have some bad lines. One bad line shouldn't stop the whole file. It also shouldn't slip through without anyone noticing.
+**Why it matters at work:** Analysts check every data file before they use it, because real files always have some bad lines. For example, they use validation and error handling to:
+
+* find sign-up forms with a missing or impossible age
+* skip one unreadable line in a file of orders, and keep going
+* report every bad line with its line number, so someone can fix it
+
+If you skip these checks, one bad line can stop the whole file, or slip into your totals without anyone noticing.
 
 ## Learning goals
 
@@ -52,17 +60,19 @@ For example, each line in the reading's file looks like this: a student ID, a gr
 S-2041|10|Biology
 ```
 
-| Word | What it means |
-| --- | --- |
-| **Record** | One full entry, like one sign-up form or one hotel room request. |
-| **Field** | One part of a record. Each sign-up line in the reading has three fields: a student ID, a grade, and a class. A bar character separates them. |
-| **Batch file** | A file with one record on each line. A program checks it one line at a time. |
-| **Valid input** | Input that passes every rule, so the program can safely use it. |
-| **Invalid input** | Input that breaks at least one rule. It can have the right shape and still hold a wrong value, like grade 14 when only 9 to 12 is allowed. |
-| **Malformed input** | Input with the wrong shape, like a line with 2 fields when 3 are required. It's one kind of invalid input. |
-| **Structure check** | Checks that a record has the right shape, such as exactly 3 fields. It always runs first. |
-| **Value check** | Checks what a field holds, such as "is the grade a whole number from 9 to 12?" |
-| **Contract** | What a function takes in and what it gives back. The rest of the program relies on it. |
+The examples come from the reading's 5 sign-up lines, for students S-2041 to S-2045.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Record** | One full entry, like one sign-up form or one hotel room request. | Student S-2041's line: ID, grade 10, and Biology |
+| **Field** | One part of a record. Each sign-up line in the reading has three fields: a student ID, a grade, and a class. A bar character separates them. | `"10"`, the grade in S-2041's line |
+| **Batch file** | A file with one record on each line. A program checks it one line at a time. | The office's file of 5 sign-up lines |
+| **Valid input** | Input that passes every rule, so the program can safely use it. | S-2041's line: 3 fields, and grade 10 |
+| **Invalid input** | Input that breaks at least one rule. It can have the right shape and still hold a wrong value. | S-2044's line: 3 fields, but grade 14 |
+| **Malformed input** | Input with the wrong shape. It's one kind of invalid input. | S-2042's line has 2 fields: an ID and `Chemistry`. |
+| **Structure check** | Checks that a record has the right shape, such as exactly 3 fields. It always runs first. | `len(fields) != 3` |
+| **Value check** | Checks what a field holds, such as "is the grade a whole number from 9 to 12?" | `"10th".isdigit()` gives `False`. |
+| **Contract** | What a function takes in and what it gives back. The rest of the program relies on it. | Takes a list of lines. Gives back a list of problem messages. |
 
 You've met records before. In [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), one line of `pets.csv` was one pet's record, with commas between its values. Here, one line is one student's record, and a bar separates its fields.
 
@@ -73,9 +83,9 @@ You've met records before. In [What Kind of Data Is This?](../module-00/quest-02
 | **`.split()`** | A string method. `form.split(sep)` cuts the string at every `sep` and gives back a list of the pieces. In the reading, `sep` is the bar character. Each piece is still a string. |
 | **`.isdigit()`** | A string method. It gives `True` when every character is a digit. `"10".isdigit()` is `True`. `"10th".isdigit()` and `"".isdigit()` are `False`. |
 | **`int(text)`** | Turns the text `"10"` into the number `10`. `int("10th")` stops the program with an error. |
-| **`not`** | Flips `True` to `False`, and `False` to `True`. |
-| **`or`** | Gives `True` when either side is `True`. |
-| **`!=`** | Means "is not equal to." |
+| **`not`** | Flips `True` to `False`, and `False` to `True`. `not "10th".isdigit()` is `True`. |
+| **`or`** | Gives `True` when either side is `True`. For grade 14, `14 < 9 or 14 > 12` is `True`. |
+| **`!=`** | Means "is not equal to." For S-2042's line, `2 != 3` is `True`. |
 | **`enumerate(forms, start=1)`** | Gives a loop two things on each pass: a position number and the item. The parameter `start` is set to `1`, so the count begins at 1, not 0. |
 | **f-string** | Text with an `f` in front, like `f"Line {num}"`. Python puts the value of `num` where the braces are. |
 
@@ -85,14 +95,16 @@ Each piece from `.split()` is text, even `"10"`. Recall from [What Kind of Data 
 
 **Error handling** means deciding, in code, what should happen when a step fails, so one failure doesn't stop the whole program.
 
-| Word | What it means |
-| --- | --- |
-| **Exception** | An error Python raises while a program runs. If no code catches it, the program stops at that line. |
-| **Raise** | What Python does when a step fails: it creates an exception. |
-| **Traceback** | The report Python prints when no code catches an exception. Read its last line first: it names the error. |
-| **`try`** | The block that holds the risky step you want Python to attempt. |
-| **`except ValueError:`** | The block that runs only if a line in `try` raises a `ValueError`. It catches that error and no other. |
-| **Bare `except:`** | `except:` with no error name. It catches every error, even typos (typing mistakes) and real bugs (mistakes in code), so avoid it. |
+The examples come from the second reading's hotel booking program. One guest, Batista, asked for `"4 nights"` instead of a number.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Exception** | An error Python raises while a program runs. If no code catches it, the program stops at that line. | A `ValueError` |
+| **Raise** | What Python does when a step fails: it creates an exception. | `int("4 nights")` raises a `ValueError`. |
+| **Traceback** | The report Python prints when no code catches an exception. Read its last line first: it names the error. | Last line: `ValueError: invalid literal for int() with base 10: '4 nights'` |
+| **`try`** | The block that holds the risky step you want Python to attempt. | `nights = int(nights_text)`, inside `try:` |
+| **`except ValueError:`** | The block that runs only if a line in `try` raises a `ValueError`. It catches that error and no other. | It prints `Skipped Batista`. |
+| **Bare `except:`** | `except:` with no error name. It catches every error, even typos (typing mistakes) and real bugs (mistakes in code), so avoid it. | It would also hide `print(totl)`, a typo for `total`. |
 
 Four errors come up again and again. Each name tells you what went wrong:
 
@@ -159,7 +171,8 @@ def find_form_problems(forms):
     return problems
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. The function has one parameter, `forms`: the list of form lines, exactly as the office typed them.
 2. `problems = []` starts an empty list. The function adds one message for each bad line.
@@ -168,6 +181,8 @@ def find_form_problems(forms):
 5. The structure check runs first: `len(fields) != 3`. A line with 2 fields has no grade to check, so reading `fields[2]` would stop the program with an error.
 6. Then come the value checks. `.isdigit()` runs before `int()`, so `int()` only ever sees digits.
 7. `return problems` sits at the same indent as `for`, so it runs once, after every line is checked. Indent it one more step and the function returns after line 1.
+
+</details>
 
 ![A flow for one sign-up form line. Check 1, the structure check: exactly 3 fields? If no, add the problem "Line 2: expected 3 fields" for S-2042|Chemistry. If yes, check 2, a value check: is the grade all digits? If no, add "Line 3: grade '10th' is not a number." If yes, check 3, a value check: is the grade 9 to 12? If no, add "Line 4: grade 14 is outside 9-12." If yes, the line is valid and adds no message, like lines 1 and 5. Each problem goes into the list with problems.append. After the last line, the function returns problems: 3 problems found.](images/m1b-form-checks.svg)
 
@@ -185,13 +200,16 @@ for request in requests:
         print("Skipped", guest)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. `requests` is the list of room requests, like `"Okafor|2|double"`: a guest's name, the number of nights, and the room type.
 2. `request.split("|")` cuts each request into three fields. The three names on the left each get one field, in order.
 3. `int(nights_text)` is the risky step. For `"4 nights"`, it raises a `ValueError`.
 4. When that happens, Python leaves `try` at that line, so `"Booked"` doesn't print. It jumps to `except ValueError:` and prints `"Skipped Batista"`.
 5. Then the loop moves on to the next request. Lindqvist and Moreau still get rooms.
+
+</details>
 
 ![A flow using read_nights.py from the reading. Step 1, try: nights = int(nights_text). Step 2: did that line raise a ValueError? For "3", no: the rest of try runs, it prints Nights: 3, and except is skipped. For "4 nights", yes: Python jumps to except ValueError, skips the rest of try, and prints Could not read: 4 nights. Step 3: both paths continue after try and except, printing Done with, and the program keeps going.](images/m1b-try-except-flow.svg)
 
@@ -200,10 +218,10 @@ for request in requests:
 | If you think... | What's actually true |
 | --- | --- |
 | "The line has 3 fields, so it's valid." | Shape is only the first check. Student S-2044's line has 3 fields, but its grade, 14, is outside 9 to 12. |
-| "No error means the function works." | With `return problems` inside the loop, the function reports "0 problems found" and raises no error. Test it on a tiny batch. |
-| "A bare `except:` is safest, because it catches everything." | It also catches typos and real bugs, and hides the traceback that would point to them. |
-| "If a line in `try` fails, the rest of `try` still runs." | Python leaves `try` at that line and jumps to the matching `except`. |
-| "Validation and error handling are the same thing." | Validation checks values against rules, like `if nights > 30`. Error handling responds when a step fails, like `int("4 nights")`. `int("45")` works, so only validation catches a 45-night stay. |
+| "My function ran with no error, so it works." | With `return problems` inside the loop, it reports "0 problems found" for the 5 lines. The right answer is 3. Test it on a tiny batch. |
+| "A bare `except:` is the safest choice, because it catches everything." | It also catches typos. Type `totl` instead of `total`, and a bare `except:` hides the `NameError` that would point to it. |
+| "When `int()` fails, the `print` line under it in `try` still runs." | Python leaves `try` at the line that failed. For Batista, `Booked` never prints. `Skipped Batista` prints instead. |
+| "Validation and error handling are two names for the same thing." | Validation checks values against rules, like `if nights > 30`. Error handling responds when a step fails, like `int("4 nights")`. `int("45")` works, so only validation catches a 45-night stay. |
 
 ### How this connects
 

@@ -16,9 +16,15 @@ In this reading, you'll learn how to:
 * add things up with an accumulator inside a loop
 * return a summary instead of printing it, so other functions can use it
 
-**Main takeaway:** Give each function one job you can say in one sentence. Return the result, and give each new job its own function.
+**Main takeaway:** Give each function one job. A **single-purpose function** does one job that you can say in one sentence, like "summarize the week." Return its result, and write a new function for each new job.
 
-**Why it matters at work:** "Can you split this into two functions?" is common feedback on code. Small one-job functions are easier to change when your manager asks for one more report.
+**Why it matters at work:** Analysts split programs into small functions, so each part is easy to test and change. For example, they use one-job functions to:
+
+* check a file in one function, and add up its numbers in another
+* add a new report, like a weekly email, without changing code that already works
+* test one step on a tiny example when a number looks wrong
+
+If one function does every job, a change for one more report can break the parts that already worked.
 
 ## Learning goals
 
@@ -40,17 +46,19 @@ After this reading, you should be able to say:
 
 ### What counts as one job?: Single-purpose functions
 
-| Word | What it means |
-| --- | --- |
-| **Function** | A named, reusable block of code that runs when you call it. |
-| **Parameter** | A name in a function's `def` line that gets a value when the function is called. In `summarize_steps(days, goal)`, `days` and `goal` are parameters. |
-| **Argument** | The value you pass in when you call the function. In `summarize_steps(days, 8000)`, the argument `8000` fills the parameter `goal`. |
-| **Return value** | The value a function hands back to the code that called it, using `return`. |
-| **Caller** | The line of code that calls a function and gets its return value. |
-| **Contract** | What a function takes in, its one job, and what it gives back. Decide it before you write any code. |
-| **Single-purpose function** | A function that does one job, which you can describe in one sentence. That job can still give several related results, like a total and a count. |
-| **Summarizing** | Reporting useful facts, like a total, from data that was already checked. |
-| **Summary dict** | A dictionary that holds the results under names, like `{"total": 38070, "goal_days": 3}`. |
+The examples come from the reading's step tracker, with a goal of 8,000 steps a day.
+
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Function** | A named, reusable block of code that runs when you call it. | `summarize_steps` |
+| **Parameter** | A name in a function's `def` line that gets a value when the function is called. | `days` and `goal` in `def summarize_steps(days, goal):` |
+| **Argument** | The value you pass in when you call the function. | In `summarize_steps(days, 8000)`, `8000` fills the parameter `goal`. |
+| **Return value** | The value a function hands back to the code that called it, using `return`. | `{"total": 38070, "goal_days": 3}` |
+| **Caller** | The line of code that calls a function and gets its return value. | `summary = summarize_steps(days, 8000)` |
+| **Contract** | What a function takes in, its one job, and what it gives back. Decide it before you write any code. | In: good days and a goal. Job: summarize the week. Out: a summary dict. |
+| **Single-purpose function** | A function that does one job, which you can describe in one sentence. That job can still give several related results, like a total and a count. | "`summarize_steps` sums up one week of steps." |
+| **Summarizing** | Reporting useful facts, like a total, from data that was already checked. | Total for the week: **38,070 steps** |
+| **Summary dict** | A dictionary that holds the results under names. | `{"total": 38070, "goal_days": 3}` |
 
 The broader name for this idea is the **single-responsibility principle**: each piece of code should have one job, and so only one reason to change.
 
@@ -58,13 +66,13 @@ You've used this idea before. In [Save the Story of Your Work](../module-00/ques
 
 ### Adding things up: Accumulators
 
-| Word | What it means |
-| --- | --- |
-| **Accumulator** | A variable set before a loop and updated on every pass, like a running total. After the loop ends, it holds the answer. |
-| **Pass** | One time through the loop body. Another word for it is *iteration*. |
-| **`+=`** | `total += steps` is short for `total = total + steps`. It takes the old total, adds `steps`, and stores the result back in `total`. |
-| **Counter** | An accumulator that adds 1 each time something happens, like `goal_days += 1` when a day meets the goal. |
-| **`continue`** | Skips the rest of the loop body for this pass and moves on to the next item. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Accumulator** | A variable set before a loop and updated on every pass, like a running total. After the loop ends, it holds the answer. | `total` goes 0, then 6,200, then 15,320, and so on. |
+| **Pass** | One time through the loop body. Another word for it is *iteration*. | 5 days means 5 passes. |
+| **`+=`** | `total += steps` is short for `total = total + steps`. It takes the old total, adds `steps`, and stores the result back in `total`. | On Tuesday: 6,200 + 9,120 = **15,320 steps** |
+| **Counter** | An accumulator that adds 1 each time something happens. | `goal_days += 1` on Tue, Wed, and Fri: **3 days** |
+| **`continue`** | Skips the rest of the loop body for this pass and moves on to the next item. | In the teammate's version, it skips a day whose steps aren't a number. |
 
 You've built a running total by hand. In the interactive reading for [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), you added up the bags in the cleanup log: 9 + 12 + 7 + 10 + 8 = 46. An accumulator does the same adding, one pass at a time.
 
@@ -72,7 +80,7 @@ For example, here's how the reading's two accumulators change on each pass, with
 
 ![A worked example of summarize_steps with the goal set to 8,000 steps. Before the loop, total = 0 and goal_days = 0. Mon, 6,200 steps, misses the goal: total 6,200, goal_days 0. Tue, 9,120 steps, meets it: total 15,320, goal_days 1. Wed, 8,000 steps, meets it: total 23,320, goal_days 2. Thu, 4,300 steps, misses it: total 27,620, goal_days 2. Fri, 10,450 steps, meets it: total 38,070, goal_days 3. Days that met the goal are blue. After the loop, the function returns {"total": 38070, "goal_days": 3}.](images/m1b-accumulator-trace.svg)
 
-Wednesday counts because the check is `steps >= goal`: 8,000 is *at least* 8,000. The total is in steps. `goal_days` is a count of days.
+The total is 6,200 + 9,120 + 8,000 + 4,300 + 10,450 = 38,070 steps. Wednesday counts as a goal day because the check is `steps >= goal`: 8,000 is *at least* 8,000. The total is in steps. `goal_days` is a count of days.
 
 ## Before you read
 
@@ -115,7 +123,8 @@ def summarize_steps(days, goal):
 summary = summarize_steps(days, 8000)
 ```
 
-**Code walkthrough:**
+<details>
+<summary>Expand to walk through the code</summary>
 
 1. The `def` line names two parameters: `days`, a list of good `(day, steps)` tuples, and `goal`, the daily step goal.
 2. `total = 0` and `goal_days = 0` set up the two accumulators before the loop.
@@ -125,17 +134,19 @@ summary = summarize_steps(days, 8000)
 6. `return` hands a summary dict back to the caller. It sits outside the loop, so it runs once, after every day.
 7. In the call, `days` is the reading's list of five good days. The parameter `goal` is set to the argument `8000`. To use a different goal, change only the argument. The function stays the same.
 
+</details>
+
 ![Three functions in a chain. validate_days(), with the job "check records," passes good days, like [("Mon", 6200), ...], to summarize_steps(), with the job "summarize the week." summarize_steps() passes a summary, {"total": 38070, "goal_days": 3}, to print_week(), with the job "print the summary." Two dashed boxes branch from the summary: "New job: email the summary" and "New job: save it to a file," each a new function. Note: summarize_steps() returns its result, so new jobs never change it.](images/m1b-three-functions.svg)
 
 ### Common mix-ups
 
 | If you think... | What's actually true |
 | --- | --- |
-| "One job means one result." | Count jobs, not results. A total and a count about the same week are one job. |
-| "Every function should re-check its data, to be safe." | Checking twice mixes two jobs. Validation happens once, in `validate_days`. |
-| "`if steps >= goal` is validation." | It decides what to count. It's part of summarizing. |
-| "Printing the summary is the same as returning it." | Printing only shows it on the screen. Returning hands it back, so other code can use it. |
-| "A new request means adding code to the old function." | A new job, like emailing the summary, gets its own function. That function takes the returned summary. |
+| "One job means the function can give back only one result." | Count jobs, not results. The total (38,070 steps) and the goal days (3) describe the same week, so they're one job. |
+| "Every function should check its data again, just to be safe." | Checking twice mixes two jobs. `validate_days` already kept only good days, so `summarize_steps` can trust them. |
+| "`if steps >= goal` is validation." | It decides what to count. Thursday's 4,300 steps is good data. It just doesn't meet the goal. |
+| "Printing the summary is the same as returning it." | Printing only shows it on the screen. Returning hands back `{"total": 38070, "goal_days": 3}`, so other code can save or email it. |
+| "The app wants to email the summary, so I'll add that code to `summarize_steps`." | Emailing is a new job, so it gets its own function. That function takes the returned summary, and `summarize_steps` doesn't change. |
 
 ### How this connects
 

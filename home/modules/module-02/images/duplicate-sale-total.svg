@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 480" width="1040" height="480" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">One repeated row makes the total wrong</title>
+<desc id="d">Left: a sales sheet where the $200 sale was saved twice. The rows are $50, $120, $200, $200, and $80. The $200 row that repeats is red. Total = $50 + $120 + $200 + $200 + $80 = $650, which is $200 more than the shop made. Right: the same sales, each listed once: $50, $120, $200, and $80. Total = $50 + $120 + $200 + $80 = $450, which matches the real sales.</desc>
+<rect width="1040" height="480" fill="#ffffff"/>
+<text x="265" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">One sale saved twice</text>
+<text x="80" y="72" font-size="18" font-weight="bold" fill="#111827">Sale</text>
+<text x="290" y="72" text-anchor="end" font-size="18" font-weight="bold" fill="#111827">Amount</text>
+<rect x="60" y="84" width="410" height="38" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<text x="80" y="110" font-size="18" font-weight="normal" fill="#111827">Sale 1</text>
+<text x="290" y="110" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">$50</text>
+<rect x="60" y="128" width="410" height="38" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<text x="80" y="154" font-size="18" font-weight="normal" fill="#111827">Sale 2</text>
+<text x="290" y="154" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">$120</text>
+<rect x="60" y="172" width="410" height="38" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<text x="80" y="198" font-size="18" font-weight="normal" fill="#111827">Sale 3</text>
+<text x="290" y="198" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">$200</text>
+<rect x="60" y="216" width="410" height="38" rx="4" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2"/>
+<text x="80" y="242" font-size="18" font-weight="bold" fill="#B91C1C">Sale 3</text>
+<text x="290" y="242" text-anchor="end" font-size="18" font-weight="bold" fill="#B91C1C">$200</text>
+<text x="320" y="242" font-size="18" font-weight="bold" fill="#B91C1C">saved twice</text>
+<rect x="60" y="260" width="410" height="38" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<text x="80" y="286" font-size="18" font-weight="normal" fill="#111827">Sale 4</text>
+<text x="290" y="286" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">$80</text>
+<rect x="20" y="325" width="490" height="140" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="40" y="360" font-size="19" font-weight="bold" fill="#111827">Total = $50 + $120 + $200 + $200 + $80</text>
+<text x="40" y="396" font-size="19" fill="#111827">= $650</text>
+<text x="40" y="440" font-size="19" font-weight="bold" fill="#B91C1C">$200 more than the shop made.</text>
+<text x="775" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Each sale listed once</text>
+<text x="590" y="72" font-size="18" font-weight="bold" fill="#111827">Sale</text>
+<text x="800" y="72" text-anchor="end" font-size="18" font-weight="bold" fill="#111827">Amount</text>
+<rect x="570" y="84" width="410" height="38" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<text x="590" y="110" font-size="18" font-weight="normal" fill="#111827">Sale 1</text>
+<text x="800" y="110" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">$50</text>
+<rect x="570" y="128" width="410" height="38" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<text x="590" y="154" font-size="18" font-weight="normal" fill="#111827">Sale 2</text>
+<text x="800" y="154" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">$120</text>
+<rect x="570" y="172" width="410" height="38" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<text x="590" y="198" font-size="18" font-weight="normal" fill="#111827">Sale 3</text>
+<text x="800" y="198" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">$200</text>
+<rect x="570" y="216" width="410" height="38" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<text x="590" y="242" font-size="18" font-weight="normal" fill="#111827">Sale 4</text>
+<text x="800" y="242" text-anchor="end" font-size="18" font-weight="normal" fill="#111827">$80</text>
+<rect x="530" y="325" width="490" height="140" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="550" y="360" font-size="19" font-weight="bold" fill="#111827">Total = $50 + $120 + $200 + $80</text>
+<text x="550" y="396" font-size="19" fill="#111827">= $450</text>
+<text x="550" y="440" font-size="19" font-weight="bold" fill="#1D4ED8">The total matches the real sales.</text>
+</svg>

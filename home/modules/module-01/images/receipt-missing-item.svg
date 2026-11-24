@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" width="1040" height="500" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">A receipt that skipped an item, next to a correct receipt</title>
+<desc id="d">You bought 5 things: bread $3, milk $4, eggs $5, apples $6, and rice $2. Left: the receipt skipped the first item. Bread is red and marked missing. The total is $4 + $5 + $6 + $2 = $17, which is $3 short, and no error showed up. Right: the receipt lists all 5 items in grey. The total is $3 + $4 + $5 + $6 + $2 = $20, which matches what you bought.</desc>
+<rect width="1040" height="500" fill="#ffffff"/>
+<text x="265" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Receipt that skipped an item</text>
+<rect x="40" y="64" width="300" height="44" rx="6" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="60" y="93" font-size="20" font-weight="bold" fill="#B91C1C">Bread</text>
+<text x="320" y="93" text-anchor="end" font-size="20" font-weight="bold" fill="#B91C1C">$3</text>
+<text x="358" y="93" font-size="19" font-weight="bold" fill="#B91C1C">missing</text>
+<rect x="40" y="120" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="60" y="149" font-size="20" font-weight="normal" fill="#111827">Milk</text>
+<text x="320" y="149" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$4</text>
+<rect x="40" y="176" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="60" y="205" font-size="20" font-weight="normal" fill="#111827">Eggs</text>
+<text x="320" y="205" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$5</text>
+<rect x="40" y="232" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="60" y="261" font-size="20" font-weight="normal" fill="#111827">Apples</text>
+<text x="320" y="261" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$6</text>
+<rect x="40" y="288" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="60" y="317" font-size="20" font-weight="normal" fill="#111827">Rice</text>
+<text x="320" y="317" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$2</text>
+<rect x="20" y="352" width="490" height="134" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="40" y="386" font-size="19" font-weight="bold" fill="#111827">Receipt total</text>
+<text x="40" y="420" font-size="19" fill="#111827">= $4 + $5 + $6 + $2 = $17</text>
+<text x="40" y="460" font-size="19" font-weight="bold" fill="#B91C1C">$3 short, and no error showed up.</text>
+<text x="775" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Receipt with every item</text>
+<rect x="550" y="64" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="570" y="93" font-size="20" font-weight="normal" fill="#111827">Bread</text>
+<text x="830" y="93" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$3</text>
+<rect x="550" y="120" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="570" y="149" font-size="20" font-weight="normal" fill="#111827">Milk</text>
+<text x="830" y="149" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$4</text>
+<rect x="550" y="176" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="570" y="205" font-size="20" font-weight="normal" fill="#111827">Eggs</text>
+<text x="830" y="205" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$5</text>
+<rect x="550" y="232" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="570" y="261" font-size="20" font-weight="normal" fill="#111827">Apples</text>
+<text x="830" y="261" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$6</text>
+<rect x="550" y="288" width="300" height="44" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="570" y="317" font-size="20" font-weight="normal" fill="#111827">Rice</text>
+<text x="830" y="317" text-anchor="end" font-size="20" font-weight="normal" fill="#111827">$2</text>
+<rect x="530" y="352" width="490" height="134" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="550" y="386" font-size="19" font-weight="bold" fill="#111827">Receipt total</text>
+<text x="550" y="420" font-size="19" fill="#111827">= $3 + $4 + $5 + $6 + $2 = $20</text>
+<text x="550" y="460" font-size="19" font-weight="bold" fill="#1D4ED8">Matches the 5 things you bought.</text>
+</svg>

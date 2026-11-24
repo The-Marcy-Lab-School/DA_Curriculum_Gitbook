@@ -1,6 +1,6 @@
 # Quest 0.2 — What Kind of Data Is This? Data Types and Data Structures (Day 1)
 
-**Total time:** about 30 minutes
+**Total time:** about 35 minutes
 
 **Analyst toolkit:** Use the terminal · **Understand data** · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -16,9 +16,15 @@ In this reading, you'll learn how to:
 * name the data type of a value: text, whole number, decimal, true/false, or date
 * explain how a data structure groups many values together
 
-**Main takeaway:** Look at what a value means, not only at what it looks like. If you would never do math with it, treat it as text, even when it's made of digits.
+**Main takeaway:** Choose a value's **data type** by what the value means, not by what it looks like. A data type is what kind of value something is, like text or a whole number. If you would never do math with a value, store it as text, even when it's made of digits.
 
-**Why it matters at work:** The wrong data type quietly changes your data. For example, a customer ID (short for identifier: a code that labels one customer) like `00417` can lose its first zeros and turn into `417`. Then it may match the wrong customer.
+**Why it matters at work:** Analysts use data types to decide what they can do with each column of data. For example, they use them to:
+
+* keep a customer ID as text, so `00417` doesn't turn into `417`. A customer ID (short for identifier) is a code that labels one customer.
+* pick which columns to add up or average, like prices, and which to leave alone, like ZIP codes
+* store dates as dates, so they can count the days between two of them
+
+If a column has the wrong data type, the data changes with no warning. Then `417` may match the wrong customer.
 
 ## Learning goals
 
@@ -40,12 +46,12 @@ After this reading, you should be able to say:
 
 ### What is it called?: Variables and values
 
-| Word | What it means |
-| --- | --- |
-| **Variable** | A named container that holds a value. The value can change. Think of a box with a label on it. |
-| **Value** | The piece of information inside a variable right now, like `"Mango"` or `12.5`. |
-| **`=` (store)** | In code, `=` means "store this value in this variable." It does not mean "is equal to," like in math. |
-| **Quotes `" "`** | Quotes around a value mark it as text. `"00417"` is text. `00417` without quotes is a number. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Variable** | A named container that holds a value. The value can change. Think of a box with a label on it. | `pet_of_the_week` |
+| **Value** | The piece of information inside a variable right now. | `"Mango"` or `12.5` |
+| **`=` (store)** | In code, `=` means "store this value in this variable." It does not mean "is equal to," like in math. | `pet_of_the_week = "Biscuit"` |
+| **Quotes `" "`** | Quotes around a value mark it as text. | `"00417"` is text. `00417` without quotes is a number. |
 
 ### What kind of value is it?: Data types
 
@@ -57,7 +63,7 @@ A **data type** is what kind of value something is. The reading uses plain names
 | **Whole number** | **Integer** (`int`) | a pet's age, `3` | Yes |
 | **Decimal** | **Float** (`float`) | a weight in pounds, `12.5` | Yes |
 | **True/false** | **Boolean** (`bool`) | has this pet been adopted? `True` | No (it's a yes or no) |
-| **Date** | a date type (you'll meet it later) | the day a pet arrived, `2026-09-14` | Only date math, like "how many days ago?" |
+| **Date** | a date type (you'll meet it later) | the day a pet arrived, `2026-09-14` | Only date math, like days between two dates: `2026-10-02` − `2026-09-14` = **18 days** |
 
 | Word | What it means |
 | --- | --- |
@@ -69,14 +75,14 @@ A **data type** is what kind of value something is. The reading uses plain names
 
 ### How are values grouped?: Data structures
 
-| Word | What it means |
-| --- | --- |
-| **Data structure** | A way to group several values together as one unit. One pet's row is a small data structure. The whole file of pets is a bigger one. |
-| **Record** | One row of data about one thing, like one pet's name, age, weight, adopted, and arrived values. |
-| **Column** | One kind of information that every record has, like `age`. A column's values usually share one data type. |
-| **CSV file** | A plain text file that holds a table. CSV stands for "comma-separated values." The first line holds the column names. Each line after it is one record. Commas separate the values. |
-| **Structured data** | Data that sits in rows and columns, with the same columns for every row, like `pets.csv`. |
-| **Unstructured data** | Data with no rows or columns, like a paragraph of free text, an email, or a photo. |
+| Word | What it means | Example |
+| --- | --- | --- |
+| **Data structure** | A way to group several values together as one unit. | One pet's row is a small one. The whole file of pets is a bigger one. |
+| **Record** | One row of data about one thing. | `Mango,1,4.2,False,2026-10-02` |
+| **Column** | One kind of information that every record has. A column's values usually share one data type. | `age`, with the whole numbers `3`, `1`, and `7` |
+| **CSV file** | A plain text file that holds a table. CSV stands for "comma-separated values." The first line holds the column names. Each line after it is one record. Commas separate the values. | `pets.csv`, whose first line is `name,age,weight,adopted,arrived` |
+| **Structured data** | Data that sits in rows and columns, with the same columns for every row. | `pets.csv` |
+| **Unstructured data** | Data with no rows or columns. | A paragraph of free text, an email, or a photo |
 
 You'll need *structured* and *unstructured* again in a later quest, so learn them now. The required reading doesn't cover them, but the optional reading near the end of this page does.
 
@@ -116,11 +122,11 @@ Want to go further? This reading is optional. You don't need it for the checkpoi
 
 | If you think... | What's actually true |
 | --- | --- |
-| "It's made of digits, so it's a number." | A tag number, ZIP code, or phone number is a label. You'd never add or average it, so store it as text. |
-| "`=` means the two sides are equal." | In code, `=` stores a value in a variable. |
+| "It's made of digits, so it's a number." | A tag number, ZIP code, or phone number is a label. Stored as a whole number, tag `00417` becomes `417`, which is a different pet's tag. Store it as text. |
+| "`=` means the two sides are equal." | In code, `=` stores a value in a variable. `pet_of_the_week = "Biscuit"` puts `"Biscuit"` in the box. |
 | "A variable holds every value it ever had." | It holds only its newest value. After `"Mango"` is stored, `"Biscuit"` is gone. |
-| "Data type and data structure mean the same thing." | A data type describes one value. A data structure groups many values together. |
-| "Data in a spreadsheet is always structured." | A spreadsheet is a file of rows and columns, like one in Excel or Google Sheets. Structured means the same, clear columns for every row. A spreadsheet full of messy notes is not well structured. |
+| "Data type and data structure mean the same thing." | A data type describes one value, like `4.2`, a decimal. A data structure groups many values, like Mango's whole row of five values. |
+| "If it's in a spreadsheet, it's structured data." | A spreadsheet is a file of rows and columns, like one in Excel or Google Sheets. Structured means the same, clear columns for every row, like `pets.csv`. A spreadsheet where each cell holds a long note about a pet is not well structured. |
 
 ### How this connects
 
