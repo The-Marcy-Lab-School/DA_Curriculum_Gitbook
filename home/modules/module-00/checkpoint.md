@@ -118,7 +118,14 @@ A detailed answer can still be a hallucination: a sure-sounding AI answer that i
 <details>
 <summary>Answer</summary>
 
-**B.** It uses all four skills: you understand the data, work in the right folder, check claims instead of trusting them, and keep a history of how your work grew. That makes your work easy to check and to trust.
+**B.** It uses all four skills:
+
+* Use the terminal to look at the data.
+* Decide what each column means.
+* Check every claim instead of trusting it.
+* Save your work in small commits.
+
+That makes your work easy to check and to trust.
 
 </details>
 
@@ -126,7 +133,7 @@ A detailed answer can still be a hallucination: a sure-sounding AI answer that i
 
 Look at each picture. Explain it out loud in two or three sentences, as if to a classmate. Then open the answer.
 
-**1. (Quest 0.2)**
+**1. (Quest 0.2)** In the picture below, explain each of the three panels, from left to right.
 
 ![Three panels. Variable: the box pet_of_the_week holds "Biscuit" in week 1 and "Mango" in week 2. Data type: "Biscuit" is text, 3 is a whole number, 12.5 is a decimal, True is true/false, and 2026-09-14 is a date. Data structure: one pet's record holds Mango's name, age, weight, adopted, and arrived values, and the whole pets.csv file holds one record for every pet.](images/m0-name-tag-group.svg)
 
@@ -137,7 +144,7 @@ A variable is a labeled box. The name `pet_of_the_week` stays the same, but its 
 
 </details>
 
-**2. (Quest 0.3)**
+**2. (Quest 0.3)** In the picture below, follow the arrows from your folder to GitHub. Say what each step does.
 
 ![A flow from left to right: your folder, then git add, then the staging area, then git commit, then commits saved on your laptop, then git push, then GitHub. Steps 1 to 3 are Git, software on your laptop. Step 4 is GitHub, a website. A commit is not on GitHub until you push it.](images/m0-add-commit-push.svg)
 

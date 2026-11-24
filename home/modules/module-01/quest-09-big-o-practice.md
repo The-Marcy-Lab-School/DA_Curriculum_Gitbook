@@ -30,9 +30,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that a linear search checks items one at a time, and that Big-O describes how the work grows as the input grows, from [When the Crowd Grows](quest-03-big-o-intuition.md). In its interactive reading, when a list of 300 bookings (saved seats on flights) doubles to 600, the worst case doubles from 300 checks to 600.
-* Recall that a dictionary stores each value under a key, from [Pick the Right Container](quest-04-data-structures.md). In its interactive reading, `drivers["D-5521"]` gives the value stored under the key `"D-5521"`, and `drivers["D-5522"] = "Ari"` adds a new pair.
-* Recall that a **method** is a function that belongs to an object, called with a dot and parentheses, from [Meet the Objects](quest-08-oop.md). In this reading, `.get()` is a method that every dictionary has.
+* In [When the Crowd Grows](quest-03-big-o-intuition.md), a linear search checked items one at a time, and Big-O described its growth. In its interactive reading, 300 bookings (saved seats on flights) meant up to 300 checks. When the list doubled to 600, the worst case doubled to 600 checks.
+* A dictionary stores each value under a key. In the interactive reading for [Pick the Right Container](quest-04-data-structures.md), `drivers["D-5521"]` gave the value stored under that key. `drivers["D-5522"] = "Ari"` added a new pair.
+* `.get()`, which you'll use in this reading, is a **method** that every dictionary has. [Meet the Objects](quest-08-oop.md) showed that a method is a function that belongs to an object, called with a dot and parentheses.
 
 ## Words to know
 
@@ -40,7 +40,7 @@ After this reading, you should be able to say:
 
 The examples come from the reading's short list of 3 saved callers: Ana Ruiz, Sam Lee, and Kim Park.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Record** | One saved entry with a few values that belong together, like a phone number and a name. In the reading, each record is a small dictionary. | `{"phone": "555-0113", "name": "Kim Park"}` |
 | **Linear search** | Checking items one at a time, in order, until one matches or none are left. | To find `"555-0113"`, check Ana, then Sam, then Kim: 3 checks. |
@@ -51,14 +51,14 @@ The examples come from the reading's short list of 3 saved callers: Ana Ruiz, Sa
 
 Two ideas here build on earlier pages:
 
-* The keys are phone numbers, like `"555-0113"`. Recall from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) that a phone number is a label, not an amount. So it's stored as text, in quotes.
+* The keys are phone numbers, like `"555-0113"`. Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) showed that a phone number is a label, not an amount. So it's stored as text, in quotes.
 * You caught a `KeyError` with `try` and `except KeyError:` in [Validate, Catch, Keep Going](quest-06-validation-errors.md). `.get()` is another way to handle a missing key, with no error at all.
 
 ### How does the work grow?: Big-O and complexity
 
 Big-O counts **steps** (checks), not seconds on a clock. In this table, the input size is counted in callers, and the work is counted in checks or steps.
 
-| Word | What it means | Example with the help line |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Input size (n)** | How many items the code has to work through. For the help line, n is the number of saved callers. | The short list: n = **3 callers**. The full help line: n = **400K callers**. |
 | **Worst case** | The input that makes code do the most work. For a linear search, the item is last or not there at all, so every item gets checked. | `"555-0199"` isn't saved, so all 3 callers get checked = **3 checks** |
@@ -96,6 +96,8 @@ Want to go further? This reading is optional. You don't need it for the checkpoi
 * **A linear search is O(n).** In the worst case, it checks every record. With 400K saved callers, one call can mean 400K checks.
 * **Build the dictionary once, then look up many times.** Building `callers_by_phone` with a loop visits every record once: O(n), paid one time. Each lookup after that is O(1) on average, about one step at any size.
 * **Use `.get()` when a key might be missing.** Square brackets raise a `KeyError` and stop the program. `.get()` returns `None`, so your code can treat the number as a new caller.
+
+The picture below compares the two ways to find a caller. Count the checks on the left, then the steps on the right.
 
 ![Side by side. Left, a linear search looks for 555-0199 in three saved callers, Ana Ruiz, Sam Lee, and Kim Park. Each check says no, and it returns None after 3 checks. In the worst case it checks all n records: O(n). Right, a dictionary lookup. Step 1 builds callers_by_phone once with a loop, O(n), one time. Step 2, .get("555-0113"), goes straight to Kim Park in about 1 step at any size: O(1) average-case. At the bottom: with 400K saved callers, one call can mean up to 400K checks with a linear search, or about 1 step with a dictionary lookup.](images/m1c-linear-vs-dict.svg)
 

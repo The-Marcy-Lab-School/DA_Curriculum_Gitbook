@@ -4,7 +4,12 @@
 
 ## Where you're starting
 
-This is the first module. You don't need any experience with code, data, or the terminal. You only need two things: curiosity, and the habit of checking your work. This module helps you build both.
+This is the first module. You don't need any experience with code, data, or the terminal. You only need two things:
+
+* curiosity
+* the habit of checking your work
+
+This module helps you build both.
 
 ## Where you're going
 
@@ -28,6 +33,8 @@ An **average** is one number that describes a usual value. To find it, add up th
 
 * Average spent = ($20 + $40) ÷ 2 = $60 ÷ 2 = **$30**. This is useful: a customer usually spends about $30.
 * Average ZIP code = (10027 + 10001) ÷ 2 = 20028 ÷ 2 = **10014**. The math is right, but the answer means nothing. Neither customer lives in 10014.
+
+In the picture below, compare the red ZIP code average on the left with the dollar average on the right.
 
 ![The same two customers, shown two ways. Left, ZIP codes, which are labels, not amounts: Customer A lives in 10027 and Customer B lives in 10001. Their average, shown in red, is (10027 + 10001) ÷ 2 = 20028 ÷ 2 = 10014, and neither customer lives in 10014. Right, dollars spent, which are real amounts: Customer A spent $20 and Customer B spent $40. Their average is ($20 + $40) ÷ 2 = $60 ÷ 2 = $30, which is how much a customer usually spends.](images/m0-zip-code-average.svg)
 
@@ -60,6 +67,8 @@ Analysts use the terminal because:
 
 * The **terminal** is the window you type in. On a Mac, the app is called Terminal.
 * The **shell** is the program inside that window. It reads your command, asks the computer to do the work, and shows you the result.
+
+In the picture below, follow one command, `pwd`, from left to right until the result comes back to your screen.
 
 ![A flow from left to right. You type a command, like pwd. The terminal is the window you type in. The shell, zsh on a Mac, reads the command. The operating system, macOS, does the work. The result comes back to your screen.](images/m0-terminal-shell.svg)
 
@@ -101,13 +110,13 @@ Everyone in this program uses a Mac, so the guides you'll follow are written for
 | **List the files in a folder** | `ls` | `ls` in PowerShell, `dir` in Command Prompt |
 | **Running bash commands** | Works already | Install **Git Bash** (it comes with Git for Windows) or **WSL** (Windows Subsystem for Linux) |
 
-Servers usually run Linux. Linux uses `/` in paths and runs bash, just like your Mac's terminal works. So the commands you learn on a Mac carry over to most of the computers you'll meet at work.
+Servers usually run Linux. Linux uses `/` in paths, like a Mac. It runs bash, which works like zsh for these commands. So the commands you learn on a Mac also work on most computers you'll use at work.
 
 **Learn more:** [Apple: Terminal User Guide](https://support.apple.com/guide/terminal/welcome/mac) · [Apple: Use zsh as the default shell on your Mac](https://support.apple.com/en-us/102360) · [Microsoft: Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/) · [W3Schools: What is the command line?](https://www.w3schools.com/whatis/whatis_cli.asp)
 
 ## The big picture: your analyst toolkit
 
-This module gives you four parts of an analyst's toolkit. Each quest (one reading) teaches one part:
+This module gives you four parts of an analyst's toolkit. Each quest (one reading) teaches one part. In the picture below, you're in the middle, and each part sits around you with its quest number.
 
 ![A concept map. In the middle is you, the analyst. Around you are four parts of your toolkit. Use the terminal: how do I move around and run tools? Quest 0.1. Understand data: what kind of data is this? Quest 0.2. Save with Git: how do I keep every step of my work? Quest 0.3. Verify claims: should I trust what an AI told me? Quest 0.4.](images/m0-toolkit-map.svg)
 

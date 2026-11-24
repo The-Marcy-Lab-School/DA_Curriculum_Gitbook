@@ -30,9 +30,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that you counted a loop's passes one at a time. A loop inside a loop runs its inner body (outer passes × inner passes) times. You did this in [Trace the Path](quest-01-control-flow.md). Counting passes is how you'll measure work in this reading.
-* Recall that `return` ends a function right away, even inside a loop, from [Build It Once, Use It Again](quest-02-functions-scope.md). The search in this reading uses that: it returns as soon as it finds a match.
-* Recall that an **ID** is a value that labels one thing, like a pet's tag number, from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). A booking code like `"QX7RT2"` is an ID too. This reading searches a list of them.
+* Counting a loop's passes, as you did in [Trace the Path](quest-01-control-flow.md), is how this reading measures work. A loop inside a loop runs its inner body (outer passes × inner passes) times.
+* `return` ends a function right away, even inside a loop, as you saw in [Build It Once, Use It Again](quest-02-functions-scope.md). The search in this reading returns as soon as it finds a match.
+* An **ID** labels one thing, like a pet's tag number, as Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) showed. A booking code like `"QX7RT2"` is an ID too, and this reading searches a list of them.
 
 ## Words to know
 
@@ -44,7 +44,7 @@ An **algorithm** is a list of steps that solves a problem. For example, "check e
 
 `bookings = ["LM2B8K", "RT9PW4", "BB4HN1", "QX7RT2"]`
 
-| Word | What it means | Example with the bookings |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Input size (n)** | How many items an algorithm works through, like the number of bookings. Big-O calls it `n`. | `len(bookings)` = **4 bookings** |
 | **Check** (or **step**) | One small piece of work, like comparing one booking to the code you want. | Is `"LM2B8K"` equal to `"QX7RT2"`? = **1 check** |
@@ -54,7 +54,7 @@ An **algorithm** is a list of steps that solves a problem. For example, "check e
 
 ### Two ways to find an item: Linear search and lookup
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Linear search** (or **linear scan**) | Check items one at a time, in order, until you find the target or run out of items. *Linear* means "in a line." | To find `"QX7RT2"`, check positions 0, 1, 2, then 3: 4 checks. |
 | **`in`** | Gives `True` if the list holds that item and `False` if it doesn't. On a list, `in` is a linear search: it checks from the start, one item at a time. | `"QX7RT2" in bookings` gives `True`. |
@@ -62,7 +62,9 @@ An **algorithm** is a list of steps that solves a problem. For example, "check e
 | **Lookup** | Go straight to one item by its position or label. | A coat-check worker walks straight to hook 42. (At a **coat check**, you leave your coat and get a ticket with a hook number.) |
 | **Index** | An item's position number in a list. Python starts counting at 0. | `bookings[0]` is the first item, `"LM2B8K"`. `bookings[3]` is the fourth, `"QX7RT2"`. |
 
-Counting from 0 should look familiar. In [Trace the Path](quest-01-control-flow.md), `range(n)` started at 0 and stopped before `n`. So `range(4)` gives 0, 1, 2, and 3: the four positions in a list of four items.
+In [Trace the Path](quest-01-control-flow.md), `range(n)` also started at 0 and stopped before `n`. So `range(4)` gives 0, 1, 2, and 3: the four positions in a list of four items.
+
+The picture below finds `"QX7RT2"` both ways. Compare the 4 checks on the left with the 1 step on the right.
 
 ![Two panels side by side, with the same 4 bookings in positions 0 to 3: LM2B8K, RT9PW4, BB4HN1, and QX7RT2. Left, linear search: it checks positions 0, 1, 2, and 3 in order, so finding QX7RT2 at the end takes 4 checks. With 8 bookings, it takes 8 checks. This is O(n), the work grows with n. Right, lookup: bookings[3] jumps straight to position 3 in 1 step. With 200K bookings, it's still about 1 step. This is O(1), the work stays about the same.](images/m1a-search-vs-lookup.svg)
 
@@ -70,7 +72,7 @@ Counting from 0 should look familiar. In [Trace the Path](quest-01-control-flow.
 
 **Grow** here means "get bigger as the data gets bigger." Big-O describes the *shape* of that growth, not the exact number of seconds.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Big-O** | A way to describe how an algorithm's work grows as its input size grows. | A linear search is O(n). A lookup is O(1). |
 | **O(n)**, said "O of n" | The work grows with the number of items. Double the items, and the worst case doubles. A linear search is O(n). | 4 bookings: up to 4 checks. 8 bookings: up to 8 checks. |
@@ -104,6 +106,8 @@ As you read, look for:
 * **Big-O is about growth, not seconds.** It answers one question: "As the input size grows, what happens to the amount of work?"
 * **A linear search is O(n).** In the worst case, it checks all `n` items. So double the items means double the checks: 4 bookings take up to 4 checks, and 8 take up to 8. Using `in` on a list is a linear search too.
 * **A lookup is O(1).** It jumps straight to the item. The work stays about the same as the data grows. A fast test on a few items can't show you which kind you have.
+
+The picture below shows the worst-case steps as the bookings double. Watch the bars on the left grow, while the bars on the right stay at about 1 step.
 
 ![Two bar charts side by side with the same axes. The x-axis is the number of bookings: 25,000, 50,000, 100K, and 200K. The y-axis is worst-case steps, from 0 to 200K. Left, linear search, O(n): the bars rise to 25,000, 50,000, 100K, and 200K steps, doubling each time the bookings double. Right, lookup by code, O(1): every bar stays at about 1 step, too small to see.](images/m1a-growth-compare.svg)
 

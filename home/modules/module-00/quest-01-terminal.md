@@ -35,8 +35,8 @@ After this reading, you should be able to say:
 
 This is the first quest, so these come from everyday life and from the Module 0 Introduction.
 
-* Recall that every file on your computer lives inside a folder, and folders can hold other folders. Your Documents folder is one example.
-* Recall that the **terminal** is the window you type in, and the **shell** (zsh on a Mac) is the program inside it that runs your commands. You read about both in [the Module 0 Introduction](introduction.md#the-terminal-and-the-shell).
+* Every file on your computer lives inside a folder, and folders can hold other folders. Your Documents folder is one example.
+* In [the Module 0 Introduction](introduction.md#the-terminal-and-the-shell), you met the **terminal**, the window you type in. The **shell** (zsh on a Mac) is the program inside it that runs your commands.
 
 ## New software: Terminal
 
@@ -89,7 +89,7 @@ In the reading, each command line starts with `$`. On your Mac, the line may end
 
 A **directory** is another word for a folder. Programmers say "directory," so you'll see both words.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Directory** | A folder. It can hold files and other folders. `cd` stands for "change directory." | `garden` and `plants` |
 | **Home folder** | Your own folder on the computer. It's named after you. The terminal often starts here. | `sam`, at `/Users/sam` |
@@ -98,6 +98,8 @@ A **directory** is another word for a folder. Programmers say "directory," so yo
 | **Absolute path** | The full route from the top of the computer. It starts with `/` and works from anywhere. | `/Users/sam/garden/plants` |
 | **Relative path** | A route that starts from the working directory. | From inside `garden`, `plants` means "the plants folder right here." |
 | **`..` (two dots)** | The folder that holds the one you are in: up one level. | From `plants`, `cd ..` goes back to `garden` |
+
+In the picture below, start at `garden` on the left. Follow the arrows down into `plants` and back up.
 
 ![Left: the garden folder drawn as a tree. The home folder sam holds garden, which is marked You are here. garden holds README.md, notes, and plants. plants holds peppers.txt and tomatoes.txt. An arrow labeled cd plants goes down from garden into plants, and an arrow labeled cd .. goes back up. Under the tree: the absolute path to plants is /Users/sam/garden/plants, and the relative path from garden is plants. Right: five commands. pwd answers Where am I? and prints /Users/sam/garden. ls answers What is here? and prints README.md notes plants. cd plants moves into plants and prints nothing. cd .. moves up one level and prints nothing. cat tomatoes.txt prints the file.](images/m0-garden-folders.svg)
 

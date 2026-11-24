@@ -32,9 +32,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that a **record** is one row of data about one thing. A **column** is one kind of information that every record has. Every pet in `pets.csv` had the same columns, like name, age, and weight. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
-* Recall that a dictionary stores values under labels called keys, from [Pick the Right Container](quest-04-data-structures.md). In this reading, `goal["saved_amount"]` reads one of them. A class also groups labeled values. It adds the actions that use them.
-* Recall that a **parameter** is a name in a function's `def` line, and an **argument** is the value you pass in when you call it. Recall too that `f"Cost: ${saved}"` is an **f-string**: it fills in the value of `saved`. Both come from [Build It Once, Use It Again](quest-02-functions-scope.md). A class has a function inside it with parameters, and the second reading builds f-strings.
+* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), every pet in `pets.csv` had the same columns, like name, age, and weight. A **record** is one row about one thing, and a **column** is one kind of information every record has.
+* Your dictionaries in [Pick the Right Container](quest-04-data-structures.md) stored values under labels called keys, like `goal["saved_amount"]` in this reading. A class also groups labeled values, and it adds the actions that use them.
+* [Build It Once, Use It Again](quest-02-functions-scope.md) taught **parameters**, the names in a `def` line, and **arguments**, the values you pass in. It also taught the **f-string**: `f"Cost: ${saved}"` fills in the value of `saved`. A class has a function inside it with parameters, and the second reading builds f-strings.
 
 ## Words to know
 
@@ -42,7 +42,7 @@ After this reading, you should be able to say:
 
 The examples come from the first reading's budgeting app.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Class** | A description of one kind of thing: what each one stores (attributes) and what it can do (methods). You write it once and make many objects from it. | `SavingsGoal` |
 | **Object** | One specific thing made from a class, with its own values. | `goal_a`, which holds Bike Fund, 500, and 420 |
@@ -54,7 +54,7 @@ A class works like the column names at the top of `pets.csv`. It lists the same 
 
 ### What is inside an object?: Attributes, methods, and self
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Attribute** | A value stored on an object. You read it with a dot and no parentheses. | `goal_a.name` gives `"Bike Fund"`. |
 | **Method** | A function written inside a class. You call it with a dot and parentheses. The parentheses mean "run this method." | `goal_a.is_funded()` gives `False`. |
@@ -102,7 +102,7 @@ goal_a = SavingsGoal("Bike Fund", 500, 420)
 
 The examples come from the second reading's pet-sitting app, where `biscuit = Pet("Biscuit", "dog")`.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Magic method** | A method whose name starts and ends with two underscores. Python calls it for you at the right moment. Also called a dunder method. | `__init__`, `__str__`, or `__repr__` |
 | **`__str__`** | Returns a friendly string for a person to read. `print(obj)`, `str(obj)`, and `f"{obj}"` use it. | `print(biscuit)` shows `Biscuit the dog`. |
@@ -144,13 +144,15 @@ As you read the second one, look for:
 * **An attribute is a stored value. A method is a function inside the class.** Read an attribute with no parentheses. Call a method with parentheses. When a method runs, `self` is the object before the dot.
 * **`__str__` is for people. `__repr__` is for programmers.** `print()` uses `__str__`, and falls back to `__repr__` when there is no `__str__`. `repr()` and lists always use `__repr__`. If you write only one, write `__repr__`.
 
+The picture below shows one class making two objects. Follow `is_funded()` for `goal_a`, then for `goal_b`.
+
 ![On the left, the SavingsGoal class lists three attributes, name, target_amount, and saved_amount, and one method, is_funded(). It creates two objects. goal_a holds Bike Fund, 500, and 420. goal_b holds Trip Fund, 1200, and 1200. goal_a.is_funded() runs with self as goal_a, checks 420 >= 500, and returns False. goal_b.is_funded() runs with self as goal_b, checks 1200 >= 1200, and returns True. A note says changing goal_a.saved_amount to 480 changes only goal_a.](images/m1c-class-objects.svg)
 
-One class makes two objects. The same method gives different answers, because `self` points to a different object each time.
+The same method gives different answers, because `self` points to a different object each time.
+
+To predict what Python shows, ask what is asking Python to describe the object. The decision tree below starts with that question. Follow the branch for `print()`, then the branch for a list.
 
 ![A decision tree that starts with the question: what is asking Python to describe the object? print, str, or an f-string asks for the friendly view. If the class has __str__, Python shows Biscuit the dog. If not, it falls back to __repr__ and shows Pet('Biscuit', 'dog'). repr, or an object inside a list, always uses __repr__, so a list prints [Pet('Biscuit', 'dog'), Pet('Mochi', 'cat')]. With neither method, Python shows the class name and a memory address.](images/m1c-str-repr.svg)
-
-To predict the output, ask what is asking Python to describe the object.
 
 ### Common mix-ups
 

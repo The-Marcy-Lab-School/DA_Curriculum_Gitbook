@@ -10,7 +10,7 @@
 
 Sometimes a total is wrong before you start adding. For example, a shop makes sales of $50, $120, $200, and $80 in one morning. The real total is $50 + $120 + $200 + $80 = **$450**.
 
-But a cashier clicked Save two times on the $200 sale, so the sales sheet lists it twice. Now the sheet adds up to $450 + $200 = **$650**. The shop looks like it made $200 more than it really did.
+But a cashier clicked Save two times on the $200 sale, so the sales sheet lists it twice. Now the sheet adds up to $450 + $200 = **$650**. The shop looks like it made $200 more than it really did. Now look at the red row on the left sheet in the picture below.
 
 ![Two sales sheets. Left, one sale saved twice: the rows are $50, $120, $200, $200, and $80, and the repeated $200 row is red. Total = $50 + $120 + $200 + $200 + $80 = $650, which is $200 more than the shop made. Right, each sale listed once: $50, $120, $200, and $80. Total = $50 + $120 + $200 + $80 = $450, which matches the real sales.](images/duplicate-sale-total.svg)
 
@@ -49,9 +49,9 @@ After this reading, you should be able to say:
 
 You've inspected data before. This reading does the same checks on a whole table at once.
 
-* Recall that in a new folder, you looked before you moved: `pwd` and `ls` first, then `cat` to print a file, from [Meet Your Terminal](../module-00/quest-01-terminal.md). A new data file gets the same habit: look first, then act.
-* Recall that you named the data type of each column, and stored an ID like `00417` as text so it keeps its zeros, in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
-* Recall that your validation function checked each record before you used it, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md). It checked the shape first (the right number of fields?), then the values (is the grade made of digits?).
+* In Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md), you looked before you moved in a new folder: `pwd` and `ls` first, then `cat` to print a file. A new data file gets the same habit: look first, then act.
+* Every column has a data type. In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), you named each one, and stored an ID like `00417` as text so it keeps its zeros.
+* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) checked each record before you used it. It checked the shape first (the right number of fields?), then the values (is the grade made of digits?).
 
 ## New file type: Jupyter notebooks
 
@@ -148,14 +148,16 @@ If `import pandas` gives a `ModuleNotFoundError` on your laptop, run `pip instal
 
 To **inspect** a file means to run these four checks on it, before you do anything else.
 
-**Units** are what a number counts, like rows or blank cells. Each check gives a count, except data types, which gives a label for each column. The examples use the food bank's file, `intake.csv`.
+**Units** are what a number counts, like rows or blank cells. Each check gives a count, except data types, which gives a label for each column. The examples use the reading's food bank file, `intake.csv`.
 
-| Check | What it means | Example with `intake.csv` |
+| Check | What it means | Example in the reading |
 | --- | --- | --- |
 | **Shape** | How big the table is: did every row and column arrive? | `df.shape` gives **(8, 4)**: 8 rows, then 4 columns |
 | **Data types** | The dtype of each column: is each one the type you expect? | `df.dtypes`: `weight_lbs` is **`float64`**. The other 3 columns are **`str`**. |
 | **Missing values** | How many cells are blank in each column. | `df.isna().sum()`: **1 blank cell** in `weight_lbs`, 0 in the rest |
 | **Duplicate** | A row that matches an earlier row exactly, in every column. A donation logged twice adds its weight twice. | `df.duplicated().sum()`: **1 row**, the second `Grocery,Canned,40,Downtown` |
+
+A count can show as `np.int64(1)`. That's just a whole number, stored the NumPy way.
 
 You've done each check before, by hand, on one record or one value at a time:
 
@@ -164,15 +166,13 @@ You've done each check before, by hand, on one record or one value at a time:
 * **Missing values:** `"".isdigit()` is `False`, so your validation function caught a blank grade, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md).
 * **Duplicates:** a set keeps each value only once, in [Pick the Right Container](../module-01/quest-04-data-structures.md).
 
-pandas runs each check on the whole table in one line.
-
-A count can show as `np.int64(1)`. That's just a whole number, stored the NumPy way.
+pandas runs each check on the whole table in one line. The picture below shows the four checks in order, with the filter last.
 
 ![A flow from top to bottom. First, load a new file with pd.read_csv. Then run four checks in order. 1, Shape: did every row arrive? df.shape. 2, Data types: is each column the right type? df.dtypes. 3, Missing values: where are the blanks? df.isna().sum(). 4, Duplicates: do any rows repeat? df.duplicated().sum(). Only then filter to keep the rows you need.](images/four-checks.svg)
 
 ### Keeping and ranking rows
 
-| Word | What it means | Example with `intake.csv` |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Boolean** | A value that is either `True` or `False`. | `"Eastside" == "Eastside"` is `True` |
 | **Boolean filter** | A True/False condition inside `df[...]` that keeps only the rows where it's True. The result is a new, smaller DataFrame. The original stays the same. | `df[df["site"] == "Eastside"]` keeps **3** of the 8 rows |
@@ -202,7 +202,7 @@ As you read, look for:
 ### Summary
 
 * **A notebook runs one cell at a time.** The kernel remembers what you ran, in the order you ran it. Use Restart & Run All before you share.
-* **Check every new file four ways, every time.** Write down what each one finds. Zero problems is still a finding: now you know the file is sound instead of hoping it is.
+* **Check every new file four ways, every time.** Write down what each one finds. Zero problems is still a finding: now you know the file is fine, instead of hoping it is.
   * Shape: `df.shape`
   * Data types: `df.dtypes`
   * Missing values: `df.isna().sum()`

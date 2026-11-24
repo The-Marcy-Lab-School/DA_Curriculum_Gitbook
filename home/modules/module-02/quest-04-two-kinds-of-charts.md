@@ -32,9 +32,9 @@ After this reading, you should be able to say:
 
 You've summarized groups and checked claims before. This reading turns your numbers into charts, and checks a chart against a number.
 
-* Recall that a group summary gives you one row per group, from [One Row Per Group](quest-03-group-columns.md): `drives.groupby("site")["units"].mean()` gives one average per site. Recall too that double brackets pick a list of columns, from the interactive reading for [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
-* Recall that a date is its own data type, in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). Only date math makes sense on it, like "how many days ago?" In this reading, you'll turn date text into real dates.
-* Recall that a sure-sounding AI answer is only a claim until you check it, from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md). You check it against a real source. Here, your own `.corr()` number is that source.
+* In [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].mean()` gave one average per site. Double brackets pick a list of columns, from the interactive reading for [Look Before You Filter](quest-02-inspect-filter.md): `df[["category", "weight_lbs"]]` keeps just those two columns.
+* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), a date was its own data type, with its own math, like "how many days ago?" This reading turns date text into real dates.
+* Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) showed that a sure-sounding AI answer is only a claim until you check it against a real source. Here, your own `.corr()` number is that source.
 
 ## New Python package: Matplotlib
 
@@ -136,6 +136,8 @@ As you read, look for:
 * **Exploratory charts are for you:** fast and rough. **Explanatory charts are for a stakeholder:** one finding, a title that states it in under 10 words, axis labels in plain words with units, and nothing extra.
 * **Check a number before you trust a picture.** A correlation of 0.26 is weak, so write "tended to," not "strong," even if an AI's description of the chart sounds sure.
 * **Pick the chart by what you're comparing.** To chart a count over time: `pd.to_datetime`, group by `.dt.date`, `.size()`, then `.plot()` for a line.
+
+The picture below shows which chart fits each kind of comparison.
 
 ![Four cards under the question "Pick a chart by asking: what am I comparing?" One column's shape: histogram or boxplot, for example how gifts are spread out. A change over time: line chart, for example sign-ins per day. Two number columns: scatterplot, for example hours vs. score gain. One number across groups: bar chart, for example average swimmers per pool, with the y-axis starting at zero.](images/chart-chooser.svg)
 

@@ -37,9 +37,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that a **data structure** groups several values together as one unit. One pet's row in `pets.csv` was a small one, called a **record**. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). This reading shows Python's four main data structures.
-* Recall that a **list** keeps several values in order, inside square brackets, like `[98, 165, 122]`. A `for` loop visits each item once. You looped over a list of movie lengths in [Trace the Path](quest-01-control-flow.md).
-* Recall that `bookings[3]` reads a list item by its position, starting at 0, and that `"QX7RT2" in bookings` checks a list one item at a time, so its work grows with the list: O(n). A **lookup** goes straight to one item, like a coat-check ticket with a hook number: O(1). You saw both in [When the Crowd Grows](quest-03-big-o-intuition.md). This reading shows the container that lets you look up a value by a label.
+* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), one pet's row in `pets.csv` was a small **data structure** called a **record**. A data structure groups several values as one unit, and this reading shows Python's four main ones.
+* Your `for` loop in [Trace the Path](quest-01-control-flow.md) visited each movie length in a **list** once. A list keeps values in order, inside square brackets, like `[98, 165, 122]`.
+* In [When the Crowd Grows](quest-03-big-o-intuition.md), `"QX7RT2" in bookings` checked one item at a time, so its work grew: O(n). A **lookup** like `bookings[3]`, counting from 0, went straight to one item, like a coat-check ticket: O(1). This reading shows a container that looks up a value by a label.
 
 ## Words to know
 
@@ -49,7 +49,7 @@ A **container** holds many values under one name. Its formal name is a **data st
 
 The examples come from the reading's food delivery app.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Data structure** | A container that holds many values under one name, with rules about order, repeats, and change. | `stops`, a driver's list of streets |
 | **Item** | One value inside a container. | `"Elm St"` in `stops` |
@@ -109,7 +109,7 @@ used.add("Noor")
 
 ### Working inside a container: Keys, values, and errors
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Key** | The label you look a value up by, in a dictionary. Each key appears only once. Keys must be immutable, like strings, numbers, or tuples. A list can't be a key. | `"D-5520"` in `drivers` |
 | **Value** | The data stored under a key. | `"Noor"`, stored under `"D-5520"` |
@@ -162,7 +162,7 @@ Want to go further? These readings are optional. You don't need them for the che
 * **A dictionary finds a value by its key.** Each key appears once and maps to one value. A lookup takes about one step, and each key stays with its value, so pairs can't get mixed up.
 * **A set keeps each value once.** Use it when you only need to know "is this value here?" Make an empty set with `set()`, because `{}` makes an empty dictionary.
 
-In an interview, name the rule that decides your choice: order, change, lookup by key, or no repeats. This decision tree asks those questions in order:
+In an interview, name the rule that decides your choice: order, change, lookup by key, or no repeats. The decision tree below asks those questions in order. Start at the top question, and follow each yes or no.
 
 ![A decision tree using the food delivery app. First question: do you find each value by a label (a key)? If yes, use a dictionary, like drivers["D-5521"], which gives Sam. If no, second question: does each value only need to be there once? If yes, use a set, like used.add("Noor") for customers who used a coupon. If no, third question: must the data never change? If yes, use a tuple, like the finished order ("D-5520", "7:42 PM"). If no, use a list, like a driver's stops with stops.append("Oak Rd"). A note says a list is the default: it keeps order, allows repeats, and can change.](images/m1b-which-container.svg)
 

@@ -6,7 +6,7 @@
 
 ## Introduction
 
-A neat answer can still be wrong. For example, you buy 5 things at a store, and they cost $20 in all. But the receipt lists only 4 things and says $17. Nothing beeped. No error showed up. You only catch it because you know what you bought.
+A neat answer can still be wrong. For example, you buy 5 things at a store, and they cost $20 in all. But the receipt lists only 4 things and says $17. Nothing beeped. No error showed up. You only catch it because you know what you bought. In the picture below, look for the red item missing from the receipt on the left.
 
 ![Two receipts for the same 5 things: bread $3, milk $4, eggs $5, apples $6, and rice $2. Left, a receipt that skipped an item: bread is red and marked missing. Receipt total = $4 + $5 + $6 + $2 = $17, which is $3 short, and no error showed up. Right, a receipt with every item, all grey. Receipt total = $3 + $4 + $5 + $6 + $2 = $20, which matches the 5 things you bought.](images/receipt-missing-item.svg)
 
@@ -34,9 +34,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that `range(3)` gives `0`, `1`, `2`: it starts at 0 and stops *before* 3, from [Trace the Path](quest-01-control-flow.md). This reading adds a start number: `range(2, 5)` gives `2`, `3`, `4`.
-* Recall that a variable created inside a function exists only inside that function, from [Build It Once, Use It Again](quest-02-functions-scope.md). Using it outside raises a `NameError`. Recall too that a bare `except:` catches every error, even real bugs, from [Validate, Catch, Keep Going](quest-06-validation-errors.md).
-* Recall that an AI answer can sound sure and still be wrong. In [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said 64 bags, but the log added up to 46. In this reading, an AI tool wrote the code, so you check it the same way.
+* `range(3)` gives `0`, `1`, `2`: it starts at 0 and stops *before* 3, as you saw in [Trace the Path](quest-01-control-flow.md). This reading adds a start number: `range(2, 5)` gives `2`, `3`, `4`.
+* A variable created inside a function exists only inside it, so using it outside raises a `NameError`. You saw this in [Build It Once, Use It Again](quest-02-functions-scope.md). In [Validate, Catch, Keep Going](quest-06-validation-errors.md), you learned that a bare `except:` catches every error, even real bugs.
+* In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said 64 bags, but the log added up to 46. An AI answer can sound sure and still be wrong. In this reading, an AI tool wrote the code, so you check it the same way.
 
 ## Words to know
 
@@ -44,7 +44,7 @@ After this reading, you should be able to say:
 
 The examples come from the reading's five viewing sessions: `[50, 42, 95, 38, 61]`, in minutes.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Bug** | Any gap between what code should do and what it actually does. Some bugs crash with an error. Others quietly print a wrong answer. | The code prints 236 minutes, but the right total is 286. |
 | **Debugging** | Finding a bug, fixing it, and checking that the fix worked. | Find `range(1, len(sessions))`, fix it, and rerun to get 286. |
@@ -56,18 +56,18 @@ Working out the expected behavior is the same habit as **predict** in [Trace the
 
 ### What went wrong?: Kinds of bugs
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Logic error** | Code runs without crashing, but gives the wrong result. | It prints 236 instead of 286, with no error. |
 | **Off-by-one error** | A loop or position that is one too many or one too few, so the code skips or repeats the first or last item. | `range(1, len(sessions))` skips the first session, 50 minutes. |
-| **`range(start, stop)`** | Counts from `start` up to, but not including, `stop`. | `range(1, 5)` gives 1, 2, 3, 4, so it skips 0. |
+| **`range(start, stop)`** | Counts from `start` up to, but not including, `stop`. | With 5 sessions, `range(1, len(sessions))` gives 1, 2, 3, 4, so it skips 0. |
 | **Scope bug** | Using a variable where it doesn't exist, like outside the function that made it. Python raises a `NameError`. | `print(finished)` outside `count_finished` |
 | **Undefined attribute** | Using an attribute that an object never got, often because of a typo in its name. Python raises an `AttributeError`. | `self.minutes_watch`, when `__init__` set `minutes_watched` |
 | **Traceback** | The report Python prints when code crashes. Its last line names the error, so read it from the bottom up. | Last line: `NameError: name 'finished' is not defined` |
 
 ### Can you tidy code without breaking it?: Refactoring
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Refactor** | Changing how code is organized without changing what it does. The output must stay exactly the same. | Move a loop written twice into one function, `total_minutes`. Both versions print `Minutes: 286`. |
 
@@ -94,6 +94,8 @@ As you read, look for:
 * **Work out the expected answer first, then compare.** By hand, 50 + 42 + 95 + 38 + 61 = 286 minutes. The loop that used `range(1, len(sessions))` printed 236, because it skipped the first session: 286 − 50 = 236.
 * **Some bugs are loud. Some are quiet.** A scope bug or an undefined attribute crashes, and the traceback names the line. An off-by-one error or a bare `except:` prints a believable wrong answer. Only your expected answer catches it.
 * **Confirm every fix and every refactor.** Run the same example again and compare. Describe a bug precisely: "The line ___ does ___. It should ___."
+
+The picture below shows these steps as a flow. Follow the path for a crash, then the path for a quiet wrong answer.
 
 ![A flow for finding a bug. Step 1: work out the expected behavior by hand: 50 + 42 + 95 + 38 + 61 = 286. Step 2: run the code. Then ask: did it crash? If yes, read the traceback from the last line up, because it names the line that failed, for example a NameError from a scope bug or an AttributeError from an undefined attribute. If no, compare the actual output with the expected one. The code printed 236, not 286, which is a logic error, so trace the loop. Examples: an off-by-one error from range(1, len(sessions)), or a bare except that returns 0 and hides the problem. Both paths lead to step 3: fix one line, then rerun the same case. If it prints 286 now, the fix worked.](images/m1c-debug-flow.svg)
 

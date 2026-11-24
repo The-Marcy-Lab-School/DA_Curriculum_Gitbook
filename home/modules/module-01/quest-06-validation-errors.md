@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Sometimes a form comes back filled in wrong. For example, a sign-up sheet asks for each person's age. One person writes "twenty." Another writes 250. A third leaves it blank. A program that trusts every line will make a wrong list, or stop partway through.
+Sometimes a form comes back filled in wrong. For example, a sign-up sheet asks for each person's age. One person writes "twenty." Another writes 250. A third leaves it blank. A program that trusts every line will make a wrong list, or stop partway through. In the picture below, look at the three red lines on the left sheet.
 
 ![Two sign-up sheets with five ages each. Left, some ages break the rules: lines 1 and 5 are grey, 34 and 27. Three lines are red: line 2 says "twenty", which is not a number; line 3 says 250, which is too big for an age; line 4 is left blank. A program that trusts every line stops at "twenty", or keeps 250. Right, every age passes the checks: five grey ages, 34, 19, 52, 41, and 27. Each age is a whole number a person could be, so the program can use all 5.](images/signup-ages-bad-entries.svg)
 
@@ -37,9 +37,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that `return` hands a value back to the line that called the function. You wrote functions that return values in [Build It Once, Use It Again](quest-02-functions-scope.md). This reading's function returns a whole list.
-* Recall that you saved a dictionary to a JSON (JavaScript Object Notation) file and loaded it back. After that round trip, `restored[7]` raised a `KeyError`, because the key had become the string `"7"`. You saw this in [Make It Survive](quest-05-serialization.md). The second reading shows how to catch an error like that.
-* Recall that code that sounds sure, or runs without errors, can still be wrong. You check it against something real, as you did in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md). Here, you'll test a function on a few made-up lines instead of trusting it.
+* In [Build It Once, Use It Again](quest-02-functions-scope.md), `return` handed a value back to the line that called the function. This reading's function returns a whole list.
+* When you loaded a dictionary back from a JSON (JavaScript Object Notation) file in [Make It Survive](quest-05-serialization.md), `restored[7]` raised a `KeyError`. The key had become the string `"7"`, and the second reading shows how to catch an error like that.
+* Code can sound sure, or run without errors, and still be wrong. Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) taught you to check it against something real. Here, you'll test a function on a few made-up lines instead of trusting it.
 
 ## Words to know
 
@@ -55,7 +55,7 @@ S-2041|10|Biology
 
 The examples come from the reading's 5 sign-up lines, for students S-2041 to S-2045.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Record** | One full entry, like one sign-up form or one hotel room request. | Student S-2041's line: ID, grade 10, and Biology |
 | **Field** | One part of a record. Each sign-up line in the reading has three fields: a student ID, a grade, and a class. A bar character separates them. | `"10"`, the grade in S-2041's line |
@@ -82,7 +82,7 @@ You've met records before. In [What Kind of Data Is This?](../module-00/quest-02
 | **`enumerate(forms, start=1)`** | Gives a loop two things on each pass: a position number and the item. The parameter `start` is set to `1`, so the count begins at 1, not 0. |
 | **f-string** | Text with an `f` in front, like `f"Line {num}"`. Python puts the value of `num` where the braces are. |
 
-Each piece from `.split()` is text, even `"10"`. Recall from [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) that digits in quotes are text. An ID stays text, because it's a label. So the code turns the grade into a number with `int()`, to compare it with 9 and 12. The student ID `S-2041` stays text.
+Each piece from `.split()` is text, even `"10"`. Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) showed that digits in quotes are text. An ID stays text, because it's a label. So the code turns the grade into a number with `int()`, to compare it with 9 and 12. The student ID `S-2041` stays text.
 
 ### When a step fails: Exceptions and error handling
 
@@ -90,7 +90,7 @@ Each piece from `.split()` is text, even `"10"`. Recall from [What Kind of Data 
 
 The examples come from the second reading's hotel booking program. One guest, Batista, asked for `"4 nights"` instead of a number.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Exception** | An error Python raises while a program runs. If no code catches it, the program stops at that line. | A `ValueError` |
 | **Raise** | What Python does when a step fails: it creates an exception. | `int("4 nights")` raises a `ValueError`. |
@@ -101,7 +101,7 @@ The examples come from the second reading's hotel booking program. One guest, Ba
 
 Four errors come up again and again. Each name tells you what went wrong:
 
-| Error | Example from the reading | What went wrong |
+| Error | Example in the reading | What went wrong |
 | --- | --- | --- |
 | **`ValueError`** | `int("4 nights")` | The right operation, but this value can't be used. |
 | **`KeyError`** | `rates["penthouse"]` | The dictionary has no entry for that key. (`rates` holds room prices. A penthouse is a room on the top floor.) |
@@ -177,6 +177,8 @@ def find_form_problems(forms):
 
 </details>
 
+The picture below follows one line through the three checks, in order. Look at where each of the reading's bad lines stops.
+
 ![A flow for one sign-up form line. Check 1, the structure check: exactly 3 fields? If no, add the problem "Line 2: expected 3 fields" for S-2042|Chemistry. If yes, check 2, a value check: is the grade all digits? If no, add "Line 3: grade '10th' is not a number." If yes, check 3, a value check: is the grade 9 to 12? If no, add "Line 4: grade 14 is outside 9-12." If yes, the line is valid and adds no message, like lines 1 and 5. Each problem goes into the list with problems.append. After the last line, the function returns problems: 3 problems found.](images/m1b-form-checks.svg)
 
 ### Error handling in code
@@ -203,6 +205,8 @@ for request in requests:
 5. Then the loop moves on to the next request. Lindqvist and Moreau still get rooms.
 
 </details>
+
+The picture below uses a shorter program from the reading, `read_nights.py`. Follow the two inputs, `"3"` and `"4 nights"`, down their two paths.
 
 ![A flow using read_nights.py from the reading. Step 1, try: nights = int(nights_text). Step 2: did that line raise a ValueError? For "3", no: the rest of try runs, it prints Nights: 3, and except is skipped. For "4 nights", yes: Python jumps to except ValueError, skips the rest of try, and prints Could not read: 4 nights. Step 3: both paths continue after try and except, printing Done with, and the program keeps going.](images/m1b-try-except-flow.svg)
 

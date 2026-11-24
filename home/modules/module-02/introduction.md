@@ -28,7 +28,7 @@ For example, a manager at an insurance company asks you how much a claim usually
 
 ## The big picture: the EDA workflow
 
-A **workflow** is a set of steps you follow in order. EDA has five steps. Each quest (one day's reading) teaches one of them:
+A **workflow** is a set of steps you follow in order. EDA has five steps. Each quest (one day's reading) teaches one of them. The picture below shows the five steps in order, and which quests teach each one.
 
 ![Five steps from left to right: Inspect in Quest 2.2; Clean in Quests 2.6 and 2.7; Explore in Quests 2.1, 2.3 to 2.5 and 2.8; Check in Quests 2.9 and 2.10; Explain in Quest 2.11. A dashed arrow loops from Check back to Clean, because a problem you find later can send you back a step. The Boss Battle (Module Project) runs all five steps on one real dataset.](images/eda-workflow.svg)
 

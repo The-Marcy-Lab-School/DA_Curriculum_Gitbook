@@ -20,7 +20,7 @@ When this module started, you were writing your first lines of Python. Now you c
 
 ## What you can do now
 
-You've now practiced every [building block of a data program](introduction.md#the-big-picture-the-building-blocks-of-a-data-program):
+You've now practiced every [building block of a data program](introduction.md#the-big-picture-the-building-blocks-of-a-data-program). The picture below shows how the blocks fit around one program.
 
 ![A concept map of five building blocks around a data program written in Python: decide and repeat, organize steps, hold data, load save and protect, and check your work.](images/m1-building-blocks.svg)
 
@@ -51,7 +51,7 @@ When someone asks you to find a bug, you can use this answer:
 
 ## Where these skills show up next
 
-Nothing you learned here goes away. In the next module, you'll start using pandas. pandas is built from the same pieces you learned here:
+In the next module, you'll start using pandas. pandas is built from the same pieces you learned here:
 
 | In this module, you... | Next, you'll... |
 | --- | --- |

@@ -32,9 +32,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that `return` hands a value back to the caller, and a function with no `return` gives back `None`. You also kept a running total with `total += loads`. You did both in [Build It Once, Use It Again](quest-02-functions-scope.md).
-* Recall that `for code, time in finished:` takes each tuple apart into two variables. That's **unpacking**, from [Pick the Right Container](quest-04-data-structures.md). This reading loops over `(day, steps)` tuples the same way.
-* Recall that a validation function checks each record (one entry, like one day's step count) against rules before the program uses it. You built one in [Validate, Catch, Keep Going](quest-06-validation-errors.md). This reading starts after that check is done.
+* In [Build It Once, Use It Again](quest-02-functions-scope.md), you kept a running total with `total += loads`. `return` hands a value back to the caller, and a function with no `return` gives back `None`.
+* **Unpacking** takes each tuple apart into separate variables, like `for code, time in finished:` in [Pick the Right Container](quest-04-data-structures.md). This reading loops over `(day, steps)` tuples the same way.
+* Your validation function in [Validate, Catch, Keep Going](quest-06-validation-errors.md) checked each record (one entry, like one day's step count) against rules. This reading starts after that check is done.
 
 ## Words to know
 
@@ -42,7 +42,7 @@ After this reading, you should be able to say:
 
 The examples come from the reading's step tracker, with a goal of 8,000 steps a day.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Function** | A named, reusable block of code that runs when you call it. | `summarize_steps` |
 | **Parameter** | A name in a function's `def` line that gets a value when the function is called. | `days` and `goal` in `def summarize_steps(days, goal):` |
@@ -54,13 +54,13 @@ The examples come from the reading's step tracker, with a goal of 8,000 steps a 
 | **Summarizing** | Reporting useful facts, like a total, from data that was already checked. | Total for the week: **38,070 steps** |
 | **Summary dict** | A dictionary that holds the results under names. | `{"total": 38070, "goal_days": 3}` |
 
-The broader name for this idea is the **single-responsibility principle**: each piece of code should have one job, and so only one reason to change.
+The broader name for this idea is the **single-responsibility principle**: each piece of code should have one job.
 
 You've used this idea before. In [Save the Story of Your Work](../module-00/quest-03-git.md), an atomic commit held one focused change. You could describe it in a short sentence. A single-purpose function is the same idea for code: one job, said in one sentence.
 
 ### Adding things up: Accumulators
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Accumulator** | A variable set before a loop and updated on every pass, like a running total. After the loop ends, it holds the answer. | `total` goes 0, then 6,200, then 15,320, and so on. |
 | **Pass** | One time through the loop body. Another word for it is *iteration*. | 5 days means 5 passes. |
@@ -70,7 +70,7 @@ You've used this idea before. In [Save the Story of Your Work](../module-00/ques
 
 You've built a running total by hand. In the interactive reading for [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), you added up the bags in the cleanup log: 9 + 12 + 7 + 10 + 8 = 46. An accumulator does the same adding, one pass at a time.
 
-For example, here's how the reading's two accumulators change on each pass, with the goal set to 8,000 steps:
+In the picture below, follow the reading's two accumulators, `total` and `goal_days`, through each pass. The goal is set to 8,000 steps.
 
 ![A worked example of summarize_steps with the goal set to 8,000 steps. Before the loop, total = 0 and goal_days = 0. Mon, 6,200 steps, misses the goal: total 6,200, goal_days 0. Tue, 9,120 steps, meets it: total 15,320, goal_days 1. Wed, 8,000 steps, meets it: total 23,320, goal_days 2. Thu, 4,300 steps, misses it: total 27,620, goal_days 2. Fri, 10,450 steps, meets it: total 38,070, goal_days 3. Days that met the goal are blue. After the loop, the function returns {"total": 38070, "goal_days": 3}.](images/m1b-accumulator-trace.svg)
 
@@ -129,6 +129,8 @@ summary = summarize_steps(days, 8000)
 7. In the call, `days` is the reading's list of five good days. The parameter `goal` is set to the argument `8000`. To use a different goal, change only the argument. The function stays the same.
 
 </details>
+
+The picture below shows where `summarize_steps` sits between two other functions. Look at the one job written under each function's name.
 
 ![Three functions in a chain. validate_days(), with the job "check records," passes good days, like [("Mon", 6200), ...], to summarize_steps(), with the job "summarize the week." summarize_steps() passes a summary, {"total": 38070, "goal_days": 3}, to print_week(), with the job "print the summary." Two dashed boxes branch from the summary: "New job: email the summary" and "New job: save it to a file," each a new function. Note: summarize_steps() returns its result, so new jobs never change it.](images/m1b-three-functions.svg)
 

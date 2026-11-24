@@ -34,9 +34,9 @@ After this reading, you should be able to say:
 
 You've saved charts, written checkable questions, and pushed work to GitHub. This reading uses them together to write for a reader.
 
-* Recall that you saved a chart as an image with `plt.savefig("tradeins_hist.png", dpi=150)`, before `plt.show()`, so you could share just the picture, in [Two Sets of Eyes](quest-10-ai-on-charts.md).
-* Recall that you rewrote a vague question like "Why is data missing?" into a checkable one that names a group, a number, or a method, in [The Pattern Isn't the Proof](quest-09-clarifying-questions.md).
-* Recall that `git add` stages a file and `git commit` saves it. A commit isn't on GitHub until you `git push`. You did this in [Save the Story of Your Work](../module-00/quest-03-git.md). A README and its chart images go through the same steps.
+* `plt.savefig("tradeins_hist.png", dpi=150)` saved a chart as an image in [Two Sets of Eyes](quest-10-ai-on-charts.md). It came before `plt.show()`, so you could share just the picture.
+* In [The Pattern Isn't the Proof](quest-09-clarifying-questions.md), you rewrote a vague question like "Why is data missing?" into a checkable one that names a group, a number, or a method.
+* In Module 0's [Save the Story of Your Work](../module-00/quest-03-git.md), `git add` staged a file and `git commit` saved it, but it wasn't on GitHub until you ran `git push`. A README and its chart images go through the same steps.
 
 ## Words to know
 
@@ -44,7 +44,7 @@ The examples come from the reading. Jordan found that Route 12 buses run late in
 
 ### Who you're writing for
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Stakeholder** | The person who will use your finding to make a decision. | The transit manager: the person who runs the city's buses |
 | **Stakeholder-facing** | Written for a reader who doesn't code. It gives the answer and how sure you are, not the code that found it. | "Route 12 evening trips run about 10 minutes late," not `trips.groupby(...)` |
@@ -52,7 +52,7 @@ The examples come from the reading. Jordan found that Route 12 buses run late in
 
 ### The two pages
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **README** | The landing page of a project: the first page anyone opening the repo (repository, the project's folder on GitHub) sees. It answers "What did you find?" | Jordan's `README.md`, titled "Route 12 Evening Delays" |
 | **Takeaways** | The README section with findings in plain words, not code. | "Morning trips on both routes run close to on time." |
@@ -66,7 +66,7 @@ You've seen a README before. In [Meet Your Terminal](../module-00/quest-01-termi
 
 ### New code in this reading
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **`os.makedirs("images", exist_ok=True)`** | Makes a folder called `images`. `os` is a module that comes with Python. The parameter `exist_ok` is set to `True`, which means it's OK if the folder already exists, so Python won't stop with an error. | Makes `images/` next to `README.md`, where the chart is saved |
 | **`.unstack()`** | Turns the inner group labels (morning, evening) into columns, so each route (the path one bus line follows) gets two bars side by side. | See the before and after below. |
@@ -116,6 +116,8 @@ As you read, look for:
 * **Recompute a number right before you cite it (use it in your writing),** and copy what the cell prints, not what you remember. Jordan copies 10.3 minutes late, for Route 12's evening trips, straight from the output. Route 12's three evening trips were 9, 12, and 10 minutes late: (9 + 12 + 10) ÷ 3 = 31 ÷ 3 = 10.3 minutes.
 * **Save the chart as a file, then embed it.** Make an `images` folder, save the chart with `plt.savefig` before `plt.show()`, and embed it with `![alt text](images/name.png)`. Commit the `images` folder along with the README, or the picture won't show up on GitHub.
 * **Two pages, two jobs.** The README says what you found, in the sections the project asks for. The data-quality memo says how far to trust it, in four parts.
+
+The picture below shows how one finding becomes two pages, each with its own job.
 
 ![Your finding starts in your notebook, which the stakeholder won't open. It becomes two pages. The README answers "What did you find?": the answer first in plain words, one key number, and an embedded chart with alt text. The data-quality memo answers "Can I trust it?" in four parts: domain and stakeholder on one line, your answer in one sentence with no code words, two checkable questions about the data, and whether a bad answer would change your advice.](images/two-pages.svg)
 

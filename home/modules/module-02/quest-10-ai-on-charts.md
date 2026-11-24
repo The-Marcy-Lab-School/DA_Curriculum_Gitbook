@@ -15,7 +15,7 @@ But your own numbers, in °F (degrees Fahrenheit), say something else:
 * Week 3: 49°F
 * Week 4: 68°F
 
-Week 3 was 63 − 49 = 14°F colder than week 2. So the AI's claim is wrong.
+Week 3 was 63 − 49 = 14°F colder than week 2. So the AI's claim is wrong. In the picture below, look at the red week 3 on the left chart.
 
 ![Two line charts of average temperature by week. Each has an x-axis for the week of the month, 1 to 4, and a y-axis for average temperature in °F, 40 to 80. Left, your numbers: 58, 63, 49, and 68°F. Week 3, in red, was 14°F colder than week 2, but the AI said, "Temperatures rose steadily." Right, what rising steadily would look like: 52, 57, 62, and 67°F, with each week 5°F warmer than the last. That would match the AI's claim.](images/ai-temperature-claim.svg)
 
@@ -43,9 +43,9 @@ After this reading, you should be able to say:
 
 You've checked an AI's answer against a data file before. This reading checks an AI's answer about a chart.
 
-* Recall that one very large value pulls the mean up more than the median, so a mean far above the median is a sign of skew. You saw this with one $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
-* Recall that to see the shape of one number column, you pick a histogram or a boxplot, in [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
-* Recall that in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said volunteers filled 64 bags. The cleanup log added up to 46. You found the claim, found a real source, compared the two, and then decided.
+* One very large value pulls the mean up more than the median, so a mean far above the median is a sign of skew. You saw this with one $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
+* A histogram or a boxplot shows the shape of one number column, from [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
+* In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said volunteers filled 64 bags, but the cleanup log added up to 46. You found the claim, found a real source, compared the two, and then decided.
 
 ## Words to know
 
@@ -53,7 +53,7 @@ The examples come from the reading. Devon runs a used-book shop. In a **trade-in
 
 ### Checking an AI
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **AI critique** | Checking an AI's chart description or chart suggestion against the real numbers before you trust it. | Checking the AI's reply about Devon's trade-in chart against the mean and median |
 | **Direction 1** | The AI describes a chart you made. You check whether its read matches the real chart. | The AI says the book prices have "one hump." |
@@ -66,7 +66,7 @@ Computing your own numbers first is the habit from [Looks Right. Is It?](../modu
 
 ### Reading the shape
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Right-skewed** | Most values are small, with a long tail to the right. The mean gets pulled above the median. | 9 trade-ins of 2 to 7 books, and 1 of 60 books |
 | **Peak** | A high spot on a histogram, where many values bunch together. Two peaks often mean two groups are mixed together in one column. | Book prices bunch at $3 to $5 and at $13 to $16. |
@@ -77,7 +77,7 @@ Two groups mixed in one column is the problem you met in [Beneath the Total](que
 
 The mean and the median come out in the column's **units**: what the numbers count or measure. For trade-ins, the units are books. For prices, they're dollars. The example uses the 10 trade-ins, sorted: 2, 3, 3, 4, 4, 5, 5, 6, 7, and 60 books.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **`.describe()[["mean", "50%"]]`** | Picks two rows of `describe()`: the mean and the "50%" row, which is the median. | Mean = 99 ÷ 10 = **9.9 books**. Median = (4 + 5) ÷ 2 = **4.5 books**. |
 | **`.plot.hist(bins=12)`** | Draws a histogram. The parameter `bins` is set to `12`, so the chart has 12 bars. | A histogram of books brought per trade-in |
@@ -110,6 +110,8 @@ As you read, look for:
 * **Get your own numbers first.** Save the chart with `plt.savefig` before `plt.show()`, share only the image with a fresh AI chat, and ask a plain question that doesn't hint at the answer. For the trade-ins, the mean is 9.9 books and the median is 4.5, so the data is right-skewed and the median is the typical trade-in.
 * **Split the AI's reply into claims.** Mark each one right, wrong, or unverifiable, and name the number that settles it. An AI is often partly right, so check every claim on its own.
 * **Look at the chart, not just the summary numbers.** If the mean lands where almost no data sits, the rows may be two groups mixed together. Group by the column that might split them.
+
+The picture below shows the steps for checking an AI's answer, in order.
 
 ![A flow. Step 1: calculate your own numbers first. Step 2: ask the AI about your chart. Step 3: split its answer into separate claims. Each claim gets a verdict: right (your numbers agree), wrong (your numbers disagree), or unverifiable (nothing you have settles it). Step 4: you decide what to share. Name the number that settles each claim. You are responsible for what you share, not the AI.](images/ai-claim-check.svg)
 

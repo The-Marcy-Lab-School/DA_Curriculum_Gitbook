@@ -195,7 +195,7 @@ Checking each checkout record fits a standalone function: it takes a record and 
 
 Look at each picture. Explain it out loud in two or three sentences, as if to a classmate. Then open the answer.
 
-**1. (Quest 1.8)**
+**1. (Quest 1.8)** Look at the two objects. Why does the same method give two different answers?
 
 ![The SavingsGoal class, with three attributes and one method, creates two objects: goal_a with Bike Fund, 500, and 420, and goal_b with Trip Fund, 1200, and 1200. goal_a.is_funded() returns False, and goal_b.is_funded() returns True.](images/m1c-class-objects.svg)
 
@@ -206,7 +206,7 @@ The `SavingsGoal` class is written once. It makes two objects, and each one stor
 
 </details>
 
-**2. (Quest 1.10)**
+**2. (Quest 1.10)** Follow both paths after step 2. What does each path tell you to do?
 
 ![A debugging flow. Step 1, work out the expected answer by hand: 286. Step 2, run the code. If it crashed, read the traceback from the last line up. If not, compare the actual output, 236, with the expected 286. Step 3, fix one line and rerun the same case.](images/m1c-debug-flow.svg)
 

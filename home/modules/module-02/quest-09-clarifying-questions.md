@@ -13,7 +13,7 @@ Maybe the food in Riverside is worse. Or maybe fewer people there use the app. S
 * In Northside, many people use the app. All 8 restaurants have a rating, and 4 of those 8 are rated high.
 * In Riverside, few people use the app. Only 2 restaurants have a rating, and 1 of those 2 is rated high.
 
-In both places, half of the rated restaurants are rated high. Riverside shows fewer only because fewer of its restaurants got counted.
+In both places, half of the rated restaurants are rated high. Riverside shows fewer only because fewer of its restaurants got counted. In the picture below, look at the red restaurants in Riverside that have no rating.
 
 ![Two neighborhoods with 8 restaurants each. Left, Riverside, where few people use the review app: 6 restaurants are red because they have no rating, and only 2 have a rating. 1 of those 2 is rated high, so the app shows only 1 highly rated restaurant. Right, Northside, where many people use the app: all 8 restaurants have a rating, and 4 of those 8 are rated high. In both places, half of the rated restaurants are rated high.](images/restaurant-reviews-undercounted.svg)
 
@@ -41,9 +41,9 @@ After this reading, you should be able to say:
 
 You've checked a claim against its source, and you've counted blanks and group sizes. This reading turns those checks on the data file itself.
 
-* Recall that you counted the blanks in a dog-walking log with `walks.isna().sum()`, then asked why each gap was missing and whether the gaps were bunched in one group, in the interactive reading for [Drop, Fill, or Flag](quest-06-missing-data.md). This reading counts the blanks for each group in one line.
-* Recall that one unusual value moves a small group's average a lot, so you checked how many rows each group had before trusting it, in [Beneath the Total](quest-08-mining-a-pattern.md).
-* Recall that in [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), you checked a chatbot's claim against a **source**: where information comes from. This time, you ask where the data file itself came from.
+* In the interactive reading for [Drop, Fill, or Flag](quest-06-missing-data.md), `walks.isna().sum()` counted the blanks in a dog-walking log. Then you asked why each gap was missing, and whether the gaps were bunched in one group.
+* One unusual value moves a small group's average a lot. So in [Beneath the Total](quest-08-mining-a-pattern.md), you checked how many rows each group had before trusting it.
+* Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md) had you check a chatbot's claim against a **source**: where information comes from. This time, you ask where the data file itself came from.
 
 ## Words to know
 
@@ -51,7 +51,7 @@ You've checked a claim against its source, and you've counted blanks and group s
 
 The examples come from the reading's street tree count, where volunteers counted trees in four areas of town.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Source note** | The short document that comes with a dataset. It says who collected the data, when, and how. Read it first. | It says adult volunteers counted North, East, and West over two Saturdays. |
 | **Data steward** | The person or team who looks after the data and can answer questions about it. | The volunteer who organized the count |
@@ -65,11 +65,13 @@ The examples come from the reading's street tree count, where volunteers counted
 | **Completeness** | What's missing, and why? Example: a tree with no species (kind of tree, like oak or maple) written down. |
 | **Bias** | Who or what got **under-sampled**, meaning counted less than the rest? Example: volunteers walked many blocks in one area and only a few in another. |
 
+The picture below puts the three questions in order, from a pattern to a checkable question.
+
 ![You find a pattern. Before you trust it, ask three questions. Origin: who collected this, and how? Completeness: what's missing, and why? Bias: who or what was counted less? Then write a checkable question that names a group, a number, or a method.](images/three-questions.svg)
 
 ### Asking good questions
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Checkable question** | A question specific enough that a data steward could answer it with a real fact. It names a group, a number, or a method, and ties to something you found. | "Which blocks did West's volunteers pick, and how many?" |
 | **Generic question** | A question that could fit any dataset. It sounds careful, but nobody can answer it. | "Is this data accurate?" |
@@ -80,7 +82,7 @@ A generic question is like asking a chatbot "Are you sure?" In [Confidence Is No
 
 Both lines below give back counts. **Units** are what a number counts. `.value_counts()` counts rows, and here each row is one tree. The second line counts blank cells.
 
-| Word | What it means | Example with the tree count |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **`.value_counts()`** | Lists each different value in a column with how many rows have it, biggest first. | `trees["area"].value_counts()` gives South **4 trees**, North 3, East 3, and West **2 trees**. |
 | **`trees["species"].isna().groupby(trees["area"]).sum()`** | Counts the blanks in one column for each group of another column. `.isna()` marks each blank True, `.groupby(trees["area"])` splits those by area, and `.sum()` adds them up. True counts as 1. | South: True + False + True + True = **3 blank cells**. East has 1, and North and West have 0. |

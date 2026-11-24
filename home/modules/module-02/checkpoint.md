@@ -134,7 +134,7 @@ Your answer in one plain sentence, with one number and no code words. That's BLU
 
 Look at each picture. Explain it out loud in two or three sentences, as if to a classmate. Then open the answer.
 
-**1. (Quest 2.1)**
+**1. (Quest 2.1)** In each shape, look at where the mean line sits next to the median line.
 
 ![Three histograms side by side: left-skewed, symmetric, and right-skewed, each with a mean line and a median line.](images/skew-shapes.svg)
 
@@ -145,7 +145,7 @@ In left-skewed data, a tail of small values pulls the mean below the median. In 
 
 </details>
 
-**2. (Quest 2.8)**
+**2. (Quest 2.8)** Compare the gap between the two shops on the left with the gap on the right.
 
 ![Two bar charts of repair times. Left, all repairs: Downtown 45.7 minutes and Eastside 30.5. Right, screen repairs only: Downtown 50.0 and Eastside 51.0.](images/confound-gap.svg)
 

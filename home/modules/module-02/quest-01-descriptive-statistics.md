@@ -43,9 +43,9 @@ After this reading, you should be able to say:
 
 You've already added up numbers and read items by position. This reading uses both to describe a whole list with a few numbers.
 
-* Recall that you added up a week of step counts with a running total (`total += steps`) in [One Job at a Time](../module-01/quest-07-second-function.md). An average goes one step further: divide the total by how many values there are, `sum(steps) / len(steps)`.
-* Recall that you read a list item by its position, called its **index**, in [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md). Python starts counting at 0, so `sorted_gifts[0]` is the first item and `sorted_gifts[1]` is the second. You'll use this to find the middle value of a sorted list.
-* Recall that a **quantitative** value measures an amount, like a weight or a price. Math on it makes sense. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). An ID made of digits is not quantitative, so never take its mean.
+* In Module 1's [One Job at a Time](../module-01/quest-07-second-function.md), you added up a week of step counts with a running total: `total += steps`. An average goes one step further: `sum(steps) / len(steps)`.
+* Python counts list positions, called **indexes**, from 0. In Module 1's [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md), `bookings[3]` read the 4th booking. You'll use positions to find the middle of a sorted list.
+* A **quantitative** value measures an amount, like a weight or a price, from Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). An ID made of digits isn't quantitative, so never average it.
 
 ## New Python package: NumPy
 
@@ -146,6 +146,8 @@ The IQR is only $15, but the range is $4,960. That gap tells you one value sits 
 | **Outlier** | A value far from the rest. It can still be real. | The **$5,000** gift (and the $3M home in the Introduction) |
 
 An outlier is not the same as a bad value. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), a grade of 14 broke a rule. So your function flagged it as a problem. A $5,000 gift breaks no rule. It's far from the rest, but it's real, so it stays in the data.
+
+The picture below shows three shapes of data. In each one, look at where the mean sits next to the median.
 
 ![Three histograms side by side. Each has an x-axis for the value, from small to big, and a y-axis for how many values. Left-skewed: most values are big, with a tail of small values on the left, and the mean sits below the median. Symmetric: one peak in the middle, and the mean and median are about the same. Right-skewed: most values are small, with a tail of big values on the right, and the mean sits above the median.](images/skew-shapes.svg)
 

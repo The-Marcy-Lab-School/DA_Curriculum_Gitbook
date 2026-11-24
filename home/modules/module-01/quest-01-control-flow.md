@@ -34,8 +34,8 @@ After this reading, you should be able to say:
 
 You've already used the terminal and named data types. This reading puts both to work in Python.
 
-* Recall that a **variable** is a named box that holds a value. `=` means "store," not "is equal to." You also sorted values into data types: text, whole numbers, decimals, and True/False. You did this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). In this reading, comparisons like `runtime > 150` (is the movie longer than 150 minutes?) give back True or False.
-* Recall that the terminal runs one typed command each time you press Enter, like `ls` or `cd`. You practiced this in [Meet Your Terminal](../module-00/quest-01-terminal.md). On your own laptop, you'll run a Python file the same way: `python3 theater_notes.py`.
+* A **variable** is a named box that holds a value, and `=` means "store," not "is equal to." In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), you also sorted values into types: text, whole numbers, decimals, and True/False. In this reading, comparisons like `runtime > 150` (is the movie longer than 150 minutes?) give back True or False.
+* Each command you typed in Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md), like `ls` or `cd`, ran when you pressed Enter. On your own laptop, you'll run a Python file the same way: `python3 theater_notes.py`.
 
 ## Words to know
 
@@ -45,17 +45,17 @@ This is your first Python reading. The [Module 1 Introduction](introduction.md#p
 
 The examples come from the first reading's movie theater.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Script** | A small Python program saved in a file that ends in `.py`. | `theater_notes.py` |
 | **Run a file** | Tell Python to do every line in the file, from top to bottom. | Type `python3 theater_notes.py` in the terminal. |
 | **Output** | What a program shows on the screen when it runs. | `98 regular slot` |
-| **`print()`** | A function that shows a value on the screen. A **function** is named code you run by writing its name and parentheses. | `print("Runtime:", 98)` shows `Runtime: 98` |
+| **`print()`** | A function that shows a value on the screen. A **function** is named code you run by writing its name and parentheses. | With `runtime = 98`, `print("Runtime:", runtime)` shows `Runtime: 98` |
 | **String** | Text. It goes inside quotes. | `"Moonlight Run"`. `"98"` is a string, but `98` is a number. |
 | **List** | Several values kept in order, inside square brackets. | `[98, 165, 122]` |
 | **Comparison** | A check that gives back True or False. `>` and `<` mean greater and less than. `>=` and `<=` add "or equal to." `==` asks "are these equal?" and `!=` asks "are these different?" | `98 > 150` gives `False` |
 | **Boolean** | A value that is either `True` or `False`. Every comparison gives back a Boolean. | `True` |
-| **Comment** | A line that starts with `#`. It's a note for people. Python skips it. | `# a list of numbers` |
+| **Comment** | A line that starts with `#`. It's a note for people. Python skips it. | `# Lines that start with # are notes for people.` |
 | **Block** | The lines under a line that ends with a colon (`:`). Each line in the block is pushed in by 4 spaces. That push is called **indentation**. It tells Python which lines belong together. | The `print(...)` line pushed in under `for show in showtimes:` |
 
 Two of these words are Python's names for data types you met in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md):
@@ -92,7 +92,7 @@ A **condition** is a question with a True or False answer, like `temp > 80`.
 
 The examples come from the first reading's lobby screen, which shows how soon a movie starts, and the second reading's game doors.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Conditional** | Code that checks a condition and picks which code runs next. | `if minutes_left >= 60:` |
 | **Branch** | One possible path in a conditional: the block under an `if`, an `elif`, or an `else`. | `print("head over soon")`, under `elif minutes_left >= 15:` |
@@ -104,7 +104,7 @@ The examples come from the first reading's lobby screen, which shows how soon a 
 
 The examples come from the first reading's theater and the second reading's video game, which has 3 worlds with 4 checkpoints each.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Loop** | Code that repeats a block. | `for show in showtimes:` |
 | **`for` loop** | Repeats once for each item in a list, or for each number from `range()`. | 3 showtimes, so the loop runs 3 times. |
@@ -118,7 +118,7 @@ The examples come from the first reading's theater and the second reading's vide
 
 ### How do you check your thinking?: Tracing
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Trace** | Follow the code by hand, one line and one pass at a time. Write down each variable's value as it changes. | Pass 1: `runtime` is 98. `98 > 150` is False, so it prints `98 regular slot`. |
 | **Predict** | Say what the code will print *before* you run it. Then run it and compare. | "`showtimes.py` will print 3 lines." |
@@ -167,7 +167,11 @@ As you read, look for:
 * **Count passes one at a time.** `range(n)` gives `n` numbers, from 0 up to `n - 1`. For example, `range(7)` gives 0 to 6: 7 numbers. Check the first and last pass against what you meant, because that's where an off-by-one error shows up.
 * **Read nested code from the outside in.** The inner loop finishes all its passes before the outer loop moves on. So the inner body runs (outer passes × inner passes) times. In `checkpoints.py`, that's 3 worlds × 4 checkpoints = 12 lines. An inner `if` runs only when Python goes into the outer branch that holds it.
 
+The picture below traces the reading's `runtimes.py`, one pass per row. Look closely at pass 3, the edge case.
+
 ![On the left, the code runtimes.py: runtimes holds 98, 165, and 150, and a for loop with an if inside prints long slot for a runtime over 150 and regular slot otherwise. On the right, a trace with one row per pass. Pass 1: 98, False, prints 98 regular slot. Pass 2: 165, True, prints 165 long slot. Pass 3: 150, False, prints 150 regular slot. Pass 3 is the edge case, because 150 is not over 150.](images/m1a-trace-runtimes.svg)
+
+The next picture shows the order `checkpoints.py` prints its lines. Follow the inner loop through each world before the outer loop moves on.
 
 ![The order checkpoints.py prints its 12 lines. Outer pass 1, world Forest, runs inner checkpoints 1 to 4, printing lines 1 to 4. Then the outer loop moves on to Desert, lines 5 to 8, and then Ice, lines 9 to 12. 3 outer passes times 4 inner passes equals 12 lines printed.](images/m1a-nested-loop-order.svg)
 

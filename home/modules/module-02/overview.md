@@ -47,6 +47,8 @@ A **tool** is anything analysts use to get work done. This module has two kinds:
 * A Python **package** (also called a *library*) is a collection of code other people wrote. You install it once, then load it into your code with `import`. NumPy, pandas, and Matplotlib are packages.
 * **Software** is a program you open and use, like VS Code. Jupyter notebooks are files that you open and run in software. You don't `import` them.
 
+The picture below shows how these tools fit together.
+
 ![A concept map. VS Code is software, a program you open. It opens a Jupyter notebook, which is a file (.ipynb) that holds your code in cells. The code imports three Python packages: NumPy for math on many numbers, pandas for tables of data, and Matplotlib for charts. pandas is built on NumPy, and pandas draws charts with Matplotlib.](images/tools-map.svg)
 
 Each tool is introduced on the quest page where you first use it, in a section named for what the tool is, like "New Python package: pandas."

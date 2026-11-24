@@ -13,12 +13,12 @@ But the two drivers did different kinds of trips. A **route** is the path a driv
 * Sam drove 4 long routes and 1 downtown trip.
 * Alex drove 1 long route and 4 downtown trips.
 
-Recall that an average is the sum of the values ÷ the number of values:
+As in [The Loudest Number](quest-01-descriptive-statistics.md), an average is the sum of the values ÷ the number of values:
 
 * Sam's average = (4 × 45 + 20) ÷ 5 = 200 ÷ 5 = **40 minutes**
 * Alex's average = (45 + 4 × 20) ÷ 5 = 125 ÷ 5 = **25 minutes**
 
-On the same route, they are equally fast: both take 45 minutes on a long route and 20 minutes downtown. Sam's average is higher only because Sam drove more long routes.
+On the same route, they are equally fast: both take 45 minutes on a long route and 20 minutes downtown. Sam's average is higher only because Sam drove more long routes. In the picture below, look at Sam's 4 red long routes on the left.
 
 ![Two drivers' deliveries. Left, all deliveries: Sam made 4 long-route deliveries, in red, at 45 minutes each, and 1 downtown delivery, in grey, at 20 minutes. Alex made 1 long-route delivery at 45 minutes and 4 downtown deliveries at 20 minutes. Sam's average = (4 × 45 + 20) ÷ 5 = 200 ÷ 5 = 40 minutes. Alex's average = (45 + 4 × 20) ÷ 5 = 125 ÷ 5 = 25 minutes. Sam looks 15 minutes slower because Sam drove 4 long routes. Right, the same route: on the long route both take 45 minutes, and downtown both take 20 minutes, so on the same route they are equally fast.](images/driver-route-mix.svg)
 
@@ -46,9 +46,9 @@ After this reading, you should be able to say:
 
 You've grouped by one column and checked every pair in a nested loop. This reading puts the two ideas together.
 
-* Recall that you turned many rows into one row per group with `drives.groupby("site")["units"].agg(["count", "mean", "median"])` in the interactive reading for [One Row Per Group](quest-03-group-columns.md). Keeping the count next to the mean showed how many rows each number rested on. This reading groups by two columns at once.
-* Recall that when a group's mean sits well above its median, a few big values are pulling the mean up, so the median is the better typical value. You saw this in [The Loudest Number](quest-01-descriptive-statistics.md).
-* Recall that a nested loop runs its inner body once for every outer pass, in [Trace the Path](../module-01/quest-01-control-flow.md). 3 worlds × 4 checkpoints printed 12 lines. Grouping by two columns gives every combination the same way.
+* In the interactive reading for [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].agg(["count", "mean", "median"])` gave one row per group. The count next to the mean showed how many rows each number rested on.
+* When a group's mean sits well above its median, a few big values are pulling the mean up. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then the better typical value.
+* A nested loop runs its inner body once for every outer pass. In Module 1's [Trace the Path](../module-01/quest-01-control-flow.md), 3 worlds × 4 checkpoints printed 12 lines, and grouping by two columns gives every combination the same way.
 
 ## Words to know
 
@@ -56,7 +56,7 @@ You've grouped by one column and checked every pair in a nested loop. This readi
 
 The examples use the reading's 12 repairs at FixIt, a phone repair shop with two locations, Downtown and Eastside.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Segment** | Split a number by one or two columns, so each group gets its own value. Splitting by two columns gives every combination. | Minutes split by shop and repair type: 2 shops × 2 repair types = 4 groups |
 | **Mix** | Which kinds of rows make up a group. A group's mix can drive its average. | Downtown: 5 screen repairs and 1 battery repair |
@@ -73,7 +73,7 @@ Because a tuple can't change, it can be a dictionary key. Here, it works as each
 
 **Units** are what a number counts or measures. In this table, `.size()`, sample size, and count are in rows (here, repairs). Every other number is in minutes, the same units as the data. The examples use the 3 old-phone screen repairs: 55, 58, and 56 minutes.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **`.size()`** | Counts the rows in each group. | Downtown, screen = **5 repairs** |
 | **Sample size** | How many rows a number rests on. In a tiny group, one unusual row can move the average a lot. | Downtown did only **1 battery repair**, too few to trust. |
@@ -84,7 +84,7 @@ You've seen a small test mislead before. In [When the Crowd Grows](../module-01/
 
 ### Is the pattern real?
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Confound** | A pattern that is really explained by something else. | The shop seems to matter, but it is standing in for the repair type. |
 | **Confounding variable** | The "something else" behind a confound. | The repair type: screen or battery |
@@ -118,6 +118,8 @@ As you read, look for:
 * **Count the mix before you compare groups.** When one group looks much better or worse, run `groupby([...]).size()` to see what each group is made of. Then compare the same kind of row across groups.
 * **A finding worth reporting** is real, checkable, and something the reader would act on. It holds in every group and rests on enough rows. "Screen repairs take longer" is true, but the owner already knows it.
 * **Use the statistic that fits.** The mean is fine when it's close to the median and the std is small. In the reading, that's true in every group, so the mean backs up the finding.
+
+The picture below shows the 15-minute gap on the left. On the right, look at the same two shops with screen repairs only.
 
 ![Two bar charts of FixIt's repair times, with a y-axis of average minutes. Left, all repairs: Downtown 45.7 minutes and Eastside 30.5, about 15 minutes apart. Right, screen repairs only: Downtown 50.0 and Eastside 51.0, about the same. Downtown did 5 screen repairs and 1 battery repair. Eastside did 2 and 4. Screen repairs take longer.](images/confound-gap.svg)
 

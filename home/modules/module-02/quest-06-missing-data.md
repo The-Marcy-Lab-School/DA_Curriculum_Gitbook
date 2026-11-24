@@ -8,12 +8,12 @@
 
 Real data almost always has blank cells, and what you do with them changes the answer. For example, a store asks 10 customers to rate their visit from 1 to 5. Seven customers answer 5, 4, 4, 5, 3, 4, and 3. Three skip the question.
 
-Recall that an average is the sum of the values ÷ the number of values:
+As in [The Loudest Number](quest-01-descriptive-statistics.md), an average is the sum of the values ÷ the number of values:
 
 * If you skip the blanks: (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = **4.0**
 * If you count the blanks as 0: (28 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = **2.8**
 
-The three 0s pull the average down from 4.0 to 2.8, but no customer gave a 0. If you delete those 3 customers instead, you lose all their other answers on the survey.
+The three 0s pull the average down from 4.0 to 2.8, but no customer gave a 0. If you delete those 3 customers instead, you lose all their other answers on the survey. In the picture below, compare the three red 0 cards on the left with the skipped cards on the right.
 
 ![Ten rating cards for a store survey, scored 1 to 5. Left, blanks counted as 0: seven grey cards (5, 4, 4, 5, 3, 4, 3) and three red cards that say 0. Average = (5 + 4 + 4 + 5 + 3 + 4 + 3 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = 2.8, but no customer gave a 0. Right, blanks skipped: the same seven grey cards and three empty cards marked "skipped." Average = (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = 4.0, which matches what customers said.](images/blanks-as-zero-ratings.svg)
 
@@ -47,9 +47,9 @@ After this reading, you should be able to say:
 
 You've found blanks before, one value at a time and then a whole column at once. This reading decides what to do with them.
 
-* Recall that you counted the blanks in every column of a new file with `df.isna().sum()`, in [Look Before You Filter](quest-02-inspect-filter.md). `.isna()` marks each empty cell True, and `.sum()` adds them up, because True counts as 1.
-* Recall that one very long or very large value pulls the mean up, so the median describes a typical value better on skewed data. You saw this in [The Loudest Number](quest-01-descriptive-statistics.md).
-* Recall that `"".isdigit()` is `False`, so your validation function caught a blank grade, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md). It reported the blank. It didn't make up a grade.
+* `df.isna().sum()` counted the blanks in every column of a new file, in [Look Before You Filter](quest-02-inspect-filter.md). `.isna()` marks each empty cell True, and `.sum()` adds them up, because True counts as 1.
+* One very long or very large value pulls the mean up. On skewed data, the median describes a typical value better, as you saw in [The Loudest Number](quest-01-descriptive-statistics.md).
+* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) caught a blank grade, because `"".isdigit()` is `False`. It reported the blank instead of making up a grade.
 
 ## Words to know
 
@@ -74,8 +74,6 @@ Ask these two questions about every gap before you decide anything.
 | **Spread out at random** | The gaps are scattered across the data, with no group in common. | One blank on Sam's walk, one on Ana's, one on Kai's, with nothing in common |
 | **Bunched in one group** | The gaps all come from one kind of row. | The 2 blank sizes left after the drop are both phone bookings |
 
-Statistics books give these patterns formal names, such as *missing completely at random* for gaps spread out by chance. You don't need the formal names yet. The two questions are what matter.
-
 ### The three choices
 
 | Word | What it means | Example in the reading |
@@ -88,11 +86,11 @@ A flag works like the list of problems your validation function returned. It rec
 
 ### Stand-ins for a fill
 
-**Units** are what a number counts or measures. A fill comes out in the same units as the column: here, minutes. The mode is the exception: it's a category, like `"large"`. Most examples use Lee's 8 days of walks, in minutes:
+**Units** are what a number counts or measures. A fill comes out in the same units as the column: here, minutes. The mode is the exception: it's a category, like `"large"`. Most examples use Lee's 8 days of walks from the reading, in minutes:
 
 `40, 45, blank, 42, 95, 44, blank, 41` (day 5 was a 95-minute hike)
 
-| Word | What it means | Example with Lee's walks |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Mean** | The average of the real values. One far-off value pulls it toward itself. | (40 + 45 + 42 + 95 + 44 + 41) ÷ 6 = 307 ÷ 6 = **51.2 minutes** |
 | **Median** | The middle of the real values once they're sorted. One far-off value barely moves it. | Sorted: 40, 41, 42, 44, 45, 95. (42 + 44) ÷ 2 = **43.0 minutes** |
@@ -135,6 +133,8 @@ As you read, look for:
 * **Count the gaps first** with `.isna().sum()`. Then ask *why* each one is missing (never collected, or lost?) and *where* (spread out, or bunched in one group?).
 * **Drop a row only when nothing useful is left,** and use `subset=` so rows with real values survive.
 * **Fill when a fair stand-in exists, and flag when a fill would be a guess.** You can do both: save a flag column first, then fill, so readers know which values were filled in. Always say which rows, why, and how many.
+
+The picture below shows the two questions that decide between drop, fill, and flag.
 
 ![A decision flow titled "Drop, fill, or flag: two questions decide." A value is missing. First question: is anything useful left in the row? If no, drop the row, for example when the app crashed and every field is blank. If yes, ask: is there a fair stand-in, like the median, the mode, or the value before? If yes, fill it, say what you used, and add a column that marks the filled rows. If no, flag it: keep the blank and add a True/False column that marks it.](images/drop-fill-flag.svg)
 

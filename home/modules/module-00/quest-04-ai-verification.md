@@ -18,7 +18,7 @@ AI (artificial intelligence) chatbots work the same way. A chatbot is a program 
 * a report or a website that an AI tool names as its source
 * the result of code an AI tool wrote, against the real data
 
-If you pass on a wrong number from an AI tool, your name is on it, not the tool's.
+If you share a wrong number from an AI tool, you are responsible for it, not the tool.
 
 ## Learning goals
 
@@ -32,14 +32,14 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that `cat` prints everything in a file, like `cat tomatoes.txt`, from [Meet Your Terminal](quest-01-terminal.md). In this reading, you'll use it to open the real data file and check a number.
-* Recall that structured data sits in rows and columns, and unstructured data is free text with no columns, from [What Kind of Data Is This?](quest-02-data-literacy.md). The reading opens by asking you to sort a chatbot's reply and a data file into these two groups.
+* In [Meet Your Terminal](quest-01-terminal.md), `cat tomatoes.txt` printed everything in a file. In this reading, you'll use `cat` to open the real data file and check a number.
+* [What Kind of Data Is This?](quest-02-data-literacy.md) split data into two groups: **structured** (rows and columns) and **unstructured** (free text). The reading opens by asking you to sort a chatbot's reply and a data file into these two groups.
 
 ## Words to know
 
 ### Is it true yet?: Claims and facts
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Claim** | A statement that something is true. | "Your volunteers collected 64 bags." |
 | **Unverified claim** | A claim that nobody has checked yet. It might be right or wrong. Every AI answer starts here. | "64 bags," before anyone opens the cleanup log |
@@ -89,6 +89,8 @@ As you read, look for:
   2. Find a real source.
   3. Compare the two.
   4. Decide whether to use the claim, fix it, or drop it.
+
+The picture below runs these four steps on the chatbot's answer about the park cleanup. Follow the steps from top to bottom.
 
 ![The chatbot's answer at the top: Your volunteers collected 64 bags of trash, the most of any park cleanup this year, according to a 2025 city news report. Below, four steps in order. 1, Find the claim: the number, 64 bags, and the source, a 2025 city news report. 2, Find a source: the cleanup log, cleanup_log.csv, and the city's news site. 3, Compare: 9 plus 12 plus 7 plus 10 plus 8 equals 46 bags, not 64, and there is no such report on the news site. 4, Decide: fix the number to 46 bags, and drop the report because it was made up. At the bottom: how sure an answer sounds does not tell you if it is true. Checking does.](images/m0-check-a-claim.svg)
 
