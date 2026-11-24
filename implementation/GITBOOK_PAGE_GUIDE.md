@@ -83,6 +83,8 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
 13. **Keep the page's own scenario going.** Once a page picks its example data (like 9 gifts), its term tables and mix-ups keep using that data. Don't switch to the interactive reading's numbers partway through. The one exception is "How you'll see it in this reading", which shows the reading's own code.
 14. **Point to every picture in the sentence above it.** For example: "Now look at the street on the right in the picture below." Readers should know what to look for before they see it.
 15. **Cut filler that adds a new idea without explaining it.** End on the point. Not this: "so you learn them first, on a short list you can see all at once." This: "so you'll learn these terms first."
+16. **Don't chop ideas into tiny sentences.** Short sentences are good, but a run of 4- and 5-word sentences reads choppy. Join sentences that belong together, and a question can set up the problem. Not this: "Sam's take 40 minutes on average. Sam looks slow. But the two drivers did different kinds of trips." This: "Sam's average looks slower than Alex's, but is this true? They each drove different routes."
+17. **Define a term by what it is, then show it in the example.** Start with the kind of thing it is (a variable, a value, a chart), then what it does. Not this: "A confound is a pattern that something else explains." This: "A confound is another variable that affects the result, but that you didn't consider at first, like the type of route." Don't give one idea two separate rows in Words to know; name the second term in the same row ("also called a **confounding variable**").
 
 ## Code blocks
 

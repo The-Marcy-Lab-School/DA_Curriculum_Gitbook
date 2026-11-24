@@ -152,7 +152,7 @@ In left-skewed data, a tail of small values pulls the mean below the median. In 
 <details>
 <summary>Answer</summary>
 
-Overall, Downtown looks about 15 minutes slower. But when you compare the same kind of repair, the shops take about the same time. The gap came from the mix: Downtown did more screen repairs, which take longer. That's a confound.
+Overall, Downtown looks about 15 minutes slower. But when you compare the same kind of repair, the shops take about the same time. The gap came from the mix: Downtown did more screen repairs, which take longer. The repair type is a confound.
 
 </details>
 
