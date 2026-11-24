@@ -1,6 +1,6 @@
 # Quest 2.5 — Real Numbers, Wrong Story: Chart Best Practices (Day 5)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -15,14 +15,9 @@ So phone A's bar looks twice as tall. But phone A lasts only 1 hour longer. To t
 
 * Percent longer = (20 − 19) ÷ 19 × 100 = 1 ÷ 19 × 100 = about **5%**
 
+Now compare the two charts in the picture below. Only the start of the y-axis changes.
+
 ![Two bar charts of the same data: phone A lasts 20 hours and phone B lasts 19 hours. Left chart: the y-axis starts at 18, so phone A's bar looks twice as tall as phone B's. Right chart: the y-axis starts at 0, so the bars look almost the same height, which matches the real difference of about 5%.](images/axis-baseline.svg)
-
-In this reading, you'll learn:
-
-* two ways a chart with real numbers can still mislead:
-  * a y-axis that doesn't start at zero
-  * hidden outliers
-* the labels every shared chart needs
 
 **Main takeaway:** A chart can mislead even when every number in it is right. One common cause is a **truncated axis**: a y-axis that doesn't start at zero. The battery chart's y-axis starts at 18. Before you share a chart, check where the y-axis starts and what the chart leaves out.
 
@@ -48,23 +43,25 @@ After this reading, you should be able to say:
 
 You've learned to label a chart, and to doubt a result that only looks right. This reading puts the two together.
 
-* Recall that to compare one number across groups, like an average for each group, you pick a bar chart. You also gave a polished chart a title that states the finding and axis labels with units, using `plt.title("...")` and `plt.ylabel("...")`, in [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
-* Recall that Q1 is the value a quarter of the sorted data falls below, and Q3 is the value three quarters falls below. You found them in the five-number summary in [The Loudest Number](quest-01-descriptive-statistics.md). Here you'll use them to find where outliers start.
-* Recall that code can run with no error and still print a wrong answer, from [Looks Right. Is It?](../module-01/quest-10-debugging.md). So you worked out the expected answer by hand first, then compared.
+* A bar chart compares one number across groups, like an average for each group. In [Who's This Chart For?](quest-04-two-kinds-of-charts.md), you also gave a polished chart a finding title and axis labels with units, using `plt.title("...")` and `plt.ylabel("...")`.
+* Q1 and Q3 come from the five-number summary in [The Loudest Number](quest-01-descriptive-statistics.md): a quarter of the sorted data falls below Q1, and three quarters below Q3. Here you'll use them to find where outliers start.
+* Code can run with no error and still print a wrong answer, as in Module 1's [Looks Right. Is It?](../module-01/quest-10-debugging.md). So you worked out the expected answer by hand first, then compared.
 
 ## Words to know
 
 ### Reading a chart's axes
 
+The examples use the phone battery charts from the Introduction.
+
 | Word | What it means | Example |
 | --- | --- | --- |
-| **Axis** | One of the two lines along the edge of a chart. The **x-axis** runs across the bottom. The **y-axis** runs up the side. | The x-axis names the 3 pools. The y-axis shows swimmers per day. |
-| **Scale** | The numbers marked along an axis, from the lowest to the highest. | 180 to 195 swimmers in the draft chart |
-| **Baseline** | Where the bars start. On a bar chart, the baseline should be zero. | 180 in the draft chart, 0 in the fixed one |
-| **Truncated axis** | A y-axis that doesn't start at zero. On a bar chart, it makes small real differences look big. | The draft chart's y-axis, which starts at 180 |
+| **Axis** | One of the two lines along the edge of a chart. The **x-axis** runs across the bottom. The **y-axis** runs up the side. | The x-axis names the 2 phones. The y-axis shows battery life in hours. |
+| **Scale** | The numbers marked along an axis, from the lowest to the highest. | 18 to 20 hours in the left phone chart |
+| **Baseline** | Where the bars start. On a bar chart, the baseline should be zero. | 18 in the left phone chart, 0 in the right one |
+| **Truncated axis** | A y-axis that doesn't start at zero. On a bar chart, it makes small real differences look big. | The left phone chart's y-axis, which starts at 18 |
 | **Slope** | How steeply a line goes up or down from one point to the next. A line chart's claim (what the chart says is true) is its slope, not its height. | In the last reading's sign-ins chart, the line jumps from 1 on March 5 to 5 on March 6. That's a steep slope. |
 
-Use your expected-answer habit on charts, too. Work out the real gap first:
+The reading's pool chart has the same problem. Use your expected-answer habit, and work out the real gap first:
 
 * (191 − 182) ÷ 182 × 100 = 9 ÷ 182 × 100 = about **5%** more swimmers
 
@@ -76,7 +73,7 @@ Now look at the draft chart, where the y-axis starts at 180. Riverside's bar sho
 
 `12, 18, 20, 22, 24, 25, 28, 30, 34, 110` (in laps)
 
-| Word | What it means | Example with the swims |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Outlier** | A value far from the rest. It can still be real. | Jae's swim of **110 laps**. The other 9 are 12 to 34 laps. |
 | **Boxplot** | A chart of one column's spread: a box from Q1 to Q3, a line at the median, and whiskers above and below. Outliers show as dots. | Box from Q1 = **20.5** to Q3 = **29.5**, with a line at the median, **24.5 laps** |
@@ -86,7 +83,7 @@ Now look at the draft chart, where the y-axis starts at 180. Riverside's bar sho
 
 ### Labels that travel with a chart
 
-| Word | What it means | Example with the pools |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Data series** | One set of values drawn on a chart, like one line or one set of bars. (This is a charting word. It isn't the same as a pandas Series, which is one column of a table.) | The 3 bars of average swimmers are one data series |
 | **Legend** | A small key that says which color or pattern is which data series. Needed when a chart has more than one data series. | Needed if each pool had a Monday bar and a Tuesday bar |
@@ -113,7 +110,7 @@ In the reading, you'll focus on a city's three public pools. The pool manager is
 
 Think about: how can a chart make a gap that big when every number in it is real? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 
@@ -140,7 +137,7 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "Every number in my chart is right, so the chart can't mislead." | The axis can. With the y-axis at 180 to 195, a 5% gap looks like 5.5 times as much. Check the picture, not just the data. |
+| "Every number in my chart is right, so the chart can't mislead." | The axis can. With the y-axis starting at 18, phone A's 5% lead looks like twice as much. Check the picture, not just the data. |
 | "Every chart's y-axis has to start at zero." | Bar charts do. A labeled line chart of weekly swimmers can run from 900 to 1,000 to show the change. |
 | "If I change the colors, the chart won't mislead anymore." | Colors don't change the axis. Delete the `plt.ylim(180, 195)` line that cuts it off. |
 | "I'll delete Jae's 110-lap row so the data matches the tidy chart." | Jae's swim is real, so it stays in the data. Show it, or hide it only with a caption: "1 swim of 110 laps is not shown." |

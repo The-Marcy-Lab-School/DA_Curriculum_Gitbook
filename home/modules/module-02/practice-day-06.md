@@ -1,12 +1,12 @@
 # Practice Day: Review (Day 6)
 
-**Time:** about 3 minutes (no new reading today)
+**Time:** About 3 minutes (no new reading today)
 
 **EDA workflow:** **Inspect** → Clean → **Explore** → Check → Explain (review) ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
 ## Introduction
 
-There's no new topic today. You'll practice what you learned in the first five quests. Practicing something a few days after you learn it is what makes it stick. You'll also learn a routine for checking analysis code that an AI (artificial intelligence) tool writes for you.
+There's no new topic today. You'll practice what you learned in the first five quests. Practicing a skill a few days after you learn it helps you remember it. You'll also learn a routine for checking analysis code that an AI (artificial intelligence) tool writes for you.
 
 **Main takeaway:** AI-written code can run with no errors and still give a wrong answer. For example, a step that removes rows with blanks can turn 100 rows into 70, with no message. Every number after that uses only 70 rows. So check AI-written code with the five checks below before you trust its answer.
 
@@ -38,7 +38,7 @@ Use this checklist every time an AI writes analysis code for you, in class and i
 | **2. One number by hand** | Work out one result yourself and compare it with the code's answer. |
 | **3. Data types** | A number column stored as text gives wrong math or errors. For example, `"12" + "8"` gives `"128"`, not `20`. |
 | **4. What got dropped or filled** | Every removed row or filled-in value changes the answer. Count them. |
-| **5. Does the statistic fit the shape?** | An AI may use the mean on skewed data. For example, the 11 gifts have a mean of $505.45, but a median of $55. Look at the chart first. |
+| **5. Does the statistic fit the shape?** | An AI may use the mean on skewed data. For example, the 11 gifts in The Loudest Number reading have a mean of $505.45, but a median of $55. Look at the chart first. |
 
 You've already done most of these checks on your own work:
 

@@ -1,6 +1,6 @@
 # Quest 2.7 — Write It Once: Cleaning Functions (Day 8)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
@@ -11,17 +11,9 @@ Some data problems happen again and again. For example, every Monday a gym gets 
 * Ana is listed twice.
 * "Yoga" is spelled three ways: "Yoga", "yoga", and "YOGA".
 
-If you count the rows for each class, Yoga looks like three different classes. And it shows 4 Yoga sign-ups for only 3 people. Fixing this by hand every week is slow, and one day you'll forget a step.
+If you count the rows for each class, Yoga looks like three different classes. And it shows 4 Yoga sign-ups for only 3 people. Fixing this by hand every week is slow, and one day you'll forget a step. In the picture below, look at the red rows on the messy sheet.
 
 ![Two sign-up sheets side by side. Left, the messy sheet has 6 rows. Ana signs up for Yoga twice, and the repeated row is red. Yoga is spelled three ways, Yoga, yoga, and YOGA, and the two odd spellings are red. Counting each class gives Yoga 2, yoga 1, YOGA 1, and Spin 2, so Yoga looks like 3 classes, with 4 sign-ups for 3 people. Right, the clean sheet has 5 rows, one per person, and every label is lowercase. Counting gives yoga 3 and spin 2: one yoga class with 3 people.](images/gym-signups-repeats-spellings.svg)
-
-In this reading, you'll learn how to fix three common problems:
-
-* repeated rows
-* numbers saved as text
-* labels spelled more than one way
-
-You'll also learn how to put all the fixes into one function that you can run on every new file.
 
 **Main takeaway:** Write your cleaning steps once, in a **reusable function**. A reusable function is one you call on two or more different tables. In the reading, that's the May list and the June list. Calling it on a second table is how you prove it works on every new file.
 
@@ -45,9 +37,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that you found repeated rows with `df.duplicated()` and number columns stored as text (`str`) in [Look Before You Filter](quest-02-inspect-filter.md). Then you chose to drop, fill, or flag each gap in [Drop, Fill, or Flag](quest-06-missing-data.md).
-* Recall that `.strip()` removes spaces from both ends of a string, and `.lower()` makes every letter lowercase. You used them in Python to tidy text before you compared it: `" Peru ".strip().lower()` gives `"peru"`. In this reading, they run on a whole column.
-* Recall that you wrote a validation function that checked each record against rules, in [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), and gave each function one job, in [One Job at a Time](../module-01/quest-07-second-function.md). A cleaning function uses both ideas.
+* In [Look Before You Filter](quest-02-inspect-filter.md), you found repeated rows with `df.duplicated()` and number columns stored as text (`str`). Then, in [Drop, Fill, or Flag](quest-06-missing-data.md), you chose to drop, fill, or flag each gap.
+* `.strip()` removes spaces from both ends of a string, and `.lower()` makes every letter lowercase, so `" Peru ".strip().lower()` gives `"peru"`. In this reading, they run on a whole column.
+* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) checked each record against rules, and [One Job at a Time](../module-01/quest-07-second-function.md) gave each function one job. A cleaning function uses both ideas.
 
 ## Words to know
 
@@ -55,7 +47,7 @@ The examples use the reading's two delivery lists from Terra Bean, a coffee shop
 
 ### Problems in a file
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Stack** | Put one table under another, so their rows end up in one table. | May's 5 rows + June's 5 rows = **10 rows** |
 | **Duplicate row** | The same real-world record showing up more than once, often after stacking two lists that overlap. | Delivery D104 is in both May and June. |
@@ -65,7 +57,7 @@ The examples use the reading's two delivery lists from Terra Bean, a coffee shop
 
 ### Stacking and repeats
 
-| Code | What it does | Example |
+| Code | What it does | Example in the reading |
 | --- | --- | --- |
 | **`pd.concat([may, june], ignore_index=True)`** | Stacks the two tables, top to bottom. Setting the parameter `ignore_index` to `True` numbers the rows from 0 again, so no row label shows up twice. | Rows numbered 0 to 9 |
 | **`.duplicated(subset="delivery_id")`** | Marks a row True when it repeats an earlier row. Setting the parameter `subset` to `"delivery_id"` means: compare only the `delivery_id` column, even if other columns differ. | Finds **2** repeats: D104 and D105 |
@@ -73,7 +65,7 @@ The examples use the reading's two delivery lists from Terra Bean, a coffee shop
 
 ### Text into numbers
 
-| Code | What it does | Example |
+| Code | What it does | Example in the reading |
 | --- | --- | --- |
 | **`pd.to_numeric(...)`** | Turns a column of text into numbers. On its own, it stops with a `ValueError` at the first value that isn't a number. | Stops at `"TBD"` in June's `bags` |
 | **Coerce** | Force a change. Setting the parameter `errors` to `"coerce"` means a value that can't become a number becomes NaN ("not a number," pandas' mark for a blank) instead of stopping with an error. | `"TBD"` becomes NaN, so June's `bags` has **1 blank** |
@@ -85,7 +77,7 @@ You know `.strip()` and `.lower()` on one string. **`.str`** lets you use them o
 * One string: `"PERU".lower()` gives `"peru"`.
 * A whole column: `both["country"].str.lower()` makes every country lowercase. Without `.str`, `both["country"].lower()` gives an error, because a column isn't a string.
 
-| Code | What it does | Example |
+| Code | What it does | Example in the reading |
 | --- | --- | --- |
 | **`.str`** | Lets a column use the string methods you already know. `.str.lower()` runs `.lower()` on every value in the column. | `both["country"].str.lower()` |
 | **`.strip()`** | Removes spaces from the start and end of text. | `" Kenya"` becomes `"Kenya"`. |
@@ -94,7 +86,7 @@ You know `.strip()` and `.lower()` on one string. **`.str`** lets you use them o
 
 ### Functions
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Helper function** | A small one-job function that another function calls. | `tidy_text` inside `clean_deliveries` |
 | **Reusable function** | A function called two or more times on different inputs. A one-time script wrapped in `def` and called once isn't reusable yet. | `clean_deliveries` runs on the stacked table and on June alone. |
@@ -106,7 +98,7 @@ In the reading, you'll focus on Terra Bean, a small coffee shop that gets a list
 
 Think about: after you stack the two lists into one table, how many rows will it have, and how many real deliveries? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 
@@ -123,6 +115,8 @@ As you read, look for:
 * **Remove repeats by the key column, not the whole row.** A record sent twice can come back with a changed field, like a new spelling or a corrected count. Stack the lists with `pd.concat(..., ignore_index=True)`, then use `.drop_duplicates(subset="delivery_id")`.
 * **Coerce, then count.** `pd.to_numeric(..., errors="coerce")` turns bad values into NaN. Count the new blanks right away, because `.mean()` skips NaN without warning you. Tidy labels with `.str.strip().str.lower()`, and check `.value_counts()` before and after.
 * **Put the fixes in one function.** Its first line should make a new table, so the table you pass in stays unchanged. Call it on at least two different inputs to prove it's reusable.
+
+The picture below shows the cleaning function's three steps, in order.
 
 ![The May list has 5 rows and the June list has 5. Stacked, they make 10 rows. The function clean_deliveries runs three steps in order: remove repeats by delivery_id, turn bags into numbers, and tidy the country labels. The result is a clean table of 8 deliveries. The same function can run again on the next file.](images/cleaning-pipeline.svg)
 

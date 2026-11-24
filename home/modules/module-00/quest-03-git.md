@@ -1,6 +1,6 @@
 # Quest 0.3 — Save the Story of Your Work: Git and Version Control (Days 2–3)
 
-**Total time:** about 60 minutes
+**Total time:** About 60 minutes
 
 **Analyst toolkit:** Use the terminal · Understand data · **Save with Git** · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -9,13 +9,6 @@
 Have you ever saved a file as `essay_final.docx`, then `essay_final_v2.docx`, then `essay_REAL_final.docx`? After a week, nobody knows which copy is right, or what changed between them.
 
 There's a better way. You keep one file, and you save a series of checkpoints. Each checkpoint has a short note that says what changed.
-
-In these two readings, you'll learn how to:
-
-* turn a project folder into a repository that saves its history
-* save a snapshot of your work, with a message that says what changed
-* send your saved work to GitHub, a website where others can see it
-* save small changes often, instead of one big change at the end
 
 **Main takeaway:** A **commit** and a **push** are two separate steps. A commit saves a snapshot of your work on your laptop. A push sends your commits to GitHub, so other people can see them. Commit small, clear changes as you go.
 
@@ -39,8 +32,8 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that `cd` moves you into a folder and `ls` lists what's inside it, from [Meet Your Terminal](quest-01-terminal.md). Every Git command is typed inside a project folder, so you'll start each time with `cd`.
-* Recall that you ran `git --version` in [Meet Your Terminal](quest-01-terminal.md) to check that Git is installed. Now you'll use it.
+* In [Meet Your Terminal](quest-01-terminal.md), `cd` moved you into a folder and `ls` listed what's inside it. You type every Git command inside a project folder, so you'll start each time with `cd`.
+* `git --version` was your first Git command, in [Meet Your Terminal](quest-01-terminal.md). It checked that Git is installed, and now you'll use Git.
 
 ## New software: Git
 
@@ -98,7 +91,7 @@ git push
 
 ### Saving your history: Version control
 
-| Word | What it means | Example |
+| Word | What it means | Example in the readings |
 | --- | --- | --- |
 | **Version control** | Keeping track of every version of your work, so you can see what changed, when, and go back if you need to. | 4 saved versions of the tree notes, from `Start tree notes` to `Add tree type column` |
 | **Repository (repo)** | A project folder whose history Git tracks. `git init` starts one. | The `tree-notes` folder |
@@ -117,15 +110,19 @@ git push
 | **Push** | Sending the commits on your laptop up to a remote, so they show up there too. Until you push, a commit is only on your laptop. | `git push` |
 | **Clone** | Making your own copy of a repository that's already on a remote, with its whole history. | A new neighbor copies `tree-notes` from GitHub to their laptop |
 
+In the picture below, follow one change from your folder on the left to GitHub on the right.
+
 ![A flow from left to right. 1, Your folder: you edit notes.md. git add moves the change to 2, the staging area, which holds the changes picked for the next commit. git commit saves them as 3, commits: snapshots saved on your laptop. git push sends them to 4, GitHub, a copy online that other people can see. A bracket over steps 1 to 3 says Git: software on your laptop, no internet needed. A bracket over step 4 says GitHub: a website. A note underneath says a commit is not on GitHub until you push it.](images/m0-add-commit-push.svg)
 
 ### How often to save: Commit habits
 
-| Word | What it means | Example |
+| Word | What it means | Example in the readings |
 | --- | --- | --- |
 | **Atomic commit** | A commit that holds exactly one focused change. *Atomic* here means "one small piece that stands alone." | `b6c0073 Fix the test date` |
 | **Commit granularity** | How much one commit covers. Smaller is usually easier to read later. | 3 changes in 3 commits, or the same 3 changes in 1 commit called `updates` |
 | **Commit cadence** | How often you commit as you work. A good habit: commit each time you finish one change you can describe in a short sentence. | 3 commits in one afternoon: at 1:15, 2:40, and 4:30 p.m. |
+
+The picture below shows the same afternoon of work saved two ways. Compare the one big commit on the left with the small commits on the right.
 
 ![Two outputs of git log --oneline for the same afternoon of work. Left, one big commit: 51fe55a updates, then e01019b Start the study guide. Three changes are mixed into one commit called updates. Right, three small commits, newest first: 2be44a6 Fix a typo in the README, d48a131 Add a section on fractions, b6c0073 Fix the test date, and 2121428 Start the study guide. Each change has its own commit and message.](images/m0-one-vs-three-commits.svg)
 
@@ -135,7 +132,7 @@ In the first reading, you'll focus on three neighbors who count the trees on the
 
 Think about: a month later, how could one neighbor find out who changed the count on block 2, and when? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 This quest has two readings. Do them in this order.
 

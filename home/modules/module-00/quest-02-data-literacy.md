@@ -1,6 +1,6 @@
 # Quest 0.2 — What Kind of Data Is This? Data Types and Data Structures (Day 1)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **Analyst toolkit:** Use the terminal · **Understand data** · Save with Git · Verify claims ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -9,12 +9,6 @@
 Some numbers are not really numbers. For example, your phone number is made of digits. But you would never add two phone numbers together, or find the average phone number. A phone number is a label, not an amount.
 
 A computer can't tell the difference on its own. You have to tell it what kind of value each piece of information is.
-
-In this reading, you'll learn how to:
-
-* tell a variable apart from the value inside it
-* name the data type of a value: text, whole number, decimal, true/false, or date
-* explain how a data structure groups many values together
 
 **Main takeaway:** Choose a value's **data type** by what the value means, not by what it looks like. A data type is what kind of value something is, like text or a whole number. If you would never do math with a value, store it as text, even when it's made of digits.
 
@@ -38,15 +32,15 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that `ls` lists what's inside a folder, and `cat` prints a file on the screen, from [Meet Your Terminal](quest-01-terminal.md). The reading starts with two warm-up questions about them.
-* Recall that a ZIP code is made of digits, but it names a place, from the [Module 0 Introduction](introduction.md#why-this-matters-for-data-work). It is not an amount. Some ZIP codes even start with zeros, like `00501`. If you dropped those zeros, the mail would go to the wrong place.
-* Recall that you already sort things into groups every day. For example, a contact on your phone holds a name, a phone number, and an email together, as one group. A data structure works the same way.
+* In [Meet Your Terminal](quest-01-terminal.md), `ls` listed what's inside a folder, and `cat` printed a file on the screen. The reading starts with two warm-up questions about them.
+* A ZIP code is made of digits, but the [Module 0 Introduction](introduction.md#why-this-matters-for-data-work) showed it names a place, not an amount. Some start with zeros, like `00501`, and dropping them would send the mail to the wrong place.
+* Your phone already groups values: one contact holds a name, a phone number, and an email together. A data structure works the same way.
 
 ## Words to know
 
 ### What is it called?: Variables and values
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Variable** | A named container that holds a value. The value can change. Think of a box with a label on it. | `pet_of_the_week` |
 | **Value** | The piece of information inside a variable right now. | `"Mango"` or `12.5` |
@@ -57,7 +51,7 @@ After this reading, you should be able to say:
 
 A **data type** is what kind of value something is. The reading uses plain names. Python, the language you'll write code in later, has its own short name for most of them, so you'll see both.
 
-| Plain name | Python's name | Example from the reading | Can you do math with it? |
+| Plain name | Python's name | Example in the reading | Can you do math with it? |
 | --- | --- | --- | --- |
 | **Text** | **String** (`str`) | a pet's name, `"Biscuit"` | No |
 | **Whole number** | **Integer** (`int`) | a pet's age, `3` | Yes |
@@ -70,6 +64,8 @@ A **data type** is what kind of value something is. The reading uses plain names
 | **Identifier (ID)** | A value that names or labels one thing, like a pet's tag number (the number on the small label each pet wears), a student ID, or a ZIP code. It can be made of digits, but you never do math with it. Store it as text. |
 | **Leading zero** | A zero at the start of a value, like the first two zeros in `00417`. A whole number drops them, so `00417` becomes `417`. |
 | **Quantitative** | Describes a value that measures an amount, so math makes sense: an age, a weight, a price. An ID is not quantitative, even when it's made of digits. |
+
+The picture below shows the tag number `00417` stored two ways. Compare what the computer keeps in each panel.
 
 ![Two panels side by side for the pet tag number 00417. Left, stored as text: you enter "00417" and the computer keeps 00417, so it still matches the right pet. Right, stored as a whole number: you enter 00417 and the computer keeps 417, so the first zeros are gone and it looks like tag 417. A rule underneath says: if you would never do math with it, store it as text.](images/m0-tag-number.svg)
 
@@ -84,7 +80,9 @@ A **data type** is what kind of value something is. The reading uses plain names
 | **Structured data** | Data that sits in rows and columns, with the same columns for every row. | `pets.csv` |
 | **Unstructured data** | Data with no rows or columns. | A paragraph of free text, an email, or a photo |
 
-You'll need *structured* and *unstructured* again in a later quest, so learn them now. The required reading doesn't cover them, but the optional reading near the end of this page does.
+You'll need *structured* and *unstructured* again in a later quest. The required reading doesn't cover them, but the optional reading near the end of this page does.
+
+The picture below puts three ideas side by side. Read the panels from left to right: a variable, a data type, then a data structure.
 
 ![Three panels. Variable, a labeled box: the box pet_of_the_week holds "Biscuit" in week 1 and "Mango" in week 2, so it has the same name and a new value. Data type, what kind of value: "Biscuit" is text, 3 is a whole number, 12.5 is a decimal, True is true/false, and 2026-09-14 is a date. Data structure, values grouped together: one pet's record holds name Mango, age 1, weight 4.2, adopted False, and arrived 2026-10-02, and the whole pets.csv file holds one record for every pet.](images/m0-name-tag-group.svg)
 
@@ -94,7 +92,7 @@ In the reading, you'll focus on an animal shelter. An **animal shelter** is a pl
 
 Here's an answer from a new volunteer: "A pet's weight, like `12.5`, and its tag number, like `00417`, are both made of digits. So the computer should store both as numbers." Something is off about it. What? See if the reading agrees with you.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

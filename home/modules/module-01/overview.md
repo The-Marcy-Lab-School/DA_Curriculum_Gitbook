@@ -1,6 +1,6 @@
 # Overview of Module 1: Programming Fundamentals (Read FIRST)
 
-**Time:** about 6 minutes
+**Time:** About 6 minutes
 
 Read this page before anything else in Module 1. It's your map: what the module is about, the order of the pages, the new tools, and where you'll practice each skill. Come back to it whenever you want to see where you are.
 
@@ -63,13 +63,13 @@ The [Module 1 Introduction](introduction.md#skills-youll-build) explains what ea
 
 Every quest page has the same sections, in the same order. At the top, you'll see the total time and the building block you're working on. The total time counts both the GitBook page and the interactive readings.
 
-1. **Introduction**: an example, what you'll learn, the main takeaway, and why it matters at work
+1. **Introduction**: an example (often with a picture), the main takeaway, and why it matters at work
 2. **Learning goals**: a list of what you'll be able to do
 3. **Quick recall**: something you already know that this reading builds on
 4. **New tool section** (only when there is one), named for what the tool is, like "New Python package: NumPy" or "New software: Git": what it's for, how you'll see it, and where to learn more
 5. **Words to know**: the new terms, in plain words
 6. **Before you read**: a question to think about first
-7. **Read**: what to look for, then the link to each interactive reading
+7. **⭐ Read**: what to look for, then the link to each interactive reading
 8. **Main takeaways**: a summary, common mix-ups, and how it connects to the next reading and the Boss Battle (Module Project)
 9. **Quick check**: two questions to test yourself
 

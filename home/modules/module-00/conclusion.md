@@ -1,6 +1,6 @@
 # Module 0 Conclusion (Day 8)
 
-**Time:** about 5 minutes. Read this before the Boss Battle (Module Project).
+**Time:** About 5 minutes. Read this before the Boss Battle (Module Project).
 
 **Analyst toolkit:** **Use the terminal** · **Understand data** · **Save with Git** · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -8,7 +8,7 @@
 
 When this module started, you may never have opened a terminal or saved work with Git. Now you've set up a real analyst's toolkit. You can move around your computer by typing commands, tell what kind of data you have, save your work in small steps, and check an answer from an AI (artificial intelligence) tool before you use it.
 
-**Main takeaway:** These four habits aren't extra. They're how careful analysts work every day, and you'll use all four in every module from now on.
+**Main takeaway:** These four habits are how careful analysts work every day. You'll use all four in every module from now on.
 
 **Why it matters at work:** Employers want analysts they can trust. These habits show that you check before you trust, and that you leave a clear record of your work.
 
@@ -20,7 +20,7 @@ When this module started, you may never have opened a terminal or saved work wit
 
 ## What you can do now
 
-You've now practiced every part of your [analyst toolkit](introduction.md#the-big-picture-your-analyst-toolkit):
+You've now practiced every part of your [analyst toolkit](introduction.md#the-big-picture-your-analyst-toolkit). In the picture below, find the four parts around you, then check each one in the table.
 
 ![A concept map. In the middle is you, the analyst. Around you are four parts of your toolkit: use the terminal, understand data, save with Git, and verify claims.](images/m0-toolkit-map.svg)
 

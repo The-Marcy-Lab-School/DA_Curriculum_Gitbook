@@ -1,6 +1,6 @@
 # Module 1 Introduction: Programming Fundamentals
 
-**Time:** about 15 minutes
+**Time:** About 15 minutes
 
 ## Where you've been
 
@@ -21,7 +21,7 @@ In this module, you'll learn Python, the programming language you'll use for the
 
 **Code** is a set of written instructions for a computer. A **program** is a set of instructions that a computer follows in order, from top to bottom. **Python** is a **programming language**: a way of writing those instructions so that both people and computers can read them.
 
-Here's a tiny Python program:
+For example, this tiny Python program adds up three prices:
 
 ```python
 prices = [4.50, 3.25, 6.00]
@@ -38,7 +38,7 @@ print(total)
 
 </details>
 
-You save code like this in a file that ends in `.py`. Then you run it from the terminal. Python reads your code one line at a time, from top to bottom, and does what each line says.
+You save code like this in a file that ends in `.py`. Then you run it from the terminal. Python reads your code one line at a time, from top to bottom, and does what each line says. The picture below follows `prices.py` from the file to its result, `13.75`.
 
 ![A flow from left to right. 1: you write code in a .py file, like prices.py. 2: you run it in the terminal by typing python3 prices.py. 3: Python reads it one line at a time, top to bottom. 4: you see the result, 13.75. If a line breaks Python's rules, its syntax, Python stops and shows an error instead.](images/m1-python-runs.svg)
 
@@ -63,7 +63,7 @@ Python has two kinds of rules. One kind is required. The other is a shared habit
 
 **Syntax** is the set of grammar rules for how code must be written so Python can read it. If you break a syntax rule, Python stops and shows an error. Nothing after that point runs.
 
-Here's an example. An `if` line must end with a colon (`:`):
+For example, an `if` line must end with a colon (`:`):
 
 ```python
 price = 6
@@ -114,7 +114,7 @@ total_price = price * 2 + tax  # follows PEP 8
 
 ## The big picture: the building blocks of a data program
 
-Every program you write in this module is made of the same five building blocks. Each quest (one or two readings) teaches one of them:
+Every program you write in this module is made of the same five building blocks. Each quest (one or two readings) teaches one of them. In the picture below, each block names the quests that teach it.
 
 ![A concept map of five building blocks around a data program written in Python. Decide and repeat: if statements and loops, Quest 1.1. Organize steps: functions, Quests 1.2 and 1.7. Hold data: lists, dictionaries, and objects, Quests 1.4 and 1.8. Load, save, and protect: files, validation, and errors, Quests 1.5 and 1.6. Check your work: speed and debugging, Quests 1.3, 1.9, and 1.10.](images/m1-building-blocks.svg)
 

@@ -1,19 +1,12 @@
 # Quest 2.3 — One Row Per Group: Grouping, New Columns, and Merging (Day 3)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
 ## Introduction
 
 Managers rarely ask about just one row. For example, a pizza company has 20 stores. It records every order: the store, the time, and the price. The owner asks, "Which store sells the most?" There are 5,000 orders, too many to read one by one. You could write one filter per store, but that's 20 filters. One line of code can make one summary row for each store instead.
-
-In this reading, you'll learn how to:
-
-* turn many rows into one summary row for each group
-* add new columns that you calculate from other columns
-* change rows safely
-* bring in columns from a second table
 
 **Main takeaway:** To compare groups, **group** the rows. Split them into one pile per group. Then work out one summary number for each pile. In pandas, `groupby` does this in one line. Check your work after every change, because pandas can sometimes do nothing, or add blanks, without showing an error.
 
@@ -39,21 +32,21 @@ After this reading, you should be able to say:
 
 You've added up values in a loop, and looked up values by key. This reading does both for a whole table at once.
 
-* Recall that you kept only the rows that matched two conditions, each in its own parentheses, joined with `&`, in [Look Before You Filter](quest-02-inspect-filter.md): `df[(df["site"] == "Eastside") & (df["category"] == "Produce")]`.
-* Recall that `df.isna().sum()` counted the blank cells in each column, also in [Look Before You Filter](quest-02-inspect-filter.md). You'll use that count again to check your work after a merge.
-* Recall that you built a dictionary once, then found values by key with `.get()`, in [Lookups Matter](../module-01/quest-09-big-o-practice.md). A missing key gave `None` instead of an error. A merge looks up keys the same way, and a missing key gives NaN.
+* In [Look Before You Filter](quest-02-inspect-filter.md), you kept only the rows that matched two conditions, each in its own parentheses, joined with `&`: `df[(df["site"] == "Eastside") & (df["category"] == "Produce")]`.
+* `df.isna().sum()` counted the blank cells in each column, also in [Look Before You Filter](quest-02-inspect-filter.md). You'll use that count again to check your work after a merge.
+* In Module 1's [Lookups Matter](../module-01/quest-09-big-o-practice.md), you built a dictionary once, then found values by key with `.get()`, which gave `None` for a missing key. A merge looks up keys the same way, but a missing key gives NaN.
 
 ## Words to know
 
 ### Grouping
 
-**Units** are what a number counts or measures. In this reading, the `units` column counts bags of blood: one unit is one bag. So each site's mean and median come out in units of blood. A count comes out in drives. The examples use the `units` column of `drives.csv`:
+**Units** are what a number counts or measures. In this reading, the `units` column counts bags of blood: one unit is one bag. So each site's mean and median come out in units of blood. A count comes out in drives. The examples use the `units` column of the reading's `drives.csv`:
 
 * Library: 26, 31, 25
 * Community Center: 40, blank, 36
 * Fire Station: 20, 24
 
-| Word | What it means | Example with the drives |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **groupby** | Splits rows into groups by a category, applies a summary to each group, and combines the answers into one row per group. People call this "split, apply, combine." On its own, `groupby("site")` only makes the groups. It shows no table until you add a summary. | `drives.groupby("site")` makes **3 groups**, one per site |
 | **Aggregation** | A summary worked out for each group, such as a count, mean, or median. `.agg()` does several at once. | `.agg(["count", "mean", "median"])` gives **3 numbers** for each site |
@@ -64,7 +57,7 @@ You've built a summary like this by hand. In [One Job at a Time](../module-01/qu
 
 ### New columns
 
-| Word | What it means | Example with the drives |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Derived column** | A new column worked out from columns you already have. You write the formula once, and pandas applies it to every row at once, with no loop. A blank in, a blank (NaN) out. | `units_per_hour`: the first Library drive is 26 units ÷ 10 hours = **2.6**. The blank drive gives **NaN**. |
 | **Rate** | A derived column that divides one number by another, like units per volunteer hour. It can show what raw counts hide. Its units come from both columns: units of blood *per hour*. | Fire Station collects the fewest units. But per hour, its drives (20 ÷ 8 = **2.5**, 24 ÷ 8 = **3.0**) are close to the Library's (**2.6** to **3.1**). |
@@ -74,7 +67,7 @@ In [Trace the Path](../module-01/quest-01-control-flow.md), `for temp in temps:`
 
 ### Changing rows safely
 
-| Word | What it means | Example with the drives |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Copy** | A separate table. In pandas 3, a filter like `drives[big]` always gives you a copy. Changing a copy never touches the original. | `drives[big]` is a 3-row copy |
 | **Chained assignment** | Setting a value in two steps, like `df[mask]["col"] = value`. The first step makes a copy, and the second step changes the copy, so your table stays the same. | After `drives[big]["goal_met"] = "yes"`, `drives` has **0** "yes" values |
@@ -83,7 +76,7 @@ In [Trace the Path](../module-01/quest-01-control-flow.md), `for temp in temps:`
 
 ### Combining tables
 
-| Word | What it means | Example with the drives |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Merge** | Combines two tables by matching rows on a shared column, then copies the second table's columns onto the matching rows. | Each drive gets its site's `neighborhood`, like Library → Northside |
 | **Key** | The shared column a merge matches on, like `site`. Keys must match exactly, letter for letter. | `"Firehouse"` does not match `"Fire Station"` |
@@ -96,7 +89,7 @@ In the reading, you'll focus on a nonprofit that runs blood drives at a library,
 
 Think about: besides each place's average, what else would you want to know before you call one place the winner? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 
@@ -113,6 +106,8 @@ As you read, look for:
 * **`groupby` splits, applies, and combines.** Keep the count next to the mean and median, so you can spot a group too small to trust. `count` skips blanks.
 * **A filter gives you a copy.** To change rows in the original table, use `df.loc[rows, "column"] = value` in one step. Then check the count, because a step that silently does nothing is worse than a crash.
 * **After every merge, check two things:** the row count before and after, and the number of blanks in the new column. Keys must match letter for letter.
+
+The picture below shows `groupby` on the drives: split the rows by site, find each site's mean, then combine.
 
 ![Eight blood-drive rows are split into one pile per site. The mean units of each pile is worked out, skipping the one blank value: Community Center 38.0, Fire Station 22.0, Library 27.3. Then the answers are combined into a table with one row per site. The line of code is drives.groupby("site")["units"].mean().](images/groupby-split-apply-combine.svg)
 

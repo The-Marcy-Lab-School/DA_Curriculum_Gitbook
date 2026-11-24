@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 450" width="1040" height="450" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 480" width="1040" height="480" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
 <title id="t">One outlier pulls the average</title>
 <desc id="d">Left: ten houses on one street. Nine grey houses sold for $300K each, and one red house sold for $3M. Average = (9 × $300K + $3M) ÷ 10 = $5.7M ÷ 10 = $570K, and no house sold near $570K. Right: ten grey houses that each sold for $300K. Average = (10 × $300K) ÷ 10 = $300K, which matches every house.</desc>
-<rect width="1040" height="450" fill="#ffffff"/>
+<rect width="1040" height="480" fill="#ffffff"/>
 <text x="265" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">One outlier</text>
 <polygon points="35,90 70,60 105,90" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
 <rect x="43" y="90" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
@@ -43,7 +43,7 @@
 <rect x="411" y="205" width="54" height="42" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2.5"/>
 <rect x="431" y="225" width="14" height="22" fill="#B91C1C"/>
 <text x="438" y="271" text-anchor="middle" font-size="18" font-weight="bold" fill="#B91C1C">$3M</text>
-<rect x="20" y="300" width="490" height="135" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<rect x="20" y="300" width="490" height="165" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
 <text x="40" y="334" font-size="19" font-weight="bold" fill="#111827">Average = sum of prices ÷ number of houses</text>
 <text x="40" y="370" font-size="19" fill="#111827">= (9 × $300K + $3M) ÷ 10</text>
 <text x="40" y="402" font-size="19" fill="#111827">= $5.7M ÷ 10 = $570K</text>
@@ -89,7 +89,7 @@
 <rect x="921" y="205" width="54" height="42" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
 <rect x="941" y="225" width="14" height="22" fill="#475569"/>
 <text x="948" y="271" text-anchor="middle" font-size="18" font-weight="normal" fill="#111827">$300K</text>
-<rect x="530" y="300" width="490" height="135" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<rect x="530" y="300" width="490" height="165" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
 <text x="550" y="334" font-size="19" font-weight="bold" fill="#111827">Average = sum of prices ÷ number of houses</text>
 <text x="550" y="370" font-size="19" fill="#111827">= (10 × $300K) ÷ 10</text>
 <text x="550" y="402" font-size="19" fill="#111827">= $3M ÷ 10 = $300K</text>

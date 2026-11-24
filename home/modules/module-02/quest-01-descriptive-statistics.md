@@ -1,10 +1,10 @@
 # Quest 2.1 — The Loudest Number: Descriptive Statistics (Day 1)
 
-**Total time:** about 35 minutes
+**Total time:** About 35 minutes
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
-**Why start at Explore?** You've already done some inspecting. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), your function looked for invalid lines and caught blank values before you used them. But to judge a whole table, you need to know what "normal" looks like for each column. Is this value usual, or far from the rest? The mean, the median, and the spread answer that, so you learn them first, on a short list you can see all at once. In the next quest, you'll build on your inspecting skills and check a whole file. Then you can bring both skills together. ([Why the quests don't follow the step order](introduction.md#why-the-quests-dont-follow-the-step-order))
+**Why start at Explore?** You've already done some inspecting. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), your function looked for invalid lines and caught blank values before you used them. But to judge a whole table, you need to know what "normal" looks like for each column. Is this value usual, or far from the rest? The mean, the median, and the spread answer that, so you'll learn these terms first. In the next quest, you'll build on your inspecting skills and check a whole file. Then you can bring both skills together. ([Why the quests don't follow the step order](introduction.md#why-the-quests-dont-follow-the-step-order))
 
 ## Introduction
 
@@ -15,15 +15,9 @@ To find the **average** (also called the **mean**), add up every value, then div
 * Average = sum of all values ÷ number of values
 * Average price = (9 × $300K + $3M) ÷ 10 = $5.7M ÷ 10 = **$570K**
 
-But no home on that street sold for a price close to $570K. The one $3M home pulled the average up. If all ten homes sold for $300K, the average would be $300K, and it would describe every home.
+But no home on that street sold for a price close to $570K. The one $3M home pulled the average up. Now look at the street on the right in the picture below. If all ten homes sold for $300K, the average would be $300K, and it would describe every home.
 
 ![Two streets of ten houses. Left, one outlier: nine grey houses sold for $300K each, and one red house sold for $3M. Average = (9 × $300K + $3M) ÷ 10 = $5.7M ÷ 10 = $570K, and no house sold near $570K. Right, no outlier: ten grey houses sold for $300K each. Average = (10 × $300K) ÷ 10 = $300K, which matches every house.](images/average-outlier-houses.svg)
-
-In this reading, you'll learn:
-
-* when to use the average (the mean)
-* when the middle value (the median) works better
-* how to describe how spread out a set of numbers is
 
 **Main takeaway:** An average can be misleading when the data has an outlier. An **outlier** is a value far from the rest, like the $3M home. Before you report an average, look at the shape of the data and check for outliers. When there is one, the middle value (the median) often describes the usual value better.
 
@@ -49,15 +43,15 @@ After this reading, you should be able to say:
 
 You've already added up numbers and read items by position. This reading uses both to describe a whole list with a few numbers.
 
-* Recall that you added up a week of step counts with a running total (`total += steps`) in [One Job at a Time](../module-01/quest-07-second-function.md). An average goes one step further: divide the total by how many values there are, `sum(steps) / len(steps)`.
-* Recall that you read a list item by its position, called its **index**, in [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md). Python starts counting at 0, so `sorted_gifts[0]` is the first item and `sorted_gifts[1]` is the second. You'll use this to find the middle value of a sorted list.
-* Recall that a **quantitative** value measures an amount, like a weight or a price. Math on it makes sense. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). An ID made of digits is not quantitative, so never take its mean.
+* In Module 1's [One Job at a Time](../module-01/quest-07-second-function.md), you added up a week of step counts with a running total: `total += steps`. An average goes one step further: `sum(steps) / len(steps)`.
+* Python counts list positions, called **indexes**, from 0. In Module 1's [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md), `bookings[3]` read the 4th booking. You'll use positions to find the middle of a sorted list.
+* A **quantitative** value measures an amount, like a weight or a price, from Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). An ID made of digits isn't quantitative, so never average it.
 
 ## New Python package: NumPy
 
 **What it's for:** NumPy does math on many numbers at once. Plain Python lists can add and count, but they don't have a median or a standard deviation built in. NumPy does, so each answer takes one line.
 
-NumPy is a Python **package** (some people say *library*): a collection of code other people wrote. Recall that you loaded a **module** that comes with Python by writing `import json`, in [Make It Survive](../module-01/quest-05-serialization.md). You load a package the same way, with `import`. The difference: a package is a bigger set of modules, and it doesn't come with Python, so you install it yourself, once.
+NumPy is a Python **package** (some people say *library*): a collection of code other people wrote. `import json` was the first **module** you loaded, in Module 1's [Make It Survive](../module-01/quest-05-serialization.md), to save data to a file. You load a package the same way, with `import`. The difference: a package is a bigger set of modules, and it doesn't come with Python, so you install it yourself, once.
 
 NumPy does its math on an **array**, not a list. An array is NumPy's version of a list, built for math:
 
@@ -106,17 +100,17 @@ Every number in this reading answers one of two questions: *what is typical?* or
 
 **Typical** means usual or normal: the kind of value you'd expect to see most often. For example, if most guests gave between $40 and $75, a typical gift is somewhere in that range.
 
-A **measure of central tendency** is one number that describes the typical value. *Central* means "in the middle," and *tendency* means "where values tend to gather." There are three.
+A **measure of central tendency** is one number that describes the typical value. *Central* means "in the middle," and *tendency* means "where values tend to gather." Three numbers describe central tendency: the mean, the median, and the mode.
 
-**Units** are what a number counts or measures, like dollars, minutes, or rows. Every number in these tables comes out in the same units as the data, except variance. The examples use the 11 gifts from the reading, sorted from smallest to biggest:
+**Units** are what a number counts or measures, like dollars, minutes, or rows. Every number in these tables comes out in the same units as the data, except variance. The examples use 9 gifts from one dinner. Eight guests gave between $40 and $75, and one company gave $5,000. Sorted from smallest to biggest:
 
-`40, 45, 50, 50, 50, 55, 60, 65, 70, 75, 5000` (in dollars)
+`40, 45, 50, 50, 55, 60, 65, 75, 5000` (in dollars)
 
-| Word | What it means | Example with the gifts |
+| Word | What it means | Example with the 9 gifts |
 | --- | --- | --- |
-| **Mean** | Add every value, then divide by how many there are. Also called the average. One far-off value pulls it toward itself. | $5,560 ÷ 11 = **$505.45** |
-| **Median** | The middle value once the values are sorted. With an even count, it's the average of the two middle values. One far-off value barely moves it. | The 6th of 11 sorted gifts = **$55** |
-| **Mode** | The value that shows up most often. | $50 shows up 3 times = **$50** |
+| **Mean** | Add every value, then divide by how many there are. Also called the average. One far-off value pulls it toward itself. | $5,440 ÷ 9 = **$604.44** |
+| **Median** | The middle value once the values are sorted. With an even count, it's the average of the two middle values. One far-off value barely moves it. | The 5th of 9 sorted gifts = **$55** |
+| **Mode** | The value that shows up most often. | $50 shows up 2 times, more than any other = **$50** |
 
 ### How spread out?: Measures of spread
 
@@ -127,16 +121,16 @@ A **measure of central tendency** is one number that describes the typical value
 
 A **measure of spread** is one number that describes this.
 
-| Word | What it means | Example with the gifts |
+| Word | What it means | Example with the 9 gifts |
 | --- | --- | --- |
 | **Range** | The largest value minus the smallest. | $5,000 − $40 = **$4,960** |
-| **Quartiles (Q1 and Q3)** | Values that split sorted data into four equal groups. Q1 is a quarter of the way up, the median is halfway, and Q3 is three quarters of the way up. | Q1 = **$50**, Q3 = **$67.50** (NumPy's answer) |
-| **Interquartile range (IQR)** | Q3 minus Q1: how spread out the middle half of the data is. Far-off values don't change it. | $67.50 − $50 = **$17.50** |
-| **Five-number summary** | The minimum, Q1, median, Q3, and maximum. It shows the spread without a chart. | **$40, $50, $55, $67.50, $5,000** |
-| **Variance** | Roughly the average of the *squared* distances between each value and the mean. Squaring makes every distance positive and makes big gaps count more. | Add up (each gift − $505.45)², then divide by 11 − 1 = about **2.2M dollars squared** |
-| **Standard deviation** | The square root of the variance: the typical distance between a value and the mean. Small means the values sit close together. Large means they're spread out. | √2.2M = about **$1,490.71** |
+| **Quartiles (Q1 and Q3)** | Values that split sorted data into four equal groups. Q1 is a quarter of the way up, the median is halfway, and Q3 is three quarters of the way up. | Q1 = **$50**, Q3 = **$65** |
+| **Interquartile range (IQR)** | Q3 minus Q1: how spread out the middle half of the data is. Far-off values don't change it. | $65 − $50 = **$15** |
+| **Five-number summary** | The minimum, Q1, median, Q3, and maximum. It shows the spread without a chart. | **$40, $50, $55, $65, $5,000** |
+| **Variance** | Roughly the average of the *squared* distances between each value and the mean. Squaring makes every distance positive and makes big gaps count more. | Add up (each gift − $604.44)², then divide by 9 − 1 = about **2.7M dollars squared** |
+| **Standard deviation** | The square root of the variance: the typical distance between a value and the mean. Small means the values sit close together. Large means they're spread out. | √2.7M = about **$1,648.37** |
 
-The IQR is only $17.50, but the range is $4,960. That gap tells you one value sits far from the rest: the $5,000 gift.
+The IQR is only $15, but the range is $4,960. That gap tells you one value sits far from the rest: the $5,000 gift.
 
 {% hint style="info" %}
 **Variance or standard deviation?** They measure the same spread. Variance comes out in squared units, like "dollars squared," which nobody can picture. Taking the square root puts it back in dollars. That's why reports give the standard deviation.
@@ -144,14 +138,16 @@ The IQR is only $17.50, but the range is $4,960. That gap tells you one value si
 
 ### What shape is the data?: Distribution and skew
 
-| Word | What it means | Example with the gifts |
+| Word | What it means | Example with the 9 gifts |
 | --- | --- | --- |
-| **Distribution** | How the values are spread across their range: where most of them sit, and where only a few do. | 10 gifts sit between $40 and $75. 1 gift sits at $5,000. |
-| **Histogram** | A bar chart where each bar counts how many values fall in a range. It shows a distribution's shape. | With bars $100 wide: one bar of **10** gifts on the left, empty space, then one bar of **1** gift at $5,000 |
-| **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which pulls the mean below it. | Right-skewed: the mean, **$505.45**, sits far above the median, **$55** |
+| **Distribution** | How the values are spread across their range: where most of them sit, and where only a few do. | 8 gifts sit between $40 and $75. 1 gift sits at $5,000. |
+| **Histogram** | A bar chart where each bar counts how many values fall in a range. It shows a distribution's shape. | With bars $100 wide: one bar of **8** gifts on the left, empty space, then one bar of **1** gift at $5,000 |
+| **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which pulls the mean below it. | Right-skewed: the mean, **$604.44**, sits far above the median, **$55** |
 | **Outlier** | A value far from the rest. It can still be real. | The **$5,000** gift (and the $3M home in the Introduction) |
 
 An outlier is not the same as a bad value. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), a grade of 14 broke a rule. So your function flagged it as a problem. A $5,000 gift breaks no rule. It's far from the rest, but it's real, so it stays in the data.
+
+The picture below shows three shapes of data. In each one, look at where the mean sits next to the median.
 
 ![Three histograms side by side. Each has an x-axis for the value, from small to big, and a y-axis for how many values. Left-skewed: most values are big, with a tail of small values on the left, and the mean sits below the median. Symmetric: one peak in the middle, and the mean and median are about the same. Right-skewed: most values are small, with a tail of big values on the right, and the mean sits above the median.](images/skew-shapes.svg)
 
@@ -161,7 +157,7 @@ In the reading, you'll focus on a fundraising dinner. A **fundraising dinner** i
 
 Think about: which number would you print, and why? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 
@@ -183,7 +179,7 @@ As you read, look for:
 
 | If you think... | What's actually true |
 | --- | --- |
-| "The mean uses every value, so it always represents the data well." | One outlier can pull the mean far from most values. The gifts' mean is $505.45, but 10 of the 11 gifts are $75 or less. |
+| "The mean uses every value, so it always represents the data well." | One outlier can pull the mean far from most values. The 9 gifts' mean is $604.44, but 8 of the 9 gifts are $75 or less. |
 | "Delete the outlier so the mean looks right." | A real value stays in the data. Pick the median instead, and name the outlier separately. |
 | "A big standard deviation means the data has lots of variety." | It can also mean one far-off value. The five-number summary shows which one you have. |
 | "Variance and standard deviation tell you different things." | They measure the same spread. The standard deviation is the square root of the variance, so it's in the data's own units. |

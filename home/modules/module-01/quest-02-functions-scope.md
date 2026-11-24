@@ -1,6 +1,6 @@
 # Quest 1.2 — Build It Once, Use It Again: Functions and Scope (Days 3–5)
 
-**Total time:** about 60 minutes
+**Total time:** About 60 minutes
 
 **Building blocks:** Decide and repeat · **Organize steps** · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -9,12 +9,6 @@
 Some steps are worth writing down once. For example, a cook writes a pancake recipe on a card. Each time she cooks, she follows the same card. Only the number of people changes. If she improves the recipe, she fixes one card, not ten copies.
 
 In code, that card is a **function**: a set of steps with a name that you can reuse.
-
-In this reading, you'll learn how to:
-
-* write a function once and use it many times
-* pass values into a function, and get one result back out
-* tell a function's own variables apart from the ones the whole program can use
 
 **Main takeaway:** Write steps you repeat once, as a function, and call it each time you need them. A **function** is a named, reusable block of code. Values go in through its parameters, and one result comes back out with `return`.
 
@@ -38,9 +32,9 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that a **variable** is a labeled box, and it holds only its newest value. `pet_of_the_week` held `"Biscuit"`, then `"Mango"`. You learned this in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). A function's inputs work like these boxes.
-* Recall that `minutes = minutes - 10` works out the right side first. Then it stores the result back under the same name. You traced it in the interactive reading for [Trace the Path](quest-01-control-flow.md). Function bodies use the same kind of update.
-* Recall that indentation tells Python which lines belong to a block, from [Trace the Path](quest-01-control-flow.md). A function's steps are a block too. Where a line sits changes when it runs.
+* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), `pet_of_the_week` held `"Biscuit"`, then `"Mango"`. A **variable** is a labeled box that keeps only its newest value. A function's inputs work the same way.
+* You traced `minutes = minutes - 10` in the interactive reading for [Trace the Path](quest-01-control-flow.md). Python works out the right side first, then stores the result under the same name. Function bodies use the same kind of update.
+* Indentation tells Python which lines belong to a block, as you saw in [Trace the Path](quest-01-control-flow.md). A function's steps are a block too, so where a line sits changes when it runs.
 
 ## Words to know
 
@@ -50,7 +44,7 @@ After this reading, you should be able to say:
 
 The examples come from the reading's laundromat, where one load of washing costs $3.50.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Function** | A named, reusable block of code. You define it once and call it as many times as you need. | `wash_cost`, which works out a bill |
 | **Define** | Write the lines that create a function. Defining a function does *not* run it. | A file with only `def show_closing_notice():` and its body prints nothing. |
@@ -67,7 +61,7 @@ Function names follow the same style as variable names: lowercase words joined b
 
 You'll use these two words in every module after this one, so learn them exactly.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Parameter** | A name in the function's `def` line. It holds a spot for an input value. | `loads` in `def wash_cost(loads, price_per_load):` |
 | **Argument** | The value passed in at a call. It fills the matching parameter. | `2` in `wash_cost(2, 3.5)` fills `loads`. |
@@ -95,6 +89,8 @@ print(total)  # 7.5
 
 </details>
 
+The picture below follows one call from the reading, `wash_cost(2, 3.5)`, through the same steps. Follow the arrows from the call into the function and back.
+
 ![On the left, the call saved = wash_cost(2, 3.5). An arrow goes into a function box labeled def wash_cost(loads, price_per_load). Step 1: each parameter gets its argument, so loads is 2 and price_per_load is 3.5. Step 2: the body runs, loads times price_per_load, 2 times 3.5 equals 7.0. Step 3: return hands back 7.0. An arrow goes back to the left, where saved now holds 7.0, the return value.](images/m1a-function-call.svg)
 
 ### New pieces of code in the readings
@@ -113,7 +109,7 @@ print(total)  # 7.5
 
 The examples come from the second reading's parking tickets. A ticket costs a base amount plus $2 for each minute a car stays past its time.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Local variable** | A variable created inside a function, including its parameters. Only that function can see it. It stops existing when the function returns. | `ticket_cost`, created inside `ticket_price` |
 | **Global variable** | A variable created outside every function. It exists for the whole program. Any function can read it. | `price_cap = 150`, at the top of the file |
@@ -123,7 +119,7 @@ The examples come from the second reading's parking tickets. A ticket costs a ba
 
 You've read an error message before. In [Meet Your Terminal](../module-00/quest-01-terminal.md), `zsh: command not found: pdw` named the exact word the shell didn't know. Python's error messages work the same way: they name the problem.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Traceback** | What Python prints when it stops with an error. Read the last line first: it names the error. Then find the line number and the `^^^` marks under the part that failed. | Last line: `NameError: name 'ticket_cost' is not defined` |
 | **`NameError`** | Code used a name that doesn't exist at that line. | `print(ticket_cost)` after `ticket_price` returned |
@@ -135,7 +131,7 @@ In the first reading, you'll focus on a laundromat. A **laundromat** is a shop w
 
 Think about: what could go wrong when someone updates the price? How could you write the math so there's only one place to change? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 There are two readings, one on Day 3 and one on Day 4. Do them in order. Day 5 has no new reading. In class, you'll practice loops, conditionals, and functions together.
 
@@ -172,6 +168,8 @@ Want to go further? This reading is optional. You don't need it for the checkpoi
 * **Define once, call many times.** Only a call runs a function's body. Each call can pass in different arguments without changing the function's code.
 * **`return` hands a value back; `print` only shows it.** Store the return value to use it later. A `return` also ends the function, so check its indentation.
 * **Local names live only during the call.** After a function returns, only its return value is kept. If a function needs a value, pass it in as a parameter instead of reading a global.
+
+The picture below maps the names in the reading's `ticket_cap_global.py`. Look at which names sit inside the blue box, and which one makes it back out.
 
 ![A map of ticket_cap_global.py. A large grey box is the global scope: names created outside every function, which last the whole program. It holds price_cap = 150 and ticket_total = 150. Inside it, a blue box is the local scope of ticket_price, which exists only while the function runs. It holds the parameters base_cost = 90 and minutes_over = 40, and ticket_cost = 170, created in the body. An arrow shows the function can read price_cap. Another arrow shows return hands back 150 into ticket_total. An orange note says print(ticket_cost) outside the function gives a NameError, because the local name is gone after the return.](images/m1a-scope-map.svg)
 

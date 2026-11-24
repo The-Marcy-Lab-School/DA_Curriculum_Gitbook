@@ -1,10 +1,10 @@
 # Module 2 Conclusion (Day 14)
 
-**Time:** about 6 minutes. Read this before the Boss Battle (Module Project).
+**Time:** About 6 minutes. Read this before the Boss Battle (Module Project).
 
 ## Introduction
 
-Look at how far you've come. When this module started, your data was a short list you typed yourself. Now you can take a real, messy table and check it, clean it, and describe it. You can find a pattern you can trust, and explain it to someone who will never read your code. That's the core of a data analyst's job.
+You've learned a lot in this module. When it started, your data was a short list you typed yourself. Now you can take a real, messy table and check it, clean it, and describe it. You can find a pattern you can trust, and explain it to someone who will never read your code. That's the core of a data analyst's job.
 
 **Main takeaway:** Every skill from this module is one step in the same workflow. The Boss Battle (Module Project) asks you to run the whole workflow on your own.
 
@@ -19,7 +19,7 @@ Look at how far you've come. When this module started, your data was a short lis
 
 ## What you can do now
 
-You've now practiced every step of the [EDA workflow](introduction.md#the-big-picture-the-eda-workflow) (EDA is short for exploratory data analysis):
+You've now practiced every step of the [EDA workflow](introduction.md#the-big-picture-the-eda-workflow) (EDA is short for exploratory data analysis). The picture below shows the five steps again.
 
 ![Five steps from left to right: Inspect, Clean, Explore, Check, and Explain. A dashed arrow loops from Check back to Clean, because a problem you find later can send you back a step. The Boss Battle (Module Project) runs all five steps on one real dataset.](images/eda-workflow.svg)
 
@@ -29,7 +29,7 @@ You've now practiced every step of the [EDA workflow](introduction.md#the-big-pi
 | **Clean** | Remove repeats by key, fix text that should be numbers, tidy labels, and drop, fill, or flag blanks with a reason, all in a reusable function |
 | **Explore** | Pick the mean or the median by looking at the shape, summarize groups, choose a chart that fits, and find a pattern that isn't obvious |
 | **Check** | Ask checkable questions about where data came from, and judge an AI's claims (statements it says are true, which may be wrong) against your own numbers |
-| **Explain** | Write a README and a memo that stand on their own, and lead with the answer |
+| **Explain** | Write a README and a memo that make sense without your notebook, and lead with the answer |
 
 ## How to talk about your skills
 
@@ -45,7 +45,7 @@ A **resume** is a short document that lists your skills and work for employers. 
 
 ### In an interview
 
-When someone asks about a finding, use this four-part answer from [The Loudest Number](quest-01-descriptive-statistics.md):
+When someone asks about a finding, use this four-part answer from the interactive reading for [The Loudest Number](quest-01-descriptive-statistics.md):
 
 > "I notice **___**. The numbers show **___**. That means **___**. One caveat is **___**."
 

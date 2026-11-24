@@ -1,6 +1,6 @@
 # Quest 1.5 — Make It Survive: Saving Data to Files (Day 8)
 
-**Total time:** about 40 minutes
+**Total time:** About 40 minutes
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · **Load, save, and protect** · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
@@ -9,12 +9,6 @@
 Sometimes your work disappears when a program stops. For example, you type a long shopping list into a phone app. The app crashes (stops suddenly) before it saves. When you open it again, the list is gone. It lived only in the app's memory, not in a file.
 
 Python programs work the same way. When a program stops, every variable is gone. To keep data, the program must write it to a file. Later, a program can read the file and build the data again.
-
-In this reading, you'll learn how to:
-
-* write text to a file and read it back
-* save a dictionary to a JSON (JavaScript Object Notation) file and load it again
-* check what changed about your data on the way
 
 **Main takeaway:** Saving data to a file and loading it back can change its types. **Serialization** means turning a Python value into text you can save in a file. When JSON loads that text back, the key `7` comes back as the string `"7"`. A tuple comes back as a list.
 
@@ -38,8 +32,8 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that a **dictionary** stores key/value pairs, and a **tuple** is an ordered record (a group of values about one thing) that can't change. You used both in [Pick the Right Container](quest-04-data-structures.md). In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
-* Recall that `ls` lists the files in a folder, from [Meet Your Terminal](../module-00/quest-01-terminal.md). Recall too that `cat pets.csv` prints what's inside a file, from the interactive reading for [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). You'll use both to look inside the file your program saves.
+* In [Pick the Right Container](quest-04-data-structures.md), you used a **dictionary** to store key/value pairs. A **tuple** is an ordered record (a group of values about one thing) that can't change. In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
+* `ls` lists the files in a folder, from Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md). `cat pets.csv` printed what's inside a file, in the interactive reading for Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). You'll use both to look inside the file your program saves.
 
 ## New Python module: json
 
@@ -91,7 +85,7 @@ You may see `json.dumps` and `json.loads` in other examples. The extra *s* stand
 
 The examples come from the reading's weather program.
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Memory** | Where a running program keeps its variables. Everything in memory is gone when the program stops. | `rain` is gone when `save_rain.py` stops. |
 | **Serialization** | Turning a Python value into text that can be saved to a file. Its everyday name is *saving*. | `json.dump(rain, f)` writes `rain` into `rain.json`. |
@@ -128,7 +122,7 @@ JSON text has three rules that Python dictionaries don't follow. Check them when
 
 ### Opening a file: open() and modes
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **`open(name, mode)`** | A built-in function that finds a file, or makes it, so your code can write to it or read it. | `open("rain_note.txt", "w")` |
 | **Mode** | The second argument you give `open()`. It says what you plan to do with the file. | `"w"`, `"a"`, or no mode |
@@ -141,13 +135,13 @@ JSON text has three rules that Python dictionaries don't follow. Check them when
 | **`"\n"`** | Inside a string, it means "start a new line here." Without it, the next write lands on the same line. | Without it, you get `6:00 rain 0.4 mm7:00 rain 1.2 mm`. |
 | **`FileNotFoundError`** | The error Python raises when you try to read a file that doesn't exist yet. | Running `load_rain.py` before `save_rain.py` has made `rain.json` |
 
-The mode matters most when a program adds one line at a time. For example, the reading's weather program adds a line to its log every hour:
+The mode matters most when a program adds one line at a time. For example, the reading's weather program adds a line to its log every hour. In the picture below, compare the top row, opened with `"w"`, with the bottom row, opened with `"a"`.
 
 ![Two rows of file snapshots after the 6:00, 7:00, and 8:00 runs. Top row, opened with "w" (write), which empties the file first every run: the file holds only 6:00 rain 0.4 mm, then only 7:00 rain 1.2 mm, then only 8:00 rain 0.9 mm. Bottom row, opened with "a" (append), which adds to the end: the file grows from one line to two lines to all three lines. Note: use "a" for a log. With "w", only the last hour is left.](images/m1b-write-vs-append.svg)
 
 ### What comes back different: Types after loading
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Data type** | What kind of value something is: a string (`str`), a whole number (`int`), a decimal number (`float`), a tuple, a list, or a dictionary. | `58` is an `int`. `0.4` is a `float`. |
 | **Keys become strings** | JSON keys are always strings. | The integer key `6` comes back as the string `"6"`. |
@@ -156,6 +150,8 @@ The mode matters most when a program adds one line at a time. For example, the r
 | **`KeyError`** | The error Python raises when a dictionary has no entry for the key you asked for. | `restored[7]` after the round trip, when the key is now `"7"` |
 | **"not JSON serializable"** | A `TypeError` that means JSON has no way to store that type of value. | `json.dump` on a record that holds a calendar date |
 | **`datetime`** | A module that comes with Python for calendar dates. In the reading, `from datetime import date` loads it. | `date(2026, 10, 3)` stores October 3, 2026. |
+
+The picture below follows `rain` on a round trip, from Python to a file and back. Look at the two notes about what came back different.
 
 ![Three panels. In Python while the program runs: rain = {6: (0.4, 58), 7: (1.2, 55)}, with integer keys and tuple values. An arrow labeled json.dump(), save, leads to rain.json on disk: {"6": [0.4, 58], "7": [1.2, 55]}, with string keys and lists. An arrow labeled json.load(), load, leads back to Python later, where the keys are still strings and the values are still lists. Two notes: the integer 6 came back as the string "6", so rain[6] now raises a KeyError. The tuple (0.4, 58) came back as the list [0.4, 58], because JSON has no tuples.](images/m1b-json-round-trip.svg)
 
@@ -169,7 +165,7 @@ In the reading, you'll focus on a school's rooftop weather station: tools on the
 
 Think about: if you save this dictionary to a file and load it back tomorrow, will you get exactly the same dictionary? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 

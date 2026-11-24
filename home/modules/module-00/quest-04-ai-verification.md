@@ -1,6 +1,6 @@
 # Quest 0.4 — Confidence Is Not Evidence: Checking AI Answers (Day 6)
 
-**Total time:** about 30 minutes
+**Total time:** About 30 minutes
 
 **Analyst toolkit:** Use the terminal · Understand data · Save with Git · **Verify claims** ([what's this?](introduction.md#the-big-picture-your-analyst-toolkit))
 
@@ -10,16 +10,6 @@ Sounding sure and being right are two different things. For example, a friend te
 
 AI (artificial intelligence) chatbots work the same way. A chatbot is a program that answers questions in everyday language. Chatbots give every answer in the same sure, polished tone, whether it's right or wrong.
 
-In this reading, you'll learn how to:
-
-* tell an unverified claim apart from a verified fact. A **claim** is a statement that says something is true, which may or may not be correct. *Unverified* means nobody has checked it yet.
-* check an AI answer against a real source, in four steps:
-  * find the exact claim
-  * find a real source
-  * compare the two
-  * decide whether to use the claim, fix it, or drop it
-* spot a hallucination: a sure-sounding answer that is wrong
-
 **Main takeaway:** An answer's **confidence** tells you nothing about its **accuracy**. Confidence is how sure an answer sounds. Accuracy is whether it is correct. Only checking the answer against a real source tells you if it's accurate.
 
 **Why it matters at work:** Analysts check AI answers before they share them with anyone. For example, they check:
@@ -28,7 +18,7 @@ In this reading, you'll learn how to:
 * a report or a website that an AI tool names as its source
 * the result of code an AI tool wrote, against the real data
 
-If you pass on a wrong number from an AI tool, your name is on it, not the tool's.
+If you share a wrong number from an AI tool, you are responsible for it, not the tool.
 
 ## Learning goals
 
@@ -42,14 +32,14 @@ After this reading, you should be able to say:
 
 ## Quick recall
 
-* Recall that `cat` prints everything in a file, like `cat tomatoes.txt`, from [Meet Your Terminal](quest-01-terminal.md). In this reading, you'll use it to open the real data file and check a number.
-* Recall that structured data sits in rows and columns, and unstructured data is free text with no columns, from [What Kind of Data Is This?](quest-02-data-literacy.md). The reading opens by asking you to sort a chatbot's reply and a data file into these two groups.
+* In [Meet Your Terminal](quest-01-terminal.md), `cat tomatoes.txt` printed everything in a file. In this reading, you'll use `cat` to open the real data file and check a number.
+* [What Kind of Data Is This?](quest-02-data-literacy.md) split data into two groups: **structured** (rows and columns) and **unstructured** (free text). The reading opens by asking you to sort a chatbot's reply and a data file into these two groups.
 
 ## Words to know
 
 ### Is it true yet?: Claims and facts
 
-| Word | What it means | Example |
+| Word | What it means | Example in the reading |
 | --- | --- | --- |
 | **Claim** | A statement that something is true. | "Your volunteers collected 64 bags." |
 | **Unverified claim** | A claim that nobody has checked yet. It might be right or wrong. Every AI answer starts here. | "64 bags," before anyone opens the cleanup log |
@@ -78,7 +68,7 @@ In the reading, you'll focus on a park cleanup (a day when people pick up trash 
 
 Think about: before you print that sentence on a flyer (a printed page that shares news with many people), what would you check, and where? Write down your first answer, then see if the reading agrees.
 
-## Read
+## ⭐ Read
 
 As you read, look for:
 
@@ -99,6 +89,8 @@ As you read, look for:
   2. Find a real source.
   3. Compare the two.
   4. Decide whether to use the claim, fix it, or drop it.
+
+The picture below runs these four steps on the chatbot's answer about the park cleanup. Follow the steps from top to bottom.
 
 ![The chatbot's answer at the top: Your volunteers collected 64 bags of trash, the most of any park cleanup this year, according to a 2025 city news report. Below, four steps in order. 1, Find the claim: the number, 64 bags, and the source, a 2025 city news report. 2, Find a source: the cleanup log, cleanup_log.csv, and the city's news site. 3, Compare: 9 plus 12 plus 7 plus 10 plus 8 equals 46 bags, not 64, and there is no such report on the news site. 4, Decide: fix the number to 46 bags, and drop the report because it was made up. At the bottom: how sure an answer sounds does not tell you if it is true. Checking does.](images/m0-check-a-claim.svg)
 

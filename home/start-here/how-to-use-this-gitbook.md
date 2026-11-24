@@ -1,6 +1,6 @@
 # How to Use This GitBook
 
-**Time:** about 3 minutes
+**Time:** About 3 minutes
 
 ## Start every module the same way
 
@@ -27,7 +27,7 @@ Then read these sections:
 
 ### While you read
 
-* Look at the **As you read, look for** list first. Then open the interactive reading.
+* In the **⭐ Read** section, look at the **As you read, look for** list first. Then open the interactive reading.
 * When you finish, **submit the reading for credit**.
 
 ### After you read
