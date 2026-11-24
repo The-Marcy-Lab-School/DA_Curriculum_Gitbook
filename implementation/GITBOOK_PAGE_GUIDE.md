@@ -71,7 +71,7 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
 6. **Make every contrast concrete and countable.** Give actual values a reader can picture, not a vague range.
    - Not this: "Gifts from $40 to $5,000 have a big spread."
    - This: "9 gifts that are all about $50 have a small spread. 9 gifts where 2 are $50, 2 are $200, and 5 are $3,000 have a big spread."
-7. **Term tables work each term on the reading's own data.** Use an "Example" column that shows the calculation and the result, with units: "$5,000 − $40 = **$4,960**". Don't use a separate Units column. Instead, explain once, above the table, what units are and which terms are the exception.
+7. **Term tables work each term on real numbers.** Use an "Example" column that shows the calculation and the result, with units: "$5,000 − $40 = **$4,960**". Don't use a separate Units column. Instead, explain once, above the table, what units are and which terms are the exception.
 8. **Write mix-ups the way a student would actually say them, and answer with a number.** Avoid loaded or vague words (like "honest") in the "If you think…" column.
    - Not this: "The mean uses every value, so it's always the most honest."
    - This: "The mean uses every value, so it always represents the data well." → "One outlier can pull the mean far from most values. The gifts' mean is $505.45, but 10 of the 11 gifts are $75 or less."
@@ -79,6 +79,7 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
 10. **Define a new data structure before the code uses it, by comparing it to one readers know.** Use a small table or two lines that show the difference in action.
     - Example: list vs. NumPy array. `[50, 40] * 2` gives `[50, 40, 50, 40]`, but `np.array([50, 40]) * 2` gives `[100, 80]`.
 11. **Collapse code walkthroughs** under "Expand to walk through the code" (see Code blocks).
+12. **Use more than one scenario.** The GitBook page's examples (the hook, diagrams, term tables, mix-ups) can and often should use a different scenario from the interactive reading. Seeing an idea in two or three settings (houses on a street, then gifts at a dinner) helps readers transfer it. Keep each example's numbers correct, and when a page does reuse the reading's data, match it exactly.
 
 ## Code blocks
 
@@ -108,7 +109,7 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
   | **Side-by-side comparison** | the same data shown two ways, or before and after | `skew-shapes.svg`, `axis-baseline.svg`, `confound-gap.svg` |
   | **Worked example** | what code does to a table | `groupby-split-apply-combine.svg` |
 
-- **Use the reading's own numbers and names** in the picture, and check them against the reading.
+- **Numbers and names in a picture must be correct.** A picture can use the reading's scenario or a new one. If it uses the reading's data, match the reading exactly.
 - **Don't repeat a table in a picture.** If a picture shows the same thing as a table, keep one.
 - **Revisit the most important pictures.** The module's workflow diagram appears in the Introduction and again in the Conclusion. The Checkpoint has an "Explain the picture" section where readers explain two key diagrams from memory.
 - Save diagrams as SVG in the module's `images/` folder, on a white background.
@@ -180,7 +181,7 @@ GitBook needs a page for every item that expands in the sidebar, so keep this pa
 1. **Title**: `Quest M.N — <Quest title>: <Plain topic name> (Day X)`, the same in `SUMMARY.md` and in every "Next" link, so readers always know which day they're on (Module 1 uses the same `(Day X)` ending). Practice days, the Checkpoint, and the Conclusion end with their day too. Then one line under the title: `**Total time:** about 30 minutes`. The total counts both the GitBook page and the interactive reading. Estimate the page at 150 words a minute (a careful pace for beginners and English learners), rounded to 5 minutes. Don't show the breakdown, and don't repeat the day, since it's in the title. Every other page type gets a `**Time:**` line too.
 2. **Workflow tracker**, right under the time line. When the quest order jumps around the workflow (for example, the first quest teaches a later step), add one short line under the tracker that says why, and explain in the Introduction that the workflow can loop back. Tracker: `**EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#…))`, with the quest's step in bold. Practice days and checkpoints bold every step they review. The Conclusion shows the workflow diagram again.
 3. **Introduction** (heading: `## Introduction`), in this order:
-   - A short, everyday hook and a concrete example, in short sentences ("Sometimes averages can be misleading. For example, …"). Use a different example from the reading's own scenario.
+   - A short, everyday hook and a concrete example, in short sentences ("Sometimes averages can be misleading. For example, …"). Use a different example from the reading's own scenario, so readers see the idea in more than one setting.
    - "In this reading, you'll learn how to:" followed by 2 to 4 short bullets.
    - `**Main takeaway:**` in one or two short sentences.
    - `**Why it matters at work:**` in one or two short sentences.
