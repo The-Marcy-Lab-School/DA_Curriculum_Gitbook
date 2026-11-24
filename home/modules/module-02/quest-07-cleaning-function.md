@@ -4,6 +4,12 @@
 
 **EDA workflow:** Inspect → **Clean** → Explore → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+* In [Look Before You Filter](quest-02-inspect-filter.md), you found repeated rows with `df.duplicated()` and number columns stored as text (`str`). Then, in [Drop, Fill, or Flag](quest-06-missing-data.md), you chose to drop, fill, or flag each gap.
+* `.strip()` removes spaces from both ends of a string, and `.lower()` makes every letter lowercase, so `" Peru ".strip().lower()` gives `"peru"`. In this reading, they run on a whole column.
+* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) checked each record against rules, and [One Job at a Time](../module-01/quest-07-second-function.md) gave each function one job. A cleaning function uses both ideas.
+
 ## Introduction
 
 Some data problems happen again and again. For example, every Monday a gym gets a sign-up sheet for its classes. This week's sheet has 6 rows, but only 5 people signed up:
@@ -35,62 +41,83 @@ After this reading, you should be able to say:
 
 **Skills:** Data Cleaning & Imputation · Functions & Modular Programming (from Module 1)
 
-## Quick recall
-
-* In [Look Before You Filter](quest-02-inspect-filter.md), you found repeated rows with `df.duplicated()` and number columns stored as text (`str`). Then, in [Drop, Fill, or Flag](quest-06-missing-data.md), you chose to drop, fill, or flag each gap.
-* `.strip()` removes spaces from both ends of a string, and `.lower()` makes every letter lowercase, so `" Peru ".strip().lower()` gives `"peru"`. In this reading, they run on a whole column.
-* Your validation function in Module 1's [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md) checked each record against rules, and [One Job at a Time](../module-01/quest-07-second-function.md) gave each function one job. A cleaning function uses both ideas.
-
 ## Words to know
 
-The examples use the reading's two delivery lists from Terra Bean, a coffee shop. The May list has 5 rows and the June list has 5 rows.
+The examples on this page use the gym's sign-up sheet from the Introduction. Its 6 rows come from two lists:
+
+* `desk`: 3 rows, from the paper list at the front desk
+* `online`: 3 rows, from the online form
+
+This page adds two columns:
+
+* `member_id`: each member's ID
+* `guests`: how many friends the member will bring
+
+Ana signed up on both lists. At the desk she wrote 0 guests, and online she wrote 1. Dev wrote "maybe" instead of a number.
+
+| List | member_id | name | class | guests |
+| --- | --- | --- | --- | --- |
+| desk | M01 | Ana | Yoga | 0 |
+| desk | M02 | Ben | Spin | 1 |
+| desk | M03 | Cara | yoga | 2 |
+| online | M01 | Ana | Yoga | 1 |
+| online | M04 | Dev | YOGA | maybe |
+| online | M05 | Eli | Spin | 0 |
+
+The first column shows which list each row came from. It isn't part of either table.
 
 ### Problems in a file
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the gym sign-ups |
 | --- | --- | --- |
-| **Stack** | Put one table under another, so their rows end up in one table. | May's 5 rows + June's 5 rows = **10 rows** |
-| **Duplicate row** | The same real-world record showing up more than once, often after stacking two lists that overlap. | Delivery D104 is in both May and June. |
-| **Key column** | A column whose value names one record. | `delivery_id`, like `D104` |
-| **Number stored as text** | A column of numbers that pandas loaded as text (`str`), because at least one value isn't a number. Math on it gives errors or wrong answers. | June's `bags` column, because one value is `"TBD"` (short for "to be determined") |
-| **Label** | A value in a category column, like a country name. | `"Kenya"`, `"kenya "`, and `" Kenya"` are three different labels to pandas. |
+| **Stack** | Put one table under another, so their rows end up in one table. | The desk's 3 rows + the online form's 3 rows = **6 rows** |
+| **Duplicate row** | The same real-world record showing up more than once, often after stacking two lists that overlap. | Ana (M01) is on both lists. |
+| **Key column** | A column whose value names one record. | `member_id`, like `M01` |
+| **Number stored as text** | A column of numbers that pandas loaded as text (`str`), because at least one value isn't a number. Math on it gives errors or wrong answers. | The online form's `guests` column, because one value is `"maybe"` |
+| **Label** | A value in a category column, like a class name. | `"Yoga"`, `"yoga"`, and `"YOGA"` are three different labels to pandas. |
 
 ### Stacking and repeats
 
-| Code | What it does | Example in the reading |
+| Code | What it does | Example with the gym sign-ups |
 | --- | --- | --- |
-| **`pd.concat([may, june], ignore_index=True)`** | Stacks the two tables, top to bottom. Setting the parameter `ignore_index` to `True` numbers the rows from 0 again, so no row label shows up twice. | Rows numbered 0 to 9 |
-| **`.duplicated(subset="delivery_id")`** | Marks a row True when it repeats an earlier row. Setting the parameter `subset` to `"delivery_id"` means: compare only the `delivery_id` column, even if other columns differ. | Finds **2** repeats: D104 and D105 |
-| **`.drop_duplicates(subset="delivery_id")`** | Removes the repeats, and keeps the first copy of each ID. | 10 rows − 2 repeats = **8 rows** |
+| **`pd.concat([desk, online], ignore_index=True)`** | Stacks the two tables, top to bottom. Setting the parameter `ignore_index` to `True` numbers the rows from 0 again, so no row label shows up twice. | Saved as `both`, with rows numbered 0 to 5 |
+| **`.duplicated(subset="member_id")`** | Marks a row True when it repeats an earlier row. Setting the parameter `subset` to `"member_id"` means: compare only the `member_id` column, even if other columns differ. | Finds **1** repeat: Ana, M01 |
+| **`.drop_duplicates(subset="member_id")`** | Removes the repeats, and keeps the first copy of each ID. | 6 rows − 1 repeat = **5 rows** |
 
 ### Text into numbers
 
-| Code | What it does | Example in the reading |
+| Code | What it does | Example with the gym sign-ups |
 | --- | --- | --- |
-| **`pd.to_numeric(...)`** | Turns a column of text into numbers. On its own, it stops with a `ValueError` at the first value that isn't a number. | Stops at `"TBD"` in June's `bags` |
-| **Coerce** | Force a change. Setting the parameter `errors` to `"coerce"` means a value that can't become a number becomes NaN ("not a number," pandas' mark for a blank) instead of stopping with an error. | `"TBD"` becomes NaN, so June's `bags` has **1 blank** |
+| **`pd.to_numeric(...)`** | Turns a column of text into numbers. On its own, it stops with a `ValueError` at the first value that isn't a number. | Stops at `"maybe"` in the online form's `guests` |
+| **Coerce** | Force a change. Setting the parameter `errors` to `"coerce"` means a value that can't become a number becomes NaN ("not a number," pandas' mark for a blank) instead of stopping with an error. | `"maybe"` becomes NaN, so the online form's `guests` has **1 blank** |
 
 ### Tidying labels
 
 You know `.strip()` and `.lower()` on one string. **`.str`** lets you use them on a whole column at once:
 
-* One string: `"PERU".lower()` gives `"peru"`.
-* A whole column: `both["country"].str.lower()` makes every country lowercase. Without `.str`, `both["country"].lower()` gives an error, because a column isn't a string.
+* One string: `"YOGA".lower()` gives `"yoga"`.
+* A whole column: `both["class"].str.lower()` makes every class name lowercase. Without `.str`, `both["class"].lower()` gives an error, because a column isn't a string.
 
-| Code | What it does | Example in the reading |
+| Code | What it does | Example with the gym sign-ups |
 | --- | --- | --- |
-| **`.str`** | Lets a column use the string methods you already know. `.str.lower()` runs `.lower()` on every value in the column. | `both["country"].str.lower()` |
-| **`.strip()`** | Removes spaces from the start and end of text. | `" Kenya"` becomes `"Kenya"`. |
-| **`.lower()`** | Makes every letter lowercase. | `"PERU"` becomes `"peru"`. |
-| **`.value_counts()`** | Counts how many rows hold each different value in a column. Good for spotting one label spelled more than one way. | Before: Kenya in 3 spellings (2 + 1 + 1 rows). After: **kenya 4** |
+| **`.str`** | Lets a column use the string methods you already know. `.str.lower()` runs `.lower()` on every value in the column. | `both["class"].str.lower()` |
+| **`.strip()`** | Removes spaces from the start and end of text. | If next week's sheet has `" Spin"`, it becomes `"Spin"`. |
+| **`.lower()`** | Makes every letter lowercase. | Dev's `"YOGA"` becomes `"yoga"`. |
+| **`.value_counts()`** | Counts how many rows hold each different value in a column. Good for spotting one label spelled more than one way. | Before: Yoga in 3 spellings (2 + 1 + 1 rows). After cleaning: **yoga 3** |
 
 ### Functions
 
-| Word | What it means | Example in the reading |
+`clean_signups` is a cleaning function for the gym sheet. It runs these steps, in order:
+
+* remove repeats by `member_id`
+* turn `guests` into numbers
+* tidy the `class` labels
+
+| Word | What it means | Example with the gym sign-ups |
 | --- | --- | --- |
-| **Helper function** | A small one-job function that another function calls. | `tidy_text` inside `clean_deliveries` |
-| **Reusable function** | A function called two or more times on different inputs. A one-time script wrapped in `def` and called once isn't reusable yet. | `clean_deliveries` runs on the stacked table and on June alone. |
-| **`assert`** | Stops the notebook with an error if its condition is False. A quick self-test. | `assert clean_both["delivery_id"].duplicated().sum() == 0` |
+| **Helper function** | A small one-job function that another function calls. | `tidy_text` inside `clean_signups` |
+| **Reusable function** | A function called two or more times on different inputs. A one-time script wrapped in `def` and called once isn't reusable yet. | `clean_signups` runs on the stacked sheet and on the online form alone. |
+| **`assert`** | Stops the notebook with an error if its condition is False. A quick self-test. | `assert clean_both["member_id"].duplicated().sum() == 0` |
 
 ## Before you read
 
@@ -112,13 +139,15 @@ As you read, look for:
 
 ### Summary
 
-* **Remove repeats by the key column, not the whole row.** A record sent twice can come back with a changed field, like a new spelling or a corrected count. Stack the lists with `pd.concat(..., ignore_index=True)`, then use `.drop_duplicates(subset="delivery_id")`.
+* **Remove repeats by the key column, not the whole row.** A record sent twice can come back with a changed field, like Ana's guest count. Stack the lists with `pd.concat(..., ignore_index=True)`, then use `.drop_duplicates(subset="member_id")`.
 * **Coerce, then count.** `pd.to_numeric(..., errors="coerce")` turns bad values into NaN. Count the new blanks right away, because `.mean()` skips NaN without warning you. Tidy labels with `.str.strip().str.lower()`, and check `.value_counts()` before and after.
 * **Put the fixes in one function.** Its first line should make a new table, so the table you pass in stays unchanged. Call it on at least two different inputs to prove it's reusable.
 
-The picture below shows the cleaning function's three steps, in order.
+The picture below follows the reading's `clean_deliveries` function for the coffee shop. It shows the function's three steps, in order.
 
 ![The May list has 5 rows and the June list has 5. Stacked, they make 10 rows. The function clean_deliveries runs three steps in order: remove repeats by delivery_id, turn bags into numbers, and tidy the country labels. The result is a clean table of 8 deliveries. The same function can run again on the next file.](images/cleaning-pipeline.svg)
+
+In the reading, the function looks like this:
 
 ```python
 def to_number(series):
@@ -155,10 +184,10 @@ clean_june = clean_deliveries(june)
 
 | If you think... | What's actually true |
 | --- | --- |
-| "`.duplicated().sum()` gave 0, so there are no repeats." | With no `subset=`, it only finds rows that match in *every* column. On the stacked table, it finds 0. Matching on `delivery_id` finds 2: D104 and D105. D105 came back with a corrected count, 10 bags instead of 9. |
-| "`errors="coerce"` fixed the 'TBD' value." | It turned "TBD" into a blank (NaN), so June's `bags` now has 1 blank. You still decide: drop, fill, or flag. |
-| "`.str.lower()` makes all the Kenya labels match." | Spaces still split them: "kenya " and " kenya" stay different. Strip first, then lowercase. Then all 4 Kenya rows say "kenya". |
-| "I put my code in a `def`, so it's reusable now." | It's reusable once you've called it on two or more different inputs. `clean_deliveries` runs on the stacked table and gives 8 rows, then on June alone and gives 5. |
+| "`.duplicated().sum()` gave 0, so there are no repeats." | With no `subset=`, it only finds rows that match in *every* column. On the stacked sheet, it finds 0. Matching on `member_id` finds 1: Ana, M01. Her second row says 1 guest instead of 0. |
+| "`errors="coerce"` fixed the 'maybe' value." | It turned "maybe" into a blank (NaN), so the online form's `guests` now has 1 blank. You still decide: drop, fill, or flag. |
+| "`.str.lower()` makes all the Yoga labels match, so I don't need `.strip()`." | It works on this week's sheet. But if next week someone types " yoga" with a space, it stays different from "yoga". Strip first, then lowercase, so every week's labels match. |
+| "I put my code in a `def`, so it's reusable now." | It's reusable once you've called it on two or more different inputs. `clean_signups` runs on the stacked sheet and gives 5 rows, then on the online form alone and gives 3. |
 
 ### How this connects
 
@@ -167,12 +196,12 @@ clean_june = clean_deliveries(june)
 
 ## Quick check
 
-**1.** July's list arrives. It repeats one June delivery, says "TBD" for two counts, and has " Peru" with a space. What do you do?
+**1.** Next week's online form arrives. It repeats one sign-up from the desk list, says "maybe" for two guest counts, and has " Spin" with a space. What do you do?
 
 <details>
 <summary>Answer</summary>
 
-Stack it with the earlier lists and run the same cleaning function, unchanged. Then check the row count and count the blanks in `bags`.
+Stack it with the earlier lists and run the same cleaning function, unchanged. Then check the row count and count the blanks in `guests`.
 
 </details>
 

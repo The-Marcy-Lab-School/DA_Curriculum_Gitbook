@@ -4,6 +4,11 @@
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · **Load, save, and protect** · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* In [Pick the Right Container](quest-04-data-structures.md), you used a **dictionary** to store key/value pairs. A **tuple** is an ordered record (a group of values about one thing) that can't change. In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
+* `ls` lists the files in a folder, from Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md). `cat pets.csv` printed what's inside a file, in the interactive reading for Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). You'll use both to look inside the file your program saves.
+
 ## Introduction
 
 Sometimes your work disappears when a program stops. For example, you type a long shopping list into a phone app. The app crashes (stops suddenly) before it saves. When you open it again, the list is gone. It lived only in the app's memory, not in a file.
@@ -29,11 +34,6 @@ After this reading, you should be able to say:
 * I can name what changes on a JSON round trip and check the type of each loaded value.
 
 **Skills:** Attention to Detail
-
-## Quick recall
-
-* In [Pick the Right Container](quest-04-data-structures.md), you used a **dictionary** to store key/value pairs. A **tuple** is an ordered record (a group of values about one thing) that can't change. In this reading, you'll save a dictionary whose values are tuples, and see what comes back.
-* `ls` lists the files in a folder, from Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md). `cat pets.csv` printed what's inside a file, in the interactive reading for Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md). You'll use both to look inside the file your program saves.
 
 ## New Python module: json
 

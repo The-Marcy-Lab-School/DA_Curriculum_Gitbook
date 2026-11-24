@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · Load, save, and protect · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* In [When the Crowd Grows](quest-03-big-o-intuition.md), a linear search checked items one at a time, and Big-O described its growth. In its interactive reading, 300 bookings (saved seats on flights) meant up to 300 checks. When the list doubled to 600, the worst case doubled to 600 checks.
+* A dictionary stores each value under a key. In the interactive reading for [Pick the Right Container](quest-04-data-structures.md), `drivers["D-5521"]` gave the value stored under that key. `drivers["D-5522"] = "Ari"` added a new pair.
+* `.get()`, which you'll use in this reading, is a **method** that every dictionary has. [Meet the Objects](quest-08-oop.md) showed that a method is a function that belongs to an object, called with a dot and parentheses.
+
 ## Introduction
 
 How you look for something matters more as the pile grows. For example, you need one word in a book. You can turn the pages one by one from the start. Or you can use the index at the back, which sends you straight to the right page. In a 10-page booklet, turning pages is fine. In a 900-page book, the index saves a lot of time.
@@ -27,12 +33,6 @@ After this reading, you should be able to say:
 * I can decide when a list search is fine and when building a dictionary pays off (is worth the extra work).
 
 **Skills:** Algorithmic Complexity (Big-O) · Data Structures & Algorithms
-
-## Quick recall
-
-* In [When the Crowd Grows](quest-03-big-o-intuition.md), a linear search checked items one at a time, and Big-O described its growth. In its interactive reading, 300 bookings (saved seats on flights) meant up to 300 checks. When the list doubled to 600, the worst case doubled to 600 checks.
-* A dictionary stores each value under a key. In the interactive reading for [Pick the Right Container](quest-04-data-structures.md), `drivers["D-5521"]` gave the value stored under that key. `drivers["D-5522"] = "Ari"` added a new pair.
-* `.get()`, which you'll use in this reading, is a **method** that every dictionary has. [Meet the Objects](quest-08-oop.md) showed that a method is a function that belongs to an object, called with a dot and parentheses.
 
 ## Words to know
 

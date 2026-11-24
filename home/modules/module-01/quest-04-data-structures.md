@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · Organize steps · **Hold data** · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), one pet's row in `pets.csv` was a small **data structure** called a **record**. A data structure groups several values as one unit, and this reading shows Python's four main ones.
+* Your `for` loop in [Trace the Path](quest-01-control-flow.md) visited each movie length in a **list** once. A list keeps values in order, inside square brackets, like `[98, 165, 122]`.
+* In [When the Crowd Grows](quest-03-big-o-intuition.md), `"QX7RT2" in bookings` checked one item at a time, so its work grew: O(n). A **lookup** like `bookings[3]`, counting from 0, went straight to one item, like a coat-check ticket: O(1). This reading shows a container that looks up a value by a label.
+
 ## Introduction
 
 Different jobs need different containers. For example, think about a kitchen. Soup goes in a pot. Eggs go in a carton. Spices go in jars with labels. You find the cumin by reading the labels, not by opening every jar.
@@ -34,12 +40,6 @@ After this reading, you should be able to say:
 * I can pick a container for a job and explain my choice with the rule that decides it.
 
 **Skills:** Data Structures & Algorithms
-
-## Quick recall
-
-* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), one pet's row in `pets.csv` was a small **data structure** called a **record**. A data structure groups several values as one unit, and this reading shows Python's four main ones.
-* Your `for` loop in [Trace the Path](quest-01-control-flow.md) visited each movie length in a **list** once. A list keeps values in order, inside square brackets, like `[98, 165, 122]`.
-* In [When the Crowd Grows](quest-03-big-o-intuition.md), `"QX7RT2" in bookings` checked one item at a time, so its work grew: O(n). A **lookup** like `bookings[3]`, counting from 0, went straight to one item, like a coat-check ticket: O(1). This reading shows a container that looks up a value by a label.
 
 ## Words to know
 

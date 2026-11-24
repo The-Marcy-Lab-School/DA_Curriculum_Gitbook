@@ -4,6 +4,14 @@
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+You've grouped by one column and checked every pair in a nested loop. This reading puts the two ideas together.
+
+* In the interactive reading for [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].agg(["count", "mean", "median"])` gave one row per group. The count next to the mean showed how many rows each number rested on.
+* When a group's mean sits well above its median, a few big values are pulling the mean up. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then the better typical value.
+* A nested loop runs its inner body once for every outer pass. In Module 1's [Trace the Path](../module-01/quest-01-control-flow.md), 3 worlds × 4 checkpoints printed 12 lines, and grouping by two columns gives every combination the same way.
+
 ## Introduction
 
 Sometimes one average hides important differences. For example, two drivers each make 5 deliveries. Sam's take 40 minutes on average, and Alex's take 25 minutes. Sam looks slow.
@@ -42,57 +50,54 @@ After this reading, you should be able to say:
 
 **Skills:** Data Mining · Statistical Analysis
 
-## Quick recall
-
-You've grouped by one column and checked every pair in a nested loop. This reading puts the two ideas together.
-
-* In the interactive reading for [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].agg(["count", "mean", "median"])` gave one row per group. The count next to the mean showed how many rows each number rested on.
-* When a group's mean sits well above its median, a few big values are pulling the mean up. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then the better typical value.
-* A nested loop runs its inner body once for every outer pass. In Module 1's [Trace the Path](../module-01/quest-01-control-flow.md), 3 worlds × 4 checkpoints printed 12 lines, and grouping by two columns gives every combination the same way.
-
 ## Words to know
 
 ### Splitting a number into groups
 
-The examples use the reading's 12 repairs at FixIt, a phone repair shop with two locations, Downtown and Eastside.
+The examples use the 10 deliveries from the Introduction. Each delivery is one row. Its columns are the driver, the route, and the minutes it took.
 
-| Word | What it means | Example in the reading |
+* Sam: `long 45, long 45, long 45, long 45, downtown 20`
+* Alex: `long 45, downtown 20, downtown 20, downtown 20, downtown 20`
+
+| Word | What it means | Example with the 10 deliveries |
 | --- | --- | --- |
-| **Segment** | Split a number by one or two columns, so each group gets its own value. Splitting by two columns gives every combination. | Minutes split by shop and repair type: 2 shops × 2 repair types = 4 groups |
-| **Mix** | Which kinds of rows make up a group. A group's mix can drive its average. | Downtown: 5 screen repairs and 1 battery repair |
-| **`groupby(["shop", "repair"])`** | Groups by two columns at once. Pass a list of columns, and you get one group for each combination. | "Downtown, screen" or "Eastside, battery" |
+| **Segment** | Split a number by one or two columns, so each group gets its own value. Splitting by two columns gives every combination. | Minutes split by driver and route: 2 drivers × 2 routes = **4 groups** |
+| **Mix** | Which kinds of rows make up a group. A group's mix can drive its average. | Sam: **4 long routes and 1 downtown trip** |
+| **`groupby(["driver", "route"])`** | Groups by two columns at once. Pass a list of columns, and you get one group for each combination. | "Sam, long" or "Alex, downtown" |
 
-Each group's label is a pair of values, like `("Downtown", "screen")`. That's a **tuple**, from [Pick the Right Container](../module-01/quest-04-data-structures.md). A tuple is like a list that can't change:
+Each group's label is a pair of values, like `("Sam", "long")`. That's a **tuple**, from [Pick the Right Container](../module-01/quest-04-data-structures.md). A tuple is like a list that can't change:
 
-* A list, `["Downtown", "screen"]`, can change: `.append("old")` adds a third value.
-* A tuple, `("Downtown", "screen")`, can't change. `.append()` gives an error.
+* A list, `["Sam", "long"]`, can change: `.append("rainy")` adds a third value.
+* A tuple, `("Sam", "long")`, can't change. `.append()` gives an error.
 
 Because a tuple can't change, it can be a dictionary key. Here, it works as each group's key.
 
 ### Numbers that describe each group
 
-**Units** are what a number counts or measures. In this table, `.size()`, sample size, and count are in rows (here, repairs). Every other number is in minutes, the same units as the data. The examples use the 3 old-phone screen repairs: 55, 58, and 56 minutes.
+**Units** are what a number counts or measures. In this table, `.size()`, sample size, and count are in rows (here, deliveries). Every other number is in minutes, the same units as the data.
 
-| Word | What it means | Example in the reading |
+In the Introduction, every long route took exactly 45 minutes, so there is no spread to measure. To show spread, the std and `.agg` rows below add new numbers. Say Sam's 4 long routes next week take 43, 47, 44, and 46 minutes.
+
+| Word | What it means | Example with the deliveries |
 | --- | --- | --- |
-| **`.size()`** | Counts the rows in each group. | Downtown, screen = **5 repairs** |
-| **Sample size** | How many rows a number rests on. In a tiny group, one unusual row can move the average a lot. | Downtown did only **1 battery repair**, too few to trust. |
-| **Standard deviation (std)** | How far values usually sit from the mean. A small std means the values are close together. | 55, 58, and 56 sit close together: std = **1.5 minutes** |
-| **`.agg(["count", "mean", "median", "std"])`** | Works out several summaries for each group at once, one column each. `"std"` adds the standard deviation. | Count **3 repairs**, mean (55 + 58 + 56) ÷ 3 = **56.3 minutes**, median **56 minutes**, std **1.5 minutes** |
+| **`.size()`** | Counts the rows in each group. | Sam, long = **4 deliveries** |
+| **Sample size** | How many rows a number rests on. In a tiny group, one unusual row can move the average a lot. | Sam made only **1 downtown delivery**, too few to trust. |
+| **Standard deviation (std)** | How far values usually sit from the mean. A small std means the values are close together. | This week's 4 long routes are all 45 minutes: std = **0 minutes**. Next week's 43, 47, 44, and 46 sit close together: std = **1.8 minutes** |
+| **`.agg(["count", "mean", "median", "std"])`** | Works out several summaries for each group at once, one column each. `"std"` adds the standard deviation. | For next week's long routes: count **4 deliveries**, mean (43 + 47 + 44 + 46) ÷ 4 = 180 ÷ 4 = **45 minutes**, median (44 + 46) ÷ 2 = **45 minutes**, std **1.8 minutes** |
 
 You've seen a small test mislead before. In [When the Crowd Grows](../module-01/quest-03-big-o-intuition.md), a fast test on a few items didn't prove much. The code could still be slow on many. An average from a tiny group is the same: a few rows can't prove a pattern.
 
 ### Is the pattern real?
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the deliveries |
 | --- | --- | --- |
-| **Confound** | A pattern that is really explained by something else. | The shop seems to matter, but it is standing in for the repair type. |
-| **Confounding variable** | The "something else" behind a confound. | The repair type: screen or battery |
-| **Non-obvious pattern** | A real, checkable finding that the reader wouldn't have guessed from the obvious groups alone, and that they would act on. | Old phones take about 8 minutes longer for a battery repair. |
-| **Simpson's paradox** | When a group looks better or worse overall, but the gap shrinks or flips once you compare the same kind of row. The mix causes it. The reading's optional video shows another example. | Overall, Downtown takes 15.2 minutes longer. For screen repairs, Downtown is 1 minute faster: 50.0 vs. 51.0. |
+| **Confound** | A pattern that is really explained by something else. | Sam seems slow, but the driver is standing in for the route. |
+| **Confounding variable** | The "something else" behind a confound. | The route: long or downtown |
+| **Non-obvious pattern** | A real, checkable finding that the reader wouldn't have guessed from the obvious groups alone, and that they would act on. | The manager gave Sam **4 of the 5 long routes**. That route plan explains the whole gap. |
+| **Simpson's paradox** | When a group looks better or worse overall, but the gap shrinks or flips once you compare the same kind of row. The mix causes it. The reading's optional video shows another example. | Overall, Sam takes 40 − 25 = **15 minutes** longer. On the same route, the gap shrinks to **0 minutes**: 45 vs. 45 on long routes, and 20 vs. 20 downtown. |
 
 {% hint style="info" %}
-**Ask what else is different about the group.** Before you blame a shop, a team, or a person for a gap, count each group's mix. Naming what else differs between groups is the habit that catches a confound.
+**Ask what else is different about the group.** Before you blame a driver, a team, or a shop for a gap, count each group's mix. Naming what else differs between groups is the habit that catches a confound.
 {% endhint %}
 
 ## Before you read
@@ -116,27 +121,22 @@ As you read, look for:
 ### Summary
 
 * **Count the mix before you compare groups.** When one group looks much better or worse, run `groupby([...]).size()` to see what each group is made of. Then compare the same kind of row across groups.
-* **A finding worth reporting** is real, checkable, and something the reader would act on. It holds in every group and rests on enough rows. "Screen repairs take longer" is true, but the owner already knows it.
-* **Use the statistic that fits.** The mean is fine when it's close to the median and the std is small. In the reading, that's true in every group, so the mean backs up the finding.
+* **A finding worth reporting** is real, checkable, and something the reader would act on. It holds in every group and rests on enough rows. "Long routes take longer than downtown trips" is true, but the manager already knows it.
+* **Use the statistic that fits.** The mean is fine when it's close to the median and the std is small. For Sam's long routes next week, the mean and the median are both 45 minutes, and the std is 1.8 minutes. So the mean is fine.
 
-The picture below shows the 15-minute gap on the left. On the right, look at the same two shops with screen repairs only.
+In the reading, FixIt's two shops show the same kind of gap. The picture below follows the reading's FixIt repairs. On the left, look at the 15-minute gap. On the right, look at the same two shops with screen repairs only.
 
 ![Two bar charts of FixIt's repair times, with a y-axis of average minutes. Left, all repairs: Downtown 45.7 minutes and Eastside 30.5, about 15 minutes apart. Right, screen repairs only: Downtown 50.0 and Eastside 51.0, about the same. Downtown did 5 screen repairs and 1 battery repair. Eastside did 2 and 4. Screen repairs take longer.](images/confound-gap.svg)
 
-Each shop did 6 repairs. The two averages are:
-
-* Downtown = (55 + 45 + 24 + 58 + 44 + 48) ÷ 6 = 274 ÷ 6 = **45.7 minutes**
-* Eastside = (25 + 56 + 17 + 16 + 46 + 23) ÷ 6 = 183 ÷ 6 = **30.5 minutes**
-
-The 15-minute gap came from the mix. 5 of Downtown's 6 repairs were screen repairs, which take longer. Only 2 of Eastside's 6 were. For the same job, the shops take about the same time. The real finding was elsewhere: old phones take about 8 minutes longer for a battery repair and about 10 minutes longer for a screen repair. Because the counts are small, the next step is to check that it holds over more weeks.
+In the reading, the gap came from the mix, just like Sam's: Downtown did more screen repairs, which take longer. Back to the drivers: Sam made only 1 downtown trip, and Alex made only 1 long route. Because those counts are small, the next step is to check the pattern over more weeks.
 
 ### Common mix-ups
 
 | If you think... | What's actually true |
 | --- | --- |
-| "Downtown's average is 15 minutes higher, so Downtown is slow." | Downtown did 5 screen repairs and 1 battery repair. Eastside did 2 and 4. For screen repairs alone, Downtown takes 50.0 minutes and Eastside takes 51.0. That's a confound. |
-| "I'll always report the median, just to be safe." | Pick the one that fits. In every group in the reading, the mean and median differ by 0.3 minutes or less. The std is 1.7 minutes or less. So the mean is fine. |
-| "It's true, so it's a finding." | "Screen repairs take longer" is true, but the owner already knows it. "Old phones take about 8 to 10 minutes longer" is new to the owner, so it's a finding. |
+| "Sam's average is 15 minutes higher, so Sam is slow." | Sam drove 4 long routes and 1 downtown trip. Alex drove 1 and 4. Both take 45 minutes on a long route and 20 minutes downtown. That's a confound. |
+| "I'll always report the median, just to be safe." | Pick the one that fits. For Sam's long routes next week, the mean and the median are both 45 minutes. The std is 1.8 minutes. So the mean is fine. |
+| "It's true, so it's a finding." | "Long routes take longer than downtown trips" is true, but the manager already knows it. "Sam got 4 of the 5 long routes, and that explains the gap" is new to the manager, so it's a finding. |
 
 ### How this connects
 
@@ -145,21 +145,21 @@ The 15-minute gap came from the mix. 5 of Downtown's 6 repairs were screen repai
 
 ## Quick check
 
-**1.** Next month, Eastside's average repair time is 12 minutes higher than Downtown's. The owner wants to move a worker. What do you check first?
+**1.** Next month, Alex's average delivery time is 12 minutes higher than Sam's. The manager wants to retrain Alex. What do you check first?
 
 <details>
 <summary>Answer</summary>
 
-The mix. Run `groupby(["shop", "repair"]).size()` to see whether Eastside got more screen repairs, then compare the same repair type across shops.
+The mix. Run `groupby(["driver", "route"]).size()` to see whether Alex drove more long routes. Then compare the same route across drivers.
 
 </details>
 
-**2.** "Downtown's battery repairs are slower than Eastside's," based on 1 Downtown battery repair. Report it?
+**2.** Next month, Sam's 1 downtown trip takes 30 minutes. A coworker says, "Sam is slower downtown than Alex." Report it?
 
 <details>
 <summary>Answer</summary>
 
-Not yet. One repair is too few to trust. Check it with more data first.
+Not yet. One delivery is too few to trust. Check it with more data first.
 
 </details>
 

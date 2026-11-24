@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · Load, save, and protect · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* `range(3)` gives `0`, `1`, `2`: it starts at 0 and stops *before* 3, as you saw in [Trace the Path](quest-01-control-flow.md). This reading adds a start number: `range(2, 5)` gives `2`, `3`, `4`.
+* A variable created inside a function exists only inside it, so using it outside raises a `NameError`. You saw this in [Build It Once, Use It Again](quest-02-functions-scope.md). In [Validate, Catch, Keep Going](quest-06-validation-errors.md), you learned that a bare `except:` catches every error, even real bugs.
+* In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said 64 bags, but the log added up to 46. An AI answer can sound sure and still be wrong. In this reading, an AI tool wrote the code, so you check it the same way.
+
 ## Introduction
 
 A neat answer can still be wrong. For example, you buy 5 things at a store, and they cost $20 in all. But the receipt lists only 4 things and says $17. Nothing beeped. No error showed up. You only catch it because you know what you bought. In the picture below, look for the red item missing from the receipt on the left.
@@ -32,44 +38,42 @@ After this reading, you should be able to say:
 
 **Skills:** Attention to Detail
 
-## Quick recall
-
-* `range(3)` gives `0`, `1`, `2`: it starts at 0 and stops *before* 3, as you saw in [Trace the Path](quest-01-control-flow.md). This reading adds a start number: `range(2, 5)` gives `2`, `3`, `4`.
-* A variable created inside a function exists only inside it, so using it outside raises a `NameError`. You saw this in [Build It Once, Use It Again](quest-02-functions-scope.md). In [Validate, Catch, Keep Going](quest-06-validation-errors.md), you learned that a bare `except:` catches every error, even real bugs.
-* In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said 64 bags, but the log added up to 46. An AI answer can sound sure and still be wrong. In this reading, an AI tool wrote the code, so you check it the same way.
-
 ## Words to know
 
 ### What should the code do?: Expected and actual behavior
 
-The examples come from the reading's five viewing sessions: `[50, 42, 95, 38, 61]`, in minutes.
+The examples use the receipt from the Introduction. Here are the 5 things you bought, in the order the cashier scanned them. In code, their prices are a list, in dollars:
 
-| Word | What it means | Example in the reading |
+`prices = [3, 4, 5, 6, 2]` (bread, milk, eggs, apples, rice)
+
+Say the store's code adds up the receipt with a function, `receipt_total(prices)`. Its loop uses `range(1, len(prices))`. That skips bread, so the receipt says $17.
+
+| Word | What it means | Example with the receipt |
 | --- | --- | --- |
-| **Bug** | Any gap between what code should do and what it actually does. Some bugs crash with an error. Others quietly print a wrong answer. | The code prints 236 minutes, but the right total is 286. |
-| **Debugging** | Finding a bug, fixing it, and checking that the fix worked. | Find `range(1, len(sessions))`, fix it, and rerun to get 286. |
-| **Expected behavior** | What the code should do, worked out before you run it, often by hand on a small example. | 50 + 42 + 95 + 38 + 61 = **286 minutes** |
-| **Actual behavior** | What the code really does when it runs: the printed output, the returned value, or the error. | The code prints 286 − 50 = **236 minutes**. |
-| **Edge case** | An unusual input, like an empty list, a 0, or a missing value. Edge cases show bugs that normal inputs hide. | A session record with no end time |
+| **Bug** | Any gap between what code should do and what it actually does. Some bugs crash with an error. Others quietly print a wrong answer. | The code prints $17, but the right total is $20. |
+| **Debugging** | Finding a bug, fixing it, and checking that the fix worked. | Find `range(1, len(prices))`, fix it, and rerun to get **$20**. |
+| **Expected behavior** | What the code should do, worked out before you run it, often by hand on a small example. | $3 + $4 + $5 + $6 + $2 = **$20** |
+| **Actual behavior** | What the code really does when it runs: the printed output, the returned value, or the error. | The code prints $20 − $3 = **$17**. |
+| **Edge case** | An unusual input, like an empty list, a 0, or a missing value. Edge cases show bugs that normal inputs hide. | An item with no price, like eggs with a missing price tag |
 
 Working out the expected behavior is the same habit as **predict** in [Trace the Path](quest-01-control-flow.md): say what the code will print before you run it, then compare.
 
 ### What went wrong?: Kinds of bugs
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the receipt |
 | --- | --- | --- |
-| **Logic error** | Code runs without crashing, but gives the wrong result. | It prints 236 instead of 286, with no error. |
-| **Off-by-one error** | A loop or position that is one too many or one too few, so the code skips or repeats the first or last item. | `range(1, len(sessions))` skips the first session, 50 minutes. |
-| **`range(start, stop)`** | Counts from `start` up to, but not including, `stop`. | With 5 sessions, `range(1, len(sessions))` gives 1, 2, 3, 4, so it skips 0. |
-| **Scope bug** | Using a variable where it doesn't exist, like outside the function that made it. Python raises a `NameError`. | `print(finished)` outside `count_finished` |
-| **Undefined attribute** | Using an attribute that an object never got, often because of a typo in its name. Python raises an `AttributeError`. | `self.minutes_watch`, when `__init__` set `minutes_watched` |
-| **Traceback** | The report Python prints when code crashes. Its last line names the error, so read it from the bottom up. | Last line: `NameError: name 'finished' is not defined` |
+| **Logic error** | Code runs without crashing, but gives the wrong result. | It prints $17 instead of $20, with no error. |
+| **Off-by-one error** | A loop or position that is one too many or one too few, so the code skips or repeats the first or last item. | `range(1, len(prices))` skips the first item, bread at **$3**. |
+| **`range(start, stop)`** | Counts from `start` up to, but not including, `stop`. | With 5 items, `range(1, len(prices))` gives 1, 2, 3, 4, so it skips 0. |
+| **Scope bug** | Using a variable where it doesn't exist, like outside the function that made it. Python raises a `NameError`. | `print(total)` outside `receipt_total`, the function that made `total` |
+| **Undefined attribute** | Using an attribute that an object never got, often because of a typo in its name. Python raises an `AttributeError`. | In a `Receipt` class, `self.items_count`, when `__init__` set `item_count` |
+| **Traceback** | The report Python prints when code crashes. Its last line names the error, so read it from the bottom up. | Last line: `NameError: name 'total' is not defined` |
 
 ### Can you tidy code without breaking it?: Refactoring
 
-| Word | What it means | Example in the reading |
+| Word | What it means | Example with the receipt |
 | --- | --- | --- |
-| **Refactor** | Changing how code is organized without changing what it does. The output must stay exactly the same. | Move a loop written twice into one function, `total_minutes`. Both versions print `Minutes: 286`. |
+| **Refactor** | Changing how code is organized without changing what it does. The output must stay exactly the same. | After the fix, move a loop written twice into one function, `receipt_total`. Both versions print `Total: $20`. |
 
 ## Before you read
 
@@ -91,23 +95,23 @@ As you read, look for:
 
 ### Summary
 
-* **Work out the expected answer first, then compare.** By hand, 50 + 42 + 95 + 38 + 61 = 286 minutes. The loop that used `range(1, len(sessions))` printed 236, because it skipped the first session: 286 − 50 = 236.
+* **Work out the expected answer first, then compare.** By hand, $3 + $4 + $5 + $6 + $2 = $20. The loop that used `range(1, len(prices))` printed $17, because it skipped the first item, bread: $20 − $3 = $17.
 * **Some bugs are loud. Some are quiet.** A scope bug or an undefined attribute crashes, and the traceback names the line. An off-by-one error or a bare `except:` prints a believable wrong answer. Only your expected answer catches it.
 * **Confirm every fix and every refactor.** Run the same example again and compare. Describe a bug precisely: "The line ___ does ___. It should ___."
 
-The picture below shows these steps as a flow. Follow the path for a crash, then the path for a quiet wrong answer.
+The picture below shows these steps as a flow, using the receipt. Follow the path for a crash, then the path for a quiet wrong answer.
 
-![A flow for finding a bug. Step 1: work out the expected behavior by hand: 50 + 42 + 95 + 38 + 61 = 286. Step 2: run the code. Then ask: did it crash? If yes, read the traceback from the last line up, because it names the line that failed, for example a NameError from a scope bug or an AttributeError from an undefined attribute. If no, compare the actual output with the expected one. The code printed 236, not 286, which is a logic error, so trace the loop. Examples: an off-by-one error from range(1, len(sessions)), or a bare except that returns 0 and hides the problem. Both paths lead to step 3: fix one line, then rerun the same case. If it prints 286 now, the fix worked.](images/m1c-debug-flow.svg)
+![A flow for finding a bug. Step 1: work out the expected behavior by hand: $3 + $4 + $5 + $6 + $2 = $20. Step 2: run the code. Then ask: did it crash? If yes, read the traceback from the last line up, because it names the line that failed, for example a NameError from a scope bug or an AttributeError from an undefined attribute. If no, compare the actual output with the expected one. The code printed $17, not $20, which is a logic error, so trace the loop. Examples: an off-by-one error from range(1, len(prices)), or a bare except that returns 0 and hides the problem. Both paths lead to step 3: fix one line, then rerun the same case. If it prints $20 now, the fix worked.](images/m1c-debug-flow.svg)
 
 ### Common mix-ups
 
 | If you think... | What's actually true |
 | --- | --- |
-| "It ran with no error, so it's correct." | `month_total.py` ran with no error and printed 236. The right total is 286. Compare the output with your expected answer. |
-| "A bare `except:` that returns 0 makes the code safer." | For the session with no end time, it returned 0, so those minutes quietly vanished. Name the error you expect, like `except KeyError:`, and report it. |
-| "`minutes_watch` and `minutes_watched` are close enough." | To Python, they're two different names. `self.minutes_watch` raises an `AttributeError`, because `__init__` set `minutes_watched`. |
-| "I'll refactor the code, and that will fix the bug." | A refactor changes how code is organized, not what it does. Fix the 236 first. Then refactor, and check that it still prints 286. |
-| "An AI tool wrote it, so it's already checked." | Check it the same way. The AI tool's code printed 236, but the expected answer is 286. |
+| "It ran with no error, so it's correct." | The receipt code ran with no error and printed $17. The right total is $20. Compare the output with your expected answer. |
+| "A bare `except:` that returns 0 makes the code safer." | Say the eggs have no price. A bare `except:` that returns 0 counts them as $0. The receipt quietly says $15, not $20. Name the error you expect, like `except KeyError:`, and report it. |
+| "`items_count` and `item_count` are close enough." | To Python, they're two different names. `self.items_count` raises an `AttributeError`, because `__init__` set `item_count`. |
+| "I'll refactor the code, and that will fix the bug." | A refactor changes how code is organized, not what it does. Fix the $17 first. Then refactor, and check that it still prints $20. |
+| "An AI tool wrote it, so it's already checked." | Check it the same way. Code from an AI tool can print $17 for the receipt when the expected answer is $20. |
 
 ### How this connects
 
@@ -134,18 +138,18 @@ It's an off-by-one error. `range(len(prices) - 1)` gives `0`, `1`, `2`, so the l
 **2.** Does this code crash, or quietly print a wrong answer? What does Python say?
 
 ```python
-class Viewer:
+class Item:
     def __init__(self, name):
         self.name = name
 
-ana = Viewer("Ana")
-print(ana.nmae)
+bread = Item("bread")
+print(bread.nmae)
 ```
 
 <details>
 <summary>Answer</summary>
 
-It crashes with `AttributeError: 'Viewer' object has no attribute 'nmae'`. It's an undefined attribute caused by a typo: `__init__` set `name`, not `nmae`. The last line of the traceback tells you this.
+It crashes with `AttributeError: 'Item' object has no attribute 'nmae'`. It's an undefined attribute caused by a typo: `__init__` set `name`, not `nmae`. The last line of the traceback tells you this.
 
 </details>
 

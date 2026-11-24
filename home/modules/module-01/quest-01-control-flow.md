@@ -4,6 +4,13 @@
 
 **Building blocks:** **Decide and repeat** · Organize steps · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+You've already used the terminal and named data types. This reading puts both to work in Python.
+
+* A **variable** is a named box that holds a value, and `=` means "store," not "is equal to." In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), you also sorted values into types: text, whole numbers, decimals, and True/False. In this reading, comparisons like `runtime > 150` (is the movie longer than 150 minutes?) give back True or False.
+* Each command you typed in Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md), like `ls` or `cd`, ran when you pressed Enter. On your own laptop, you'll run a Python file the same way: `python3 theater_notes.py`.
+
 ## Introduction
 
 Programs make choices, and they repeat work. For example, a teacher grades a stack of 30 tests. For each test, she asks one question: is the score 70 or higher? If yes, the test goes in the "pass" pile. If not, it goes in the "review" pile. She asks the same question 30 times, once per test.
@@ -29,13 +36,6 @@ After this reading, you should be able to say:
 * I can trace a nested loop or a nested conditional and predict every line it prints.
 
 **Skills:** Control Flow & Loops
-
-## Quick recall
-
-You've already used the terminal and named data types. This reading puts both to work in Python.
-
-* A **variable** is a named box that holds a value, and `=` means "store," not "is equal to." In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), you also sorted values into types: text, whole numbers, decimals, and True/False. In this reading, comparisons like `runtime > 150` (is the movie longer than 150 minutes?) give back True or False.
-* Each command you typed in Module 0's [Meet Your Terminal](../module-00/quest-01-terminal.md), like `ls` or `cd`, ran when you pressed Enter. On your own laptop, you'll run a Python file the same way: `python3 theater_notes.py`.
 
 ## Words to know
 

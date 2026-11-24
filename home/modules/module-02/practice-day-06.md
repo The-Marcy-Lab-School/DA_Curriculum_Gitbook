@@ -43,7 +43,7 @@ Use this checklist every time an AI writes analysis code for you, in class and i
 You've already done most of these checks on your own work:
 
 * **Rows before and after:** you checked `df.shape` in [Look Before You Filter](quest-02-inspect-filter.md). You counted rows after a merge in [One Row Per Group](quest-03-group-columns.md).
-* **One number by hand:** in [Looks Right. Is It?](../module-01/quest-10-debugging.md), your total by hand was 286 minutes. That caught a loop that printed 236.
+* **One number by hand:** in Module 1's [Looks Right. Is It?](../module-01/quest-10-debugging.md), a receipt total of $20 by hand caught a loop that printed $17.
 * **Data types:** you named each value's type and kept IDs as text in [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md).
 * **Does the statistic fit the shape?:** you picked the median for skewed gifts in [The Loudest Number](quest-01-descriptive-statistics.md).
 

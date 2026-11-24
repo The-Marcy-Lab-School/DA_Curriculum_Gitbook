@@ -4,6 +4,14 @@
 
 **EDA workflow:** Inspect → Clean → Explore → Check → **Explain** ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+You've saved charts, written checkable questions, and pushed work to GitHub. This reading uses them together to write for a reader.
+
+* `plt.savefig("tradeins_hist.png", dpi=150)` saved a chart as an image in [Two Sets of Eyes](quest-10-ai-on-charts.md). It came before `plt.show()`, so you could share just the picture.
+* In [The Pattern Isn't the Proof](quest-09-clarifying-questions.md), you rewrote a vague question like "Why is data missing?" into a checkable one that names a group, a number, or a method.
+* In Module 0's [Save the Story of Your Work](../module-00/quest-03-git.md), `git add` staged a file and `git commit` saved it, but it wasn't on GitHub until you ran `git push`. A README and its chart images go through the same steps.
+
 ## Introduction
 
 The person who acts on your work usually wasn't there when you did it. For example, a coach looks at a spreadsheet of every game this season. The team allowed 20 goals (let the other team score 20 times). 12 of those 20 came in the last 10 minutes of games.
@@ -29,14 +37,6 @@ After this reading, you should be able to say:
 * I can write a data-quality memo with a plain answer, two checkable questions, and what they'd mean for the decision.
 
 **Skills:** Stakeholder Communication · Data Visualization · Critical Thinking
-
-## Quick recall
-
-You've saved charts, written checkable questions, and pushed work to GitHub. This reading uses them together to write for a reader.
-
-* `plt.savefig("tradeins_hist.png", dpi=150)` saved a chart as an image in [Two Sets of Eyes](quest-10-ai-on-charts.md). It came before `plt.show()`, so you could share just the picture.
-* In [The Pattern Isn't the Proof](quest-09-clarifying-questions.md), you rewrote a vague question like "Why is data missing?" into a checkable one that names a group, a number, or a method.
-* In Module 0's [Save the Story of Your Work](../module-00/quest-03-git.md), `git add` staged a file and `git commit` saved it, but it wasn't on GitHub until you ran `git push`. A README and its chart images go through the same steps.
 
 ## Words to know
 

@@ -4,6 +4,14 @@
 
 **EDA workflow:** Inspect → Clean → **Explore** → Check → Explain ([what's this?](introduction.md#the-big-picture-the-eda-workflow))
 
+## Quick recall
+
+You've learned to label a chart, and to doubt a result that only looks right. This reading puts the two together.
+
+* A bar chart compares one number across groups, like an average for each group. In [Who's This Chart For?](quest-04-two-kinds-of-charts.md), you also gave a polished chart a finding title and axis labels with units, using `plt.title("...")` and `plt.ylabel("...")`.
+* Q1 and Q3 come from the five-number summary in [The Loudest Number](quest-01-descriptive-statistics.md): a quarter of the sorted data falls below Q1, and three quarters below Q3. Here you'll use them to find where outliers start.
+* Code can run with no error and still print a wrong answer, as in Module 1's [Looks Right. Is It?](../module-01/quest-10-debugging.md). So you worked out the expected answer by hand first, then compared.
+
 ## Introduction
 
 Sometimes a chart tells a story that its numbers don't support. For example, an ad (an advertisement) shows two bars for phone battery life. Phone A lasts 20 hours, and phone B lasts 19 hours. The y-axis starts at 18, so each bar shows only the part above 18:
@@ -38,14 +46,6 @@ After this reading, you should be able to say:
 * I can label a chart so any reader can follow it: a title that states the finding, axes with units, a legend, and colors that work for colorblind readers.
 
 **Skills:** Data Visualization · Data Distributions & Shape · Critical Thinking
-
-## Quick recall
-
-You've learned to label a chart, and to doubt a result that only looks right. This reading puts the two together.
-
-* A bar chart compares one number across groups, like an average for each group. In [Who's This Chart For?](quest-04-two-kinds-of-charts.md), you also gave a polished chart a finding title and axis labels with units, using `plt.title("...")` and `plt.ylabel("...")`.
-* Q1 and Q3 come from the five-number summary in [The Loudest Number](quest-01-descriptive-statistics.md): a quarter of the sorted data falls below Q1, and three quarters below Q3. Here you'll use them to find where outliers start.
-* Code can run with no error and still print a wrong answer, as in Module 1's [Looks Right. Is It?](../module-01/quest-10-debugging.md). So you worked out the expected answer by hand first, then compared.
 
 ## Words to know
 

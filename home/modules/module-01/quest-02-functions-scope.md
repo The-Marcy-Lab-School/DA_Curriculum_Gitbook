@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · **Organize steps** · Hold data · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), `pet_of_the_week` held `"Biscuit"`, then `"Mango"`. A **variable** is a labeled box that keeps only its newest value. A function's inputs work the same way.
+* You traced `minutes = minutes - 10` in the interactive reading for [Trace the Path](quest-01-control-flow.md). Python works out the right side first, then stores the result under the same name. Function bodies use the same kind of update.
+* Indentation tells Python which lines belong to a block, as you saw in [Trace the Path](quest-01-control-flow.md). A function's steps are a block too, so where a line sits changes when it runs.
+
 ## Introduction
 
 Some steps are worth writing down once. For example, a cook writes a pancake recipe on a card. Each time she cooks, she follows the same card. Only the number of people changes. If she improves the recipe, she fixes one card, not ten copies.
@@ -29,12 +35,6 @@ After this reading, you should be able to say:
 * I can tell whether a variable is local or global, and say where it can be used.
 
 **Skills:** Functions & Modular Programming
-
-## Quick recall
-
-* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), `pet_of_the_week` held `"Biscuit"`, then `"Mango"`. A **variable** is a labeled box that keeps only its newest value. A function's inputs work the same way.
-* You traced `minutes = minutes - 10` in the interactive reading for [Trace the Path](quest-01-control-flow.md). Python works out the right side first, then stores the result under the same name. Function bodies use the same kind of update.
-* Indentation tells Python which lines belong to a block, as you saw in [Trace the Path](quest-01-control-flow.md). A function's steps are a block too, so where a line sits changes when it runs.
 
 ## Words to know
 

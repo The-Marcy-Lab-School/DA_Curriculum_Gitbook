@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · Organize steps · Hold data · Load, save, and protect · **Check your work** ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* Counting a loop's passes, as you did in [Trace the Path](quest-01-control-flow.md), is how this reading measures work. A loop inside a loop runs its inner body (outer passes × inner passes) times.
+* `return` ends a function right away, even inside a loop, as you saw in [Build It Once, Use It Again](quest-02-functions-scope.md). The search in this reading returns as soon as it finds a match.
+* An **ID** labels one thing, like a pet's tag number, as Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) showed. A booking code like `"QX7RT2"` is an ID too, and this reading searches a list of them.
+
 ## Introduction
 
 Some ways of searching get slower as the pile grows. For example, a teacher looks for one student's paper in a pile. She checks one paper at a time. With 10 papers, it takes a few seconds. With 1,000 papers, it could take a long time. But if the papers are filed in folders by name, she goes straight to the right folder. The pile size barely matters.
@@ -27,12 +33,6 @@ After this reading, you should be able to say:
 * I can explain why a fast test on a few items doesn't prove the code stays fast on many.
 
 **Skills:** Algorithmic Complexity (Big-O)
-
-## Quick recall
-
-* Counting a loop's passes, as you did in [Trace the Path](quest-01-control-flow.md), is how this reading measures work. A loop inside a loop runs its inner body (outer passes × inner passes) times.
-* `return` ends a function right away, even inside a loop, as you saw in [Build It Once, Use It Again](quest-02-functions-scope.md). The search in this reading returns as soon as it finds a match.
-* An **ID** labels one thing, like a pet's tag number, as Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md) showed. A booking code like `"QX7RT2"` is an ID too, and this reading searches a list of them.
 
 ## Words to know
 

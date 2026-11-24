@@ -4,6 +4,12 @@
 
 **Building blocks:** Decide and repeat · Organize steps · **Hold data** · Load, save, and protect · Check your work ([what's this?](introduction.md#the-big-picture-the-building-blocks-of-a-data-program))
 
+## Quick recall
+
+* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), every pet in `pets.csv` had the same columns, like name, age, and weight. A **record** is one row about one thing, and a **column** is one kind of information every record has.
+* Your dictionaries in [Pick the Right Container](quest-04-data-structures.md) stored values under labels called keys, like `goal["saved_amount"]` in this reading. A class also groups labeled values, and it adds the actions that use them.
+* [Build It Once, Use It Again](quest-02-functions-scope.md) taught **parameters**, the names in a `def` line, and **arguments**, the values you pass in. It also taught the **f-string**: `f"Cost: ${saved}"` fills in the value of `saved`. A class has a function inside it with parameters, and the second reading builds f-strings.
+
 ## Introduction
 
 Many things in a program come in sets of the same kind. For example, a gym uses one sign-up form for every member. The form has the same blanks each time: name, plan (the type of membership the person pays for), and visits this month. Each member fills in their own copy. Ana's visits never change Jay's.
@@ -29,12 +35,6 @@ After this reading, you should be able to say:
 * I can add `__str__` and `__repr__` to a class, and predict which one `print()`, `repr()`, and a list will use.
 
 **Skills:** Object-Oriented Programming
-
-## Quick recall
-
-* In Module 0's [What Kind of Data Is This?](../module-00/quest-02-data-literacy.md), every pet in `pets.csv` had the same columns, like name, age, and weight. A **record** is one row about one thing, and a **column** is one kind of information every record has.
-* Your dictionaries in [Pick the Right Container](quest-04-data-structures.md) stored values under labels called keys, like `goal["saved_amount"]` in this reading. A class also groups labeled values, and it adds the actions that use them.
-* [Build It Once, Use It Again](quest-02-functions-scope.md) taught **parameters**, the names in a `def` line, and **arguments**, the values you pass in. It also taught the **f-string**: `f"Cost: ${saved}"` fills in the value of `saved`. A class has a function inside it with parameters, and the second reading builds f-strings.
 
 ## Words to know
 

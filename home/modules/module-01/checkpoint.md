@@ -208,12 +208,12 @@ The `SavingsGoal` class is written once. It makes two objects, and each one stor
 
 **2. (Quest 1.10)** Follow both paths after step 2. What does each path tell you to do?
 
-![A debugging flow. Step 1, work out the expected answer by hand: 286. Step 2, run the code. If it crashed, read the traceback from the last line up. If not, compare the actual output, 236, with the expected 286. Step 3, fix one line and rerun the same case.](images/m1c-debug-flow.svg)
+![A debugging flow, using a 5-item receipt. Step 1, work out the expected total by hand: $3 + $4 + $5 + $6 + $2 = $20. Step 2, run the code. If it crashed, read the traceback from the last line up. If not, compare the actual output, $17, with the expected $20. Step 3, fix one line, range(1, len(prices)), and rerun the same case: does it print $20 now?](images/m1c-debug-flow.svg)
 
 <details>
 <summary>Answer</summary>
 
-First, work out what the code should print, by hand: 286. Then run it. If it crashes, or stops with an error, the traceback's last line names the error and the line. If it doesn't crash, compare: it printed 236, so something is quietly wrong, here an off-by-one loop. After the fix, run the same example again to check that it prints 286. It's the habit from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md): check against something real before you trust it.
+First, work out what the code should print, by hand: $3 + $4 + $5 + $6 + $2 = $20. Then run it. If it crashes, or stops with an error, the traceback's last line names the error and the line. If it doesn't crash, compare: it printed $17, so something is quietly wrong, here an off-by-one loop that skipped the $3 bread. After the fix, run the same example again to check that it prints $20. It's the habit from [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md): check against something real before you trust it.
 
 </details>
 
