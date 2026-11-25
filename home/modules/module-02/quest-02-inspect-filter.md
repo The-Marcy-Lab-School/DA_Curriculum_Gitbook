@@ -202,7 +202,7 @@ In the reading, you'll focus on a food bank's donation file. A **food bank** is 
 
 Think about: before you add up any weights, what could be wrong in the file that would make your total wrong? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

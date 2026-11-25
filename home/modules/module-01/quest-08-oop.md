@@ -116,7 +116,7 @@ In the first reading, you'll focus on a budgeting app: an app that helps you pla
 
 Think about: you add money to the Bike Fund. Should the Trip Fund's saved amount change too? Why or why not? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 There are two readings. Do them in order.
 

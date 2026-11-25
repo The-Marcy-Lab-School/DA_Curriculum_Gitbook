@@ -143,7 +143,7 @@ In the reading, you'll focus on Paws & Go, a dog-walking app. Its log has 8 walk
 
 Think about: if you remove every row that has any blank, how many of the 8 walks will you keep? Is that what you want? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

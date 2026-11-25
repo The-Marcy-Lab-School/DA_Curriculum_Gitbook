@@ -68,7 +68,7 @@ In the reading, you'll focus on a park cleanup (a day when people pick up trash 
 
 Think about: before you print that sentence on a flyer (a printed page that shares news with many people), what would you check, and where? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

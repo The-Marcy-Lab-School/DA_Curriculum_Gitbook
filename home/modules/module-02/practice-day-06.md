@@ -74,7 +74,7 @@ Shape (`df.shape`), data types (`df.dtypes`), missing values (`df.isna().sum()`)
 <details>
 <summary>Answer</summary>
 
-So you can see how many rows each average rests on, and spot a group too small to trust.
+So you can see how many rows were used to work out each average, and spot a group too small to trust.
 
 </details>
 

@@ -110,7 +110,7 @@ In the reading, you'll focus on a city's three public pools. The pool manager is
 
 Think about: how can a chart make a gap that big when every number in it is real? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

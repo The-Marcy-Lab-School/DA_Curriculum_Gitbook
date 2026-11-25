@@ -92,7 +92,7 @@ In the reading, you'll focus on an animal shelter. An **animal shelter** is a pl
 
 Here's an answer from a new volunteer: "A pet's weight, like `12.5`, and its tag number, like `00417`, are both made of digits. So the computer should store both as numbers." Something is off about it. What? See if the reading agrees with you.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

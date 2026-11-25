@@ -104,7 +104,7 @@ In the reading, you'll focus on a street tree count. Volunteers counted trees in
 
 Think about: does West really have the fewest trees, or could something else explain that number? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

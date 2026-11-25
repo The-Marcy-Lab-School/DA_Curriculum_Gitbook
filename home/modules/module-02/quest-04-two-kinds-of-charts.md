@@ -119,7 +119,7 @@ In the reading, you'll focus on a free after-school tutoring center (a place whe
 
 Think about: what should be different between the charts you make while exploring the data and the one chart you hand the committee? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

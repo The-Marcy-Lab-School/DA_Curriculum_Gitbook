@@ -103,7 +103,7 @@ In the reading, you'll focus on Devon, who runs a small used-book shop where cus
 
 Think about: what would you need in hand before you could tell whether the AI is right? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

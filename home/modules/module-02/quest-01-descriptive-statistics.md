@@ -157,7 +157,7 @@ In the reading, you'll focus on a fundraising dinner. A **fundraising dinner** i
 
 Think about: which number would you print, and why? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

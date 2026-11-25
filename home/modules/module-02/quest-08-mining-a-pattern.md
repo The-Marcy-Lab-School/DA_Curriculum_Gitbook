@@ -8,8 +8,8 @@
 
 You've grouped by one column and checked every pair in a nested loop. This reading puts the two ideas together.
 
-* In the interactive reading for [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].agg(["count", "mean", "median"])` gave one row per group. The count next to the mean showed how many rows each number rested on.
-* When a group's mean sits well above its median, a few big values are pulling the mean up. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then a better typical value than the mean.
+* In the interactive reading for [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].agg(["count", "mean", "median"])` gave one row per group. The count next to the mean showed how many rows were used to work out that mean.
+* When a group's mean sits well above its median, a few big values are making the mean higher. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then a better typical value than the mean.
 * A nested loop runs its inner body once for every outer pass. In Module 1's [Trace the Path](../module-01/quest-01-control-flow.md), 3 worlds × 4 checkpoints printed 12 lines, and grouping by two columns gives every combination the same way.
 
 ## Introduction
@@ -28,9 +28,11 @@ On the same route, they are equally fast: both take 45 minutes on a long route a
 
 ![Two drivers' deliveries. Left, all deliveries: Sam made 4 long-route deliveries, in red, at 45 minutes each, and 1 downtown delivery, in grey, at 20 minutes. Alex made 1 long-route delivery at 45 minutes and 4 downtown deliveries at 20 minutes. Sam's average = (4 × 45 + 20) ÷ 5 = 200 ÷ 5 = 40 minutes. Alex's average = (45 + 4 × 20) ÷ 5 = 125 ÷ 5 = 25 minutes. Sam looks 15 minutes slower because Sam drove 4 long routes. Right, the same route: on the long route both take 45 minutes, and downtown both take 20 minutes, so on the same route they are equally fast.](images/driver-route-mix.svg)
 
-**Main takeaway:** A gap between two averages can come from a **confound** instead of a real difference. A confound is another variable that affects the result, but that you didn't consider at first. Here, the confound is the type of route: Sam looks slow only because Sam drove more long routes. Count what each group is made of, then compare the same kind of row across groups.
+**Main takeaway:** A gap between two averages can come from a **confound** instead of a real difference. A confound is another variable that affects the result, but that you didn't consider at first. Here, the confound is the type of route: Sam looks slow only because Sam drove more long routes. Before you compare the two drivers, count how many long routes and downtown trips each one drove. Then compare them on the same type of route: long vs. long, and downtown vs. downtown.
 
-**Why it matters at work:** Splitting a number into groups shows what really drives it, before anyone acts on it. For example, teams use it to:
+In the data, each driver's 5 deliveries form a **group**: rows that share the same value, here the same driver. So the same check works for any groups you compare, like two stores or two teams.
+
+**Why it matters at work:** Splitting a number into groups shows what really causes it, before anyone acts on it. For example, teams use it to:
 
 * decide which store, team, or worker needs help
 * set fair goals for drivers who work different routes
@@ -43,8 +45,8 @@ If you act on a gap that the mix created, you pay for the wrong fix. For example
 After this reading, you should be able to say:
 
 * I can split a number by two columns at once to compare every combination.
-* I can count what each group is made of before I compare groups, and spot a confound.
-* I can tell a finding worth reporting from one that rests on a tiny group or that everyone already knows.
+* Before I compare groups, I can count each type of row in each group (like each driver's long and downtown routes), and spot a confound.
+* I can tell a finding worth reporting from one that comes from a tiny group (like Sam's 1 downtown trip) or that everyone already knows.
 
 **Skills:** Data Mining · Statistical Analysis
 
@@ -60,7 +62,7 @@ The examples use the 10 deliveries from the Introduction. Each delivery is one r
 | Word | What it means | Example with the 10 deliveries |
 | --- | --- | --- |
 | **Segment** | Split a number by one or two columns, so each group gets its own value. Splitting by two columns gives every combination. | Minutes split by driver and route: 2 drivers × 2 routes = **4 groups** |
-| **Mix** | Which kinds of rows make up a group. A group's mix can drive its average. | Sam: **4 long routes and 1 downtown trip** |
+| **Mix** | How many of each type of row a group has. A group's mix can change its average. | Sam: **4 long routes and 1 downtown trip** |
 | **`groupby(["driver", "route"])`** | Groups by two columns at once. Pass a list of columns, and you get one group for each combination. | "Sam, long" or "Alex, downtown" |
 
 Each group's label is a pair of values, like `("Sam", "long")`. That's a **tuple**, from [Pick the Right Container](../module-01/quest-04-data-structures.md). A tuple is like a list that can't change:
@@ -79,7 +81,7 @@ In the Introduction, every long route took exactly 45 minutes, so there is no sp
 | Word | What it means | Example with the deliveries |
 | --- | --- | --- |
 | **`.size()`** | Counts the rows in each group. | Sam, long = **4 deliveries** |
-| **Sample size** | How many rows a number rests on. In a tiny group, one unusual row can move the average a lot. | Sam made only **1 downtown delivery**, too few to trust. |
+| **Sample size** | How many rows were used to work out a number. In a tiny group, one unusual row can move the average a lot. | Sam made only **1 downtown delivery**, too few to trust. |
 | **Standard deviation (std)** | How far values usually sit from the mean. A small std means the values are close together. | This week's 4 long routes are all 45 minutes: std = **0 minutes**. Next week's 43, 47, 44, and 46 sit close together: std = **1.8 minutes** |
 | **`.agg(["count", "mean", "median", "std"])`** | Works out several summaries for each group at once, one column each. `"std"` adds the standard deviation. | For next week's long routes: count **4 deliveries**, mean (43 + 47 + 44 + 46) ÷ 4 = 180 ÷ 4 = **45 minutes**, median (44 + 46) ÷ 2 = **45 minutes**, std **1.8 minutes** |
 
@@ -94,7 +96,7 @@ You've seen a small test mislead before. In [When the Crowd Grows](../module-01/
 | **Simpson's paradox** | When a group looks better or worse overall, but the gap shrinks or flips once you compare the same kind of row. The mix causes it. The reading's optional video shows another example. | Overall, Sam takes 40 − 25 = **15 minutes** longer. On the same route, the gap shrinks to **0 minutes**: 45 vs. 45 on long routes, and 20 vs. 20 downtown. |
 
 {% hint style="info" %}
-**Ask what else is different about the group.** Before you blame a driver, a team, or a shop for a gap, count each group's mix. Naming what else differs between groups is the habit that catches a confound.
+**Ask what else is different about the group.** Before you blame a driver, a team, or a shop for a gap, count each type of row in each group, like each driver's long and downtown routes. Naming what else differs between groups is the habit that catches a confound.
 {% endhint %}
 
 ## Before you read
@@ -103,7 +105,7 @@ In the reading, you'll focus on FixIt, a phone repair shop with two locations. D
 
 Think about: what would you want to know before you answer? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 
@@ -117,8 +119,8 @@ As you read, look for:
 
 ### Summary
 
-* **Count the mix before you compare groups.** When one group looks much better or worse, run `groupby([...]).size()` to see what each group is made of. Then compare the same kind of row across groups.
-* **A finding worth reporting** is real, checkable, and something the reader would act on. It holds in every group and rests on enough rows. "Long routes take longer than downtown trips" is true, but the manager already knows it.
+* **Count the mix before you compare groups.** When one group looks much better or worse, run `groupby([...]).size()` to count each type of row in each group, like each driver's long and downtown routes. Then compare the groups on the same type of row, like long route vs. long route.
+* **A finding worth reporting** is real, checkable, and something the reader would act on. It holds in every group and comes from enough rows. "Long routes take longer than downtown trips" is true, but the manager already knows it.
 * **Use the statistic that fits.** The mean is fine when it's close to the median and the std is small. For Sam's long routes next week, the mean and the median are both 45 minutes, and the std is 1.8 minutes. So the mean is fine.
 
 In the reading, FixIt's two shops show the same kind of gap. The picture below follows the reading's FixIt repairs. On the left, look at the 15-minute gap. On the right, look at the same two shops with screen repairs only.

@@ -82,7 +82,7 @@ In the reading, you'll focus on a fitness tracker: an app that counts how many s
 
 Think about: should the checking function also make the summary, or should the summary get its own function? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 
