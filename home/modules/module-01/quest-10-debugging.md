@@ -81,7 +81,7 @@ In the reading, you'll focus on a TV streaming app: an app for watching shows ov
 
 Think about: the code never crashed. How would you find out what's wrong? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

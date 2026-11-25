@@ -89,7 +89,7 @@ In the reading, you'll focus on an airport check-in screen: a screen where trave
 
 Think about: if the airline grows to 200K bookings, how many might the screen have to check to find yours? Does it matter where your booking sits in the list? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

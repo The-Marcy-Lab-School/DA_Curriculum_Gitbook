@@ -124,7 +124,7 @@ Here's an answer: "My program checks that every line has 3 fields, so every line
 
 Something is off about it. What? See if the reading agrees with you.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 This quest has two readings. Do them in order.
 

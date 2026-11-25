@@ -109,7 +109,7 @@ In the reading, you'll focus on a community garden (a shared garden where neighb
 
 Think about: when you open a new folder with your mouse, what are the first two things you notice? What do you think the typed version of each one is? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

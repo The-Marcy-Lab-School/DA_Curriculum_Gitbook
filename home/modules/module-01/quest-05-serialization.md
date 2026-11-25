@@ -165,7 +165,7 @@ In the reading, you'll focus on a school's rooftop weather station: tools on the
 
 Think about: if you save this dictionary to a file and load it back tomorrow, will you get exactly the same dictionary? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

@@ -132,7 +132,7 @@ In the first reading, you'll focus on three neighbors who count the trees on the
 
 Think about: a month later, how could one neighbor find out who changed the count on block 2, and when? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 This quest has two readings. Do them in this order.
 

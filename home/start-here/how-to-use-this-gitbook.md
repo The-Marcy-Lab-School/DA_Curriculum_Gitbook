@@ -27,7 +27,7 @@ Then read these sections:
 
 ### While you read
 
-* In the **⭐ Read** section, look at the **As you read, look for** list first. Then open the interactive reading.
+* In the **⭐ Read (REQUIRED)** section, look at the **As you read, look for** list first. Then open the interactive reading.
 * When you finish, **submit the reading for credit**.
 
 ### After you read

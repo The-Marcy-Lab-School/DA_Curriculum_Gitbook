@@ -99,7 +99,7 @@ In the reading, you'll focus on Jordan, who found that Route 12 buses run late i
 
 Think about: what does the manager need to see on the page to make that decision? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

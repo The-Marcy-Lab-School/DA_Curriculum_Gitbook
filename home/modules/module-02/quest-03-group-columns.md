@@ -50,7 +50,7 @@ After this reading, you should be able to say:
 | --- | --- | --- |
 | **groupby** | Splits rows into groups by a category, applies a summary to each group, and combines the answers into one row per group. People call this "split, apply, combine." On its own, `groupby("site")` only makes the groups. It shows no table until you add a summary. | `drives.groupby("site")` makes **3 groups**, one per site |
 | **Aggregation** | A summary worked out for each group, such as a count, mean, or median. `.agg()` does several at once. | `.agg(["count", "mean", "median"])` gives **3 numbers** for each site |
-| **count** (in `.agg()`) | How many values in the group are *not* blank. It shows how many rows each number rests on, so you can spot a group too small to trust. | Community Center held 3 drives, but 1 is blank, so its count is **2 drives** |
+| **count** (in `.agg()`) | How many values in the group are *not* blank. It shows how many rows were used to work out each number, so you can spot a group too small to trust. | Community Center held 3 drives, but 1 is blank, so its count is **2 drives** |
 | **mean and median** (in `.agg()`) | The average and the middle value for each group. Side by side, they're a quick skew check for each group. | Library mean: (26 + 31 + 25) ÷ 3 = 82 ÷ 3 = **27.3 units**. Median: **26 units**. |
 
 You've built a summary like this by hand. In [One Job at a Time](../module-01/quest-07-second-function.md), `summarize_steps` looped over each day and kept a running total with `total += steps`. To total each site that way, you'd need a separate total for every site. `groupby` keeps one for every group, with no loop.
@@ -89,7 +89,7 @@ In the reading, you'll focus on a nonprofit that runs blood drives at a library,
 
 Think about: besides each place's average, what else would you want to know before you call one place the winner? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

@@ -125,7 +125,7 @@ In the reading, you'll focus on Terra Bean, a small coffee shop that gets a list
 
 Think about: after you stack the two lists into one table, how many rows will it have, and how many real deliveries? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 
@@ -191,7 +191,7 @@ clean_june = clean_deliveries(june)
 
 ### How this connects
 
-* **Next reading:** A clean table is where analysis starts. You'll take an average that looks like a clear answer, split it by two columns at once, and check what each group is made of, so you can tell a real pattern from a misleading total.
+* **Next reading:** A clean table is where analysis starts. You'll take an average that looks like a clear answer, split it by two columns at once, and count each type of row in each group, so you can tell a real pattern from a misleading total.
 * **[Boss Battle (Module Project)](introduction.md#the-boss-battle-module-project):** You'll clean a real dataset with your own reusable cleaning function, called on more than one input, instead of copying and pasting the same fixes.
 
 ## Quick check

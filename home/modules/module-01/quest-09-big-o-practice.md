@@ -73,7 +73,7 @@ In the reading, you'll focus on a help line: a phone number people call to get h
 
 Think about: the code didn't change, so why did it slow down? What would you change? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 

@@ -135,7 +135,7 @@ In the first reading, you'll focus on a movie theater. A script gives a long tim
 
 Think about: does a movie that is exactly 150 minutes get a long slot? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 There are two readings. Do them in order.
 

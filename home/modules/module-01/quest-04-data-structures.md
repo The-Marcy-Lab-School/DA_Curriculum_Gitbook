@@ -136,7 +136,7 @@ In the reading, you'll focus on a food delivery app. Every night it tracks four 
 
 Think about: which of these should be able to change during the night, and which should never change? Write down your first answer, then see if the reading agrees.
 
-## ⭐ Read
+## ⭐ Read (REQUIRED)
 
 As you read, look for:
 
