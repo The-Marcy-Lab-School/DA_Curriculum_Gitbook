@@ -8,7 +8,7 @@
 
 You've checked an AI's answer against a data file before. This reading checks an AI's answer about a chart.
 
-* One very large value pulls the mean up more than the median, so a mean far above the median is a sign of skew. You saw this with one $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
+* One very large value increases the mean more than the median, so a mean far above the median is a sign of skew. You saw this with one $5,000 gift in [The Loudest Number](quest-01-descriptive-statistics.md).
 * A histogram or a boxplot shows the shape of one number column, from [Who's This Chart For?](quest-04-two-kinds-of-charts.md).
 * In Module 0's [Confidence Is Not Evidence](../module-00/quest-04-ai-verification.md), a chatbot said volunteers filled 64 bags, but the cleanup log added up to 46. You found the claim, found a real source, compared the two, and then decided.
 

@@ -21,7 +21,7 @@ As in [The Loudest Number](quest-01-descriptive-statistics.md), an average is th
 * If you skip the blanks: (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = **4.0**
 * If you count the blanks as 0: (28 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = **2.8**
 
-The three 0s pull the average down from 4.0 to 2.8, but no customer gave a 0. If you delete those 3 customers instead, you also lose any other answers they gave on the survey. In the picture below, compare the three red 0 cards on the left with the skipped cards on the right.
+The three 0s lower the average from 4.0 to 2.8, but no customer gave a 0. If you delete those 3 customers instead, you also lose any other answers they gave on the survey. In the picture below, compare the three red 0 cards on the left with the skipped cards on the right.
 
 ![Ten rating cards for a store survey, scored 1 to 5. Left, blanks counted as 0: seven grey cards (5, 4, 4, 5, 3, 4, 3) and three red cards that say 0. Average = (5 + 4 + 4 + 5 + 3 + 4 + 3 + 0 + 0 + 0) ÷ 10 = 28 ÷ 10 = 2.8, but no customer gave a 0. Right, blanks skipped: the same seven grey cards and three empty cards marked "skipped." Average = (5 + 4 + 4 + 5 + 3 + 4 + 3) ÷ 7 = 28 ÷ 7 = 4.0, which matches what customers said.](images/blanks-as-zero-ratings.svg)
 
@@ -119,7 +119,7 @@ A flag works like the list of problems your validation function returned. It rec
 
 | Word | What it means | Example with the survey |
 | --- | --- | --- |
-| **Mean** | The average of the real values. One far-off value pulls it toward itself. | (4 + 30 + 5 + 7 + 6 + 5 + 6) ÷ 7 = 63 ÷ 7 = **9.0 minutes** |
+| **Mean** | The average of the real values. One far-off value can raise or lower it a lot. | (4 + 30 + 5 + 7 + 6 + 5 + 6) ÷ 7 = 63 ÷ 7 = **9.0 minutes** |
 | **Median** | The middle of the real values once they're sorted. One far-off value barely moves it. | Sorted: 4, 5, 5, 6, 6, 7, 30. The 4th of 7 = **6.0 minutes** |
 | **Mode** | The value that shows up most often. The usual fill for a category column, when one value clearly repeats the most. | Known `heard_from` answers: friend, ad, friend, web, friend, ad. **"friend"**, but with only 3 of 6 |
 | **Forward-fill** | Copy the most recent value before the gap, like the customer just before in line. Only makes sense when the rows are in order. | C04 gets C03's **5**. C07 gets C06's **6**. |
@@ -178,7 +178,7 @@ The picture below shows the two questions that decide between drop, fill, and fl
 | If you think... | What's actually true |
 | --- | --- |
 | "I'll run `dropna()` to clean the data." | With no `subset=`, it keeps only 3 of the 10 customers. It throws away C01's and C02's real ratings just because `heard_from` is blank. |
-| "The mean uses every wait time, so it's the fairest fill." | C02's 30-minute wait pulls the mean up to 9.0 minutes, longer than 6 of the 7 real waits. The median, 6.0, sits among them. |
+| "The mean uses every wait time, so it's the fairest fill." | C02's 30-minute wait raises the mean to 9.0 minutes, longer than 6 of the 7 real waits. The median, 6.0, sits among them. |
 | "Friend is the most common answer, so I'll fill the blanks with it." | "Friend" won with just 3 of 6 known answers. All 3 blanks come from old paper cards, so filling with it would be a guess. |
 | "`.isna().sum()` shows 0 for this column, so nothing is missing." | It misses placeholders like `0` or `"unknown"` typed in place of a real value. If the 3 skipped ratings were typed as 0, it would show 0, and the average would drop to 2.8. Look at the rows too. |
 
@@ -194,7 +194,7 @@ The picture below shows the two questions that decide between drop, fill, and fl
 <details>
 <summary>Answer</summary>
 
-Fill the 3 gaps with the median wait, and add a flag column that marks them. The median isn't pulled up by the 30-minute wait, and the flag shows which values were filled in.
+Fill the 3 gaps with the median wait, and add a flag column that marks them. The 30-minute wait doesn't raise the median, and the flag shows which values were filled in.
 
 </details>
 
