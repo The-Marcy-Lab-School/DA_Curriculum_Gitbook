@@ -24,7 +24,7 @@ You'll also learn four new tools that analysts use every day: NumPy, Jupyter not
 
 Analysts spend most of their time understanding and cleaning data. Only then can they trust their answers.
 
-For example, a manager at an insurance company asks you how much a claim usually pays. A **claim** is a request a customer makes for the company to pay for a loss, like a car accident or a flooded home. A few claims are very large, and they pull the average up. If you report that average, the company may plan its budget (its plan for how much money to spend) around the wrong number. EDA helps you catch problems like this before anyone makes a decision.
+For example, a manager at an insurance company asks you how much a claim usually pays. A **claim** is a request a customer makes for the company to pay for a loss, like a car accident or a flooded home. A few claims are very large, and they raise the average. If you report that average, the company may plan its budget (its plan for how much money to spend) around the wrong number. EDA helps you catch problems like this before anyone makes a decision.
 
 ## The big picture: the EDA workflow
 

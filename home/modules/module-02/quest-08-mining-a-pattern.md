@@ -9,7 +9,7 @@
 You've grouped by one column and checked every pair in a nested loop. This reading puts the two ideas together.
 
 * In the interactive reading for [One Row Per Group](quest-03-group-columns.md), `drives.groupby("site")["units"].agg(["count", "mean", "median"])` gave one row per group. The count next to the mean showed how many rows were used to work out that mean.
-* When a group's mean sits well above its median, a few big values are making the mean higher. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then a better typical value than the mean.
+* When a group's mean sits well above its median, a few big values are raising the mean. [The Loudest Number](quest-01-descriptive-statistics.md) showed that the median is then a better typical value than the mean.
 * A nested loop runs its inner body once for every outer pass. In Module 1's [Trace the Path](../module-01/quest-01-control-flow.md), 3 worlds × 4 checkpoints printed 12 lines, and grouping by two columns gives every combination the same way.
 
 ## Introduction

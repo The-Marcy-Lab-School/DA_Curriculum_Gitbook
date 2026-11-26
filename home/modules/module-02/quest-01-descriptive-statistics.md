@@ -35,7 +35,7 @@ But no home on that street sold for a price close to $570K. The one $3M home pul
 * understand how much a customer usually spends
 * set goals, like how many sales a team should make each month
 
-If one outlier pulls that number up or down, those decisions are built on something that isn't true.
+If one outlier raises or lowers that number, those decisions are built on something that isn't true.
 
 ## Learning goals
 
@@ -108,7 +108,7 @@ A **measure of central tendency** is one number that describes the typical value
 
 | Word | What it means | Example with the 9 gifts |
 | --- | --- | --- |
-| **Mean** | Add every value, then divide by how many there are. Also called the average. One far-off value pulls it toward itself. | $5,440 ÷ 9 = **$604.44** |
+| **Mean** | Add every value, then divide by how many there are. Also called the average. One far-off value can change it a lot. | $5,440 ÷ 9 = **$604.44** |
 | **Median** | The middle value once the values are sorted. With an even count, it's the average of the two middle values. One far-off value barely moves it. | The 5th of 9 sorted gifts = **$55** |
 | **Mode** | The value that shows up most often. | $50 shows up 2 times, more than any other = **$50** |
 
@@ -142,7 +142,7 @@ The IQR is only $15, but the range is $4,960. That gap tells you one value sits 
 | --- | --- | --- |
 | **Distribution** | How the values are spread across their range: where most of them sit, and where only a few do. | 8 gifts sit between $40 and $75. 1 gift sits at $5,000. |
 | **Histogram** | A bar chart where each bar counts how many values fall in a range. It shows a distribution's shape. | With bars $100 wide: one bar of **8** gifts on the left, empty space, then one bar of **1** gift at $5,000 |
-| **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which pulls the mean below it. | Right-skewed: the mean, **$604.44**, sits far above the median, **$55** |
+| **Skew** | The way values lean. **Right-skewed** data has a long tail of big values, which pulls the mean above the median. **Left-skewed** data has a tail of small values, which lowers the mean below it. | Right-skewed: the mean, **$604.44**, sits far above the median, **$55** |
 | **Outlier** | A value far from the rest. It can still be real. | The **$5,000** gift (and the $3M home in the Introduction) |
 
 An outlier is not the same as a bad value. In [Validate, Catch, Keep Going](../module-01/quest-06-validation-errors.md), a grade of 14 broke a rule. So your function flagged it as a problem. A $5,000 gift breaks no rule. It's far from the rest, but it's real, so it stays in the data.
@@ -163,7 +163,7 @@ As you read, look for:
 
 1. Why the mean and the median give such different answers for the same gifts.
 2. Which number in the five-number summary flags something unusual, and how you can tell.
-3. Why the $5,000 gift stays in the data even though it pulls the mean up.
+3. Why the $5,000 gift stays in the data even though it increases the mean.
 
 **[Start the reading: The Loudest Number in the Room →](https://the-marcy-lab-school.github.io/DA_Curriculum_Readings/Mod2/descriptive-statistics/reading-1-loudest-number/)** (about 20 minutes)
 
@@ -196,7 +196,7 @@ As you read, look for:
 <details>
 <summary>Answer</summary>
 
-The median. The owner's salary pulls the mean far above what almost everyone earns.
+The median. The owner's salary raises the mean far above what almost everyone earns.
 
 </details>
 
@@ -205,7 +205,7 @@ The median. The owner's salary pulls the mean far above what almost everyone ear
 <details>
 <summary>Answer</summary>
 
-The data is right-skewed. A few big values pull the mean above the median, so the median is the better "typical" number.
+The data is right-skewed. A few big values push the mean above the median, so the median is the better "typical" number.
 
 </details>
 

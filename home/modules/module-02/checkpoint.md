@@ -141,7 +141,7 @@ Look at each picture. Explain it out loud in two or three sentences, as if to a 
 <details>
 <summary>Answer</summary>
 
-In left-skewed data, a tail of small values pulls the mean below the median. In symmetric data, the mean and median are about the same. In right-skewed data, a tail of big values pulls the mean above the median. When the data is skewed, report the median as the usual value.
+In left-skewed data, a tail of small values lowers the mean below the median. In symmetric data, the mean and median are about the same. In right-skewed data, a tail of big values raises the mean above the median. When the data is skewed, report the median as the usual value.
 
 </details>
 
