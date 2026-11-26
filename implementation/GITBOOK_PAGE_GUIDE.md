@@ -36,7 +36,7 @@ Module 2 (`home/modules/module-02/`) is the reference: when this guide and a Mod
 
 ## Technical terms
 
-Use these words the same way on every page. Students learned *function*, *parameter*, *argument*, *module*, *class*, *object*, *method*, and *attribute* in Module 1, so use those exact meanings and say "recall that…" when it helps.
+Use these words the same way on every page. Students learned *function*, *parameter*, *argument*, *module*, *class*, *object*, *method*, and *attribute* in Module 1, so use those exact meanings and name the Module 1 page where they learned it when that helps.
 
 | Term | Use it for | Example |
 | --- | --- | --- |
@@ -75,7 +75,7 @@ These rules come from the author's line-by-line review of Quest 2.1, The Loudest
 7. **Term tables work each term on real numbers.** Use an "Example" column that shows the calculation and the result, with units: "$5,000 − $40 = **$4,960**". Don't use a separate Units column. Instead, explain once, above the table, what units are and which terms are the exception.
 8. **Write mix-ups the way a student would actually say them, and answer with a number.** Avoid loaded or vague words (like "honest") in the "If you think…" column.
    - Not this: "The mean uses every value, so it's always the most honest."
-   - This: "The mean uses every value, so it always represents the data well." → "One outlier can pull the mean far from most values. The gifts' mean is $505.45, but 10 of the 11 gifts are $75 or less."
+   - This: "The mean uses every value, so it always represents the data well." → "One outlier can pull the mean far from most values. The 9 gifts' mean is $604.44, but 8 of the 9 gifts are $75 or less."
 9. **Name the exact kind of every new thing.** The section heading says what it is: "New Python package: NumPy", not "New tool: NumPy". (See the Quest template, item 6.)
 10. **Define a new data structure before the code uses it, by comparing it to one readers know.** Use a small table or two lines that show the difference in action.
     - Example: list vs. NumPy array. `[50, 40] * 2` gives `[50, 40, 50, 40]`, but `np.array([50, 40]) * 2` gives `[100, 80]`.
